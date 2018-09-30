@@ -1,0 +1,810 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10A060DCC718681276591B73 /* libPods-CJRichScanDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1A0DA26E42CAF85AE3391D /* libPods-CJRichScanDemoTests.a */; };
+		7845B6E42160B86C0099B691 /* cjScannerCornerTopRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */; };
+		7845B6E52160B86C0099B691 /* cjScannerCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */; };
+		7845B6E62160B86C0099B691 /* cjScannerCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */; };
+		7845B6E72160B86C0099B691 /* cjScannerCornerTopLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */; };
+		7845B6E82160B86C0099B691 /* cjScannerScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */; };
+		7845B6E92160B86C0099B691 /* CJBaseCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */; };
+		7845B6EA2160B86C0099B691 /* CJSampleQRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */; };
+		7845B6EB2160B86C0099B691 /* CJCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6E02160B86C0099B691 /* CJCodeReaderViewController.m */; };
+		7845B6EC2160B86C0099B691 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6E22160B86C0099B691 /* beep.wav */; };
+		789124B6209CD1AA00D7B06C /* StyleDIY.m in Sources */ = {isa = PBXBuildFile; fileRef = 789124B4209CD1A900D7B06C /* StyleDIY.m */; };
+		789124BA209CDBB700D7B06C /* OtherScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789124B8209CDBB700D7B06C /* OtherScanViewController.xib */; };
+		789124BB209CDBB700D7B06C /* OtherScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789124B9209CDBB700D7B06C /* OtherScanViewController.m */; };
+		801F75C1209FF4C700A2E027 /* BBXBusQRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */; };
+		808CB958208DB25400C3BE41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB957208DB25400C3BE41 /* AppDelegate.m */; };
+		808CB95B208DB25400C3BE41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB95A208DB25400C3BE41 /* ViewController.m */; };
+		808CB95E208DB25400C3BE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808CB95C208DB25400C3BE41 /* Main.storyboard */; };
+		808CB960208DB25400C3BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808CB95F208DB25400C3BE41 /* Assets.xcassets */; };
+		808CB963208DB25400C3BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808CB961208DB25400C3BE41 /* LaunchScreen.storyboard */; };
+		808CB966208DB25400C3BE41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB965208DB25400C3BE41 /* main.m */; };
+		808CB970208DB25400C3BE41 /* CJRichScanDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB96F208DB25400C3BE41 /* CJRichScanDemoTests.m */; };
+		808CB97B208DB25400C3BE41 /* CJRichScanDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB97A208DB25400C3BE41 /* CJRichScanDemoUITests.m */; };
+		80D71E3B208EBAB000D2DB68 /* EasyReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D71E35208EBAB000D2DB68 /* EasyReaderViewController.xib */; };
+		80D71E3C208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D71E36208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib */; };
+		80D71E3D208EBAB000D2DB68 /* QRCodeReaderViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D71E37208EBAB000D2DB68 /* QRCodeReaderViewController2.m */; };
+		80D71E3E208EBAB000D2DB68 /* EasyReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D71E38208EBAB000D2DB68 /* EasyReaderViewController.m */; };
+		80D71E40208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D71E3A208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m */; };
+		80D71E6E208EE1BB00D2DB68 /* scan_icon_frame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80D71E6D208EE1BA00D2DB68 /* scan_icon_frame@2x.png */; };
+		F14C3E02EF4DF5B17FA080E1 /* libPods-CJRichScanDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C0512336F836EF6825FCA1 /* libPods-CJRichScanDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		808CB96C208DB25400C3BE41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 808CB94B208DB25400C3BE41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 808CB952208DB25400C3BE41;
+			remoteInfo = CJRichScanDemo;
+		};
+		808CB977208DB25400C3BE41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 808CB94B208DB25400C3BE41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 808CB952208DB25400C3BE41;
+			remoteInfo = CJRichScanDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24E59A0F69E0953BFA0109C8 /* Pods-CJRichScanDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJRichScanDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJRichScanDemoTests/Pods-CJRichScanDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		47C0512336F836EF6825FCA1 /* libPods-CJRichScanDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJRichScanDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopRight.png; sourceTree = "<group>"; };
+		7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomLeft.png; sourceTree = "<group>"; };
+		7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomRight.png; sourceTree = "<group>"; };
+		7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopLeft.png; sourceTree = "<group>"; };
+		7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cjScannerScanLine@2x.png"; sourceTree = "<group>"; };
+		7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseCodeReaderView.m; sourceTree = "<group>"; };
+		7845B6DC2160B86C0099B691 /* CJSampleQRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSampleQRCodeReaderView.h; sourceTree = "<group>"; };
+		7845B6DD2160B86C0099B691 /* CJBaseCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseCodeReaderView.h; sourceTree = "<group>"; };
+		7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSampleQRCodeReaderView.m; sourceTree = "<group>"; };
+		7845B6E02160B86C0099B691 /* CJCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCodeReaderViewController.m; sourceTree = "<group>"; };
+		7845B6E22160B86C0099B691 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		7845B6E32160B86C0099B691 /* CJCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCodeReaderViewController.h; sourceTree = "<group>"; };
+		789124B4209CD1A900D7B06C /* StyleDIY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleDIY.m; sourceTree = "<group>"; };
+		789124B5209CD1A900D7B06C /* StyleDIY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleDIY.h; sourceTree = "<group>"; };
+		789124B7209CDBB600D7B06C /* OtherScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherScanViewController.h; sourceTree = "<group>"; };
+		789124B8209CDBB700D7B06C /* OtherScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherScanViewController.xib; sourceTree = "<group>"; };
+		789124B9209CDBB700D7B06C /* OtherScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherScanViewController.m; sourceTree = "<group>"; };
+		7D1A0DA26E42CAF85AE3391D /* libPods-CJRichScanDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJRichScanDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		801F75BF209FF4C600A2E027 /* BBXBusQRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBXBusQRCodeReaderView.h; sourceTree = "<group>"; };
+		801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBXBusQRCodeReaderView.m; sourceTree = "<group>"; };
+		808CB953208DB25400C3BE41 /* CJRichScanDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CJRichScanDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		808CB956208DB25400C3BE41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		808CB957208DB25400C3BE41 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		808CB959208DB25400C3BE41 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		808CB95A208DB25400C3BE41 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		808CB95D208DB25400C3BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		808CB95F208DB25400C3BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		808CB962208DB25400C3BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		808CB964208DB25400C3BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		808CB965208DB25400C3BE41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		808CB96B208DB25400C3BE41 /* CJRichScanDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJRichScanDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		808CB96F208DB25400C3BE41 /* CJRichScanDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRichScanDemoTests.m; sourceTree = "<group>"; };
+		808CB971208DB25400C3BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		808CB976208DB25400C3BE41 /* CJRichScanDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CJRichScanDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		808CB97A208DB25400C3BE41 /* CJRichScanDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJRichScanDemoUITests.m; sourceTree = "<group>"; };
+		808CB97C208DB25400C3BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80D71E31208EBAB000D2DB68 /* EasyReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyReaderViewController.h; sourceTree = "<group>"; };
+		80D71E32208EBAB000D2DB68 /* QRCodeReaderViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController2.h; sourceTree = "<group>"; };
+		80D71E33208EBAB000D2DB68 /* SampleQRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQRCodeReaderViewController.h; sourceTree = "<group>"; };
+		80D71E35208EBAB000D2DB68 /* EasyReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasyReaderViewController.xib; sourceTree = "<group>"; };
+		80D71E36208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleQRCodeReaderViewController.xib; sourceTree = "<group>"; };
+		80D71E37208EBAB000D2DB68 /* QRCodeReaderViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController2.m; sourceTree = "<group>"; };
+		80D71E38208EBAB000D2DB68 /* EasyReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyReaderViewController.m; sourceTree = "<group>"; };
+		80D71E3A208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleQRCodeReaderViewController.m; sourceTree = "<group>"; };
+		80D71E6D208EE1BA00D2DB68 /* scan_icon_frame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_icon_frame@2x.png"; sourceTree = "<group>"; };
+		A5340A737AEFF6B593A833B0 /* Pods-CJRichScanDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJRichScanDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJRichScanDemoTests/Pods-CJRichScanDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		BF4CB32DA271B7EF7BD345AE /* Pods-CJRichScanDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJRichScanDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CJRichScanDemo/Pods-CJRichScanDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C4D4F994C62CCA9D487E76D5 /* Pods-CJRichScanDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJRichScanDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJRichScanDemo/Pods-CJRichScanDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		808CB950208DB25400C3BE41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14C3E02EF4DF5B17FA080E1 /* libPods-CJRichScanDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB968208DB25400C3BE41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10A060DCC718681276591B73 /* libPods-CJRichScanDemoTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB973208DB25400C3BE41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DEEC71AAB8B7F08E387BEDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47C0512336F836EF6825FCA1 /* libPods-CJRichScanDemo.a */,
+				7D1A0DA26E42CAF85AE3391D /* libPods-CJRichScanDemoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7845B6D32160B86C0099B691 /* CJRichScan */ = {
+			isa = PBXGroup;
+			children = (
+				7845B6D42160B86C0099B691 /* CJBaseCodeReaderView */,
+				7845B6DF2160B86C0099B691 /* CJCodeReaderViewController */,
+			);
+			name = CJRichScan;
+			path = ../../CJRichScan;
+			sourceTree = "<group>";
+		};
+		7845B6D42160B86C0099B691 /* CJBaseCodeReaderView */ = {
+			isa = PBXGroup;
+			children = (
+				7845B6DD2160B86C0099B691 /* CJBaseCodeReaderView.h */,
+				7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */,
+				7845B6D52160B86C0099B691 /* Resources */,
+				7845B6DC2160B86C0099B691 /* CJSampleQRCodeReaderView.h */,
+				7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */,
+			);
+			path = CJBaseCodeReaderView;
+			sourceTree = "<group>";
+		};
+		7845B6D52160B86C0099B691 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */,
+				7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */,
+				7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */,
+				7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */,
+				7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7845B6DF2160B86C0099B691 /* CJCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7845B6E32160B86C0099B691 /* CJCodeReaderViewController.h */,
+				7845B6E02160B86C0099B691 /* CJCodeReaderViewController.m */,
+				7845B6E12160B86C0099B691 /* Resources */,
+			);
+			path = CJCodeReaderViewController;
+			sourceTree = "<group>";
+		};
+		7845B6E12160B86C0099B691 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7845B6E22160B86C0099B691 /* beep.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		789124B3209CD1A900D7B06C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				789124B5209CD1A900D7B06C /* StyleDIY.h */,
+				789124B4209CD1A900D7B06C /* StyleDIY.m */,
+				801F75BF209FF4C600A2E027 /* BBXBusQRCodeReaderView.h */,
+				801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		808CB94A208DB25400C3BE41 = {
+			isa = PBXGroup;
+			children = (
+				808CB955208DB25400C3BE41 /* CJRichScanDemo */,
+				808CB96E208DB25400C3BE41 /* CJRichScanDemoTests */,
+				808CB979208DB25400C3BE41 /* CJRichScanDemoUITests */,
+				808CB954208DB25400C3BE41 /* Products */,
+				F60F099DACAE0A6246791D1B /* Pods */,
+				2DEEC71AAB8B7F08E387BEDA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		808CB954208DB25400C3BE41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				808CB953208DB25400C3BE41 /* CJRichScanDemo.app */,
+				808CB96B208DB25400C3BE41 /* CJRichScanDemoTests.xctest */,
+				808CB976208DB25400C3BE41 /* CJRichScanDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		808CB955208DB25400C3BE41 /* CJRichScanDemo */ = {
+			isa = PBXGroup;
+			children = (
+				808CB956208DB25400C3BE41 /* AppDelegate.h */,
+				808CB957208DB25400C3BE41 /* AppDelegate.m */,
+				7845B6D32160B86C0099B691 /* CJRichScan */,
+				808CB959208DB25400C3BE41 /* ViewController.h */,
+				808CB95A208DB25400C3BE41 /* ViewController.m */,
+				80D71E30208EBAB000D2DB68 /* ViewControllers */,
+				808CB95C208DB25400C3BE41 /* Main.storyboard */,
+				808CB95F208DB25400C3BE41 /* Assets.xcassets */,
+				808CB961208DB25400C3BE41 /* LaunchScreen.storyboard */,
+				808CB964208DB25400C3BE41 /* Info.plist */,
+				808CB965208DB25400C3BE41 /* main.m */,
+			);
+			path = CJRichScanDemo;
+			sourceTree = "<group>";
+		};
+		808CB96E208DB25400C3BE41 /* CJRichScanDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				808CB96F208DB25400C3BE41 /* CJRichScanDemoTests.m */,
+				808CB971208DB25400C3BE41 /* Info.plist */,
+			);
+			path = CJRichScanDemoTests;
+			sourceTree = "<group>";
+		};
+		808CB979208DB25400C3BE41 /* CJRichScanDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				808CB97A208DB25400C3BE41 /* CJRichScanDemoUITests.m */,
+				808CB97C208DB25400C3BE41 /* Info.plist */,
+			);
+			path = CJRichScanDemoUITests;
+			sourceTree = "<group>";
+		};
+		80D71E30208EBAB000D2DB68 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				80D71E32208EBAB000D2DB68 /* QRCodeReaderViewController2.h */,
+				80D71E37208EBAB000D2DB68 /* QRCodeReaderViewController2.m */,
+				80D71E6D208EE1BA00D2DB68 /* scan_icon_frame@2x.png */,
+				80D71E31208EBAB000D2DB68 /* EasyReaderViewController.h */,
+				80D71E38208EBAB000D2DB68 /* EasyReaderViewController.m */,
+				80D71E35208EBAB000D2DB68 /* EasyReaderViewController.xib */,
+				789124B7209CDBB600D7B06C /* OtherScanViewController.h */,
+				789124B9209CDBB700D7B06C /* OtherScanViewController.m */,
+				789124B8209CDBB700D7B06C /* OtherScanViewController.xib */,
+				80D71E33208EBAB000D2DB68 /* SampleQRCodeReaderViewController.h */,
+				80D71E3A208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m */,
+				80D71E36208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib */,
+				789124B3209CD1A900D7B06C /* Views */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F60F099DACAE0A6246791D1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4F994C62CCA9D487E76D5 /* Pods-CJRichScanDemo.debug.xcconfig */,
+				BF4CB32DA271B7EF7BD345AE /* Pods-CJRichScanDemo.release.xcconfig */,
+				24E59A0F69E0953BFA0109C8 /* Pods-CJRichScanDemoTests.debug.xcconfig */,
+				A5340A737AEFF6B593A833B0 /* Pods-CJRichScanDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		808CB952208DB25400C3BE41 /* CJRichScanDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 808CB97F208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemo" */;
+			buildPhases = (
+				9ACC08E2F94F4CCBCAAFE074 /* [CP] Check Pods Manifest.lock */,
+				808CB94F208DB25400C3BE41 /* Sources */,
+				808CB950208DB25400C3BE41 /* Frameworks */,
+				808CB951208DB25400C3BE41 /* Resources */,
+				B231FA5E1B72931DF6AFBEB4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CJRichScanDemo;
+			productName = CJRichScanDemo;
+			productReference = 808CB953208DB25400C3BE41 /* CJRichScanDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		808CB96A208DB25400C3BE41 /* CJRichScanDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 808CB982208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemoTests" */;
+			buildPhases = (
+				DBFAE083E7FE546BC18ABE60 /* [CP] Check Pods Manifest.lock */,
+				808CB967208DB25400C3BE41 /* Sources */,
+				808CB968208DB25400C3BE41 /* Frameworks */,
+				808CB969208DB25400C3BE41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				808CB96D208DB25400C3BE41 /* PBXTargetDependency */,
+			);
+			name = CJRichScanDemoTests;
+			productName = CJRichScanDemoTests;
+			productReference = 808CB96B208DB25400C3BE41 /* CJRichScanDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		808CB975208DB25400C3BE41 /* CJRichScanDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 808CB985208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemoUITests" */;
+			buildPhases = (
+				808CB972208DB25400C3BE41 /* Sources */,
+				808CB973208DB25400C3BE41 /* Frameworks */,
+				808CB974208DB25400C3BE41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				808CB978208DB25400C3BE41 /* PBXTargetDependency */,
+			);
+			name = CJRichScanDemoUITests;
+			productName = CJRichScanDemoUITests;
+			productReference = 808CB976208DB25400C3BE41 /* CJRichScanDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		808CB94B208DB25400C3BE41 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = dvlproad;
+				TargetAttributes = {
+					808CB952208DB25400C3BE41 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					808CB96A208DB25400C3BE41 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 808CB952208DB25400C3BE41;
+					};
+					808CB975208DB25400C3BE41 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 808CB952208DB25400C3BE41;
+					};
+				};
+			};
+			buildConfigurationList = 808CB94E208DB25400C3BE41 /* Build configuration list for PBXProject "CJRichScanDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 808CB94A208DB25400C3BE41;
+			productRefGroup = 808CB954208DB25400C3BE41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				808CB952208DB25400C3BE41 /* CJRichScanDemo */,
+				808CB96A208DB25400C3BE41 /* CJRichScanDemoTests */,
+				808CB975208DB25400C3BE41 /* CJRichScanDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		808CB951208DB25400C3BE41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7845B6E62160B86C0099B691 /* cjScannerCornerBottomRight.png in Resources */,
+				80D71E3B208EBAB000D2DB68 /* EasyReaderViewController.xib in Resources */,
+				80D71E3C208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib in Resources */,
+				7845B6E72160B86C0099B691 /* cjScannerCornerTopLeft.png in Resources */,
+				808CB963208DB25400C3BE41 /* LaunchScreen.storyboard in Resources */,
+				80D71E6E208EE1BB00D2DB68 /* scan_icon_frame@2x.png in Resources */,
+				808CB960208DB25400C3BE41 /* Assets.xcassets in Resources */,
+				808CB95E208DB25400C3BE41 /* Main.storyboard in Resources */,
+				789124BA209CDBB700D7B06C /* OtherScanViewController.xib in Resources */,
+				7845B6E82160B86C0099B691 /* cjScannerScanLine@2x.png in Resources */,
+				7845B6E42160B86C0099B691 /* cjScannerCornerTopRight.png in Resources */,
+				7845B6E52160B86C0099B691 /* cjScannerCornerBottomLeft.png in Resources */,
+				7845B6EC2160B86C0099B691 /* beep.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB969208DB25400C3BE41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB974208DB25400C3BE41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9ACC08E2F94F4CCBCAAFE074 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CJRichScanDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B231FA5E1B72931DF6AFBEB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CJRichScanDemo/Pods-CJRichScanDemo-resources.sh",
+				"${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-help.html",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-helpicons.png",
+				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CodeScan.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-back.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-help.html",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-helpicons.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-samples.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CJRichScanDemo/Pods-CJRichScanDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBFAE083E7FE546BC18ABE60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CJRichScanDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		808CB94F208DB25400C3BE41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				789124BB209CDBB700D7B06C /* OtherScanViewController.m in Sources */,
+				7845B6EB2160B86C0099B691 /* CJCodeReaderViewController.m in Sources */,
+				80D71E40208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m in Sources */,
+				7845B6EA2160B86C0099B691 /* CJSampleQRCodeReaderView.m in Sources */,
+				80D71E3D208EBAB000D2DB68 /* QRCodeReaderViewController2.m in Sources */,
+				801F75C1209FF4C700A2E027 /* BBXBusQRCodeReaderView.m in Sources */,
+				7845B6E92160B86C0099B691 /* CJBaseCodeReaderView.m in Sources */,
+				808CB95B208DB25400C3BE41 /* ViewController.m in Sources */,
+				789124B6209CD1AA00D7B06C /* StyleDIY.m in Sources */,
+				808CB966208DB25400C3BE41 /* main.m in Sources */,
+				80D71E3E208EBAB000D2DB68 /* EasyReaderViewController.m in Sources */,
+				808CB958208DB25400C3BE41 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB967208DB25400C3BE41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				808CB970208DB25400C3BE41 /* CJRichScanDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		808CB972208DB25400C3BE41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				808CB97B208DB25400C3BE41 /* CJRichScanDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		808CB96D208DB25400C3BE41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 808CB952208DB25400C3BE41 /* CJRichScanDemo */;
+			targetProxy = 808CB96C208DB25400C3BE41 /* PBXContainerItemProxy */;
+		};
+		808CB978208DB25400C3BE41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 808CB952208DB25400C3BE41 /* CJRichScanDemo */;
+			targetProxy = 808CB977208DB25400C3BE41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		808CB95C208DB25400C3BE41 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				808CB95D208DB25400C3BE41 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		808CB961208DB25400C3BE41 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				808CB962208DB25400C3BE41 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		808CB97D208DB25400C3BE41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		808CB97E208DB25400C3BE41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		808CB980208DB25400C3BE41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D4F994C62CCA9D487E76D5 /* Pods-CJRichScanDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FZ5YDHE5JZ;
+				INFOPLIST_FILE = CJRichScanDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		808CB981208DB25400C3BE41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF4CB32DA271B7EF7BD345AE /* Pods-CJRichScanDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FZ5YDHE5JZ;
+				INFOPLIST_FILE = CJRichScanDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		808CB983208DB25400C3BE41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E59A0F69E0953BFA0109C8 /* Pods-CJRichScanDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CJRichScanDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CJRichScanDemo.app/CJRichScanDemo";
+			};
+			name = Debug;
+		};
+		808CB984208DB25400C3BE41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5340A737AEFF6B593A833B0 /* Pods-CJRichScanDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CJRichScanDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CJRichScanDemo.app/CJRichScanDemo";
+			};
+			name = Release;
+		};
+		808CB986208DB25400C3BE41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CJRichScanDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CJRichScanDemo;
+			};
+			name = Debug;
+		};
+		808CB987208DB25400C3BE41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CJRichScanDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CJRichScanDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		808CB94E208DB25400C3BE41 /* Build configuration list for PBXProject "CJRichScanDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				808CB97D208DB25400C3BE41 /* Debug */,
+				808CB97E208DB25400C3BE41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		808CB97F208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				808CB980208DB25400C3BE41 /* Debug */,
+				808CB981208DB25400C3BE41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		808CB982208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				808CB983208DB25400C3BE41 /* Debug */,
+				808CB984208DB25400C3BE41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		808CB985208DB25400C3BE41 /* Build configuration list for PBXNativeTarget "CJRichScanDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				808CB986208DB25400C3BE41 /* Debug */,
+				808CB987208DB25400C3BE41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 808CB94B208DB25400C3BE41 /* Project object */;
+}
