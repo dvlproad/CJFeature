@@ -1,5 +1,5 @@
 //
-//  QRCodeReaderViewController11.m
+//  CJCodeReaderViewController.m
 //  CJRichScanDemo
 //
 //  Created by ciyouzen on 2017/3/16.
@@ -20,18 +20,9 @@
 
 
 
-@interface CJCodeReaderViewController () <AVCaptureMetadataOutputObjectsDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface CJCodeReaderViewController () <CJCodeReaderDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
 }
-
-@property (nonatomic, strong) AVCaptureDevice            *defaultDevice;
-@property (nonatomic, strong) AVCaptureDeviceInput       *defaultDeviceInput;
-@property (nonatomic, strong) AVCaptureDevice            *frontDevice;
-@property (nonatomic, strong) AVCaptureDeviceInput       *frontDeviceInput;
-@property (nonatomic, strong) AVCaptureMetadataOutput    *metadataOutput;
-@property (nonatomic, strong) AVCaptureSession           *session;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
-
 @property (nonatomic, strong) CIDetector *detector;
 
 @end
@@ -56,7 +47,7 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    _previewLayer.frame = self.view.bounds;
+    self.codeReader.previewLayer.frame = self.view.bounds;
 }
 
 - (void)viewDidLoad {
@@ -64,14 +55,22 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    [self setupAVComponents];
-    [self configureDefaultComponents];
+    _codeReader = [CJCodeReader sharedInstance];
+    _codeReader.delegate = self;
+    
+    [self.codeReader.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [self.codeReader.previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    AVCaptureConnection *captureConnection = self.codeReader.previewLayer.connection;
+    if ([captureConnection isVideoOrientationSupported]) {
+        captureConnection.videoOrientation = [[self class] videoOrientationFromInterfaceOrientation:self.interfaceOrientation];
+    }
 }
 
 /*
 //播放beef语音 (放在子类中实现)
 - (void)playBeepVoice {
-    NSString *wavPath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"wav"];
+    NSString *wavPath = [[NSBundle mainBundle] pathForResource:@"cjBeep" ofType:@"wav"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:wavPath];
     AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:nil];
     
@@ -79,141 +78,25 @@
 }
 */
 
-- (void)addReaderView:(UIView *)readerView {
-    NSAssert(readerView != nil, @"readerView不能为空");
-    
-    [self.view addSubview:readerView];
-    [readerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-    self.readerView = readerView;
-    
-    [self.readerView.layer insertSublayer:self.previewLayer atIndex:0];
-}
-
-
-#pragma mark - Initializing the AV Components
-- (void)setupAVComponents
-{
-  self.defaultDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-  
-  if (_defaultDevice) {
-    self.defaultDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:_defaultDevice error:nil];
-    self.metadataOutput     = [[AVCaptureMetadataOutput alloc] init];
-    self.session            = [[AVCaptureSession alloc] init];
-    self.previewLayer       = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
-    
-    for (AVCaptureDevice *device in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) {
-      if (device.position == AVCaptureDevicePositionFront) {
-        self.frontDevice = device;
-      }
-    }
-    
-    if (_frontDevice) {
-      self.frontDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:_frontDevice error:nil];
-    }
-  }
-}
-
-- (void)configureDefaultComponents
-{
-    [_session addOutput:_metadataOutput];
-    
-    if (_defaultDeviceInput) {
-        [_session addInput:_defaultDeviceInput];
-    }
-    
-    [_metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    if ([[_metadataOutput availableMetadataObjectTypes] containsObject:AVMetadataObjectTypeQRCode]) {
-        [_metadataOutput setMetadataObjectTypes:@[ AVMetadataObjectTypeQRCode ]];
-    }
-    [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [_previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
-    if ([_previewLayer.connection isVideoOrientationSupported]) {
-        _previewLayer.connection.videoOrientation = [[self class] videoOrientationFromInterfaceOrientation:self.interfaceOrientation];
-        
-    }
-}
-
-
-- (void)switchDeviceInput
-{
-    if (_frontDeviceInput) {
-        [_session beginConfiguration];
-        
-        AVCaptureDeviceInput *currentInput = [_session.inputs firstObject];
-        [_session removeInput:currentInput];
-        
-        AVCaptureDeviceInput *newDeviceInput = (currentInput.device.position == AVCaptureDevicePositionFront) ? _defaultDeviceInput : _frontDeviceInput;
-        [_session addInput:newDeviceInput];
-        
-        [_session commitConfiguration];
-    }
-}
-
 
 #pragma mark - Controlling Reader
+- (void)switchDeviceInput {
+    [self.codeReader switchDeviceInput];
+}
+
 - (void)startScanning {
-    if (![self.session isRunning]) {
-        [self.session startRunning];
-    }
+    [self.codeReader startScanning];
 }
 
 - (void)stopScanning {
-    if ([self.session isRunning]) {
-        [self.session stopRunning];
-    }
+    [self.codeReader stopScanning];
 }
-
-#pragma mark - AVCaptureMetadataOutputObjects Delegate Methods
-
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
-{
-    for(AVMetadataObject *current in metadataObjects) {
-        if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]]
-            && [current.type isEqualToString:AVMetadataObjectTypeQRCode])
-        {
-            NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *) current stringValue];
-
-            [self stopScanning];
-            
-            if (_delegate && [_delegate respondsToSelector:@selector(cj_codeReaderViewController:didScanResult:)]) {
-                [_delegate cj_codeReaderViewController:self didScanResult:scannedResult];
-            }
-
-            break;
-        }
-    }
-}
-
 
 #pragma mark - Checking the Metadata Items Types
 
 + (BOOL)isAvailable
 {
-  @autoreleasepool {
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    if (!captureDevice) {
-      return NO;
-    }
-    
-    NSError *error;
-    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    
-    if (!deviceInput || error) {
-      return NO;
-    }
-    
-    AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
-    
-    if (![output.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeQRCode]) {
-      return NO;
-    }
-    
-    return YES;
-  }
+    return [CJCodeReader isAvailable];
 }
 
 - (void)chooseAlbum {
@@ -231,10 +114,12 @@
 {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     
-    [self.readerView setNeedsDisplay];
+    [self.codeReaderView setNeedsDisplay];
     
-    if (self.previewLayer.connection.isVideoOrientationSupported) {
-        self.previewLayer.connection.videoOrientation = [[self class] videoOrientationFromInterfaceOrientation:toInterfaceOrientation];
+    
+    AVCaptureConnection *captureConnection = self.codeReader.previewLayer.connection;
+    if (captureConnection.isVideoOrientationSupported) {
+        captureConnection.videoOrientation = [[self class] videoOrientationFromInterfaceOrientation:toInterfaceOrientation];
     }
 }
 

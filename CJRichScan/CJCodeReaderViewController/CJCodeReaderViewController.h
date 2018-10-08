@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
-#import <AVFoundation/AVFoundation.h>
+#import "CJCodeReader.h"
 
 @class CJCodeReaderViewController;
 @protocol CJCodeReaderViewControllerDelegate <NSObject>
@@ -24,13 +24,25 @@
     
 }
 @property (nonatomic, weak) id<CJCodeReaderViewControllerDelegate> delegate;
-
-@property (nonatomic, strong) UIView *readerView;
-
+@property (nonatomic, strong) CJCodeReader *codeReader;
+@property (nonatomic, strong) UIView *codeReaderView;
+/* //子类必须做的事：在viewDidLoad中定义生成readerView
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    DemoQRCodeReaderView *codeReaderView = [[DemoQRCodeReaderView alloc] init];
+    codeReaderView.scanStatusLabel.hidden = YES;
+    [self.view addSubview:rcodeReaderView];
+    [codeReaderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    self.readerView = codeReaderView;
+    
+    [self.codeReaderView.layer insertSublayer:self.codeReader.previewLayer atIndex:0];
+}
+*/
 
 + (BOOL)isAvailable;
-
-- (void)addReaderView:(UIView *)readerView;
 
 - (void)chooseAlbum;
 - (void)switchDeviceInput;

@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		10A060DCC718681276591B73 /* libPods-CJRichScanDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1A0DA26E42CAF85AE3391D /* libPods-CJRichScanDemoTests.a */; };
-		7845B6E42160B86C0099B691 /* cjScannerCornerTopRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */; };
-		7845B6E52160B86C0099B691 /* cjScannerCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */; };
-		7845B6E62160B86C0099B691 /* cjScannerCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */; };
-		7845B6E72160B86C0099B691 /* cjScannerCornerTopLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */; };
-		7845B6E82160B86C0099B691 /* cjScannerScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */; };
-		7845B6E92160B86C0099B691 /* CJBaseCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */; };
-		7845B6EA2160B86C0099B691 /* CJSampleQRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */; };
 		7845B6EB2160B86C0099B691 /* CJCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7845B6E02160B86C0099B691 /* CJCodeReaderViewController.m */; };
-		7845B6EC2160B86C0099B691 /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6E22160B86C0099B691 /* beep.wav */; };
+		7845B6EC2160B86C0099B691 /* cjBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7845B6E22160B86C0099B691 /* cjBeep.wav */; };
 		789124B6209CD1AA00D7B06C /* StyleDIY.m in Sources */ = {isa = PBXBuildFile; fileRef = 789124B4209CD1A900D7B06C /* StyleDIY.m */; };
 		789124BA209CDBB700D7B06C /* OtherScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789124B8209CDBB700D7B06C /* OtherScanViewController.xib */; };
 		789124BB209CDBB700D7B06C /* OtherScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789124B9209CDBB700D7B06C /* OtherScanViewController.m */; };
+		78A0D023216B04FE00EFAD67 /* CJCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A0D020216B04FE00EFAD67 /* CJCodeReader.m */; };
+		78A0D024216B04FE00EFAD67 /* CJCodeReaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A0D021216B04FE00EFAD67 /* CJCodeReaderManager.m */; };
+		78A0D030216B05E400EFAD67 /* cjScannerCornerTopRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A0D027216B05E400EFAD67 /* cjScannerCornerTopRight.png */; };
+		78A0D031216B05E400EFAD67 /* cjScannerCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A0D028216B05E400EFAD67 /* cjScannerCornerBottomLeft.png */; };
+		78A0D032216B05E400EFAD67 /* cjScannerCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A0D029216B05E400EFAD67 /* cjScannerCornerBottomRight.png */; };
+		78A0D033216B05E400EFAD67 /* cjScannerCornerTopLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A0D02A216B05E400EFAD67 /* cjScannerCornerTopLeft.png */; };
+		78A0D034216B05E400EFAD67 /* cjScannerScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A0D02B216B05E400EFAD67 /* cjScannerScanLine@2x.png */; };
+		78A0D035216B05E400EFAD67 /* CJBaseCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A0D02C216B05E400EFAD67 /* CJBaseCodeReaderView.m */; };
+		78A0D036216B05E400EFAD67 /* CJSampleQRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A0D02F216B05E400EFAD67 /* CJSampleQRCodeReaderView.m */; };
 		801F75C1209FF4C700A2E027 /* BBXBusQRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */; };
 		808CB958208DB25400C3BE41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB957208DB25400C3BE41 /* AppDelegate.m */; };
 		808CB95B208DB25400C3BE41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 808CB95A208DB25400C3BE41 /* ViewController.m */; };
@@ -58,23 +60,27 @@
 /* Begin PBXFileReference section */
 		24E59A0F69E0953BFA0109C8 /* Pods-CJRichScanDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJRichScanDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CJRichScanDemoTests/Pods-CJRichScanDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47C0512336F836EF6825FCA1 /* libPods-CJRichScanDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJRichScanDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopRight.png; sourceTree = "<group>"; };
-		7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomLeft.png; sourceTree = "<group>"; };
-		7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomRight.png; sourceTree = "<group>"; };
-		7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopLeft.png; sourceTree = "<group>"; };
-		7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cjScannerScanLine@2x.png"; sourceTree = "<group>"; };
-		7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseCodeReaderView.m; sourceTree = "<group>"; };
-		7845B6DC2160B86C0099B691 /* CJSampleQRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSampleQRCodeReaderView.h; sourceTree = "<group>"; };
-		7845B6DD2160B86C0099B691 /* CJBaseCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseCodeReaderView.h; sourceTree = "<group>"; };
-		7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSampleQRCodeReaderView.m; sourceTree = "<group>"; };
 		7845B6E02160B86C0099B691 /* CJCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCodeReaderViewController.m; sourceTree = "<group>"; };
-		7845B6E22160B86C0099B691 /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		7845B6E22160B86C0099B691 /* cjBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cjBeep.wav; sourceTree = "<group>"; };
 		7845B6E32160B86C0099B691 /* CJCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCodeReaderViewController.h; sourceTree = "<group>"; };
 		789124B4209CD1A900D7B06C /* StyleDIY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleDIY.m; sourceTree = "<group>"; };
 		789124B5209CD1A900D7B06C /* StyleDIY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleDIY.h; sourceTree = "<group>"; };
 		789124B7209CDBB600D7B06C /* OtherScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherScanViewController.h; sourceTree = "<group>"; };
 		789124B8209CDBB700D7B06C /* OtherScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherScanViewController.xib; sourceTree = "<group>"; };
 		789124B9209CDBB700D7B06C /* OtherScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherScanViewController.m; sourceTree = "<group>"; };
+		78A0D01F216B04FE00EFAD67 /* CJCodeReaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCodeReaderManager.h; sourceTree = "<group>"; };
+		78A0D020216B04FE00EFAD67 /* CJCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCodeReader.m; sourceTree = "<group>"; };
+		78A0D021216B04FE00EFAD67 /* CJCodeReaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJCodeReaderManager.m; sourceTree = "<group>"; };
+		78A0D022216B04FE00EFAD67 /* CJCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJCodeReader.h; sourceTree = "<group>"; };
+		78A0D027216B05E400EFAD67 /* cjScannerCornerTopRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopRight.png; sourceTree = "<group>"; };
+		78A0D028216B05E400EFAD67 /* cjScannerCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomLeft.png; sourceTree = "<group>"; };
+		78A0D029216B05E400EFAD67 /* cjScannerCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerBottomRight.png; sourceTree = "<group>"; };
+		78A0D02A216B05E400EFAD67 /* cjScannerCornerTopLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cjScannerCornerTopLeft.png; sourceTree = "<group>"; };
+		78A0D02B216B05E400EFAD67 /* cjScannerScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cjScannerScanLine@2x.png"; sourceTree = "<group>"; };
+		78A0D02C216B05E400EFAD67 /* CJBaseCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJBaseCodeReaderView.m; sourceTree = "<group>"; };
+		78A0D02D216B05E400EFAD67 /* CJSampleQRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSampleQRCodeReaderView.h; sourceTree = "<group>"; };
+		78A0D02E216B05E400EFAD67 /* CJBaseCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJBaseCodeReaderView.h; sourceTree = "<group>"; };
+		78A0D02F216B05E400EFAD67 /* CJSampleQRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSampleQRCodeReaderView.m; sourceTree = "<group>"; };
 		7D1A0DA26E42CAF85AE3391D /* libPods-CJRichScanDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CJRichScanDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		801F75BF209FF4C600A2E027 /* BBXBusQRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBXBusQRCodeReaderView.h; sourceTree = "<group>"; };
 		801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBXBusQRCodeReaderView.m; sourceTree = "<group>"; };
@@ -147,35 +153,12 @@
 		7845B6D32160B86C0099B691 /* CJRichScan */ = {
 			isa = PBXGroup;
 			children = (
-				7845B6D42160B86C0099B691 /* CJBaseCodeReaderView */,
+				78A0D01E216B04FE00EFAD67 /* CJCodeReader */,
+				78A0D025216B05E400EFAD67 /* CJCodeReaderView */,
 				7845B6DF2160B86C0099B691 /* CJCodeReaderViewController */,
 			);
 			name = CJRichScan;
 			path = ../../CJRichScan;
-			sourceTree = "<group>";
-		};
-		7845B6D42160B86C0099B691 /* CJBaseCodeReaderView */ = {
-			isa = PBXGroup;
-			children = (
-				7845B6DD2160B86C0099B691 /* CJBaseCodeReaderView.h */,
-				7845B6DB2160B86C0099B691 /* CJBaseCodeReaderView.m */,
-				7845B6D52160B86C0099B691 /* Resources */,
-				7845B6DC2160B86C0099B691 /* CJSampleQRCodeReaderView.h */,
-				7845B6DE2160B86C0099B691 /* CJSampleQRCodeReaderView.m */,
-			);
-			path = CJBaseCodeReaderView;
-			sourceTree = "<group>";
-		};
-		7845B6D52160B86C0099B691 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7845B6D62160B86C0099B691 /* cjScannerCornerTopRight.png */,
-				7845B6D72160B86C0099B691 /* cjScannerCornerBottomLeft.png */,
-				7845B6D82160B86C0099B691 /* cjScannerCornerBottomRight.png */,
-				7845B6D92160B86C0099B691 /* cjScannerCornerTopLeft.png */,
-				7845B6DA2160B86C0099B691 /* cjScannerScanLine@2x.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		7845B6DF2160B86C0099B691 /* CJCodeReaderViewController */ = {
@@ -191,7 +174,7 @@
 		7845B6E12160B86C0099B691 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7845B6E22160B86C0099B691 /* beep.wav */,
+				7845B6E22160B86C0099B691 /* cjBeep.wav */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -205,6 +188,41 @@
 				801F75C0209FF4C600A2E027 /* BBXBusQRCodeReaderView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		78A0D01E216B04FE00EFAD67 /* CJCodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				78A0D022216B04FE00EFAD67 /* CJCodeReader.h */,
+				78A0D020216B04FE00EFAD67 /* CJCodeReader.m */,
+				78A0D01F216B04FE00EFAD67 /* CJCodeReaderManager.h */,
+				78A0D021216B04FE00EFAD67 /* CJCodeReaderManager.m */,
+			);
+			path = CJCodeReader;
+			sourceTree = "<group>";
+		};
+		78A0D025216B05E400EFAD67 /* CJCodeReaderView */ = {
+			isa = PBXGroup;
+			children = (
+				78A0D02E216B05E400EFAD67 /* CJBaseCodeReaderView.h */,
+				78A0D02C216B05E400EFAD67 /* CJBaseCodeReaderView.m */,
+				78A0D02D216B05E400EFAD67 /* CJSampleQRCodeReaderView.h */,
+				78A0D02F216B05E400EFAD67 /* CJSampleQRCodeReaderView.m */,
+				78A0D026216B05E400EFAD67 /* Resources */,
+			);
+			path = CJCodeReaderView;
+			sourceTree = "<group>";
+		};
+		78A0D026216B05E400EFAD67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78A0D027216B05E400EFAD67 /* cjScannerCornerTopRight.png */,
+				78A0D028216B05E400EFAD67 /* cjScannerCornerBottomLeft.png */,
+				78A0D029216B05E400EFAD67 /* cjScannerCornerBottomRight.png */,
+				78A0D02A216B05E400EFAD67 /* cjScannerCornerTopLeft.png */,
+				78A0D02B216B05E400EFAD67 /* cjScannerScanLine@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		808CB94A208DB25400C3BE41 = {
@@ -405,19 +423,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7845B6E62160B86C0099B691 /* cjScannerCornerBottomRight.png in Resources */,
 				80D71E3B208EBAB000D2DB68 /* EasyReaderViewController.xib in Resources */,
+				78A0D030216B05E400EFAD67 /* cjScannerCornerTopRight.png in Resources */,
 				80D71E3C208EBAB000D2DB68 /* SampleQRCodeReaderViewController.xib in Resources */,
-				7845B6E72160B86C0099B691 /* cjScannerCornerTopLeft.png in Resources */,
 				808CB963208DB25400C3BE41 /* LaunchScreen.storyboard in Resources */,
+				78A0D031216B05E400EFAD67 /* cjScannerCornerBottomLeft.png in Resources */,
 				80D71E6E208EE1BB00D2DB68 /* scan_icon_frame@2x.png in Resources */,
 				808CB960208DB25400C3BE41 /* Assets.xcassets in Resources */,
+				78A0D033216B05E400EFAD67 /* cjScannerCornerTopLeft.png in Resources */,
+				78A0D032216B05E400EFAD67 /* cjScannerCornerBottomRight.png in Resources */,
 				808CB95E208DB25400C3BE41 /* Main.storyboard in Resources */,
 				789124BA209CDBB700D7B06C /* OtherScanViewController.xib in Resources */,
-				7845B6E82160B86C0099B691 /* cjScannerScanLine@2x.png in Resources */,
-				7845B6E42160B86C0099B691 /* cjScannerCornerTopRight.png in Resources */,
-				7845B6E52160B86C0099B691 /* cjScannerCornerBottomLeft.png in Resources */,
-				7845B6EC2160B86C0099B691 /* beep.wav in Resources */,
+				78A0D034216B05E400EFAD67 /* cjScannerScanLine@2x.png in Resources */,
+				7845B6EC2160B86C0099B691 /* cjBeep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,12 +527,14 @@
 			files = (
 				789124BB209CDBB700D7B06C /* OtherScanViewController.m in Sources */,
 				7845B6EB2160B86C0099B691 /* CJCodeReaderViewController.m in Sources */,
+				78A0D036216B05E400EFAD67 /* CJSampleQRCodeReaderView.m in Sources */,
+				78A0D035216B05E400EFAD67 /* CJBaseCodeReaderView.m in Sources */,
 				80D71E40208EBAB000D2DB68 /* SampleQRCodeReaderViewController.m in Sources */,
-				7845B6EA2160B86C0099B691 /* CJSampleQRCodeReaderView.m in Sources */,
 				80D71E3D208EBAB000D2DB68 /* QRCodeReaderViewController2.m in Sources */,
 				801F75C1209FF4C700A2E027 /* BBXBusQRCodeReaderView.m in Sources */,
-				7845B6E92160B86C0099B691 /* CJBaseCodeReaderView.m in Sources */,
+				78A0D024216B04FE00EFAD67 /* CJCodeReaderManager.m in Sources */,
 				808CB95B208DB25400C3BE41 /* ViewController.m in Sources */,
+				78A0D023216B04FE00EFAD67 /* CJCodeReader.m in Sources */,
 				789124B6209CD1AA00D7B06C /* StyleDIY.m in Sources */,
 				808CB966208DB25400C3BE41 /* main.m in Sources */,
 				80D71E3E208EBAB000D2DB68 /* EasyReaderViewController.m in Sources */,

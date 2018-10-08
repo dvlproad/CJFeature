@@ -24,9 +24,18 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(chooseAlbum)];
     
-    [self addReaderView];
+    BBXBusQRCodeReaderView *readerView = [[BBXBusQRCodeReaderView alloc] init];
+    readerView.scanStatusLabel.hidden = YES;
+    [self.view addSubview:readerView];
+    [readerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.view);
+    }];
+    self.codeReaderView = readerView;
+    [self.codeReaderView.layer insertSublayer:self.codeReader.previewLayer atIndex:0];
     
-    [(BBXBusQRCodeReaderView *)self.readerView updateScanResultString:@"待上车5人"];
+    
+    
+    [(BBXBusQRCodeReaderView *)self.codeReaderView updateScanResultString:@"待上车5人"];
     
     self.delegate = self;
     
@@ -37,26 +46,18 @@
     _beepPlayer = audioPlayer;
 }
 
-- (void)addReaderView {
-    BBXBusQRCodeReaderView *qrCodeReaderView = [[BBXBusQRCodeReaderView alloc] init];
-    
-    qrCodeReaderView.scanStatusLabel.hidden = YES;
-    
-    [self addReaderView:qrCodeReaderView];
-}
-
 #pragma mark - CJCodeReaderViewControllerDelegate
 - (void)cj_codeReaderViewController:(CJCodeReaderViewController *)codeReaderViewController didScanResult:(NSString *)result
 {
     [self.beepPlayer play];
     
-    CJSampleQRCodeReaderView *qrCodeReaderView = (CJSampleQRCodeReaderView *)codeReaderViewController.readerView;
+    CJSampleQRCodeReaderView *qrCodeReaderView = (CJSampleQRCodeReaderView *)codeReaderViewController.codeReaderView;
     qrCodeReaderView.scanResultLabel.text = result;
     
     __weak typeof(self)weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         [weakSelf stopScanning];
-        [(BBXBusQRCodeReaderView *)weakSelf.readerView pauseScanning];
+        [(BBXBusQRCodeReaderView *)weakSelf.codeReaderView pauseScanning];
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -65,10 +66,10 @@
 }
 
 - (void)continueScanning {
-    ((CJSampleQRCodeReaderView *)self.readerView).scanResultLabel.text = @"";
+    ((CJSampleQRCodeReaderView *)self.codeReaderView).scanResultLabel.text = @"";
     
     [self startScanning];
-    [(CJSampleQRCodeReaderView *)self.readerView startScanning];
+    [(CJSampleQRCodeReaderView *)self.codeReaderView startScanning];
 }
 
 - (void)qrCodeReaderViewController_DidCancel:(CJCodeReaderViewController *)reader {

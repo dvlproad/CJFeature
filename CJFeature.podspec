@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   #验证方法：pod lib lint CJFeature.podspec --allow-warnings --use-libraries --verbose
   s.name         = "CJFeature"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "自定义的基础UI"
   s.homepage     = "https://github.com/dvlproad/CJFeature"
 
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
  
-  s.source       = { :git => "https://github.com/dvlproad/CJFeature.git", :tag => "CJFeature_0.0.1" }
+  s.source       = { :git => "https://github.com/dvlproad/CJFeature.git", :tag => "CJFeature_0.0.2" }
   #s.source_files  = "CJBaseUIKit/*.{h,m}"
 
   s.frameworks = "UIKit"
@@ -41,17 +41,22 @@ Pod::Spec.new do |s|
 
 
   s.subspec 'CJRichScan' do |ss|
-    ss.subspec 'CJBaseCodeReaderView' do |sss|
-      sss.source_files = "CJRichScan/CJBaseCodeReaderView/**/*.{h,m}"
-      sss.resources = "CJRichScan/CJBaseCodeReaderView/**/*.{png}"
+    ss.subspec 'CJCodeReaderView' do |sss|
+      sss.source_files = "CJRichScan/CJCodeReaderView/**/*.{h,m}"
+      sss.resources = "CJRichScan/CJCodeReaderView/**/*.{png}"
       sss.dependency 'Masonry'
+    end
+
+    ss.subspec 'CJCodeReader' do |sss|
+      sss.source_files = "CJRichScan/CJCodeReader/CJCodeReader.{h,m}"
+      sss.frameworks = "AVFoundation"
     end
 
     ss.subspec 'CJCodeReaderViewController' do |sss|
       sss.source_files = "CJRichScan/CJCodeReaderViewController/**/*.{h,m}"
       sss.resources = "CJRichScan/CJCodeReaderViewController/**/*.{wav}"
-      sss.frameworks = "AVFoundation"
       sss.dependency 'Masonry'
+      sss.dependency 'CJFeature/CJRichScan/CJCodeReader'
     end
   end
 
