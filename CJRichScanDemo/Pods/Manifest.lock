@@ -1,5 +1,5 @@
 PODS:
-  - CJMedia/CJValidateAuthorizationUtil (0.0.5)
+  - CJMedia/CJValidateAuthorizationUtil (0.0.7)
   - LBXScan (2.3):
     - LBXScan/All (= 2.3)
   - LBXScan/All (2.3):
@@ -15,18 +15,18 @@ DEPENDENCIES:
   - Masonry (~> 1.1.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - CJMedia
     - LBXScan
     - Masonry
     - ZBarSDK
 
 SPEC CHECKSUMS:
-  CJMedia: 8b1fd8886d4311ed71f07b3870b9d3822a91bb58
+  CJMedia: 29b1bd8c127fb80c4993a76420a3bcc31a4657e5
   LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
-PODFILE CHECKSUM: 8b380473ec5d8138d18ca0684a0fdc4783162ad6
+PODFILE CHECKSUM: 9c153948a4cdb1c977d5b4b41a5d5c2ddd111494
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.6.1

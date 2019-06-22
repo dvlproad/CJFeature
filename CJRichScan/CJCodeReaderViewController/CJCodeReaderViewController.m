@@ -137,6 +137,13 @@
     }
 }
 
+#pragma mark - CJCodeReaderDelegate
+- (void)cj_codeReader:(CJCodeReader *)codeReader didScanResult:(NSString *)scannedResult {
+    NSLog(@"扫码结果scannedResult = %@", scannedResult);
+
+    [self dealScanResult:scannedResult];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -152,9 +159,13 @@
         CIQRCodeFeature *feature = [features objectAtIndex:0];
         NSString *scannedResult = feature.messageString;
         
-        if (_delegate && [_delegate respondsToSelector:@selector(cj_codeReaderViewController:didScanResult:)]) {
-            [_delegate cj_codeReaderViewController:self didScanResult:scannedResult];
-        }
+        [self dealScanResult:scannedResult];
+    }
+}
+
+- (void)dealScanResult:(NSString *)scannedResult {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cj_codeReaderViewController:didScanResult:)]) {
+        [self.delegate cj_codeReaderViewController:self didScanResult:scannedResult];
     }
 }
 

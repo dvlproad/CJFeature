@@ -22,7 +22,7 @@
 @interface CJCodeReaderManager : NSObject {
     
 }
-@property(nonatomic, weak, readonly) id<CJCodeReaderManagerDelegate> delegate;
+@property (nonatomic, weak, readonly) id<CJCodeReaderManagerDelegate> delegate;
 @property (nonatomic, strong) CJCodeReader *codeReader;
 
 + (CJCodeReaderManager *)sharedInstance;

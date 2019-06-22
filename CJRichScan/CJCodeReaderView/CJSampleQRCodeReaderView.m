@@ -17,7 +17,6 @@
         
         __weak typeof(self)weakSelf = self;
         self.drawRectCompleteBlock = ^(CJBaseCodeReaderView *qrCodeReaderView) {
-            
             [weakSelf setupConstains];
             
             [weakSelf setNeedsLayout];

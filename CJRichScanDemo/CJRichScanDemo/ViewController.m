@@ -47,7 +47,7 @@
 }
 
 - (IBAction)scanReader2Action:(id)sender {
-    BOOL enable = [CJValidateAuthorizationUtil checkEnableForDeviceComponentType:CJDeviceComponentTypeAlbum inViewController:self];
+    BOOL enable = [CJValidateAuthorizationUtil checkEnableForDeviceComponentType:CJDeviceComponentTypeCamera inViewController:self];
     if (!enable) {
         return;
     }
