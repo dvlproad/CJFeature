@@ -377,7 +377,7 @@
 				TargetAttributes = {
 					808CB952208DB25400C3BE41 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					808CB96A208DB25400C3BE41 = {
 						CreatedOnToolsVersion = 9.1;
@@ -700,13 +700,14 @@
 			baseConfigurationReference = C4D4F994C62CCA9D487E76D5 /* Pods-CJRichScanDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D225N2EYEE;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 67KZM8VFAC;
 				INFOPLIST_FILE = CJRichScanDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bjlc.luckintools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = combjlcluckintools_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -716,13 +717,15 @@
 			baseConfigurationReference = BF4CB32DA271B7EF7BD345AE /* Pods-CJRichScanDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D225N2EYEE;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 67KZM8VFAC;
 				INFOPLIST_FILE = CJRichScanDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CJRichScanDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bjlc.luckintools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = combjlcluckintools_inhouse;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

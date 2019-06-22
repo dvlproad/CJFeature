@@ -35,33 +35,33 @@
     //Helper
     {
         CJSectionDataModel *sectionDataModel = [[CJSectionDataModel alloc] init];
-        sectionDataModel.theme = @"CJHelper";
-        {
-            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
-            helperModule.title = @"测试QRCodeReaderView1";
-            helperModule.classEntry = [EasyReaderViewController class];
-            [sectionDataModel.values addObject:helperModule];
-        }
-        {
-            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
-            helperModule.title = @"QRCodeReaderView2";
-            helperModule.classEntry = [SampleQRCodeReaderViewController class];
-            [sectionDataModel.values addObject:helperModule];
-        }
-        {
-            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
-            helperModule.title = @"QRCodeReaderView3";
-            helperModule.classEntry = [OtherScanViewController class];
-            [sectionDataModel.values addObject:helperModule];
-        }
-        {
-            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
-            helperModule.title = @"RichScan(扫一扫)";
-            helperModule.content = @"扫一扫";
-            helperModule.selector = @selector(scanReader2Action);
-            [sectionDataModel.values addObject:helperModule];
-        }
-        
+//        sectionDataModel.theme = @"CJHelper";
+//        {
+//            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
+//            helperModule.title = @"测试QRCodeReaderView1";
+//            helperModule.classEntry = [EasyReaderViewController class];
+//            [sectionDataModel.values addObject:helperModule];
+//        }
+//        {
+//            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
+//            helperModule.title = @"QRCodeReaderView2";
+//            helperModule.classEntry = [SampleQRCodeReaderViewController class];
+//            [sectionDataModel.values addObject:helperModule];
+//        }
+//        {
+//            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
+//            helperModule.title = @"QRCodeReaderView3";
+//            helperModule.classEntry = [OtherScanViewController class];
+//            [sectionDataModel.values addObject:helperModule];
+//        }
+//        {
+//            CJModuleModel *helperModule = [[CJModuleModel alloc] init];
+//            helperModule.title = @"RichScan(扫一扫)";
+//            helperModule.content = @"扫一扫";
+//            helperModule.selector = @selector(scanReader2Action);
+//            [sectionDataModel.values addObject:helperModule];
+//        }
+//
         {
             CJModuleModel *helperModule = [[CJModuleModel alloc] init];
             helperModule.title = @"CodeReaderTool(扫一扫工具)";

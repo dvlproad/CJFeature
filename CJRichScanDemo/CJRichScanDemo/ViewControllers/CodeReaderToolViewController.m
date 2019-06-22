@@ -144,7 +144,7 @@
         CJModuleModel *helperModule = [[CJModuleModel alloc] init];
         helperModule.title = NSLocalizedString(@"在Safari中打开", nil);
         helperModule.actionBlock = ^{
-            [CJToast shortShowMessage:@"在Safari中打开"];
+            [CJToast shortShowMessage:@"扫码安装/在Safari中打开"];
             
             NSURL *URL = [NSURL URLWithString:message];
             if ([[UIApplication sharedApplication] canOpenURL:URL]) {
