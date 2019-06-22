@@ -2,6 +2,9 @@ platform :ios, '8.0'
 #use_frameworks!
 inhibit_all_warnings!
 
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://gitee.com/dvlproad/dvlproadSpecs'
+
 post_install do |installer|
     
     puts 'Determining pod project minimal deployment target'
@@ -22,12 +25,13 @@ post_install do |installer|
 end
 
 target 'CJRichScanDemo' do
-    pod 'Masonry', '~> 1.1.0'
-    pod 'CJMedia/CJValidateAuthorizationUtil'
-    
-    pod 'LBXScan'
+  pod 'CJDemoCommon', :subspecs => ['CJUIKitBase']
+  pod 'CJBaseUIKit',  :subspecs => ['CJAlert', 'UIButton']
+  pod 'CJMedia/CJValidateAuthorizationUtil'
+  
+  pod 'LBXScan'
 end
 
 target 'CJRichScanDemoTests' do
-   
+  
 end

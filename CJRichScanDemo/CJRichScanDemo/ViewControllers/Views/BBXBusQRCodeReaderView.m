@@ -24,7 +24,7 @@
         qrCodeReaderView.cornerImageView3.transform = CGAffineTransformMakeRotation(M_PI/2);
         qrCodeReaderView.cornerImageView4.image = image;
         
-        qrCodeReaderView.scanPromptLabel.text = NSLocalizedString(@"将电子车票放入框内，即可自动扫描", nil);
+        qrCodeReaderView.scanPromptLabel.text = NSLocalizedString(@"将所要扫描的二维码放入框内，即可自动扫描", nil);
         
         qrCodeReaderView.scanStatusLabel.hidden = YES;
     }

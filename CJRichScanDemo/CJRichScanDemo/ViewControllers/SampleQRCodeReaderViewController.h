@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Masonry/Masonry.h>
+#import <CJDemoCommon/CJUIKitBaseViewController.h>
 
-@interface SampleQRCodeReaderViewController : UIViewController {
+@interface SampleQRCodeReaderViewController : CJUIKitBaseViewController {
     
 }
 

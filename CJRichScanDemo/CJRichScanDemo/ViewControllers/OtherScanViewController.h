@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Masonry/Masonry.h>
+#import <CJDemoCommon/CJUIKitBaseViewController.h>
 
-@interface OtherScanViewController : UIViewController
+@interface OtherScanViewController : CJUIKitBaseViewController
 
 @end
