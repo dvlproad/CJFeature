@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "68757E1F-0943-449D-95E9-724EBE3B5924"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89F7A583-F8DD-4529-A1F8-D2D652095CEA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/CJAdBannerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "nativeExpressBannerAdViewDidLoad(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "89F7A583-F8DD-4529-A1F8-D2D652095CEA - df09a271b4270182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.AdvertiseBannerVC.nativeExpressBannerAdView(_: __C.BUNativeExpressBannerView, didLoadFailWithError: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CJAdBannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "89F7A583-F8DD-4529-A1F8-D2D652095CEA - d2a7e206fa58ae41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.AdvertiseBannerVC.nativeExpressBannerAdViewDidLoad(__C.BUNativeExpressBannerView) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CJAdBannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "89F7A583-F8DD-4529-A1F8-D2D652095CEA - 167e4e9217a27d19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.AdvertiseBannerVC.nativeExpressBannerAdViewDidLoad(__C.BUNativeExpressBannerView) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CJAdBannerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/CCAdView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "nativeExpressAdSuccess(toLoad:views:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - b54e1f3b90ac7387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.placeholder.getter : Swift.Bool"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - 4502586119734856"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.placeholder.setter : Swift.Bool"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - 460d510a3c0c4e49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.placeholder.modify : Swift.Bool"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - 34b130d026f8c034"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.placeholder.modify : Swift.Bool with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - 7ae64e945bec3c72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.nativeExpressAdSuccess(toLoad: __C.BUNativeExpressAdManager, views: Swift.Array&lt;__C.BUNativeExpressAdView&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - ba9bf22562af88ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.nativeExpressAdSuccess(toLoad: __C.BUNativeExpressAdManager, views: Swift.Array&lt;__C.BUNativeExpressAdView&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "FFF8A6C8-CAEF-4F8D-AF38-3B72E422E226 - ba9bf22562af8f59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.nativeExpressAdSuccess(toLoad: __C.BUNativeExpressAdManager, views: Swift.Array&lt;__C.BUNativeExpressAdView&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04215817-598D-4AEC-B881-4A31B46A5336"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/CCAdView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "nativeExpressAdFail(toLoad:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "04215817-598D-4AEC-B881-4A31B46A5336 - d7be49a00f54ab72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.viewDidLoad() -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "04215817-598D-4AEC-B881-4A31B46A5336 - dceadefe09ff370d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.nativeExpressAdFail(toLoad: __C.BUNativeExpressAdManager, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Reference/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "04215817-598D-4AEC-B881-4A31B46A5336 - 1c97624f30bc83d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.CCAdvertiseViewVC.nativeExpressAdFail(toLoad: __C.BUNativeExpressAdManager, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CCAdView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4E88059-1B96-45DF-BBD0-CDC88A17E38D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/CJFeedAdManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "nativeAdsManagerSuccess(toLoad:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92B68653-84D6-4629-93F6-6C9C1560855B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/CJFeedAdManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "nativeAdsManager(_:didFailWithError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "92B68653-84D6-4629-93F6-6C9C1560855B - 4d3f1a2814afee43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.YourAdManager.nativeAdsManager(_: __C.BUNativeAdsManager, didFailWithError: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CJFeedAdManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "92B68653-84D6-4629-93F6-6C9C1560855B - 4d3f1a2814afee43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.YourAdManager.nativeAdsManager(_: __C.BUNativeAdsManager, didFailWithError: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/CJFeedAdManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

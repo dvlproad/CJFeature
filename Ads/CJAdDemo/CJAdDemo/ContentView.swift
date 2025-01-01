@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let adManager = AdManager()
+    
     var body: some View {
         NavigationView {
             List {

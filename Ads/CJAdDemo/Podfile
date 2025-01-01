@@ -51,7 +51,9 @@ target 'CJAdDemo' do
     pod 'CQDemoKit',          '~> 0.6.9',          :subspecs => ['BaseVC']
     
     # 穿山甲广告: https://www.csjplatform.com/supportcenter/5376
-    pod  'Ads-CN',            '6.4.4.0'
+    pod 'Ads-CN',            '6.4.4.0'
+    # [iOS自测工具集成说明](https://www.csjplatform.com/supportcenter/5428)
+    pod 'BUAdTestMeasurement',  '6.4.4.0'
     
 #    pod 'SDWebImage',         '~> 5.20.0'
     pod 'SDWebImage'

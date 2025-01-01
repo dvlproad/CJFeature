@@ -17,6 +17,9 @@
 		979E12482D254887009C979B /* CCAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E12472D254887009C979B /* CCAdView.swift */; };
 		979E124A2D2549EB009C979B /* CQAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E12492D2549EB009C979B /* CQAdView.swift */; };
 		979E124C2D254ABE009C979B /* TSAdsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E124B2D254ABE009C979B /* TSAdsPage.swift */; };
+		979E124E2D259765009C979B /* CJRewardedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E124D2D259765009C979B /* CJRewardedAdManager.swift */; };
+		979E12502D25A488009C979B /* CJErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E124F2D25A488009C979B /* CJErrorExtension.swift */; };
+		979E12532D25AC19009C979B /* CJFeedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E12522D25AC19009C979B /* CJFeedAdManager.swift */; };
 		AEA457649A13AB86B7566369 /* Pods_CJAdDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		979E12472D254887009C979B /* CCAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCAdView.swift; sourceTree = "<group>"; };
 		979E12492D2549EB009C979B /* CQAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CQAdView.swift; sourceTree = "<group>"; };
 		979E124B2D254ABE009C979B /* TSAdsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAdsPage.swift; sourceTree = "<group>"; };
+		979E124D2D259765009C979B /* CJRewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJRewardedAdManager.swift; sourceTree = "<group>"; };
+		979E124F2D25A488009C979B /* CJErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJErrorExtension.swift; sourceTree = "<group>"; };
+		979E12522D25AC19009C979B /* CJFeedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJFeedAdManager.swift; sourceTree = "<group>"; };
 		A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73ED7D90B5C4E9DDFC4B61C /* Pods-CJAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-CJAdDemo/Pods-CJAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,8 +101,11 @@
 				979E124B2D254ABE009C979B /* TSAdsPage.swift */,
 				979E12432D254770009C979B /* CJAdBannerView.swift */,
 				979E12472D254887009C979B /* CCAdView.swift */,
+				979E12522D25AC19009C979B /* CJFeedAdManager.swift */,
 				979E12492D2549EB009C979B /* CQAdView.swift */,
-				979E12452D2547B5009C979B /* CJAdConfigModel.swift */,
+				979E12512D25AB5E009C979B /* Model */,
+				979E124D2D259765009C979B /* CJRewardedAdManager.swift */,
+				979E124F2D25A488009C979B /* CJErrorExtension.swift */,
 				9718E6532D2534DD009C5A04 /* Assets.xcassets */,
 				9718E6552D2534DD009C5A04 /* Preview Content */,
 			);
@@ -109,6 +118,14 @@
 				9718E6562D2534DD009C5A04 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		979E12512D25AB5E009C979B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				979E12452D2547B5009C979B /* CJAdConfigModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,14 +260,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979E124E2D259765009C979B /* CJRewardedAdManager.swift in Sources */,
 				9718E6522D2534DB009C5A04 /* ContentView.swift in Sources */,
 				9718E65F2D25382A009C5A04 /* CJAdsManager.swift in Sources */,
 				979E12462D2547B5009C979B /* CJAdConfigModel.swift in Sources */,
 				979E12442D254770009C979B /* CJAdBannerView.swift in Sources */,
 				9718E6502D2534DB009C5A04 /* CJAdDemoApp.swift in Sources */,
 				979E124A2D2549EB009C979B /* CQAdView.swift in Sources */,
+				979E12502D25A488009C979B /* CJErrorExtension.swift in Sources */,
 				979E124C2D254ABE009C979B /* TSAdsPage.swift in Sources */,
 				979E12482D254887009C979B /* CCAdView.swift in Sources */,
+				979E12532D25AC19009C979B /* CJFeedAdManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

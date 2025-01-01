@@ -7,12 +7,21 @@
 
 import Foundation
 import BUAdSDK
+import BUAdTestMeasurement
 
 public struct CJAdsManager {
     public static let shared: CJAdsManager = CJAdsManager()
     
-    
-    static func BUAdSDKReset(_ channel: String? = nil){
+    static func BUAdSDKReset(_ channel: String? = nil) {
+        // 在SDK初始化前设置debug，开发者应避免将测试工具带上线，不然可能会影响应用的体验
+//        let configuration2 = BUAdTestMeasurementConfiguration.configuration
+//        configuration2().debugMode = true
+        
+        
+        
+        
+//        BUAdTestMeasurementManagerco
+        
         // vip会员去除全部广告
         
         /******************** 初始化 ********************/

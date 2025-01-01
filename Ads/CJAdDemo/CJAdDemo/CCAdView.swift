@@ -94,7 +94,6 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
         self.nativeExpressAdManager?.loadAdData(withCount: 1)
     }
     
-
 //    展示时机
 //    在收到nativeExpressAdSuccessToLoad回调后再进行广告的渲染展示，刷新数据源
     /**
