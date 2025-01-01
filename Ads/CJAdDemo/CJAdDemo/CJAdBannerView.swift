@@ -98,7 +98,7 @@ class AdvertiseBannerVC: UIViewController, BUNativeExpressBannerViewDelegate {
      @param error : the reason of error
      */
     func nativeExpressBannerAdView(_ bannerAdView: BUNativeExpressBannerView, didLoadFailWithError error: Error?) {
-        debugPrint("===AdBanner===nativeExpressBannerAdViewDidLoadFailWithError:\(error.debugDescription)--\(error?.localizedDescription ?? "未知错误")")
+        debugPrint("===AdBanner===nativeExpressBannerAdViewDidLoadFailWithError:\(error?.cjErrorString ?? "未知错误")")
     }
     
     /**

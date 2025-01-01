@@ -22,7 +22,7 @@ struct TSAdsPage: View {
     
     @State private var isAdReady: Bool = false
     private let adManager = AdManager()
-    @State private var yourAdManager: YourAdManager
+    @State private var yourAdManager: YourAdManager?
     
     @State private var showAd = false
         @State private var errorMessage: String?

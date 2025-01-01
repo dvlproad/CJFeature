@@ -127,7 +127,11 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
      * Sent when views fail to load ad
      */
     func nativeExpressAdFail(toLoad nativeExpressAdManager: BUNativeExpressAdManager, error: Error?) {
-        debugPrint("===AdFeed===nativeExpressAdFailToLoad:\(error.debugDescription)")
+        var adslotId: String = "nil"
+        if let adslot = nativeExpressAdManager.adslot {
+            adslotId = adslot.id
+        }
+        debugPrint("===AdFeed===nativeExpressAdFailToLoad:广告位\(adslotId) \(error?.cjErrorString ?? "未知错误")")
     }
     
     ///**

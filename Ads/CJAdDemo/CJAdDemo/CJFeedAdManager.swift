@@ -46,6 +46,11 @@ class YourAdManager: NSObject, BUNativeAdsManagerDelegate {
     }
 
     func nativeAdsManager(_ adsManager: BUNativeAdsManager, didFailWithError error: Error?) {
-        print("广告加载失败: \(error == nil ? "未知错误" : error!.cjErrorString)")
+        var adslotId: String = "nil"
+        if let adslot = adsManager.adslot {
+            adslotId = adslot.id
+        }
+        print("广告加载失败: 广告位ID:\(adslotId) \(error?.cjErrorString ?? "未知错误")")
+        
     }
 }
