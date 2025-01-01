@@ -49,7 +49,7 @@ class AdvertiseBannerVC: UIViewController, BUNativeExpressBannerViewDelegate {
     }
     
     required init?(coder: NSCoder) {
-        adConfigModel = AdConfigModel(type: "4", adId: "banner广告Id", adArgument: "SearchResultsBanner")
+        adConfigModel = AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner")
         adSize = CGSizeMake(screenWidth, 211)
         super.init(coder: coder)
     }
@@ -72,7 +72,7 @@ class AdvertiseBannerVC: UIViewController, BUNativeExpressBannerViewDelegate {
         if let adId = adModel.adId{
             slot.id = adId
         }else{
-            slot.id = "banner广告Id"
+            slot.id = "103161544"
         }
         self.bannerView = BUNativeExpressBannerView(slot: slot, rootViewController: self, adSize: adSize)
         self.bannerView?.frame = CGRect(x: 0, y: 0, width: adSize.width, height: adSize.height)
