@@ -34,13 +34,13 @@ struct TSAdsPage: View {
                 .padding()
             
             Button("加载Feed广告") {
-                let viewModel = YourViewModel(slotID: "your_ad_slot_id") // 替换为feed广告位 ID
+                let viewModel = YourViewModel(slotID: "103303563") // 替换为feed广告位 ID
                 yourAdManager = YourAdManager(viewModel: viewModel)
             }
             .buttonStyle(.borderedProminent)
             
             Button("加载激励广告") {
-                adManager.loadRewardedAd(adSlotID: "your_ad_slot_id") // 替换为激励视频广告位 ID
+                adManager.loadRewardedAd(adSlotID: "103161544") // 替换为激励视频广告位 ID
             }
             .buttonStyle(.borderedProminent)
             
