@@ -10,14 +10,14 @@ import SwiftUI
 
 struct TSAdsPage: View {
     let adModels = [
-        AdConfigModel(type: "2", adId: "广告id", adArgument: "AnimationIsland"),
-        AdConfigModel(type: "2", adId: "首页广告id", adArgument: "Widget"),
-        AdConfigModel(type: "1", adId: "壁纸广告id", adArgument: "Wallpaper"),
-        AdConfigModel(type: "3", adId: "开屏广告id", adArgument: "OpenScreen"),
-        AdConfigModel(type: "4", adId: "半屏广告id", adArgument: "HalfScreen"),
-        AdConfigModel(type: "4", adId: "banner广告Id", adArgument: "SearchResultsBanner"),
-        AdConfigModel(type: "5", adId: "首页广告流Id", adArgument: AdUnlockType.homeFeed.rawValue),
-        AdConfigModel(type: "5", adId: "壁纸广告流Id", adArgument: AdUnlockType.wallpaperFeed.rawValue),
+        AdConfigModel(type: "2", adId: "102894507", adArgument: "AnimationIsland"),
+        AdConfigModel(type: "2", adId: "102894507", adArgument: "Widget"),
+        AdConfigModel(type: "1", adId: "102917460", adArgument: "Wallpaper"),
+        AdConfigModel(type: "3", adId: "102997187", adArgument: "OpenScreen"),
+        AdConfigModel(type: "4", adId: "102996254", adArgument: "HalfScreen"),
+        AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner"),
+        AdConfigModel(type: "5", adId: "103303563", adArgument: AdUnlockType.homeFeed.rawValue),
+        AdConfigModel(type: "5", adId: "103303645", adArgument: AdUnlockType.wallpaperFeed.rawValue),
     ]
     
     @State private var isAdReady: Bool = false
@@ -72,11 +72,11 @@ struct TSAdsPage: View {
                 }
         
         VStack(alignment: .center) {
-            let bannerAdModel = AdConfigModel(type: "4", adId: "banner广告Id", adArgument: "SearchResultsBanner")
+            let bannerAdModel = AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner")
             CCAdView(
                 adConfigModel: AdConfigModel(
                     type: "5",
-                    adId: "首页广告流Id",
+                    adId: "103303563",
                     adArgument: AdUnlockType.homeFeed.rawValue
                 ),
                 adSize: feedAdSize()

@@ -50,7 +50,7 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
     }
     
     required init?(coder: NSCoder) {
-        adConfigModel = AdConfigModel(type: "5", adId: "广告流Id", adArgument: AdUnlockType.homeFeed.rawValue)
+        adConfigModel = AdConfigModel(type: "5", adId: "103303563", adArgument: AdUnlockType.homeFeed.rawValue)
         adSize = CGSizeMake(screenWidth, 211)
         placeholder = false
         nativeExpressAdSuccess = {}
@@ -80,7 +80,7 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
     var expressAdViews: [BUNativeExpressAdView] = []
     func addAdView() -> Void {
         let slot1 = BUAdSlot()
-        slot1.id = adConfigModel.adId ?? "广告流Id"
+        slot1.id = adConfigModel.adId ?? "103303563"
         slot1.adType = .feed
         slot1.imgSize = BUSize(by: BUProposalSize.feed228_150)
         slot1.position = .feed
