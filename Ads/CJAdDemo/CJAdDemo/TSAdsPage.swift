@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+class TSDataModel {
+    var isAdBannerModel: Bool = false
+    var adViewHeight: CGFloat = feedAdPlaceholderHeight
+    var isReloadToUpdateAdViewHeight: Bool = false
+}
+
 struct TSAdsPage: View {
     let adModels = [
         AdConfigModel(type: "2", adId: "102894507", adArgument: "AnimationIsland"),
@@ -27,7 +33,13 @@ struct TSAdsPage: View {
     @State private var showAd = false
         @State private var errorMessage: String?
     
+    
+    @State var model: TSDataModel = TSDataModel()
+    
+//    var adView: CCAdView?
+    
     var body: some View {
+        /*
         VStack {
             Text("穿山甲广告 Demo")
                 .font(.title)
@@ -70,20 +82,45 @@ struct TSAdsPage: View {
         .sheet(isPresented: $showAd) {
                     RewardedAdView(adManager: adManager)
                 }
+        */
+        
+        
+        WidthAdCollectionViewWrapper()
+        
+        VStack(alignment: .center) {
+            let bannerAdModel = AdConfigModel(type: "4", adId: "103320730", adArgument: "SearchResultsBanner")
+            
+            let adView = CCAdView(
+                adConfigModel: bannerAdModel,
+                adWidth: screenWidth-2*12,
+                currentAdViewHeight: model.adViewHeight,
+                adViewHeightChangeBlock: { newAdViewHeight in
+//                    model.adViewHeight = newAdViewHeight
+//                    adViewHeightChangeBlock(newAdViewHeight)
+                },
+                isReloadToUpdateAdViewHeight: model.isReloadToUpdateAdViewHeight
+            )
+            
+            adView
+//            AdvertiseBannerRepresentable(
+//                adConfigModel: bannerAdModel,
+//                adSize: CGSize(width: 338, height: 84)
+//            )
+//            .frame(width: screenWidth, height: 211)
+        }
+        .background(Color.white)
+        
         
         VStack(alignment: .center) {
             let bannerAdModel = AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner")
-            CCAdView(
-                adConfigModel: AdConfigModel(
-                    type: "5",
-                    adId: "103303563",
-                    adArgument: AdUnlockType.homeFeed.rawValue
-                ),
-                adSize: feedAdSize()
-            )
-            AdvertiseBannerRepresentable(
+            CCFeedAdDocumViewVCepresentable(
                 adConfigModel: bannerAdModel,
-                adSize: CGSize(width: 338, height: 84)
+                adWidth: 338,
+                adPlaceholderHeight: 84,
+                placeholder: true,
+                nativeExpressAdLoad: { _ in },
+                nativeExpressAdViewRender: { _,_ in },
+                isReloadToUpdateAdViewHeight: false
             )
             .frame(width: screenWidth, height: 211)
         }

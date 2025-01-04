@@ -1,9 +1,8 @@
 PODS:
-  - Ads-CN (6.4.4.0):
-    - Ads-CN/BUAdSDK (= 6.4.4.0)
-  - Ads-CN/BUAdSDK (6.4.4.0)
-  - BUAdTestMeasurement (6.4.4.0):
-    - Ads-CN (= 6.4.4.0)
+  - Ads-CN-Beta/BUAdSDK (6.6.0.5)
+  - Ads-CN-Beta/CSJMediation (6.6.0.5):
+    - Ads-CN-Beta/BUAdSDK
+  - BaiduMobAdSDK (5.370)
   - CQDemoKit/BaseUIKit (0.6.9):
     - Masonry
   - CQDemoKit/BaseUtil (0.6.9)
@@ -35,6 +34,14 @@ PODS:
     - CQDemoKit/BaseVC/Base
     - CQDemoKit/Helper
   - CQDemoKit/Helper (0.6.9)
+  - GDTMobSDK (4.15.10)
+  - GMBaiduAdapter-Beta (5.370.1):
+    - Ads-CN-Beta/CSJMediation (>= 6.5.0.4)
+  - GMGdtAdapter-Beta (4.15.10.0):
+    - Ads-CN-Beta/CSJMediation (>= 6.5.0.1)
+  - GMKsAdapter-Beta (3.3.69.2):
+    - Ads-CN-Beta/CSJMediation (>= 6.6.0.3)
+  - KSAdSDK (3.3.69)
   - Masonry (1.1.0)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
@@ -42,29 +49,45 @@ PODS:
   - SnapKit (5.7.1)
 
 DEPENDENCIES:
-  - Ads-CN (= 6.4.4.0)
-  - BUAdTestMeasurement (= 6.4.4.0)
+  - Ads-CN-Beta/BUAdSDK (= 6.6.0.5)
+  - Ads-CN-Beta/CSJMediation (= 6.6.0.5)
+  - BaiduMobAdSDK (= 5.370)
   - CQDemoKit/BaseVC (~> 0.6.9)
+  - GDTMobSDK (= 4.15.10)
+  - GMBaiduAdapter-Beta (= 5.370.1)
+  - GMGdtAdapter-Beta (= 4.15.10.0)
+  - GMKsAdapter-Beta (= 3.3.69.2)
+  - KSAdSDK (= 3.3.69)
   - SDWebImage
   - SnapKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Ads-CN
-    - BUAdTestMeasurement
+    - Ads-CN-Beta
+    - BaiduMobAdSDK
     - CQDemoKit
+    - GDTMobSDK
+    - GMBaiduAdapter-Beta
+    - GMGdtAdapter-Beta
+    - GMKsAdapter-Beta
+    - KSAdSDK
     - Masonry
     - SDWebImage
     - SnapKit
 
 SPEC CHECKSUMS:
-  Ads-CN: 5c4109c91745e92382d8f5b312faf9e389c40a64
-  BUAdTestMeasurement: a4365f85bbb982284235927a5fb7c83ede2922cc
+  Ads-CN-Beta: 40b38a5fee87505e67e259c4dbfe8f296d52695f
+  BaiduMobAdSDK: ee04dd31ab0a3a1a1d4d025b29b24c2ee763e708
   CQDemoKit: f7a6a6f2a7e3eea2a4a0684c654bfcf0360e6dca
+  GDTMobSDK: 17a7af711cf6b7c8a3a0a4edc3916dc2467877e9
+  GMBaiduAdapter-Beta: e94b72b3b1deea6b03308d45b5388ebaeeb25359
+  GMGdtAdapter-Beta: ea76e6acc09a5b3d88e610a25afe6b0a2e1e11d2
+  GMKsAdapter-Beta: 4acea0029fd6d8b0f720c8020f56d92b232cf596
+  KSAdSDK: 6567620e4ebe6064b9a1a3c8de111c4842a31160
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: b664e83ff15fb8849bda3610fa5c5dd6c6a6a40c
+PODFILE CHECKSUM: ae46e46eca8d5acfc0b4ed2e33c99e84be90be8f
 
 COCOAPODS: 1.16.2

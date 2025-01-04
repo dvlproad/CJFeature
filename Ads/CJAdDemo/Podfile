@@ -50,10 +50,30 @@ inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引�
 target 'CJAdDemo' do
     pod 'CQDemoKit',          '~> 0.6.9',          :subspecs => ['BaseVC']
     
-    # 穿山甲广告: https://www.csjplatform.com/supportcenter/5376
-    pod 'Ads-CN',            '6.4.4.0'
-    # [iOS自测工具集成说明](https://www.csjplatform.com/supportcenter/5428)
-    pod 'BUAdTestMeasurement',  '6.4.4.0'
+#    # 穿山甲广告: https://www.csjplatform.com/supportcenter/5376
+#    pod 'Ads-CN',            '6.4.4.0'
+#    # [iOS自测工具集成说明](https://www.csjplatform.com/supportcenter/5428)
+#    pod 'BUAdTestMeasurement',  '6.4.4.0'
+    
+    pod 'Ads-CN-Beta', '6.6.0.5', :subspecs => ['BUAdSDK', 'CSJMediation']
+#    pod 'BUAdTestMeasurement','6.6.0.5', :configuration => ['Debug'] # 上线前禁止带到线上
+    pod "GMBaiduAdapter-Beta", "5.370.1"
+    pod "BaiduMobAdSDK", "5.370"
+    pod "GMGdtAdapter-Beta", "4.15.10.0"
+    pod "GDTMobSDK", "4.15.10"
+    pod "GMKsAdapter-Beta", "3.3.69.2"
+    pod "KSAdSDK", "3.3.69"
+    
+#    pod 'Ads-CN-Beta', '6.5.0.1', :subspecs => ['BUAdSDK','CSJMediation']
+#    # 引入融合Adapters(推荐使用自动拉取adapter工具，此处无需引入)
+#    pod 'GMBaiduAdapter-Beta', '5.370.0'
+#    pod 'GMGdtAdapter-Beta', '4.15.10.0'
+#    pod 'GMKsAdapter-Beta', '3.3.69.0'
+#    # 引入使用到的ADN SDK，开发者请按需引入
+#    pod 'GDTMobSDK', '4.15.10'
+#    pod 'BaiduMobAdSDK', '5.370'
+#    pod 'KSAdSDK', '3.3.69'
+    
     
 #    pod 'SDWebImage',         '~> 5.20.0'
     pod 'SDWebImage'

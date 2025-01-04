@@ -10,6 +10,7 @@ import SwiftUI
 import BUAdSDK
 
 let screenWidth = UIScreen.main.bounds.width
+let feedAdPlaceholderHeight: CGFloat = 84
 func feedAdSize() -> CGSize {
     return  CGSizeMake(screenWidth, 84+2*10)    // 广告流的大小
 }
