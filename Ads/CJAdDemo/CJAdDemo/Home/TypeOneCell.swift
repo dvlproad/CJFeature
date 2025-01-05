@@ -52,19 +52,19 @@ class TypeTwoCell: UICollectionViewCell {
         super.init(frame: frame)
         
         
-        let bannerAdModel = AdConfigModel(type: "4", adId: "103320730", adArgument: "SearchResultsBanner")
-        
-        let adView = CCAdView(
-            adConfigModel: bannerAdModel,
-            adWidth: screenWidth-2*12,
-            currentAdViewHeight: 84,
-            adViewHeightChangeBlock: { newAdViewHeight in
-//                    model.adViewHeight = newAdViewHeight
-//                adViewHeightChangeBlock(newAdViewHeight)
-            },
-            isReloadToUpdateAdViewHeight: false
-        )
-        self.adView = adView
+//        let bannerAdModel = AdConfigModel(type: "4", adId: "103320730", adArgument: "SearchResultsBanner")
+//        
+//        let adView = CCAdView(
+//            adConfigModel: bannerAdModel,
+//            adWidth: screenWidth-2*12,
+//            currentAdViewHeight: 84,
+//            adViewHeightChangeBlock: { newAdViewHeight in
+////                    model.adViewHeight = newAdViewHeight
+////                adViewHeightChangeBlock(newAdViewHeight)
+//            },
+//            isReloadToUpdateAdViewHeight: false
+//        )
+//        self.adView = adView
         
 //        self.configureAd(with: TSDataModel()) { newAdViewHeight in
 //            
@@ -94,10 +94,10 @@ class TypeTwoCell: UICollectionViewCell {
             )
             self.adView = adView
         } else {
-            self.adView?.setupAdViewHeightChangeBlock(adViewHeightChangeBlock: { newAdViewHeight in
-                //                    model.adViewHeight = newAdViewHeight
-                                    adViewHeightChangeBlock(newAdViewHeight)
-            })
+//            self.adView?.setupAdViewHeightChangeBlock(adViewHeightChangeBlock: { newAdViewHeight in
+//                //                    model.adViewHeight = newAdViewHeight
+//                                    adViewHeightChangeBlock(newAdViewHeight)
+//            })
             self.adView?.updateSuccess(adViewHeight: model.adViewHeight)
         }
         

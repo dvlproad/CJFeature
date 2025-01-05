@@ -51,11 +51,13 @@ extension WidthAdCollectionView: UICollectionViewDataSource {
 //                var dataModel2 = self.dataModels[indexPath.row]
                 dataModel.adViewHeight = newAdViewHeight
                 dataModel.isReloadToUpdateAdViewHeight = true
-//                collectionView.performBatchUpdates({
-//                    collectionView.reloadItems(at: [indexPath])
-//                }, completion: { finished in
-//                    dataModel.isReloadToUpdateAdViewHeight = false
-//                })
+//                collectionView.reloadData()
+                collectionView.performBatchUpdates({
+                    collectionView.reloadData()
+//                    collectionView.reloadItems(at: [indexPath])   // 可能会导致单元格的 init 方法被调用，特别是在重用队列中没有可用单元格的情况下.
+                }, completion: { finished in
+                    dataModel.isReloadToUpdateAdViewHeight = false
+                })
             })
             return cell
         }

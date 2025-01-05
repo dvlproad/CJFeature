@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         
-        for i in 0...1 {
+        for i in 0...9 {
             dataModels.append(TSDataModel())
         }
         
