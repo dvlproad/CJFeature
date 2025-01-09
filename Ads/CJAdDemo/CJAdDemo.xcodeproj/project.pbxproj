@@ -26,6 +26,11 @@
 		97CEE5392D29A60B0056444F /* TypeOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE5382D29A60B0056444F /* TypeOneCell.swift */; };
 		97CEE53B2D29A63C0056444F /* WidthAdCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */; };
 		97CEE53D2D29A9EE0056444F /* TSAdsHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE53C2D29A9EE0056444F /* TSAdsHomePage.swift */; };
+		97F974562D30055100E19EC5 /* CJAdInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974552D30055100E19EC5 /* CJAdInstance.swift */; };
+		97F974582D30060500E19EC5 /* CJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974572D30060500E19EC5 /* CJAdModel.swift */; };
+		97F9745A2D30086A00E19EC5 /* CCLogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974592D30086A00E19EC5 /* CCLogUtil.swift */; };
+		97F9745C2D3010AE00E19EC5 /* CCAdCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */; };
+		97F9745E2D30215900E19EC5 /* CJCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */; };
 		AEA457649A13AB86B7566369 /* Pods_CJAdDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +57,11 @@
 		97CEE5382D29A60B0056444F /* TypeOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOneCell.swift; sourceTree = "<group>"; };
 		97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthAdCollectionView.swift; sourceTree = "<group>"; };
 		97CEE53C2D29A9EE0056444F /* TSAdsHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAdsHomePage.swift; sourceTree = "<group>"; };
+		97F974552D30055100E19EC5 /* CJAdInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJAdInstance.swift; sourceTree = "<group>"; };
+		97F974572D30060500E19EC5 /* CJAdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJAdModel.swift; sourceTree = "<group>"; };
+		97F974592D30086A00E19EC5 /* CCLogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCLogUtil.swift; sourceTree = "<group>"; };
+		97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAdCollectionCell.swift; sourceTree = "<group>"; };
+		97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJCollectionExtension.swift; sourceTree = "<group>"; };
 		A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73ED7D90B5C4E9DDFC4B61C /* Pods-CJAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-CJAdDemo/Pods-CJAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,9 +167,22 @@
 			children = (
 				97CEE5362D29A5080056444F /* HomeViewController.swift */,
 				97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */,
-				97CEE5382D29A60B0056444F /* TypeOneCell.swift */,
+				97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */,
+				97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */,
+				97F974552D30055100E19EC5 /* CJAdInstance.swift */,
+				97F974592D30086A00E19EC5 /* CCLogUtil.swift */,
+				97F974572D30060500E19EC5 /* CJAdModel.swift */,
+				97F9745F2D30295B00E19EC5 /* Cell */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		97F9745F2D30295B00E19EC5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				97CEE5382D29A60B0056444F /* TypeOneCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,12 +328,17 @@
 				979E124A2D2549EB009C979B /* CQAdView.swift in Sources */,
 				979E12502D25A488009C979B /* CJErrorExtension.swift in Sources */,
 				97CEE5392D29A60B0056444F /* TypeOneCell.swift in Sources */,
+				97F9745C2D3010AE00E19EC5 /* CCAdCollectionCell.swift in Sources */,
+				97F974562D30055100E19EC5 /* CJAdInstance.swift in Sources */,
+				97F974582D30060500E19EC5 /* CJAdModel.swift in Sources */,
 				97CEE5312D297C710056444F /* CCFeedAdDocumView.swift in Sources */,
 				97CEE53B2D29A63C0056444F /* WidthAdCollectionView.swift in Sources */,
 				979E124C2D254ABE009C979B /* TSAdsPage.swift in Sources */,
+				97F9745E2D30215900E19EC5 /* CJCollectionExtension.swift in Sources */,
 				979E12482D254887009C979B /* CCAdView.swift in Sources */,
 				979E12532D25AC19009C979B /* CJFeedAdManager.swift in Sources */,
 				97CEE5372D29A5080056444F /* HomeViewController.swift in Sources */,
+				97F9745A2D30086A00E19EC5 /* CCLogUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

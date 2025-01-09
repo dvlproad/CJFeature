@@ -281,8 +281,8 @@
             filePath = "CJAdDemo/Home/TypeOneCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "configureAd(with:adViewHeightChangeBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -297,8 +297,8 @@
             filePath = "CJAdDemo/Home/TypeOneCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "configureAd(with:adViewHeightChangeBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,10 +313,42 @@
             filePath = "CJAdDemo/Home/TypeOneCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "init?(coder:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A1F69CF5-B8E5-4976-B025-84EAFDAFB295 - 18b13b3019f72741"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.TypeTwoCell.configureAd(with: CJAdDemo.TSDataModel, adViewHeightChangeBlock: (CoreGraphics.CGFloat) -&gt; ()) -&gt; ()"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/Home/TypeOneCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "543">
+               </Location>
+               <Location
+                  uuid = "A1F69CF5-B8E5-4976-B025-84EAFDAFB295 - 6fcd6b44aa09ce74"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CJAdDemo.TypeTwoCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CJAdDemo.TypeTwoCell&gt;"
+                  moduleName = "CJAdDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/Ads/CJAdDemo/CJAdDemo/Home/TypeOneCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "329">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -329,9 +361,41 @@
             filePath = "CJAdDemo/Home/TypeOneCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "058423DF-9B7A-4172-8284-E71C3D5E2B57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/Home/WidthAdCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "insertAd(adId:adRootViewController:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A830D57F-8589-48B6-8342-015D0135003F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CJAdDemo/Home/CJAdInstance.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "nativeExpressAdViewRenderSuccess(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

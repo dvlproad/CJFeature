@@ -12,15 +12,6 @@ enum CCADCauseType: String {
     case enterForeground  // 从后台回来
 }
 
-enum CCAdState {
-    case unknown
-    case loading
-    case loadedSuccess
-    case loadedFailure
-    case renderSuccess
-    case renderFailure
-}
-
 struct CCAdView: View {
     var adConfigModel: AdConfigModel
     var adWidth: CGFloat                // 广告不管显示不显示固定的宽度

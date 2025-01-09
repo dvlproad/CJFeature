@@ -9,6 +9,9 @@ import UIKit
 import SwiftUI
 
 class TypeOneCell: UICollectionViewCell {
+    var titleLabel: UILabel!
+    var imageView: UIImageView!
+    
     // 定义 TypeOneCell 的 UI 组件和布局
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +24,31 @@ class TypeOneCell: UICollectionViewCell {
     
     private func setupViews() {
         // 添加和配置 UI 组件
-        backgroundColor = .blue
+        self.backgroundColor = .blue
+        
+        let imageView: UIImageView = UIImageView()
+        imageView.image = UIImage(named: "placeholder_ad")
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        self.contentView.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.left.equalTo(self.contentView).offset(10)
+            make.width.equalTo(40)
+            make.top.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview()
+        }
+        self.imageView = imageView
+        
+        let titleLabel = UILabel(frame: CGRectMake(10, 10, 350, 90))
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .boldSystemFont(ofSize: 24)
+        self.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalTo(imageView.snp.right).offset(10)
+            make.right.equalTo(self.contentView).offset(-10)
+            make.top.bottom.equalToSuperview()
+        }
+        self.titleLabel = titleLabel
     }
 }
 
@@ -50,26 +77,8 @@ class TypeTwoCell: UICollectionViewCell {
     // 移除了内部模型定义，将它们作为外部配置的一部
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
-//        let bannerAdModel = AdConfigModel(type: "4", adId: "103320730", adArgument: "SearchResultsBanner")
-//        
-//        let adView = CCAdView(
-//            adConfigModel: bannerAdModel,
-//            adWidth: screenWidth-2*12,
-//            currentAdViewHeight: 84,
-//            adViewHeightChangeBlock: { newAdViewHeight in
-////                    model.adViewHeight = newAdViewHeight
-////                adViewHeightChangeBlock(newAdViewHeight)
-//            },
-//            isReloadToUpdateAdViewHeight: false
-//        )
-//        self.adView = adView
-        
-//        self.configureAd(with: TSDataModel()) { newAdViewHeight in
-//            
-//        }
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         // commonInit 移到配置方法中

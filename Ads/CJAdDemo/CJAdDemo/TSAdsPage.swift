@@ -9,9 +9,22 @@ import Foundation
 import SwiftUI
 
 class TSDataModel {
+    var title: String = ""
     var isAdBannerModel: Bool = false
+    var adIndex: Int = -1
+    
     var adViewHeight: CGFloat = feedAdPlaceholderHeight
     var isReloadToUpdateAdViewHeight: Bool = false
+    
+    init(title: String) {
+        self.isAdBannerModel = false
+        self.title = title
+    }
+    
+    init(adIndex: Int) {
+        self.isAdBannerModel = true
+        self.adIndex = adIndex
+    }
 }
 
 struct TSAdsPage: View {
@@ -34,7 +47,7 @@ struct TSAdsPage: View {
         @State private var errorMessage: String?
     
     
-    @State var model: TSDataModel = TSDataModel()
+    @State var model: TSDataModel = TSDataModel(title: "1")
     
 //    var adView: CCAdView?
     
