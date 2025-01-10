@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 struct TSWidgetBundleCacheUtil {
     
@@ -82,7 +83,7 @@ extension TSWidgetBundleCacheUtil {
     }
     
     // 在 App 内或外 更新组件
-    static func updateControlWidgetEntity(_ entity: BaseControlWidgetEntity) {
+    static func updateControlWidgetEntity(_ entity: BaseControlWidgetEntity, shouldRefreshDesktop: Bool) {
         if let saveId = entity.saveId {  // 如果有保存id，说明是更新
             for (index, item) in TSWidgetEntityManager.shared.controlWidgetEntitys.enumerated() {
                 if item.saveId == saveId {
@@ -92,7 +93,7 @@ extension TSWidgetBundleCacheUtil {
             }
         }
         let entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
-        self.updateControlWidgetEntitys(entitys)
+        self.updateControlWidgetEntitys(entitys, shouldRefreshDesktop: shouldRefreshDesktop)
     }
     
     // 在 App 内添加组件
@@ -100,10 +101,10 @@ extension TSWidgetBundleCacheUtil {
         TSWidgetEntityManager.shared.controlWidgetEntitys.append(entity)
         
         let entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
-        self.updateControlWidgetEntitys(entitys)
+        self.updateControlWidgetEntitys(entitys, shouldRefreshDesktop: false)
     }
     
-    static func updateControlWidgetEntitys(_ entitys: [BaseControlWidgetEntity]) {
+    static func updateControlWidgetEntitys(_ entitys: [BaseControlWidgetEntity], shouldRefreshDesktop: Bool) {
         let encoder = JSONEncoder()
         do {
             let jsonData = try encoder.encode(entitys)
@@ -116,6 +117,16 @@ extension TSWidgetBundleCacheUtil {
         } catch {
             debugPrint("序列化错误:  \(error)")
             //return false
+        }
+        
+        if shouldRefreshDesktop {
+            if #available(iOS 18.0, *) {
+                ControlCenter.shared.reloadControls(
+                    ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
+                )
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

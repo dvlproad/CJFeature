@@ -79,7 +79,7 @@ struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent
                 }
             }
         }
-        TSWidgetBundleCacheUtil.updateControlWidgetEntitys(cacheEntitys)
+        TSWidgetBundleCacheUtil.updateControlWidgetEntitys(cacheEntitys, shouldRefreshDesktop: true)
 
         return .result()
     }

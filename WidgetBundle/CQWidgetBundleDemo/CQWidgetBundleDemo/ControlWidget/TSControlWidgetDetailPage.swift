@@ -57,19 +57,21 @@ struct TSControlWidgetDetailPage: View {
                 ZStack {
                     Button("保存组件") {
                         if let saveId = entity.saveId, saveId.count > 0 {
-                            TSWidgetBundleCacheUtil.updateControlWidgetEntity(entity)
+                            TSWidgetBundleCacheUtil.updateControlWidgetEntity(entity, shouldRefreshDesktop: true)
+                            
+                            if #available(iOS 18.0, *) {
+                                ControlCenter.shared.reloadControls(
+                                    ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
+                                )
+                            } else {
+                                // Fallback on earlier versions
+                            }
                         } else {
                             entity.saveId = UUID().uuidString
                             TSWidgetBundleCacheUtil.addControlWidgetEntity(entity)
                         }
                         
-                        if #available(iOS 18.0, *) {
-                            ControlCenter.shared.reloadControls(
-                                ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
-                            )
-                        } else {
-                            // Fallback on earlier versions
-                        }
+                        
                         
                         presentationMode.wrappedValue.dismiss()
                     }
