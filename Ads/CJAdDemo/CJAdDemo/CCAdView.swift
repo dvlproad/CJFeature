@@ -10,50 +10,82 @@ import BUAdSDK
 import SwiftUI
 import SnapKit
 
-///banner广告view
+/// feed广告view
 struct CCAdvertiseViewRepresentable: UIViewControllerRepresentable {
     var adConfigModel: AdConfigModel
-    var adSize: CGSize
+    var adWidth: CGFloat                // 广告不管显示不显示固定的宽度
+    var adPlaceholderHeight: CGFloat    // 未显示时候用来占位的高度
     var placeholder: Bool
-    var nativeExpressAdSuccess: (() -> Void)
+    var nativeExpressAdLoad: ((_ isSuccess: Bool) -> Void)
+    var nativeExpressAdViewRender: ((_ isSuccess: Bool, _ adFrame: CGRect) -> Void)
+    var isReloadToUpdateAdViewHeight: Bool
     
     // 定义UIViewController类型
     typealias UIViewControllerType = CCAdvertiseViewVC
     
+    var vc: CCAdvertiseViewVC?
     
     // 创建并返回一个新的UIViewController
     func makeUIViewController(context: Context) -> CCAdvertiseViewVC {
         // 创建并返回UIViewController
-        return CCAdvertiseViewVC(adConfigModel: adConfigModel, adSize: adSize, placeholder: placeholder, nativeExpressAdSuccess: nativeExpressAdSuccess)
+        //let uiViewController = CCAdvertiseViewVC(adConfigModel: adConfigModel, adWidth: adWidth, adPlaceholderHeight: adPlaceholderHeight, placeholder: placeholder, nativeExpressAdLoad: nativeExpressAdLoad, nativeExpressAdViewRender: nativeExpressAdViewRender, isReloadToUpdateAdViewHeight: isReloadToUpdateAdViewHeight)
+        let uiViewController = CCAdvertiseViewVC()
+        uiViewController.update(adConfigModel: adConfigModel, adWidth: adWidth, adPlaceholderHeight: adPlaceholderHeight, placeholder: placeholder, nativeExpressAdLoad: nativeExpressAdLoad, nativeExpressAdViewRender: nativeExpressAdViewRender, isReloadToUpdateAdViewHeight: isReloadToUpdateAdViewHeight)
+        return uiViewController
     }
     
     // 更新UIViewController，如果需要的话
     func updateUIViewController(_ uiViewController: CCAdvertiseViewVC, context: Context) {
         // 可以在这里对UIViewController进行任何更新
+        //uiViewController.update(adConfigModel: adConfigModel, adWidth: adWidth, adPlaceholderHeight: adPlaceholderHeight, placeholder: placeholder, nativeExpressAdLoad: nativeExpressAdLoad, nativeExpressAdViewRender: nativeExpressAdViewRender, isReloadToUpdateAdViewHeight: isReloadToUpdateAdViewHeight)
         
     }
 }
 
-
 class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
     var adConfigModel: AdConfigModel
-    var adSize: CGSize
+    var adWidth: CGFloat                // 广告不管显示不显示固定的宽度
+    var adPlaceholderHeight: CGFloat    // 未显示时候用来占位的高度
     var placeholder: Bool
-    var nativeExpressAdSuccess: (() -> Void)
+    var nativeExpressAdLoad: ((_ isSuccess: Bool) -> Void)
+    var isReloadToUpdateAdViewHeight: Bool
+    var nativeExpressAdViewRender: ((_ isSuccess: Bool, _ adFrame: CGRect) -> Void)
     
-    init(adConfigModel: AdConfigModel, adSize: CGSize, placeholder: Bool, nativeExpressAdSuccess: @escaping () -> Void) {
+    init(adConfigModel: AdConfigModel,
+         adWidth: CGFloat, adPlaceholderHeight: CGFloat, placeholder: Bool,
+         nativeExpressAdLoad: @escaping (_ isSuccess: Bool) -> Void,
+         nativeExpressAdViewRender: @escaping (_ isSuccess: Bool, _ adFrame: CGRect) -> Void,
+         isReloadToUpdateAdViewHeight: Bool
+    ) {
         self.adConfigModel = adConfigModel
-        self.adSize = adSize
+        self.adWidth = adWidth
+        self.adPlaceholderHeight = adPlaceholderHeight
         self.placeholder = placeholder
-        self.nativeExpressAdSuccess = nativeExpressAdSuccess
+        self.nativeExpressAdLoad = nativeExpressAdLoad
+        self.nativeExpressAdViewRender = nativeExpressAdViewRender
+        self.isReloadToUpdateAdViewHeight = isReloadToUpdateAdViewHeight
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init() {
+        adConfigModel = AdConfigModel(type: "5", adId: "103320730", adArgument: AdUnlockType.homeFeed.rawValue)
+        adWidth = screenWidth
+        adPlaceholderHeight = 211
+        placeholder = false
+        nativeExpressAdLoad = { _ in }
+        nativeExpressAdViewRender = { _,_ in }
+        isReloadToUpdateAdViewHeight = false
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        adConfigModel = AdConfigModel(type: "5", adId: "广告流Id", adArgument: AdUnlockType.homeFeed.rawValue)
-        adSize = CGSizeMake(screenWidth, 211)
+        adConfigModel = AdConfigModel(type: "5", adId: "103320730", adArgument: AdUnlockType.homeFeed.rawValue)
+        adWidth = screenWidth
+        adPlaceholderHeight = 211
         placeholder = false
-        nativeExpressAdSuccess = {}
+        nativeExpressAdLoad = { _ in }
+        nativeExpressAdViewRender = { _,_ in }
+        isReloadToUpdateAdViewHeight = false
         super.init(coder: coder)
     }
     
@@ -62,7 +94,7 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
         addAdView()
         
         if placeholder {
-            self.view.backgroundColor = UIColor.lightGray
+            self.view.backgroundColor = UIColor.gray
             let imageView: UIImageView = UIImageView()
             //imageView.backgroundColor = .red
             imageView.image = UIImage(named: "placeholder_ad")
@@ -80,30 +112,50 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
     var expressAdViews: [BUNativeExpressAdView] = []
     func addAdView() -> Void {
         let slot1 = BUAdSlot()
-        slot1.id = adConfigModel.adId ?? "广告流Id"
+        slot1.id = adConfigModel.adId ?? "103320730"
         slot1.adType = .feed
         slot1.imgSize = BUSize(by: BUProposalSize.feed228_150)
         slot1.position = .feed
 
         // self.nativeExpressAdManager 可以重用
         if self.nativeExpressAdManager == nil {
-            self.nativeExpressAdManager = BUNativeExpressAdManager(slot: slot1, adSize: self.adSize)
+            self.nativeExpressAdManager = BUNativeExpressAdManager(slot: slot1, adSize: CGSize(width: self.adWidth, height: 0))
         }
-        self.nativeExpressAdManager?.adSize = self.adSize
+        self.nativeExpressAdManager?.adSize = CGSize(width: self.adWidth, height: 0)
         self.nativeExpressAdManager?.delegate = self
-        self.nativeExpressAdManager?.loadAdData(withCount: 1)
+        if !isReloadToUpdateAdViewHeight {
+            self.nativeExpressAdManager?.loadAdData(withCount: 1)
+        }
     }
     
+    func update(adConfigModel: AdConfigModel,
+                adWidth: CGFloat, adPlaceholderHeight: CGFloat, placeholder: Bool,
+                nativeExpressAdLoad: @escaping (_ isSuccess: Bool) -> Void,
+                nativeExpressAdViewRender: @escaping (_ isSuccess: Bool, _ adFrame: CGRect) -> Void,
+                isReloadToUpdateAdViewHeight: Bool
+    ) {
+        self.adConfigModel = adConfigModel
+        self.adWidth = adWidth
+        self.adPlaceholderHeight = adPlaceholderHeight
+        self.placeholder = placeholder
+        self.nativeExpressAdLoad = nativeExpressAdLoad
+        self.nativeExpressAdViewRender = nativeExpressAdViewRender
+        self.isReloadToUpdateAdViewHeight = isReloadToUpdateAdViewHeight
+        
+    }
+    
+
 //    展示时机
 //    在收到nativeExpressAdSuccessToLoad回调后再进行广告的渲染展示，刷新数据源
-    /**
-     * Sent when views successfully load ad
-     */
+//    - (void)nativeExpressAdSuccessToLoad:(BUNativeExpressAdManager *)nativeExpressAdManager views:(NSArray<__kindof BUNativeExpressAdView *> *)views;
     func nativeExpressAdSuccess(toLoad nativeExpressAdManager: BUNativeExpressAdManager, views: [BUNativeExpressAdView]) {
-        debugPrint("===AdFeed===nativeExpressAdSuccessToLoad")
-        
         // 【重要】不能保存太多view，需要在合适的时机手动释放不用的，否则内存会过大
         self.expressAdViews.removeAll()
+        
+        for (_, obj) in self.expressAdViews.enumerated() {
+            let expressView: BUNativeExpressAdView = obj
+            expressView.removeFromSuperview()
+        }
 
         if views.count > 0 {
             self.expressAdViews.append(contentsOf: views)
@@ -114,15 +166,20 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
                 expressView.render()
             }
         }
+        
+        for (_, obj) in self.expressAdViews.enumerated() {
+            let expressView: BUNativeExpressAdView = obj
+            self.view.addSubview(expressView)
+        }
 
 //        self.tableView.reloadData()
-        nativeExpressAdSuccess()
+        nativeExpressAdLoad(true)
         
        
         self.imageView?.removeFromSuperview()
+        //eventReportedApi(eventCode: "feed_ad_show")
     }
     
-
     /**
      * Sent when views fail to load ad
      */
@@ -132,13 +189,16 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
             adslotId = adslot.id
         }
         debugPrint("===AdFeed===nativeExpressAdFailToLoad:广告位\(adslotId) \(error?.cjErrorString ?? "未知错误")")
+        nativeExpressAdLoad(false)
     }
     
     ///**
     // * This method is called when rendering a nativeExpressAdView successed, and nativeExpressAdView.size.height has been updated
     // */
     func nativeExpressAdViewRenderSuccess(_ nativeExpressAdView: BUNativeExpressAdView) {
-        debugPrint("===AdFeed===nativeExpressAdViewRenderSuccess")
+        
+        debugPrint("===AdFeed===nativeExpressAdViewRenderSuccess\(nativeExpressAdView.frame)")
+        nativeExpressAdViewRender(true, nativeExpressAdView.frame)
     }
     
     ///**
@@ -146,6 +206,7 @@ class CCAdvertiseViewVC: UIViewController, BUNativeExpressAdViewDelegate {
     // */
     func nativeExpressAdViewRenderFail(_ nativeExpressAdView: BUNativeExpressAdView, error: Error?) {
         debugPrint("===AdFeed===nativeExpressAdViewRenderFail:\(error.debugDescription)")
+        nativeExpressAdViewRender(false, nativeExpressAdView.frame)
     }
     
     ///**

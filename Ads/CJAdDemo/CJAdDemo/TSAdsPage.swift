@@ -8,16 +8,35 @@
 import Foundation
 import SwiftUI
 
+class TSDataModel {
+    var title: String = ""
+    var isAdBannerModel: Bool = false
+    var adIndex: Int = -1
+    
+    var adViewHeight: CGFloat = feedAdPlaceholderHeight
+    var isReloadToUpdateAdViewHeight: Bool = false
+    
+    init(title: String) {
+        self.isAdBannerModel = false
+        self.title = title
+    }
+    
+    init(adIndex: Int) {
+        self.isAdBannerModel = true
+        self.adIndex = adIndex
+    }
+}
+
 struct TSAdsPage: View {
     let adModels = [
-        AdConfigModel(type: "2", adId: "广告id", adArgument: "AnimationIsland"),
-        AdConfigModel(type: "2", adId: "首页广告id", adArgument: "Widget"),
-        AdConfigModel(type: "1", adId: "壁纸广告id", adArgument: "Wallpaper"),
-        AdConfigModel(type: "3", adId: "开屏广告id", adArgument: "OpenScreen"),
-        AdConfigModel(type: "4", adId: "半屏广告id", adArgument: "HalfScreen"),
-        AdConfigModel(type: "4", adId: "banner广告Id", adArgument: "SearchResultsBanner"),
-        AdConfigModel(type: "5", adId: "首页广告流Id", adArgument: AdUnlockType.homeFeed.rawValue),
-        AdConfigModel(type: "5", adId: "壁纸广告流Id", adArgument: AdUnlockType.wallpaperFeed.rawValue),
+        AdConfigModel(type: "2", adId: "102894507", adArgument: "AnimationIsland"),
+        AdConfigModel(type: "2", adId: "102894507", adArgument: "Widget"),
+        AdConfigModel(type: "1", adId: "102917460", adArgument: "Wallpaper"),
+        AdConfigModel(type: "3", adId: "102997187", adArgument: "OpenScreen"),
+        AdConfigModel(type: "4", adId: "102996254", adArgument: "HalfScreen"),
+        AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner"),
+        AdConfigModel(type: "5", adId: "103303563", adArgument: AdUnlockType.homeFeed.rawValue),
+        AdConfigModel(type: "5", adId: "103303645", adArgument: AdUnlockType.wallpaperFeed.rawValue),
     ]
     
     @State private var isAdReady: Bool = false
@@ -27,20 +46,26 @@ struct TSAdsPage: View {
     @State private var showAd = false
         @State private var errorMessage: String?
     
+    
+    @State var model: TSDataModel = TSDataModel(title: "1")
+    
+//    var adView: CCAdView?
+    
     var body: some View {
+        /*
         VStack {
             Text("穿山甲广告 Demo")
                 .font(.title)
                 .padding()
             
             Button("加载Feed广告") {
-                let viewModel = YourViewModel(slotID: "your_ad_slot_id") // 替换为feed广告位 ID
+                let viewModel = YourViewModel(slotID: "103303563") // 替换为feed广告位 ID
                 yourAdManager = YourAdManager(viewModel: viewModel)
             }
             .buttonStyle(.borderedProminent)
             
             Button("加载激励广告") {
-                adManager.loadRewardedAd(adSlotID: "your_ad_slot_id") // 替换为激励视频广告位 ID
+                adManager.loadRewardedAd(adSlotID: "103161544") // 替换为激励视频广告位 ID
             }
             .buttonStyle(.borderedProminent)
             
@@ -70,20 +95,45 @@ struct TSAdsPage: View {
         .sheet(isPresented: $showAd) {
                     RewardedAdView(adManager: adManager)
                 }
+        */
+        
+        
+        WidthAdCollectionViewWrapper()
         
         VStack(alignment: .center) {
-            let bannerAdModel = AdConfigModel(type: "4", adId: "banner广告Id", adArgument: "SearchResultsBanner")
-            CCAdView(
-                adConfigModel: AdConfigModel(
-                    type: "5",
-                    adId: "首页广告流Id",
-                    adArgument: AdUnlockType.homeFeed.rawValue
-                ),
-                adSize: feedAdSize()
-            )
-            AdvertiseBannerRepresentable(
+            let bannerAdModel = AdConfigModel(type: "4", adId: "103320730", adArgument: "SearchResultsBanner")
+            
+            let adView = CCAdView(
                 adConfigModel: bannerAdModel,
-                adSize: CGSize(width: 338, height: 84)
+                adWidth: screenWidth-2*12,
+                currentAdViewHeight: model.adViewHeight,
+                adViewHeightChangeBlock: { newAdViewHeight in
+//                    model.adViewHeight = newAdViewHeight
+//                    adViewHeightChangeBlock(newAdViewHeight)
+                },
+                isReloadToUpdateAdViewHeight: model.isReloadToUpdateAdViewHeight
+            )
+            
+            adView
+//            AdvertiseBannerRepresentable(
+//                adConfigModel: bannerAdModel,
+//                adSize: CGSize(width: 338, height: 84)
+//            )
+//            .frame(width: screenWidth, height: 211)
+        }
+        .background(Color.white)
+        
+        
+        VStack(alignment: .center) {
+            let bannerAdModel = AdConfigModel(type: "4", adId: "103161544", adArgument: "SearchResultsBanner")
+            CCFeedAdDocumViewVCepresentable(
+                adConfigModel: bannerAdModel,
+                adWidth: 338,
+                adPlaceholderHeight: 84,
+                placeholder: true,
+                nativeExpressAdLoad: { _ in },
+                nativeExpressAdViewRender: { _,_ in },
+                isReloadToUpdateAdViewHeight: false
             )
             .frame(width: screenWidth, height: 211)
         }

@@ -14,7 +14,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink(destination: TSAdsPage()) {
-                    Text("TSAdsPage")
+                    Text("TSAdsPage2")
+                }
+                
+                NavigationLink(destination: TSAdsHomePage()) {
+                    Text("TSAdsHomePage")
                 }
             }
         }.onAppear() {

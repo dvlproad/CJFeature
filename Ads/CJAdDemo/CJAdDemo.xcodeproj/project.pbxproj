@@ -20,6 +20,17 @@
 		979E124E2D259765009C979B /* CJRewardedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E124D2D259765009C979B /* CJRewardedAdManager.swift */; };
 		979E12502D25A488009C979B /* CJErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E124F2D25A488009C979B /* CJErrorExtension.swift */; };
 		979E12532D25AC19009C979B /* CJFeedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979E12522D25AC19009C979B /* CJFeedAdManager.swift */; };
+		97CEE5312D297C710056444F /* CCFeedAdDocumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE5302D297C710056444F /* CCFeedAdDocumView.swift */; };
+		97CEE5342D29919C0056444F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 97CEE5332D29919C0056444F /* PrivacyInfo.xcprivacy */; };
+		97CEE5372D29A5080056444F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE5362D29A5080056444F /* HomeViewController.swift */; };
+		97CEE5392D29A60B0056444F /* TypeOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE5382D29A60B0056444F /* TypeOneCell.swift */; };
+		97CEE53B2D29A63C0056444F /* WidthAdCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */; };
+		97CEE53D2D29A9EE0056444F /* TSAdsHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CEE53C2D29A9EE0056444F /* TSAdsHomePage.swift */; };
+		97F974562D30055100E19EC5 /* CJAdInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974552D30055100E19EC5 /* CJAdInstance.swift */; };
+		97F974582D30060500E19EC5 /* CJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974572D30060500E19EC5 /* CJAdModel.swift */; };
+		97F9745A2D30086A00E19EC5 /* CCLogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F974592D30086A00E19EC5 /* CCLogUtil.swift */; };
+		97F9745C2D3010AE00E19EC5 /* CCAdCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */; };
+		97F9745E2D30215900E19EC5 /* CJCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */; };
 		AEA457649A13AB86B7566369 /* Pods_CJAdDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +51,17 @@
 		979E124D2D259765009C979B /* CJRewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJRewardedAdManager.swift; sourceTree = "<group>"; };
 		979E124F2D25A488009C979B /* CJErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJErrorExtension.swift; sourceTree = "<group>"; };
 		979E12522D25AC19009C979B /* CJFeedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJFeedAdManager.swift; sourceTree = "<group>"; };
+		97CEE5302D297C710056444F /* CCFeedAdDocumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCFeedAdDocumView.swift; sourceTree = "<group>"; };
+		97CEE5332D29919C0056444F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		97CEE5362D29A5080056444F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		97CEE5382D29A60B0056444F /* TypeOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOneCell.swift; sourceTree = "<group>"; };
+		97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthAdCollectionView.swift; sourceTree = "<group>"; };
+		97CEE53C2D29A9EE0056444F /* TSAdsHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAdsHomePage.swift; sourceTree = "<group>"; };
+		97F974552D30055100E19EC5 /* CJAdInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJAdInstance.swift; sourceTree = "<group>"; };
+		97F974572D30060500E19EC5 /* CJAdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJAdModel.swift; sourceTree = "<group>"; };
+		97F974592D30086A00E19EC5 /* CCLogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCLogUtil.swift; sourceTree = "<group>"; };
+		97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCAdCollectionCell.swift; sourceTree = "<group>"; };
+		97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CJCollectionExtension.swift; sourceTree = "<group>"; };
 		A1ABBC0EE08B344FB548DB92 /* Pods_CJAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CJAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73ED7D90B5C4E9DDFC4B61C /* Pods-CJAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CJAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-CJAdDemo/Pods-CJAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,13 +121,17 @@
 				9718E6512D2534DB009C5A04 /* ContentView.swift */,
 				9718E65E2D25382A009C5A04 /* CJAdsManager.swift */,
 				979E124B2D254ABE009C979B /* TSAdsPage.swift */,
+				97CEE53C2D29A9EE0056444F /* TSAdsHomePage.swift */,
 				979E12432D254770009C979B /* CJAdBannerView.swift */,
 				979E12472D254887009C979B /* CCAdView.swift */,
+				97CEE5302D297C710056444F /* CCFeedAdDocumView.swift */,
+				97CEE5352D29A4ED0056444F /* Home */,
 				979E12522D25AC19009C979B /* CJFeedAdManager.swift */,
 				979E12492D2549EB009C979B /* CQAdView.swift */,
 				979E12512D25AB5E009C979B /* Model */,
 				979E124D2D259765009C979B /* CJRewardedAdManager.swift */,
 				979E124F2D25A488009C979B /* CJErrorExtension.swift */,
+				97CEE5322D29919C0056444F /* Support */,
 				9718E6532D2534DD009C5A04 /* Assets.xcassets */,
 				9718E6552D2534DD009C5A04 /* Preview Content */,
 			);
@@ -126,6 +152,37 @@
 				979E12452D2547B5009C979B /* CJAdConfigModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		97CEE5322D29919C0056444F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				97CEE5332D29919C0056444F /* PrivacyInfo.xcprivacy */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		97CEE5352D29A4ED0056444F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				97CEE5362D29A5080056444F /* HomeViewController.swift */,
+				97CEE53A2D29A63C0056444F /* WidthAdCollectionView.swift */,
+				97F9745D2D30215900E19EC5 /* CJCollectionExtension.swift */,
+				97F9745B2D3010AE00E19EC5 /* CCAdCollectionCell.swift */,
+				97F974552D30055100E19EC5 /* CJAdInstance.swift */,
+				97F974592D30086A00E19EC5 /* CCLogUtil.swift */,
+				97F974572D30060500E19EC5 /* CJAdModel.swift */,
+				97F9745F2D30295B00E19EC5 /* Cell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		97F9745F2D30295B00E19EC5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				97CEE5382D29A60B0056444F /* TypeOneCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97CEE5342D29919C0056444F /* PrivacyInfo.xcprivacy in Resources */,
 				9718E6572D2534DD009C5A04 /* Preview Assets.xcassets in Resources */,
 				9718E6542D2534DD009C5A04 /* Assets.xcassets in Resources */,
 			);
@@ -263,14 +321,24 @@
 				979E124E2D259765009C979B /* CJRewardedAdManager.swift in Sources */,
 				9718E6522D2534DB009C5A04 /* ContentView.swift in Sources */,
 				9718E65F2D25382A009C5A04 /* CJAdsManager.swift in Sources */,
+				97CEE53D2D29A9EE0056444F /* TSAdsHomePage.swift in Sources */,
 				979E12462D2547B5009C979B /* CJAdConfigModel.swift in Sources */,
 				979E12442D254770009C979B /* CJAdBannerView.swift in Sources */,
 				9718E6502D2534DB009C5A04 /* CJAdDemoApp.swift in Sources */,
 				979E124A2D2549EB009C979B /* CQAdView.swift in Sources */,
 				979E12502D25A488009C979B /* CJErrorExtension.swift in Sources */,
+				97CEE5392D29A60B0056444F /* TypeOneCell.swift in Sources */,
+				97F9745C2D3010AE00E19EC5 /* CCAdCollectionCell.swift in Sources */,
+				97F974562D30055100E19EC5 /* CJAdInstance.swift in Sources */,
+				97F974582D30060500E19EC5 /* CJAdModel.swift in Sources */,
+				97CEE5312D297C710056444F /* CCFeedAdDocumView.swift in Sources */,
+				97CEE53B2D29A63C0056444F /* WidthAdCollectionView.swift in Sources */,
 				979E124C2D254ABE009C979B /* TSAdsPage.swift in Sources */,
+				97F9745E2D30215900E19EC5 /* CJCollectionExtension.swift in Sources */,
 				979E12482D254887009C979B /* CCAdView.swift in Sources */,
 				979E12532D25AC19009C979B /* CJFeedAdManager.swift in Sources */,
+				97CEE5372D29A5080056444F /* HomeViewController.swift in Sources */,
+				97F9745A2D30086A00E19EC5 /* CCLogUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CJAdDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 8285LLMDV3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CJAdDemo/Info.plist;
@@ -438,6 +507,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CJAdDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 8285LLMDV3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CJAdDemo/Info.plist;

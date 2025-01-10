@@ -7,7 +7,7 @@
 
 import Foundation
 import BUAdSDK
-import BUAdTestMeasurement
+//import BUAdTestMeasurement
 
 public struct CJAdsManager {
     public static let shared: CJAdsManager = CJAdsManager()
@@ -26,7 +26,7 @@ public struct CJAdsManager {
         
         /******************** 初始化 ********************/
         let configuration = BUAdSDKConfiguration()
-        configuration.appID = "设置APPID"
+        configuration.appID = "5647373" // 设置APPID
         configuration.debugLog = NSNumber(integerLiteral: 0)    // 0:close 1:open
         configuration.useMediation = true   // 是否使用聚合
         // 添加渠道
