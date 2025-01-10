@@ -8,6 +8,7 @@
 import Foundation
 
 struct TSCacheUtil {
+    // 确保需要的那些 Target 都添加了 App Group
     static let ApplicationGroupName = "group.dvlproad.cqwidgetbundledemo"
     
     static func valueForKey(_ key: String) -> Data? {

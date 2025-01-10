@@ -6,18 +6,35 @@
 //
 
 import SwiftUI
+import CJViewElement_Swift
 
 struct TSHomePage: View {
     @State var isReAppear: Bool = false
     @State private var items: [BaseControlWidgetEntity] = []
+    @State private var cacheItems: [BaseControlWidgetEntity] = []
     
     var body: some View {
         NavigationStack {
+            bodyContent
+                .onAppear() {
+                    if !isReAppear {
+                        isReAppear = true
+                        self.viewDidLoad()
+                    }
+                    
+                    cacheItems = TSWidgetBundleCacheUtil.getControlWidgets()
+                }
+        }
+        
+    }
+    
+    var bodyContent: some View {
+        VStack {
             // 右上角有个按钮"我的组件"
             HStack {
                 Spacer()
                 NavigationLink(destination: TSMyWidgetHomePage()) {
-                    Text("我的组件")
+                    Text("我的组件(\(cacheItems.count))")
                 }
             }
             
@@ -25,7 +42,7 @@ struct TSHomePage: View {
                 // 使用数组的索引来作为List的标识符
                 List(items.indices, id: \.self) { index in
                     let item = items[index]
-                    NavigationLink(destination: TSControlWidgetDetailPage(entity: item)) {
+                    NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: item)) {
                         BaseControlWidgetView(entity: item)
                     }
                 }
@@ -33,25 +50,42 @@ struct TSHomePage: View {
                 
                 // 按钮用于创建新的数据项并更新列表
                 Button(action: {
-                    let newItem = BaseControlWidgetEntity(id: "id_\(items.count + 1)", uuid: "uuid_\(items.count + 1)", title: "样式\(items.count + 1)")
+                    let itemNo = items.count + 1
+                    let imageName = imageNames.randomElement()!
+                    let newItem = BaseControlWidgetEntity(
+                        id: "id_\(itemNo)",
+                        uuid: "uuid_\(itemNo)",
+                        title: "样式\(itemNo)",
+                        subTitle: "组件类型",
+                        imageName: imageName
+                    )
                     items.append(newItem)
                 }) {
                     Text("Add Item")
                 }
             }
         }
-        .onAppear() {
-            if !isReAppear {
-                isReAppear = true
-                self.viewDidLoad()
-            }
+    }
+    
+    private var imageNames: [String] {
+        var imageNames = ["accessibility-human", "activity"]
+        for index in 0...6 {
+            imageNames.append("icon_control_katong_\(index%7 + 1)")
         }
+        return imageNames
     }
     
     func viewDidLoad() {
         // 创建20个item
-        for _ in 1...20 {
-            let newItem = BaseControlWidgetEntity(id: "id_\(items.count + 1)", uuid: "uuid_\(items.count + 1)", title: "样式\(items.count + 1)")
+        for index in 0...19 {
+            let imageName = imageNames[index%(imageNames.count)]
+            let newItem = BaseControlWidgetEntity(
+                id: "id_\(index + 1)",
+                uuid: "uuid_\(index + 1)",
+                title: "样式\(index + 1)",
+                subTitle: "组件类型",
+                imageName: imageName
+            )
             items.append(newItem)
         }
     }

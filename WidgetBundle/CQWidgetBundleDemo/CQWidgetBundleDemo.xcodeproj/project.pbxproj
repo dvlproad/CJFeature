@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3624E179CBABD079C6A62080 /* Pods_WidgetExtensionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4046F347D1D6F93CC8F3911D /* Pods_WidgetExtensionExtension.framework */; };
 		97554DEB2D2FD5E8004ED8B1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97554DEA2D2FD5E8004ED8B1 /* WidgetKit.framework */; };
 		97554DED2D2FD5E8004ED8B1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97554DEC2D2FD5E8004ED8B1 /* SwiftUI.framework */; };
 		97554DFE2D2FD5EA004ED8B1 /* WidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 97554DE92D2FD5E8004ED8B1 /* WidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -38,8 +39,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B6AD0B39E01AD6B5C205341 /* Pods-WidgetExtensionExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtensionExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtensionExtension/Pods-WidgetExtensionExtension.release.xcconfig"; sourceTree = "<group>"; };
+		2625593799497BC4ABCD856B /* Pods-WidgetExtensionExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtensionExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetExtensionExtension/Pods-WidgetExtensionExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		2C9DF56E5FF834CC6B66C791 /* Pods-CQWidgetBundleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CQWidgetBundleDemo.release.xcconfig"; path = "Target Support Files/Pods-CQWidgetBundleDemo/Pods-CQWidgetBundleDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4046F347D1D6F93CC8F3911D /* Pods_WidgetExtensionExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetExtensionExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DF98FE04077FD0021E64B /* Pods_CQWidgetBundleDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CQWidgetBundleDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970DFBEE2D310E660078C4BC /* WidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 		97554D972D2FA267004ED8B1 /* CQWidgetBundleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CQWidgetBundleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97554DE92D2FD5E8004ED8B1 /* WidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		97554DEA2D2FD5E8004ED8B1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -58,8 +63,10 @@
 		97554E232D2FE791004ED8B1 /* Exceptions for "WidgetExtension" folder in "CQWidgetBundleDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ControlWidget/BaseControlWidgetEntity.swift,
 				ControlWidget/BaseControlWidgetView.swift,
+				ControlWidget/ControlToggleWidgerValueManage.swift,
+				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
+				ControlWidget/Model/BaseControlWidgetEntity.swift,
 			);
 			target = 97554D962D2FA267004ED8B1 /* CQWidgetBundleDemo */;
 		};
@@ -69,7 +76,11 @@
 				Cache/TSCacheUtil.swift,
 				Cache/TSWidgetBunldeCacheUtil.swift,
 				Cache/TSWidgetEntityManager.swift,
-				TSControlWidgetDetailPage.swift,
+				Common/Log/CJLogUtil.swift,
+				Common/PageInfo/CJPageInfo.swift,
+				Common/Test/CJTestUtil.swift,
+				ControlWidget/TSControlWidgetDetailPage.swift,
+				Resources/ShareResources/ShareAssets.xcassets,
 				TSHomePage.swift,
 				TSMyWidgetHomePage.swift,
 			);
@@ -112,6 +123,7 @@
 			files = (
 				97554DED2D2FD5E8004ED8B1 /* SwiftUI.framework in Frameworks */,
 				97554DEB2D2FD5E8004ED8B1 /* WidgetKit.framework in Frameworks */,
+				3624E179CBABD079C6A62080 /* Pods_WidgetExtensionExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +135,8 @@
 			children = (
 				F4581B17D06C8F304E596EAB /* Pods-CQWidgetBundleDemo.debug.xcconfig */,
 				2C9DF56E5FF834CC6B66C791 /* Pods-CQWidgetBundleDemo.release.xcconfig */,
+				2625593799497BC4ABCD856B /* Pods-WidgetExtensionExtension.debug.xcconfig */,
+				1B6AD0B39E01AD6B5C205341 /* Pods-WidgetExtensionExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -133,6 +147,7 @@
 				5A7DF98FE04077FD0021E64B /* Pods_CQWidgetBundleDemo.framework */,
 				97554DEA2D2FD5E8004ED8B1 /* WidgetKit.framework */,
 				97554DEC2D2FD5E8004ED8B1 /* SwiftUI.framework */,
+				4046F347D1D6F93CC8F3911D /* Pods_WidgetExtensionExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,6 +155,7 @@
 		97554D8E2D2FA267004ED8B1 = {
 			isa = PBXGroup;
 			children = (
+				970DFBEE2D310E660078C4BC /* WidgetExtensionExtension.entitlements */,
 				97554D992D2FA267004ED8B1 /* CQWidgetBundleDemo */,
 				97554DEE2D2FD5E8004ED8B1 /* WidgetExtension */,
 				97554D982D2FA267004ED8B1 /* Products */,
@@ -188,6 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97554E002D2FD5EA004ED8B1 /* Build configuration list for PBXNativeTarget "WidgetExtensionExtension" */;
 			buildPhases = (
+				823E2A55BBCE31B3DC15A9C1 /* [CP] Check Pods Manifest.lock */,
 				97554DE52D2FD5E8004ED8B1 /* Sources */,
 				97554DE62D2FD5E8004ED8B1 /* Frameworks */,
 				97554DE72D2FD5E8004ED8B1 /* Resources */,
@@ -200,8 +217,6 @@
 				97554DEE2D2FD5E8004ED8B1 /* WidgetExtension */,
 			);
 			name = WidgetExtensionExtension;
-			packageProductDependencies = (
-			);
 			productName = WidgetExtensionExtension;
 			productReference = 97554DE92D2FD5E8004ED8B1 /* WidgetExtensionExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -301,6 +316,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		823E2A55BBCE31B3DC15A9C1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WidgetExtensionExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -381,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -438,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -458,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CQWidgetBundleDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XF866W89WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -466,6 +503,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CQWidgetBundleDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XF866W89WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -497,6 +535,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,15 +551,19 @@
 		};
 		97554E012D2FD5EA004ED8B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2625593799497BC4ABCD856B /* Pods-WidgetExtensionExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XF866W89WA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,15 +581,19 @@
 		};
 		97554E022D2FD5EA004ED8B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B6AD0B39E01AD6B5C205341 /* Pods-WidgetExtensionExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XF866W89WA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,6 +9,7 @@ import AppIntents
 import SwiftUI
 import WidgetKit
 
+@available(iOS 18.0, *)
 struct WidgetExtensionControl: ControlWidget {
     static let kind: String = "com.dvlproad.CQWidgetBundleDemo.WidgetExtension"
 
@@ -30,6 +31,7 @@ struct WidgetExtensionControl: ControlWidget {
     }
 }
 
+@available(iOS 18.0, *)
 extension WidgetExtensionControl {
     struct Value {
         var isRunning: Bool
@@ -48,6 +50,7 @@ extension WidgetExtensionControl {
     }
 }
 
+@available(iOS 18.0, *)
 struct TimerConfiguration: ControlConfigurationIntent {
     static let title: LocalizedStringResource = "Timer Name Configuration"
 

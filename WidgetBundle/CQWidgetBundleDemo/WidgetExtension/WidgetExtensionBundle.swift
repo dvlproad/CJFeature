@@ -12,12 +12,16 @@ import SwiftUI
 struct WidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
         WidgetExtension()
-        WidgetExtensionControl()
-        WidgetExtensionLiveActivity()
         
         if #available(iOS 18.0, *) {
+            WidgetExtensionControl()
             // Demo
             ControlToggleWidget()
+            BaseControlWidget()
         }
+        
+        WidgetExtensionLiveActivity()
+        
+        
     }
 }

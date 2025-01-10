@@ -28,7 +28,7 @@ struct ControlToggleWidget: ControlWidget {
                 // 实际是一个Lable 可自适应实际小、中、大三种尺寸
                 // 使用的文字和图标可以通过 item.entity 去关联一个数据模型，从数据模型取
                 Label {
-                    //                    Text("标题")
+//                    Text("标题")
                     Text(item.entity.title ?? "标题2")
                     Text("副标题2")
                 } icon: {
@@ -36,7 +36,7 @@ struct ControlToggleWidget: ControlWidget {
                     // 系统SF图标
                     //                    Image(systemName: "figure.walk")
                     // 自定义SF图标
-                    Image("accessibility-human.svg")
+                    Image("accessibility-human")
                 }
 
             }.tint(themeColor)  // 设定开启状态的图标颜色

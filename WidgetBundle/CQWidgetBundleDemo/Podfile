@@ -1,4 +1,4 @@
-platform :ios, '14.0'
+platform :ios, '17.0'
 use_frameworks!
 #use_modular_headers!
 # 请记得将 ENABLE_USER_SCRIPT_SANDBOXING 设为 NO，否则运行不起来 https://stackoverflow.com/questions/76590131/error-while-build-ios-app-in-xcode-sandbox-rsync-samba-13105-deny1-file-w
@@ -47,9 +47,19 @@ source 'https://gitee.com/dvlproad/dvlproadSpecs'  #这里要增加的是这条�
 inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引入的第三方代码库产生的warning。
 
 
+# 定义共享依赖
+def shared_pods
+  pod 'CJViewElement-Swift',  :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
+#  pod 'SDWebImage', '~> 5.20.0'
+#  pod 'SnapKit'
+end
+
 target 'CQWidgetBundleDemo' do
-    pod 'CQDemoKit',          '~> 0.6.9',          :subspecs => ['BaseVC']
-    
-    pod 'SDWebImage',         '~> 5.20.0'
-    pod 'SnapKit'
+  shared_pods
+  pod 'CQDemoKit',            '~> 0.6.9',          :subspecs => ['BaseVC']
+end
+
+
+target 'WidgetExtensionExtension' do
+  shared_pods
 end

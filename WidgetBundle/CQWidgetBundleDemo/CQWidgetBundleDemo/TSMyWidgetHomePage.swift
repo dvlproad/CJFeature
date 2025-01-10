@@ -15,14 +15,14 @@ struct TSMyWidgetHomePage: View {
             // 使用数组的索引来作为List的标识符
             List(items.indices, id: \.self) { index in
                 let item = items[index]
-                NavigationLink(destination: TSControlWidgetDetailPage(entity: item)) {
+                NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .myWidgetPage, entity: item)) {
                     BaseControlWidgetView(entity: item)
                 }
             }
             .navigationTitle("我的组件")
         }
         .onAppear() {
-            items = TSWidgetBunldeCacheUtil.getControlWidgets()
+            items = TSWidgetBundleCacheUtil.getControlWidgets()
         }
     }
 }

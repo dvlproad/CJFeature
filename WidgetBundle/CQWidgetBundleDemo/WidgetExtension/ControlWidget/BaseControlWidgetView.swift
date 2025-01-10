@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct BaseControlWidgetView: View {
     var entity: BaseControlWidgetEntity
     
@@ -15,6 +16,14 @@ struct BaseControlWidgetView: View {
     }
     
     var body: some View {
-        Text(entity.title ?? "未知名")
+        Label {
+            Text("\(entity.id): \(entity.title)")
+            Text(entity.subTitle)
+        } icon: {
+            // 系统SF图标
+            // Image(systemName: "figure.walk")
+            // 自定义SF图标
+            Image(entity.imageName)
+        }
     }
 }
