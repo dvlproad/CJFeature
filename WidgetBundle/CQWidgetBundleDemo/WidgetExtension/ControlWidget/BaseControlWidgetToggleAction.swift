@@ -57,31 +57,23 @@ struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent
         // 此处实际业务处理
         // 开启灵动岛、播放声音、开启振动等
         CJLogUtil.log("您【在桌面】点击了: \(self.widgetId ?? "") \(self.widgetSaveId ?? "")")
+        return .result()
         
-        guard let widgetId = self.widgetId else { return .result() }
+        //guard let widgetId = self.widgetId else { return .result() }
         guard let widgetSaveId = self.widgetSaveId else { return .result() }
         
         var cacheEntitys = TSWidgetBundleCacheUtil.getControlWidgets()
-        guard let widgetModel = TSWidgetBundleCacheUtil.findControlWidgetEntity(widgetSaveId, in: cacheEntitys) else { return .result() }
+        guard var widgetModel = TSWidgetBundleCacheUtil.findControlWidgetEntity(widgetSaveId, in: cacheEntitys) else { return .result() }
         
         // 点击操作
-        let newWidgetModel = BaseControlWidgetEntityHandle.updateUI(model: widgetModel, caseType: .bgButtonClick, pageInfo: CQPageInfo(pageType: .inDesktop))
+        BaseControlWidgetEntityHandle.handleWidgetModel(&widgetModel, caseType: .bgButtonClick, pageInfo: CQPageInfo(pageType: .inDesktop))
 
         // 开启灵动岛
         self.startLiveActivity()
         
         // 更新组件
-        if let saveId = widgetModel.saveId {  // 如果有保存id，说明是更新
-            for (index, item) in cacheEntitys.enumerated() {
-                if item.saveId == saveId {
-                    cacheEntitys[index] = newWidgetModel
-                    break
-                }
-            }
-        }
-        TSWidgetBundleCacheUtil.updateControlWidgetEntitys(cacheEntitys, shouldRefreshDesktop: true)
+        TSWidgetBundleCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .dataAndWidgetUI)
 
         return .result()
     }
-
 }

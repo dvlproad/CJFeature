@@ -49,7 +49,8 @@ inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引�
 
 # 定义共享依赖
 def shared_pods
-  pod 'CJViewElement-Swift',  :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
+  pod 'CJViewElement-Swift',    :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
+  pod 'CJAnimationKit-Swift',   path: '../../../CJAnimationKit'
 #  pod 'SDWebImage', '~> 5.20.0'
 #  pod 'SnapKit'
 end

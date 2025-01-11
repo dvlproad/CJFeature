@@ -65,6 +65,7 @@
 			membershipExceptions = (
 				ControlWidget/BaseControlWidgetView.swift,
 				ControlWidget/ControlToggleWidgerValueManage.swift,
+				ControlWidget/CQControlWidgetExample.swift,
 				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
 				ControlWidget/Model/BaseControlWidgetEntity.swift,
 			);

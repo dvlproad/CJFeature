@@ -93,7 +93,7 @@ extension TSWidgetBundleCacheUtil {
             }
         }
         let entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
-        self.updateControlWidgetEntitys(entitys, shouldRefreshDesktop: shouldRefreshDesktop)
+        self.updateControlWidgetEntitys(entitys, influenceScope: shouldRefreshDesktop ? .dataAndWidgetUI : .onlyData)
     }
     
     // 在 App 内添加组件
@@ -101,10 +101,29 @@ extension TSWidgetBundleCacheUtil {
         TSWidgetEntityManager.shared.controlWidgetEntitys.append(entity)
         
         let entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
-        self.updateControlWidgetEntitys(entitys, shouldRefreshDesktop: false)
+        self.updateControlWidgetEntitys(entitys, influenceScope: .onlyData)
     }
     
-    static func updateControlWidgetEntitys(_ entitys: [BaseControlWidgetEntity], shouldRefreshDesktop: Bool) {
+    
+    static func replaceEntity(_ newWidgetModel: BaseControlWidgetEntity, in entitys: inout [BaseControlWidgetEntity], influenceScope: WidgetDataInfluenceScope) {
+        guard let saveId = newWidgetModel.saveId else { return }   // 如果有保存id，才去更新
+        /*
+        for (index, item) in entitys.enumerated() {
+            if item.saveId == saveId {
+                entitys[index] = newWidgetModel
+                break
+            }
+        }
+        */
+        
+        if let index = entitys.firstIndex(where: { $0.saveId == saveId }) {
+            entitys[index] = newWidgetModel
+        }
+        
+        updateControlWidgetEntitys(entitys, influenceScope: influenceScope)
+    }
+    
+    static private func updateControlWidgetEntitys(_ entitys: [BaseControlWidgetEntity], influenceScope: WidgetDataInfluenceScope) {
         let encoder = JSONEncoder()
         do {
             let jsonData = try encoder.encode(entitys)
@@ -119,7 +138,7 @@ extension TSWidgetBundleCacheUtil {
             //return false
         }
         
-        if shouldRefreshDesktop {
+        if influenceScope == .dataAndWidgetUI {
             if #available(iOS 18.0, *) {
                 ControlCenter.shared.reloadControls(
                     ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
@@ -129,5 +148,11 @@ extension TSWidgetBundleCacheUtil {
             }
         }
     }
+}
+
+// 组件数据的更新影响范围
+enum WidgetDataInfluenceScope {
+    case onlyData               // 只更新数据
+    case dataAndWidgetUI        // 更新数据并且刷新组件
 }
 

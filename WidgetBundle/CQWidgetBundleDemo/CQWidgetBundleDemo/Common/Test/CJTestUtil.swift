@@ -8,6 +8,19 @@
 import Foundation
 
 struct CJTestUtil {
+    static func generateRandomImageName() -> String {
+        let imageName = imageNames().randomElement()!
+        return imageName
+    }
+    
+    static func imageNames() -> [String] {
+        var imageNames = ["accessibility-human", "activity"]
+        for index in 0...6 {
+            imageNames.append("icon_control_katong_\(index%7 + 1)")
+        }
+        return imageNames
+    }
+    
     static func generateRandomChineseCharacter() -> String {
         let randomUnicode = Int.random(in: 0x4e00...0x9fa5) // Unicode 范围为 0x4e00 到 0x9fa5
         let scalar = UnicodeScalar(randomUnicode)
@@ -21,7 +34,9 @@ struct CJTestUtil {
         }
         return randomString
     }
-
+    
+    
+    
     // 生成一个随机的中文字符串，长度为 5
 //    let randomChineseString = generateRandomChineseString(length: 5)
 //    print(randomChineseString)

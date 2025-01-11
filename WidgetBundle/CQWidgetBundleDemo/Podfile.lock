@@ -1,4 +1,7 @@
 PODS:
+  - CJAnimationKit-Swift (0.0.1):
+    - CJAnimationKit-Swift/Extension (= 0.0.1)
+  - CJAnimationKit-Swift/Extension (0.0.1)
   - CJViewElement-Swift (0.0.1):
     - CJViewElement-Swift/CommonSettingRow (= 0.0.1)
     - CJViewElement-Swift/ComponentConfigModel (= 0.0.1)
@@ -44,6 +47,7 @@ PODS:
   - Masonry (1.1.0)
 
 DEPENDENCIES:
+  - CJAnimationKit-Swift (from `../../../CJAnimationKit`)
   - CJViewElement-Swift (from `../../../CJViewCreatorSDK`)
   - CQDemoKit/BaseVC (~> 0.6.9)
 
@@ -53,14 +57,17 @@ SPEC REPOS:
     - Masonry
 
 EXTERNAL SOURCES:
+  CJAnimationKit-Swift:
+    :path: "../../../CJAnimationKit"
   CJViewElement-Swift:
     :path: "../../../CJViewCreatorSDK"
 
 SPEC CHECKSUMS:
+  CJAnimationKit-Swift: 5c604b879639b6a60c3419fea76500ce7724071d
   CJViewElement-Swift: c8ff58ffe0946ddeb1ce7f3df5991c5bb6fd5d34
   CQDemoKit: f7a6a6f2a7e3eea2a4a0684c654bfcf0360e6dca
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 74a0115e35ef9735a5bbfdb38177bc02db1a5014
+PODFILE CHECKSUM: ea52e1b3816b0c8dd25879f5f65f2ffb77b5215e
 
 COCOAPODS: 1.16.2

@@ -15,12 +15,16 @@ struct TSControlWidgetDetailPage: View {
     var fromPageType: CQPageType
     @State var entity: BaseControlWidgetEntity
     
+    @State private var showAnimationSheet: Bool = false
+    
     
     var body: some View {
         NavigationView {
             VStack {
                 Text("\(entity.id)当前数据为: \(entity.title)")
-                BaseControlWidgetView(entity: entity)
+                //BaseControlWidgetView(entity: entity)
+                BaseControlWidgetView(bindingEntity: $entity)
+                Spacer(minLength: 20)
 
                 List {
                     let textFieldWidth = 320.0
@@ -52,6 +56,13 @@ struct TSControlWidgetDetailPage: View {
                         }
                     )
                     .padding(.horizontal, 21)
+                    
+                    Button(action: {
+                        entity.animateModel.isAnimating = true
+                        showAnimationSheet.toggle()
+                    }) {
+                        Text("选择动画:\(entity.animateModel.type.description)")
+                    }
                 }
                 
                 ZStack {
@@ -76,6 +87,34 @@ struct TSControlWidgetDetailPage: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
+            }
+        }
+        .sheet(isPresented: $showAnimationSheet) {
+            // 表单内容
+            NavigationView {
+                Form {
+                    Section {
+                        // 选项1
+                        Button("无动画") {
+                            // 选项1的处理逻辑
+                            entity.animateModel.type = .none
+                            showAnimationSheet = false
+                        }
+                        // 选项2
+                        Button("弹跳") {
+                            // 选项2的处理逻辑
+                            entity.animateModel.type = .bounce
+                            showAnimationSheet = false
+                        }
+                        // 选项3
+                        Button("旋转") {
+                            // 选项3的处理逻辑
+                            entity.animateModel.type = .rotate
+                            showAnimationSheet = false
+                        }
+                    }
+                }
+                .navigationBarTitle("选择动画")
             }
         }
         .onAppear() {

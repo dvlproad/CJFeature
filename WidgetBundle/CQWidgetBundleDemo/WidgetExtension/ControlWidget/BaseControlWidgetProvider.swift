@@ -32,7 +32,8 @@ extension BaseControlWidget {
                         uuid: "11111",
                         title: "控制组件",
                         subTitle: "我是副标题",
-                        imageName: ""
+                        imageName: "",
+                        imageAnimateType: .none
                     )
             )
         }

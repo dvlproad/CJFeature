@@ -57,7 +57,8 @@ struct TSHomePage: View {
                         uuid: "uuid_\(itemNo)",
                         title: "样式\(itemNo)",
                         subTitle: "组件类型",
-                        imageName: imageName
+                        imageName: imageName,
+                        imageAnimateType: .none
                     )
                     items.append(newItem)
                 }) {
@@ -76,17 +77,6 @@ struct TSHomePage: View {
     }
     
     func viewDidLoad() {
-        // 创建20个item
-        for index in 0...19 {
-            let imageName = imageNames[index%(imageNames.count)]
-            let newItem = BaseControlWidgetEntity(
-                id: "id_\(index + 1)",
-                uuid: "uuid_\(index + 1)",
-                title: "样式\(index + 1)",
-                subTitle: "组件类型",
-                imageName: imageName
-            )
-            items.append(newItem)
-        }
+        items = CQControlWidgetIds.examples()
     }
 }

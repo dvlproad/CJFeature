@@ -14,16 +14,28 @@ enum CQUpdateUICauseType {
 }
 
 struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
-    static func updateUI(model: BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) -> BaseControlWidgetEntity {
-        var newWidgetModel = model    // 更新数据
-        
+    static func handleWidgetModel(_ model: inout BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
         CJLogUtil.log("温馨提示：您在【\(pageInfo?.pageType.rawValue ?? "")】点击了《\(model.title)》其id=\(model.id)")
         if caseType == .bgButtonClick {
-            // 如果有使用到开启LiveActivity 这个数据管理类的数据需要做持久化处理，否则value会一直变化,出现不可预知的异常
-            ControlToggleWidgerValueManage.shared.value.toggle()
+            model.clickModel.count += 1  // 点击次数
             
-            let randomChineseString = CJTestUtil.generateRandomChineseString(length: 5)
-            newWidgetModel.title = randomChineseString
+            // 如果有使用到开启LiveActivity 这个数据管理类的数据需要做持久化处理，否则value会一直变化,出现不可预知的异常
+            let widgetId = model.id
+            if widgetId == CQControlWidgetIds.meritsWoodenFishControlWidgetID {
+                var imageScaeModel = model.animateModel
+                imageScaeModel.isAnimating = true
+                model.title = "x\(model.clickModel.count)"
+                
+            } else if widgetId == CQControlWidgetIds.diceControlWidgetID {
+                //newWidgetModel.isOn.toggle()
+                model.imageName = CJTestUtil.generateRandomImageName()
+                
+            } else {
+//                model.isOn.toggle()
+                var imageScaeModel = model.animateModel
+                imageScaeModel.isAnimating = true
+                model.animateModel = imageScaeModel
+            }
         }
         
         
@@ -35,8 +47,6 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
             }
             
         }
-        
-        return newWidgetModel
     }
     
     fileprivate static func playAudio(_ audioName: String, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
