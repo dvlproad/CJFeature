@@ -13,6 +13,9 @@ enum CQUpdateUICauseType {
     case bgButtonClick  // 背景按钮的点击
 }
 
+/// 在小组件中
+let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
+
 struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
     static func handleWidgetModel(_ model: inout BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
         CJLogUtil.log("温馨提示：您在【\(pageInfo?.pageType.rawValue ?? "")】点击了《\(model.title)》其id=\(model.id)")
@@ -27,14 +30,18 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
                 model.title = "x\(model.clickModel.count)"
                 
             } else if widgetId == CQControlWidgetIds.diceControlWidgetID {
-                //newWidgetModel.isOn.toggle()
+                model.isOn = true
                 model.imageName = CJTestUtil.generateRandomImageName()
                 
+            } else if widgetId == CQControlWidgetIds.dynamicIconControlWidgetID {
+                model.isOn.toggle()
+                
+//                var imageScaeModel = model.animateModel
+//                imageScaeModel.isAnimating = true
+//                model.animateModel = imageScaeModel
+                
             } else {
-//                model.isOn.toggle()
-                var imageScaeModel = model.animateModel
-                imageScaeModel.isAnimating = true
-                model.animateModel = imageScaeModel
+                model.isOn.toggle()
             }
         }
         

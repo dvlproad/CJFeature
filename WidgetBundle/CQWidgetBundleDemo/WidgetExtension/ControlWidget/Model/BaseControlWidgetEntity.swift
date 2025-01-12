@@ -20,7 +20,7 @@ struct WidgetClickModel: Codable {
     }
 }
 
-class WidgetImageScaleModel: AnimationModel, Codable {
+struct WidgetImageScaleModel: AnimationModel, Codable {
     var type: AnimationType
     var isAnimating: Bool
     var animatingScale: CGFloat
@@ -44,8 +44,8 @@ class WidgetImageScaleModel: AnimationModel, Codable {
             self.duration = 1.5
             break
         case .woodenFish:
-            self.animatingScale = 0.8
-            self.duration = 0.2
+            self.animatingScale = 0.3
+            self.duration = 3
             break
         case .breathe:
             self.animatingScale = 1.2

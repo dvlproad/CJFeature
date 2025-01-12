@@ -57,7 +57,7 @@ struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent
         // 此处实际业务处理
         // 开启灵动岛、播放声音、开启振动等
         CJLogUtil.log("您【在桌面】点击了: \(self.widgetId ?? "") \(self.widgetSaveId ?? "")")
-        return .result()
+//        return .result()
         
         //guard let widgetId = self.widgetId else { return .result() }
         guard let widgetSaveId = self.widgetSaveId else { return .result() }

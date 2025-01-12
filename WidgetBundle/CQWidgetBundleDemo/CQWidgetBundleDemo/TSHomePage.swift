@@ -65,6 +65,13 @@ struct TSHomePage: View {
                     Text("Add Item")
                 }
             }
+            
+            NavigationLink(destination: TSEasyAnimationView()) {
+                Text("测试动画")
+            }
+            NavigationLink(destination: TSGifPage()) {
+                Text("测试Gif")
+            }
         }
     }
     

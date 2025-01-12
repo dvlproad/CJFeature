@@ -25,28 +25,47 @@ struct BaseControlWidgetView: View {
         self._entity = bindingEntity
     }
     
+    @State private var isOn: Bool = false
+    @State private var rotationAngle: Double = 0
+    
     @State private var rotate = false   // 是否旋转
-    var body: some View {
-        let imageView = Image(entity.imageName)
-//        imageView.rotateAnimation(.constant(true))
-//        
-//        Image(systemName: "arrow.2.circlepath")
-        imageView
-//            .resizable()
-//            .frame(width: 100, height: 100)
-            .rotateAnimation($rotate)      //  可以 ✅
-        //SwiftUI 的动画系统需要某种形式的状态变更（比如 @State 或 @Binding）来触发动画。如果没有 @State，动画可能无法触发，或者仅仅执行一次，不会循环。
-//            .rotateAnimation(.constant(true)) // 失败 ❌
-//            .rotateAnimation2(true) // 失败 ❌
-            .onTapGesture {
-                rotate.toggle()
-            }
-            .onAppear() {
-                rotate = true
+    var body2: some View {
+//        let imageView = Image(entity.imageName)
+////        imageView.rotateAnimation(.constant(true))
+////        
+////        Image(systemName: "arrow.2.circlepath")
+//        imageView
+////            .resizable()
+////            .frame(width: 100, height: 100)
+//            .rotateAnimation($rotate)      //  可以 ✅
+//        //SwiftUI 的动画系统需要某种形式的状态变更（比如 @State 或 @Binding）来触发动画。如果没有 @State，动画可能无法触发，或者仅仅执行一次，不会循环。
+////            .rotateAnimation(.constant(true)) // 失败 ❌
+////            .rotateAnimation2(true) // 失败 ❌
+//            .onTapGesture {
+//                rotate.toggle()
+//            }
+//            .onAppear() {
+//                rotate = true
+//            }
+        
+        Image(systemName: "arrow.2.circlepath")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 40, height: 40)
+            .rotationEffect(.degrees(rotationAngle)) // 添加旋转效果
+//            .animation(
+//                Animation.linear(duration: 2.0)
+//                    .repeatForever(autoreverses: false),
+//                value: rotationAngle
+//            )
+            .scaleEffect(entity.isOn ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
+            .animation(.easeInOut(duration: 0.2), value: entity.isOn)  // 动画时长
+            .onAppear {
+                rotationAngle = 360 // 开始旋转
             }
     }
     
-    var body2: some View {
+    var body: some View {
         Label {
             Text("\(entity.title)")
             Text("\(entity.subTitle)(\(entity.id))")
@@ -54,33 +73,10 @@ struct BaseControlWidgetView: View {
             // 系统SF图标
             // Image(systemName: "figure.walk")
             // 自定义SF图标
-            let imageView = Image(entity.imageName)
+            // Image(entity.imageName)
             
-            var imageScaleModel = entity.animateModel
-            let type = imageScaleModel.type
-            /*
-            if type == .woodenFish {
-                imageView
-                    .woodenFishAnimation(Binding(get: { imageScaleModel }, set: { imageScaleModel = $0 as! WidgetImageScaleModel }))
-                //                    .scaleEffect(imageScaleModel.isScaledDown ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
-                //                    .animation(.easeInOut(duration: imageScaleModel.duration), value: imageScaleModel.isScaledDown)  // 动画时长
-            } else {
-                let bindingValue = Binding(get: { imageScaleModel.isAnimating }, set: { imageScaleModel.isAnimating = $0 })
-                imageView.cjAnimation(type: type, isAnimating: bindingValue)
-            }
-            */
-//            imageView
-//                .scaleEffect(imageScaleModel.isAnimating ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
-//                .animation(
-//                    .easeInOut(duration: imageScaleModel.duration)
-//                    .repeatForever(autoreverses: true),
-//                    value: imageScaleModel.isAnimating
-//                )
-            imageView.rotateAnimation(.constant(true))
+            BaseControlWidgetAnimationView(entity: $entity)
             
-//            imageView
-//                .rotationEffect(Angle.degrees(360))
-//                .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false), value: true)
         }
     }
 }

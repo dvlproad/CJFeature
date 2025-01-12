@@ -2,6 +2,9 @@ PODS:
   - CJAnimationKit-Swift (0.0.1):
     - CJAnimationKit-Swift/Extension (= 0.0.1)
   - CJAnimationKit-Swift/Extension (0.0.1)
+  - CJImageKit-Swift (0.0.1):
+    - CJImageKit-Swift/Gif (= 0.0.1)
+  - CJImageKit-Swift/Gif (0.0.1)
   - CJViewElement-Swift (0.0.1):
     - CJViewElement-Swift/CommonSettingRow (= 0.0.1)
     - CJViewElement-Swift/ComponentConfigModel (= 0.0.1)
@@ -13,6 +16,11 @@ PODS:
   - CJViewElement-Swift/Extension (0.0.1)
   - CJViewElement-Swift/Model (0.0.1)
   - CJViewElement-Swift/SquareResultView (0.0.1)
+  - CJWidgetKit-Swift (0.0.1):
+    - CJWidgetKit-Swift/Gif (= 0.0.1)
+  - CJWidgetKit-Swift/Gif (0.0.1):
+    - CJImageKit-Swift/Gif
+    - SwingAnimation
   - CQDemoKit/BaseUIKit (0.6.9):
     - Masonry
   - CQDemoKit/BaseUtil (0.6.9)
@@ -45,29 +53,51 @@ PODS:
     - CQDemoKit/Helper
   - CQDemoKit/Helper (0.6.9)
   - Masonry (1.1.0)
+  - SDWebImage (5.20.0):
+    - SDWebImage/Core (= 5.20.0)
+  - SDWebImage/Core (5.20.0)
+  - SnapKit (5.7.1)
+  - SwingAnimation (1.0.0)
 
 DEPENDENCIES:
   - CJAnimationKit-Swift (from `../../../CJAnimationKit`)
+  - CJImageKit-Swift (from `../../../UIKit-Image-iOS`)
   - CJViewElement-Swift (from `../../../CJViewCreatorSDK`)
+  - CJWidgetKit-Swift (from `../../../UIKit-Image-iOS`)
   - CQDemoKit/BaseVC (~> 0.6.9)
+  - SDWebImage (~> 5.20.0)
+  - SnapKit
+  - SwingAnimation
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - CQDemoKit
     - Masonry
+    - SDWebImage
+    - SnapKit
+    - SwingAnimation
 
 EXTERNAL SOURCES:
   CJAnimationKit-Swift:
     :path: "../../../CJAnimationKit"
+  CJImageKit-Swift:
+    :path: "../../../UIKit-Image-iOS"
   CJViewElement-Swift:
     :path: "../../../CJViewCreatorSDK"
+  CJWidgetKit-Swift:
+    :path: "../../../UIKit-Image-iOS"
 
 SPEC CHECKSUMS:
-  CJAnimationKit-Swift: 5c604b879639b6a60c3419fea76500ce7724071d
+  CJAnimationKit-Swift: 79907e80c44f7b44b05fd0f573a2b2d96a989ed7
+  CJImageKit-Swift: dc29934f6c0827ed7ec19494a2f59d6aeabedaea
   CJViewElement-Swift: c8ff58ffe0946ddeb1ce7f3df5991c5bb6fd5d34
+  CJWidgetKit-Swift: 4cb8bc548bad8de6b9ec502b556802c9bf91cd8a
   CQDemoKit: f7a6a6f2a7e3eea2a4a0684c654bfcf0360e6dca
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: ea52e1b3816b0c8dd25879f5f65f2ffb77b5215e
+PODFILE CHECKSUM: bd1067377876f510a7285d96971d429cb16cea6e
 
 COCOAPODS: 1.16.2

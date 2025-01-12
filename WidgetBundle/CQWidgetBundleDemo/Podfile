@@ -51,8 +51,10 @@ inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引�
 def shared_pods
   pod 'CJViewElement-Swift',    :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
   pod 'CJAnimationKit-Swift',   path: '../../../CJAnimationKit'
-#  pod 'SDWebImage', '~> 5.20.0'
-#  pod 'SnapKit'
+  pod 'CJImageKit-Swift',       :path => '../../../UIKit-Image-iOS'
+  pod 'CJWidgetKit-Swift',      :path => '../../../UIKit-Image-iOS'
+  pod 'SDWebImage', '~> 5.20.0'
+  pod 'SnapKit'
 end
 
 target 'CQWidgetBundleDemo' do
@@ -63,4 +65,5 @@ end
 
 target 'WidgetExtensionExtension' do
   shared_pods
+  pod 'SwingAnimation'
 end

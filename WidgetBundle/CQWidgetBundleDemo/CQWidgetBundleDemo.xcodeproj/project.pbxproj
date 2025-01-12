@@ -68,6 +68,11 @@
 				ControlWidget/CQControlWidgetExample.swift,
 				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
 				ControlWidget/Model/BaseControlWidgetEntity.swift,
+				ControlWidget/View/BaseControlWidgetAnimationView.swift,
+				Widget/RotateAnimateViewAndIntent1.swift,
+				Widget/RotateAnimateViewAndIntent2.swift,
+				Widget/RotateAnimateViewAndIntent3.swift,
+				Widget/RotateAnimateViewAndIntent4.swift,
 			);
 			target = 97554D962D2FA267004ED8B1 /* CQWidgetBundleDemo */;
 		};
@@ -81,7 +86,13 @@
 				Common/PageInfo/CJPageInfo.swift,
 				Common/Test/CJTestUtil.swift,
 				ControlWidget/TSControlWidgetDetailPage.swift,
+				ControlWidget/TSEasyAnimationView.swift,
+				Resources/ShareResources/Ayaka.gif,
+				Resources/ShareResources/Cat1.gif,
+				Resources/ShareResources/Cat2.gif,
 				Resources/ShareResources/ShareAssets.xcassets,
+				Resources/ShareResources/transformer.gif,
+				TSGifPage.swift,
 				TSHomePage.swift,
 				TSMyWidgetHomePage.swift,
 			);

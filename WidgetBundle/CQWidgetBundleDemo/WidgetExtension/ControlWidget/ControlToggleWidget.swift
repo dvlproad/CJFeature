@@ -8,6 +8,7 @@
 import AppIntents
 import SwiftUI
 import WidgetKit
+import SwingAnimation
 
 @available(iOS 18.0, *)
 struct ControlToggleWidget: ControlWidget {
@@ -27,19 +28,36 @@ struct ControlToggleWidget: ControlWidget {
             ) {
                 // 实际是一个Lable 可自适应实际小、中、大三种尺寸
                 // 使用的文字和图标可以通过 item.entity 去关联一个数据模型，从数据模型取
-                Label {
-//                    Text("标题")
-                    Text(item.entity.title ?? "标题2")
-                    Text("副标题2")
-                } icon: {
-                    ///  此处图标使用实际业务对应的SF图标
-                    // 系统SF图标
-                    //                    Image(systemName: "figure.walk")
-                    // 自定义SF图标
-                    Image("accessibility-human")
-                }
+                Image(systemName: "arrow.clockwise")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+//                    .clockHandRotationEffect(period: .custom(2), in: TimeZone.current, anchor: .center)
+                    .clockHandRotationEffect(period: .custom(30), in: .current, anchor: .center)
+//                Label {
+////                    Text("标题")
+//                    Text(item.entity.title ?? "标题2")
+//                    Text("副标题2")
+//                } icon: {
+//                    ///  此处图标使用实际业务对应的SF图标
+//                    // 系统SF图标
+//                    //                    Image(systemName: "figure.walk")
+//                    // 自定义SF图标
+////                    let rotate = ControlToggleWidgerValueManage.shared.value
+////                    Image("icon_control_katong_6")
+//////                        .rotationEffect(Angle.degrees(rotate ? 360 : 0))
+//////                        .animation(rotate ? Animation.linear(duration: 2).repeatForever(autoreverses: false) : .default, value: rotate)
+////                        .clockHandRotationEffect(period: .custom(1), in: TimeZone.current, anchor: .top)
+//                    
+//                    Image(systemName: "arrow.clockwise")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 50, height: 50)
+//                        .clockHandRotationEffect(period: .custom(1), in: TimeZone.current, anchor: .top)
+//                }
 
-            }.tint(themeColor)  // 设定开启状态的图标颜色
+            }
+            .tint(themeColor)  // 设定开启状态的图标颜色
         }.displayName("控制组件2")
             .description("选择自定义组件2")
             .promptsForUserConfiguration()
