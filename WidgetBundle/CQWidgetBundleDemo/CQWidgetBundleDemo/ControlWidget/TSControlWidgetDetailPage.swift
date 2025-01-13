@@ -29,6 +29,11 @@ struct TSControlWidgetDetailPage: View {
     
     @State private var showAnimationSheet: Bool = false
     
+    init(fromPageType: CQPageType, entity: BaseControlWidgetEntity) {
+        self.fromPageType = fromPageType
+        self.entity = entity
+    }
+    
     var hasAdd: Bool {
         var hasAdd: Bool = false
         if let saveId = entity.saveId, saveId.count > 0 {
@@ -41,7 +46,8 @@ struct TSControlWidgetDetailPage: View {
         CJAnimateImageViewRepresentable(
             gifName: "Ayaka",
             contentMode: .scaleAspectFill,
-            isAnimating: .constant(true))
+            isAnimating: .constant(true)
+        )
         .frame(width: 150, height: 150)
         .background(.ultraThinMaterial)
         .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
@@ -54,134 +60,46 @@ struct TSControlWidgetDetailPage: View {
     @State private var rotate = false   // 是否旋转
     @State private var breathe = false  // 是否呼吸
     @State private var pulse = false    // 是否脉冲
+    
+    private var options: [SymbolEffectType] = [
+        .none,
+        .bounceUpByLayer,
+        .wiggleForwardByLayer,
+        .rotateClockwiseByLayer,
+        .breathePlainByLayer,
+        .pulse
+    ]
+    
+    
+    let horizontalPadding: CGFloat = 20.0
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 0) {
             
             Text("\(entity.id)当前数据为: \(entity.title)")
-            //BaseControlWidgetView(entity: entity)
-            BaseControlWidgetView(bindingEntity: $entity)
-            Spacer(minLength: 20)
             
-            VStack {
-                let textFieldWidth = 320.0
-                let textFieldHeight = 40.0
-                CJTextSettingRow(
-                    title: entity.title,
-                    text: Binding(get: { entity.title }, set: { entity.title = $0 }),
-                    placeHolder: "请输入内容",
-                    lineLimit: 1,
-                    textFieldWidth: textFieldWidth,
-                    textFieldHeight: textFieldHeight,
-                    textDidChange: { value in
-                        entity.title = value
-                        //                            self.updateUI()
-                    }
-                )
-                .padding(.horizontal, 21)
-                
-                CJTextSettingRow(
-                    title: entity.subTitle,
-                    text: Binding(get: { entity.subTitle }, set: { entity.subTitle = $0 }),
-                    placeHolder: "请输入内容",
-                    lineLimit: 1,
-                    textFieldWidth: textFieldWidth,
-                    textFieldHeight: textFieldHeight,
-                    textDidChange: { value in
-                        entity.subTitle = value
-                        //                            self.updateUI()
-                    }
-                )
-                .padding(.horizontal, 21)
-                
-                Button(action: {
-                    entity.animateModel.isAnimating = true
-                    showAnimationSheet.toggle()
-                }) {
-                    Text("选择动画:\(entity.animateModel.type.description)")
-                }
-                
-                
-                HStack {
-                    Image("icon_control_katong_5")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .rotateAnimation($rotate)
-    //                    .onTapGesture {
-    //                        rotate.toggle()
-    //                    }
-    //                gifImage
-    //                    .bounceAnimation($bounce)
-                    Image("icon_control_katong_6")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-//                        .bounceAnimation($bounce)
-                        .bounceAnimation(.constant(animationType == .bounce))
-                        .rotateAnimation(.constant(animationType == .rotate))
-                        .cjAnimation(type: $animationType)
-                }
-                .background(Color.gray)
+            headerView
+            
+            ScrollView(.vertical) {
+                settingView
             }
+            .padding(.horizontal, horizontalPadding)
+            
+            addOrUpdateButton
         }
-        
-        ZStack {
-            Button(hasAdd ? "保存组件" : "添加组件") {
-                if let saveId = entity.saveId, saveId.count > 0 {
-                    TSWidgetBundleCacheUtil.updateControlWidgetEntity(entity, shouldRefreshDesktop: true)
-                    
-                    if #available(iOS 18.0, *) {
-                        ControlCenter.shared.reloadControls(
-                            ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
-                        )
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                } else {
-                    entity.saveId = UUID().uuidString
-                    TSWidgetBundleCacheUtil.addControlWidgetEntity(entity)
-                }
-                
-                
-                presentationMode.wrappedValue.dismiss()
-            }
-        }
+        .padding(.horizontal, horizontalPadding)
         .sheet(isPresented: $showAnimationSheet) {
-            // 表单内容
-            NavigationView {
-                Form {
-                    Section {
-                        // 选项1
-                        Button("无动画") {
-                            // 选项1的处理逻辑
-                            bounce = false
-                            rotate = false
-                            entity.animateModel.type = .none
-                            updateUI()
-                            showAnimationSheet = false
-                        }
-                        // 选项2
-                        Button("弹跳") {
-                            // 选项2的处理逻辑
-                            bounce = true
-                            rotate = false
-                            entity.animateModel.type = .bounce
-                            updateUI()
-                            showAnimationSheet = false
-                        }
-                        // 选项3
-                        Button("旋转") {
-                            // 选项3的处理逻辑
-                            bounce = false
-                            rotate = true
-                            entity.animateModel.type = .rotate
-                            updateUI()
-                            showAnimationSheet = false
-                        }
-                    }
-                }
-                .navigationBarTitle("选择动画")
-            }
+            AnimationSheet(options: options, selectedIndex: animationSelectedIndex, onChangeOfIndex: { index in
+                entity.symbolEffectType = options[index]
+            }, onCancelBlock: {
+                entity.symbolEffectType = options[animationSelectedIndex]
+                showAnimationSheet = false
+            }, onConfirmBlock: { newSelectedIndex in
+                showAnimationSheet = false
+            })
+//            .presentationDetents([.medium, .large])
+//            .presentationDetents(Set(heights))
+            .presentationDetents([.height(400), .height(600)])
+
         }
         .onAppear() {
             print("TSControlWidgetDetailPage onAppear")
@@ -194,12 +112,174 @@ struct TSControlWidgetDetailPage: View {
         .task {
             
         }
-        
-        
     }
-    
+    let heights = stride(from: 0.1, to: 1.0, by: 0.1).map { PresentationDetent.fraction($0) }
+    @State var styleSelectedIndex: Int = 0
+    @State var animationSelectedIndex: Int = 0
     private func updateUI() {
         animationType = entity.animateModel.type
     }
     
+    
+    var headerView: some View {
+        VStack {
+            Spacer().frame(height: 20)
+            
+            //List {
+                VStack(alignment: .center, spacing: 0) {
+                    BaseControlWidgetView(bindingEntity: $entity)
+                }
+                .frame(height: 150)
+            //}
+
+            Spacer().frame(height: 20)
+            
+            StyleSegmentedView(
+                options: ControlWidgetType.allCases,
+                selectedIndex: styleSelectedIndex,
+                onChangeOfIndex: { index in
+                    styleSelectedIndex = index
+                    entity.widgetStyle = ControlWidgetType.allCases[index]
+                }
+            )
+            .frame(width: 200)
+            
+            Spacer().frame(height: 20)
+        }
+        .frame(width: UIScreen.main.bounds.width)
+        .background(Color(#colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)))
+    }
+    
+    var settingView: some View {
+        VStack {
+            
+            chooseAnimationButton
+            
+            titleEditView
+            subTitleEditView
+            
+            
+            HStack {
+                Image("icon_control_katong_5")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .rotateAnimation($rotate)
+//                    .onTapGesture {
+//                        rotate.toggle()
+//                    }
+//                gifImage
+//                    .bounceAnimation($bounce)
+                Image("icon_control_katong_6")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+//                        .bounceAnimation($bounce)
+                    .bounceAnimation(.constant(animationType == .bounce))
+                    .rotateAnimation(.constant(animationType == .rotate))
+                    .cjAnimation(type: $animationType)
+            }
+            .background(Color.gray)
+        }
+    }
+    
+    var chooseAnimationButton: some View {
+        Button(action: {
+            showAnimationSheet.toggle()
+        }) {
+            HStack(alignment: .center, spacing: 0) {
+                Text("动画选择")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.black)
+                Spacer()
+                Text("\(entity.symbolEffectType.description) ")
+                Text(">")
+                    .foregroundColor(.gray)
+            }
+        }
+    }
+    
+    var titleRow: some View {
+        HStack(alignment: .center, spacing: 0) {
+            Text("标题")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(.black)
+        }
+    }
+    
+    var titleEditView: some View {
+        VStack(alignment: .center, spacing: 0) {
+            TitleRowView(title: "标题")
+            
+            let textFieldWidth = 320.0
+            let textFieldHeight = 40.0
+            CJTextSettingRow(
+                title: entity.title,
+                text: Binding(get: { entity.title }, set: { entity.title = $0 }),
+                placeHolder: "请输入内容",
+                lineLimit: 1,
+                textFieldWidth: textFieldWidth,
+                textFieldHeight: textFieldHeight,
+                textDidChange: { value in
+                    entity.title = value
+//                    self.updateUI()
+                }
+            )
+        }
+    }
+    
+    var subTitleEditView: some View {
+        VStack(alignment: .center, spacing: 0) {
+            TitleRowView(title: "副标题")
+            
+            let textFieldWidth = 320.0
+            let textFieldHeight = 40.0
+            CJTextSettingRow(
+                title: entity.subTitle,
+                text: Binding(get: { entity.subTitle }, set: { entity.subTitle = $0 }),
+                placeHolder: "请输入内容",
+                lineLimit: 1,
+                textFieldWidth: textFieldWidth,
+                textFieldHeight: textFieldHeight,
+                textDidChange: { value in
+                    entity.subTitle = value
+//                    self.updateUI()
+                }
+            )
+        }
+    }
+    
+    var addOrUpdateButton: some View {
+        Button(hasAdd ? "保存组件" : "添加组件") {
+            if let saveId = entity.saveId, saveId.count > 0 {
+                TSWidgetBundleCacheUtil.updateControlWidgetEntity(entity, shouldRefreshDesktop: true)
+                
+                if #available(iOS 18.0, *) {
+                    ControlCenter.shared.reloadControls(
+                        ofKind: "com.cqWidgetBundleDemo.toggle" //BaseControlWidget.kind
+                    )
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                entity.saveId = UUID().uuidString
+                TSWidgetBundleCacheUtil.addControlWidgetEntity(entity)
+            }
+            
+            
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+}
+
+struct TitleRowView: View {
+    var title: String
+    var body: some View {
+        HStack(alignment: .center, spacing: 0) {
+            Text(title)
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(.black)
+            Spacer()
+        }
+    }
 }

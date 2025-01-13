@@ -85,6 +85,8 @@
 				Common/Log/CJLogUtil.swift,
 				Common/PageInfo/CJPageInfo.swift,
 				Common/Test/CJTestUtil.swift,
+				ControlWidget/AnimationSheet.swift,
+				ControlWidget/StyleSegmentedView.swift,
 				ControlWidget/TSControlWidgetDetailPage.swift,
 				ControlWidget/TSEasyAnimationView.swift,
 				Resources/ShareResources/Ayaka.gif,

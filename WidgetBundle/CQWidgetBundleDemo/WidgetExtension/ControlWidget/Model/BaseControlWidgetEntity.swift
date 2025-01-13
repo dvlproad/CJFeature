@@ -100,6 +100,9 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     var onTintColorString: String?  // 选中时候的颜色
 //    let imageAnimateType: String // 动画类型
     var animateModel: WidgetImageScaleModel
+//    var symbolEffectTypeString: String?
+    var symbolEffectType: SymbolEffectType = .none
+    var widgetStyle: ControlWidgetType = .circle
     
     init(id: String, uuid: String, title: String, subTitle: String, imageName: String, imageAnimateType: AnimationType) {
         self.id = id

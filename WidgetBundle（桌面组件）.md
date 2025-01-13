@@ -36,3 +36,16 @@ APP内控制中心组件详情页面：
   * 变更后数据的同步，提供给app内使用的数据（当前topWidget功能操作，内部UI并未自动刷新）
   * 自定义的点击，变更图文信息，功德组件连续点击
 
+
+
+
+
+### 动画实现
+
+核心：[官网下载 SF Symbols 6](https://developer.apple.com/sf-symbols/)
+
+参考文档：
+
+* [在 iOS 17 中使用 Symbols 呈現動感](https://www.yunserve.dev/animate-symbols-in-app/)
+* [iOS 17 之 SwiftUI 5 中 SF Symbols 符号的动画效果示例](https://www.codeun.com/archives/1224.html)
+* [定制属于你的 SF Symbols](https://juejin.cn/post/7166118375960739848)

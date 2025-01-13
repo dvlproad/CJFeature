@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CJWidgetKit_Swift
+import CJAnimationKit_Swift
 
 struct BaseControlWidgetAnimationView: View {
     @Binding var entity: BaseControlWidgetEntity
@@ -43,19 +44,32 @@ struct BaseControlWidgetAnimationViewInApp: View {
         // 系统SF图标
         // Image(systemName: "figure.walk")
         // 自定义SF图标
-        let imageView = Image(entity.imageName)
+        let imageView = Image("scissors.circle")
         
-        var imageScaleModel = entity.animateModel
-        let type = imageScaleModel.type
-        if type == .woodenFish {
+        if #available(iOS 18.0, *) {
             imageView
-                .woodenFishAnimation(Binding(get: { imageScaleModel }, set: { imageScaleModel = $0 as! WidgetImageScaleModel }))
-//                    .scaleEffect(imageScaleModel.isScaledDown ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
-//                    .animation(.easeInOut(duration: imageScaleModel.duration), value: imageScaleModel.isScaledDown)  // 动画时长
+                .resizable()
+//                .symbolEffect(.bounce.up.byLayer, options: .repeat(.continuous))
+//                .symbolEffect(.breathe.pulse.byLayer, options: .repeat(.continuous))
+                .applyEffect(entity.symbolEffectType)
+                .imageFrame(entity.widgetStyle)
+                .aspectRatio(contentMode: .fit)
         } else {
-            let bindingValue = Binding(get: { imageScaleModel.isAnimating }, set: { imageScaleModel.isAnimating = $0 })
-//            imageView.cjAnimation(type: type, isAnimating: imageScaleModel.isAnimating)
-            imageView.cjAnimation(type: $entity.animateModel.type)
+            // Fallback on earlier versions
         }
+        
+        
+//        var imageScaleModel = entity.animateModel
+//        let type = imageScaleModel.type
+//        if type == .woodenFish {
+//            imageView
+//                .woodenFishAnimation(Binding(get: { imageScaleModel }, set: { imageScaleModel = $0 as! WidgetImageScaleModel }))
+////                    .scaleEffect(imageScaleModel.isScaledDown ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
+////                    .animation(.easeInOut(duration: imageScaleModel.duration), value: imageScaleModel.isScaledDown)  // 动画时长
+//        } else {
+//            let bindingValue = Binding(get: { imageScaleModel.isAnimating }, set: { imageScaleModel.isAnimating = $0 })
+////            imageView.cjAnimation(type: type, isAnimating: imageScaleModel.isAnimating)
+//            imageView.cjAnimation(type: $entity.animateModel.type)
+//        }
     }
 }
