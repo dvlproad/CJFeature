@@ -107,7 +107,7 @@ struct BaseControlWidgetViewInApp: View {
     var body: some View {
         let widgetStyle = entity.widgetStyle
         containerView
-            .widget_frame_bgColor_cornerRadius(widgetStyle)
+            .widget_frame_bgColor_cornerRadius(widgetStyle, bgColorString: entity.bgColorString)
     }
     
     var containerView: some View {

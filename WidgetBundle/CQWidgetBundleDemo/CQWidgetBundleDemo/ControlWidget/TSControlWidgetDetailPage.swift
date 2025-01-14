@@ -94,6 +94,7 @@ struct TSControlWidgetDetailPage: View {
                 entity.symbolEffectType = options[animationSelectedIndex]
                 showAnimationSheet = false
             }, onConfirmBlock: { newSelectedIndex in
+                animationSelectedIndex = newSelectedIndex
                 showAnimationSheet = false
             })
 //            .presentationDetents([.medium, .large])
@@ -102,12 +103,7 @@ struct TSControlWidgetDetailPage: View {
 
         }
         .onAppear() {
-            print("TSControlWidgetDetailPage onAppear")
-            bounce = true
-            swing = true
-            rotate = true
-            breathe = true
-            pulse = true
+            viewOnAppear()
         }
         .task {
             
@@ -118,6 +114,20 @@ struct TSControlWidgetDetailPage: View {
     @State var animationSelectedIndex: Int = 0
     private func updateUI() {
         animationType = entity.animateModel.type
+    }
+    
+    @State var egIconModels: [CJBaseDataModel] = []
+    @State var currentIconModel: CJBaseDataModel?
+    func viewOnAppear() {
+        print("TSControlWidgetDetailPage onAppear")
+        bounce = true
+        swing = true
+        rotate = true
+        breathe = true
+        pulse = true
+        
+        egIconModels = CQControlWidgetExample.iconExamples()
+        currentIconModel = egIconModels[0]
     }
     
     
@@ -152,6 +162,7 @@ struct TSControlWidgetDetailPage: View {
     
     var settingView: some View {
         VStack {
+            iconChooseView
             
             chooseAnimationButton
             
@@ -180,33 +191,31 @@ struct TSControlWidgetDetailPage: View {
                     .cjAnimation(type: $animationType)
             }
             .background(Color.gray)
+            .clipped()
         }
     }
     
-    var chooseAnimationButton: some View {
-        Button(action: {
-            showAnimationSheet.toggle()
-        }) {
-            HStack(alignment: .center, spacing: 0) {
-                Text("动画选择")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.black)
-                Spacer()
-                Text("\(entity.symbolEffectType.description) ")
-                Text(">")
-                    .foregroundColor(.gray)
+    var iconChooseView: some View {
+        VStack(alignment: .center, spacing: 0) {
+            TitleRowView(title: "图标", value: "图标库", onTapValue: {
+                showAnimationSheet.toggle()
+            })
+            
+            IconScrollView(dataModels: egIconModels, currentDataModel: currentIconModel) { newIconModel in
+                currentIconModel = newIconModel
+                entity.imageName = newIconModel.egImage
             }
         }
     }
     
-    var titleRow: some View {
-        HStack(alignment: .center, spacing: 0) {
-            Text("标题")
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.black)
-        }
+    
+    var chooseAnimationButton: some View {
+        TitleRowView(title: "选择动画", value: entity.symbolEffectType.description, onTapValue: {
+            showAnimationSheet.toggle()
+        })
     }
     
+
     var titleEditView: some View {
         VStack(alignment: .center, spacing: 0) {
             TitleRowView(title: "标题")
@@ -274,12 +283,28 @@ struct TSControlWidgetDetailPage: View {
 
 struct TitleRowView: View {
     var title: String
+    var value: String?
+    var onTapValue: (() -> Void)?
+    
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
             Text(title)
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.black)
             Spacer()
+            if let valueString = value {
+                HStack(alignment: .center, spacing: 0) {
+                    Text(valueString)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.gray)
+                    Text(" >")
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.gray)
+                }
+                .onTapGesture {
+                    onTapValue?()
+                }
+            }
         }
     }
 }

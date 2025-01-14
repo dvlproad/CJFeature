@@ -89,13 +89,14 @@
 				ControlWidget/StyleSegmentedView.swift,
 				ControlWidget/TSControlWidgetDetailPage.swift,
 				ControlWidget/TSEasyAnimationView.swift,
+				ControlWidget/View/BaseIconsScrollView.swift,
+				ControlWidget/View/IconScrollView.swift,
 				Resources/ShareResources/Ayaka.gif,
 				Resources/ShareResources/Cat1.gif,
 				Resources/ShareResources/Cat2.gif,
 				Resources/ShareResources/ShareAssets.xcassets,
 				Resources/ShareResources/transformer.gif,
 				TSGifPage.swift,
-				TSHomePage.swift,
 				TSMyWidgetHomePage.swift,
 			);
 			target = 97554DE82D2FD5E8004ED8B1 /* WidgetExtensionExtension */;

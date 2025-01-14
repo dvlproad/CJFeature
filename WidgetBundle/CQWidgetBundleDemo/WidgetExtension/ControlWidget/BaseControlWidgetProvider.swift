@@ -33,7 +33,10 @@ extension BaseControlWidget {
                         title: "控制组件",
                         subTitle: "我是副标题",
                         imageName: "",
-                        imageAnimateType: .none
+                        imageAnimateType: .none,
+                        name: "",
+                        widgetStyle: .circle,
+                        bgColorString: "#ff0000"
                     )
             )
         }

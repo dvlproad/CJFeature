@@ -39,12 +39,14 @@ struct BaseControlWidgetAnimationView: View {
 
 struct BaseControlWidgetAnimationViewInApp: View {
     @Binding var entity: BaseControlWidgetEntity
+    //@Binding var widgetStyle: ControlWidgetType
     
     var body: some View {
         // 系统SF图标
         // Image(systemName: "figure.walk")
         // 自定义SF图标
-        let imageView = Image("scissors.circle")
+        //let imageView = Image("scissors.circle")  // "scissors.circle" 图片真机iOS18异常无显示
+        let imageView = Image(entity.imageName)
         
         if #available(iOS 18.0, *) {
             imageView

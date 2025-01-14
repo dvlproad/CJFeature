@@ -70,7 +70,7 @@ public extension View {
     }
     
     // 设置视图的大小
-    func widget_frame_bgColor_cornerRadius(_ widgetType: ControlWidgetType) -> some View {
+    func widget_frame_bgColor_cornerRadius(_ widgetType: ControlWidgetType, bgColorString: String) -> some View {
         if isInWidget {
             return AnyView(
                 self
@@ -82,7 +82,7 @@ public extension View {
             return AnyView(
                 self
                     .frame(width: size.width, height: size.height)
-                    .background(Color.white)
+                    .background(Color(hex: bgColorString))
                     .cornerRadius(cornerRadius)
                 )
         }

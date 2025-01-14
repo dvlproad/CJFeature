@@ -102,9 +102,35 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     var animateModel: WidgetImageScaleModel
 //    var symbolEffectTypeString: String?
     var symbolEffectType: SymbolEffectType = .none
-    var widgetStyle: ControlWidgetType = .circle
     
-    init(id: String, uuid: String, title: String, subTitle: String, imageName: String, imageAnimateType: AnimationType) {
+    var name: String
+    var widgetStyle: ControlWidgetType  // 在app内的形态（控制中心不提供获取）
+    var bgColorString: String           // 在app内的背景色（控制中心没有背景色）
+    
+    static func nilEntity() -> BaseControlWidgetEntity {
+        return BaseControlWidgetEntity(
+            id: UUID().uuidString,
+            uuid: "11111",
+            title: "控制组件",
+            subTitle: "我是副标题",
+            imageName: "",
+            imageAnimateType: .none,
+            name: "",
+            widgetStyle: .circle,
+            bgColorString: "#ff0000"
+        )
+    }
+    
+    init(id: String,
+         uuid: String,
+         title: String,
+         subTitle: String,
+         imageName: String,
+         imageAnimateType: AnimationType,
+         name: String,
+         widgetStyle: ControlWidgetType,
+         bgColorString: String
+    ) {
         self.id = id
         self.uuid = uuid
         self.title = title
@@ -114,6 +140,10 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
         self.clickModel = WidgetClickModel()
 //        self.imageAnimateType = imageAnimateType.rawValue
         self.animateModel = WidgetImageScaleModel(type: imageAnimateType)
+        
+        self.name = name
+        self.widgetStyle = widgetStyle
+        self.bgColorString = bgColorString  // Color.randomColor.toHex(includeAlpha: true)
     }
     
     var tintColor: Color? {
@@ -163,7 +193,10 @@ struct BaseControlWidgetEntityQuery: EntityQuery, EntityStringQuery {
             title: "样式呀\(idx)",
             subTitle: "xx类型",
             imageName: "",
-            imageAnimateType: .none
+            imageAnimateType: .none,
+            name: "yyyyy",
+            widgetStyle: .circle,
+            bgColorString: "#ff0000"
         )
     }
 

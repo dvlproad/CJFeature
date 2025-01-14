@@ -14,10 +14,40 @@
             filePath = "WidgetExtension/ControlWidget/Model/BaseControlWidgetEntity.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "entities(matching:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6A729B8C-9F74-4D5D-9FDB-B48375EF9476 - 4dfb8f69a395b09c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; CQWidgetBundleDemo.BaseControlWidgetEntity in variable initialization expression of CQWidgetBundleDemo.BaseControlWidgetEntityQuery.dataItems : Swift.Array&lt;CQWidgetBundleDemo.BaseControlWidgetEntity&gt;"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/WidgetBundle/CQWidgetBundleDemo/WidgetExtension/ControlWidget/Model/BaseControlWidgetEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179">
+               </Location>
+               <Location
+                  uuid = "6A729B8C-9F74-4D5D-9FDB-B48375EF9476 - 877db19264392c9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for CQWidgetBundleDemo.BaseControlWidgetEntityQuery.entities(matching: Swift.String) async throws -&gt; AppIntents.IntentItemCollection&lt;CQWidgetBundleDemo.BaseControlWidgetEntity&gt;"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/CJFeature/WidgetBundle/CQWidgetBundleDemo/WidgetExtension/ControlWidget/Model/BaseControlWidgetEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,8 +60,8 @@
             filePath = "WidgetExtension/ControlWidget/Model/BaseControlWidgetEntity.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "getItems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -50,6 +80,22 @@
             endingLineNumber = "38"
             landmarkName = "BaseControlWidgetToggleAction"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68794094-143A-46E9-AC69-9CB83BFAD1B9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/HomePage/CQControlWidgetCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init?(coder:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

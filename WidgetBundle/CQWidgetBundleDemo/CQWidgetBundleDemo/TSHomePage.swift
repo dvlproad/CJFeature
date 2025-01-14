@@ -13,6 +13,9 @@ struct TSHomePage: View {
     @State private var items: [BaseControlWidgetEntity] = []
     @State private var cacheItems: [BaseControlWidgetEntity] = []
     
+    @State private var isDetailViewActive = false // 控制跳转的状态
+    @State private var selectedData: BaseControlWidgetEntity = BaseControlWidgetEntity.nilEntity()
+    
     var body: some View {
         NavigationStack {
             bodyContent
@@ -38,6 +41,24 @@ struct TSHomePage: View {
                 }
             }
             
+            CQControlWidgetHomeViewControllerRepresentable(
+                onTapEntity: { entity in
+                    isDetailViewActive = true // 设置状态为 true，触发跳转
+                    selectedData = entity
+                }
+            )
+            .frame(height: UIScreen.main.bounds.height-200)
+            .clipped()
+            
+//            if let entity = self.selectedData {
+                // 隐式的 NavigationLink，配合状态控制跳转
+                NavigationLink(
+                    destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: self.selectedData),
+                    isActive: $isDetailViewActive, // 绑定状态
+                    label: { EmptyView() } // 空视图，不显示 NavigationLink 的样式
+                )
+//            }
+            /*
             VStack {
                 // 使用数组的索引来作为List的标识符
                 List(items.indices, id: \.self) { index in
@@ -65,7 +86,7 @@ struct TSHomePage: View {
                     Text("Add Item")
                 }
             }
-            
+            */
             NavigationLink(destination: TSEasyAnimationView()) {
                 Text("测试动画")
             }
