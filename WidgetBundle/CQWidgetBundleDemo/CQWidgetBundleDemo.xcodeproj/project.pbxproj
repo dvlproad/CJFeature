@@ -63,12 +63,15 @@
 		97554E232D2FE791004ED8B1 /* Exceptions for "WidgetExtension" folder in "CQWidgetBundleDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ControlWidget/BaseControlWidgetToggleAction.swift,
 				ControlWidget/BaseControlWidgetView.swift,
 				ControlWidget/ControlToggleWidgerValueManage.swift,
 				ControlWidget/CQControlWidgetExample.swift,
+				ControlWidget/Demo/ButtonControl/ControlButtonWidgetIntent.swift,
 				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
 				ControlWidget/Model/BaseControlWidgetEntity.swift,
 				ControlWidget/View/BaseControlWidgetAnimationView.swift,
+				"ControlWidget/View/UIImage+SVG+PDF.swift",
 				Widget/RotateAnimateViewAndIntent1.swift,
 				Widget/RotateAnimateViewAndIntent2.swift,
 				Widget/RotateAnimateViewAndIntent3.swift,
@@ -82,6 +85,7 @@
 				Cache/TSCacheUtil.swift,
 				Cache/TSWidgetBunldeCacheUtil.swift,
 				Cache/TSWidgetEntityManager.swift,
+				Cache/TSWidgetResourceCacheUtil.swift,
 				Common/Log/CJLogUtil.swift,
 				Common/PageInfo/CJPageInfo.swift,
 				Common/Test/CJTestUtil.swift,
@@ -91,15 +95,25 @@
 				ControlWidget/TSEasyAnimationView.swift,
 				ControlWidget/View/BaseIconsScrollView.swift,
 				ControlWidget/View/IconScrollView.swift,
-				Resources/ShareResources/Ayaka.gif,
-				Resources/ShareResources/Cat1.gif,
-				Resources/ShareResources/Cat2.gif,
+				Resources/ShareResources/GIF/Ayaka.gif,
+				Resources/ShareResources/GIF/Cat1.gif,
+				Resources/ShareResources/GIF/Cat2.gif,
+				Resources/ShareResources/GIF/transformer.gif,
+				"Resources/ShareResources/PDF/icons8-ninja-turtle_byPath.pdf",
 				Resources/ShareResources/ShareAssets.xcassets,
-				Resources/ShareResources/transformer.gif,
+				Resources/ShareResources/SVG/activity_byPath.svg,
+				Resources/ShareResources/SVG/icon_control_katong_6_byPath.svg,
 				TSGifPage.swift,
 				TSMyWidgetHomePage.swift,
 			);
 			target = 97554DE82D2FD5E8004ED8B1 /* WidgetExtensionExtension */;
+		};
+		97E9627A2D37540A00D69947 /* Exceptions for "CQWidgetBundleDemo" folder in "CQWidgetBundleDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 97554D962D2FA267004ED8B1 /* CQWidgetBundleDemo */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -107,6 +121,7 @@
 		97554D992D2FA267004ED8B1 /* CQWidgetBundleDemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				97E9627A2D37540A00D69947 /* Exceptions for "CQWidgetBundleDemo" folder in "CQWidgetBundleDemo" target */,
 				97554E272D2FE8AD004ED8B1 /* Exceptions for "CQWidgetBundleDemo" folder in "WidgetExtensionExtension" target */,
 			);
 			path = CQWidgetBundleDemo;
@@ -513,6 +528,7 @@
 				DEVELOPMENT_TEAM = XF866W89WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CQWidgetBundleDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -526,6 +542,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CQWidgetBundleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited) Main_TARGET";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -545,6 +562,7 @@
 				DEVELOPMENT_TEAM = XF866W89WA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CQWidgetBundleDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -558,6 +576,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvlproad.CQWidgetBundleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = Main_TARGET;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

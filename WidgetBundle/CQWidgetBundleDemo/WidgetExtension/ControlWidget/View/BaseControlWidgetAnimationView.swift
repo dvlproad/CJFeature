@@ -8,6 +8,8 @@
 import SwiftUI
 import CJWidgetKit_Swift
 import CJAnimationKit_Swift
+import SVGKit
+import UIKit
 
 struct BaseControlWidgetAnimationView: View {
     @Binding var entity: BaseControlWidgetEntity
@@ -46,7 +48,42 @@ struct BaseControlWidgetAnimationViewInApp: View {
         // Image(systemName: "figure.walk")
         // 自定义SF图标
         //let imageView = Image("scissors.circle")  // "scissors.circle" 图片真机iOS18异常无显示
-        let imageView = Image(entity.imageName)
+        //let imageView = Image("icons8-忍者神龟2")
+//        let imageView = Image("icons8-ninja-turtle")
+
+        // =======Failure Example:=======
+        // PNG
+//        let imageView = Image("01_png")
+        
+        // SVG
+//        let imageView = Image("emoji9_FFA5BE")
+//        let imageView = Image("emoji9_FFA5BE_byPath", bundle: nil)
+        //let uiimage = SVGImageUtil.loadImageSvgName("activity_byPath")      // 不是 SF Symbol，可以加载，但需要的是 SF Symbol
+//        let uiimage = UIImage.loadImageSvgName("emoji9_FFA5BE_byPath") // SF Symbol 的 SVG 加载显示和打开看到的一样
+//        let imageView = Image(uiImage: uiimage ?? UIImage())
+        
+        // SVG Render
+//        let uiimage = UIImage.renderSFSymbolToImage(symbolName: "emoji9_FFA5BE_byPath", size: CGSize(width: 44, height: 44))
+//        let imageView = Image(uiImage: uiimage ?? UIImage())
+        
+        // PDF
+//        let imageView = Image("icons8-superman-pdf")
+//        let imageView = Image(uiImage: uiimage ?? UIImage())
+//        let uiimage = UIImage.loadPDFThumbnail(named: "icons8-ninja-turtle_byPath", size: CGSize(width: 44, height: 44
+        
+        // 共享目录下
+        let sfsymbolPath = CJTestUtil.sfsymbolPath_inShareDir
+        let uiimage_error = UIImage(contentsOfFile: sfsymbolPath)
+        
+        let size = CGSize(width: 44, height: 44)
+        let uiimage = UIImage.getSFSymbol(symbolPath: sfsymbolPath, size: size)
+        let imageView = Image(uiImage: uiimage ?? UIImage())
+        
+        // =======Success Example:=======
+        
+        
+        // =======Success:=======
+//        let imageView = Image(entity.imageName)
         
         if #available(iOS 18.0, *) {
             imageView
@@ -56,6 +93,7 @@ struct BaseControlWidgetAnimationViewInApp: View {
                 .applyEffect(entity.symbolEffectType)
                 .imageFrame(entity.widgetStyle)
                 .aspectRatio(contentMode: .fit)
+                .scaledToFit()
         } else {
             // Fallback on earlier versions
         }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// 更新UI的起因
 enum CQUpdateUICauseType {
@@ -45,6 +46,24 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
             }
         }
         
+
+        let appUrl = "calshow://"   // 日历（模拟器就有）
+        //let appUrl = "mobilenotes://"   // 备忘录(真机才有）
+//        let appUrl = "cqWidgetBundleDemo://"
+#if Main_TARGET
+        if let url = URL(string: appUrl) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                print("无法打开【 \(appUrl) 】应用，可能未安装或损坏。请尝试重启设备或重新安装备忘录应用。")
+            }
+        }
+#endif
+        
+        // 0.5 秒后发出通知
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            NotificationCenter.default.post(name: Notification.Name("openUrlViaWidget"), object: ["url": appUrl])
+        }
         
         let pageType = getCurrentPageType(pageInfo)
         if caseType == .bgButtonClick {

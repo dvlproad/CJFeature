@@ -41,3 +41,34 @@ struct CJTestUtil {
 //    let randomChineseString = generateRandomChineseString(length: 5)
 //    print(randomChineseString)
 }
+
+// MARK: 拷贝 Bundle 中的指定文件到共享资源目录下
+extension CJTestUtil {
+    static var sfsymbolPath_inShareDir = ""
+    // 将指定的图片文件从 bundle 复制到共享资源目录
+    static func copyImageToSharedDirectory(imageName: String, imageExtension: String, toDirectoryURL: URL) -> String? {
+        // 获取原始图片的路径
+        guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: imageExtension) else {
+            print("Image not found in bundle")
+            return nil
+        }
+        
+        // 创建目标路径（共享资源目录下的目标文件路径）
+        let destinationURL = toDirectoryURL.appendingPathComponent("\(imageName).\(imageExtension)")
+        
+        do {
+            // 检查目标文件是否已存在，如果存在则删除它
+            if FileManager.default.fileExists(atPath: destinationURL.path) {
+                try FileManager.default.removeItem(at: destinationURL)
+            }
+            
+            // 将图片从源目录复制到共享目录
+            try FileManager.default.copyItem(at: imageURL, to: destinationURL)
+            print("Image copied to shared directory: \(destinationURL.path)")
+            return destinationURL.path
+        } catch {
+            print("Failed to copy image: \(error.localizedDescription)")
+            return nil
+        }
+    }
+}

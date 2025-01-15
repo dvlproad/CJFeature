@@ -21,7 +21,7 @@ struct BaseControlWidget: ControlWidget {
         ) { item in
 
 //            RotatingControlWidgetToggle(isOn: item.entity.isOn)
-            
+            /*
             ControlWidgetToggle(
                 isOn: item.entity.isOn,
                 action: BaseControlWidgetToggleAction(widgetId: item.entity.id, widgetSaveId: item.entity.saveId ?? "unknow_saveId")
@@ -39,24 +39,18 @@ struct BaseControlWidget: ControlWidget {
 //                    .clockHandRotationEffect(period: .custom(1), in: TimeZone.current, anchor: .top)
             }
 //            .tint(item.entity.tintColor)
-            
-//            ControlWidgetButton(action: BaseControlWidgetToggleAction(widgetId: item.entity.id, widgetSaveId: item.entity.saveId ?? "unknow_saveId")
-//            ) {
-//                // 实际是一个Lable 可自适应实际小、中、大三种尺寸
-////                BaseControlWidgetView(entity: item.entity)
-////                RotateAnimateView1()
+            */
+            ControlWidgetButton(action: BaseControlWidgetToggleAction(widgetId: item.entity.id, widgetSaveId: item.entity.saveId ?? "unknow_saveId")
+            ) {
+                // 实际是一个Lable 可自适应实际小、中、大三种尺寸
+                BaseControlWidgetView(entity: item.entity)
 //                Image(systemName: "arrow.clockwise")
 //                    .resizable()
 //                    .aspectRatio(contentMode: .fit)
 //                    .frame(width: 50, height: 50)
 //                    .clockHandRotationEffect(period: .custom(1), in: TimeZone.current, anchor: .top)
-////                Image(systemName: "arrow.clockwise")
-////                    .resizable()
-////                    .aspectRatio(contentMode: .fit)
-////                    .frame(width: 50, height: 50)
-////                    .clockHandRotationEffect(period: .custom(3), in: .current, anchor: .top)
-//            }
-//            .tint(item.entity.tintColor)
+            }
+            .tint(item.entity.tintColor)
             
            
             

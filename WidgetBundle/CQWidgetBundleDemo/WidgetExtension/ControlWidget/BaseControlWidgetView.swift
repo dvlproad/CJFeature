@@ -75,7 +75,7 @@ struct BaseControlWidgetView: View {
                 // Image(systemName: "figure.walk")
                 // 自定义SF图标
                 // Image(entity.imageName)
-                
+
                 BaseControlWidgetAnimationView(entity: $entity)
                 
             }

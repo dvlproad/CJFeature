@@ -17,6 +17,7 @@ struct WidgetExtensionBundle: WidgetBundle {
             WidgetExtensionControl()
             // Demo
             ControlToggleWidget()
+            ControlButtonWidget()
             BaseControlWidget()
         }
         

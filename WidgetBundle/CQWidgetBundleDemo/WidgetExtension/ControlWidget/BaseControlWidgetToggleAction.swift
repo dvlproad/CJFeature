@@ -10,14 +10,24 @@ import AppIntents
 import SwiftUI
 
 @available(iOS 18.0, *)
-struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent {
+struct BaseControlWidgetToggleAction: LiveActivityStartingIntent, AppIntent, OpensIntent {
+    /// 此参数需要设为True否则不会打开主App，则应用跳转失效，且本类主Target也必须包含，否无无法触发perform
+    static var openAppWhenRun: Bool = true
+    
 
-    static var title: LocalizedStringResource = "ControlToggleWidgetIntent"
+//    static var title: LocalizedStringResource = "ControlToggleWidgetIntent"
+    
+    static var title: LocalizedStringResource = "Open My App"
+    static var description: IntentDescription? = "Open the main application from the widget."
 
+    /*
     @Parameter(
         title: .init("widgets.controls.parameter.value", defaultValue: "value")
     )
     var value: Bool
+    */
+    var value: Never?
+    
     
     
     //@available(*, unavailable)
