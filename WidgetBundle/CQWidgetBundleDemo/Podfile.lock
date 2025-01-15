@@ -62,6 +62,7 @@ PODS:
   - SnapKit (5.7.1)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
+  - SwiftSVG (2.3.2)
   - SwingAnimation (1.0.0)
 
 DEPENDENCIES:
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.20.0)
   - SnapKit
   - SVGKit (~> 3.0.0)
+  - SwiftSVG (~> 2.3.2)
   - SwingAnimation
 
 SPEC REPOS:
@@ -83,6 +85,7 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - SVGKit
+    - SwiftSVG
     - SwingAnimation
 
 EXTERNAL SOURCES:
@@ -99,15 +102,16 @@ SPEC CHECKSUMS:
   CJAnimationKit-Swift: 79907e80c44f7b44b05fd0f573a2b2d96a989ed7
   CJImageKit-Swift: dc29934f6c0827ed7ec19494a2f59d6aeabedaea
   CJViewElement-Swift: c8ff58ffe0946ddeb1ce7f3df5991c5bb6fd5d34
-  CJWidgetKit-Swift: 52f16d430e3e42b1cebcb5f8a88ea8a4e1910e0a
+  CJWidgetKit-Swift: 4cb8bc548bad8de6b9ec502b556802c9bf91cd8a
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CQDemoKit: f7a6a6f2a7e3eea2a4a0684c654bfcf0360e6dca
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: 7089ee0da566bf1243dbc7ebde91ecf903eafee0
+PODFILE CHECKSUM: 34f99ef3a19271a81f191fc28e82dcfa598cbf64
 
 COCOAPODS: 1.16.2

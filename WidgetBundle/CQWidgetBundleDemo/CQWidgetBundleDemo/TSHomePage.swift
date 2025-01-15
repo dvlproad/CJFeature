@@ -88,6 +88,9 @@ struct TSHomePage: View {
                 }
             }
             //*/
+            NavigationLink(destination: TSCustomSymbolPage()) {
+                Text("测试自定义Symbol")
+            }
             NavigationLink(destination: TSEasyAnimationView()) {
                 Text("测试动画")
             }

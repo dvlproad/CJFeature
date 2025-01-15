@@ -7,10 +7,36 @@
 
 import SwiftUI
 import SVGKit
+import SwiftSVG
+
+//struct SVGView: View {
+//    var svgFilePath: String
+//
+//    var body: some View {
+//        GeometryReader { geometry in
+//            SVGView(contentsOf: URL(fileURLWithPath: svgFilePath))
+//                .frame(width: geometry.size.width, height: geometry.size.height)
+//            
+////            SVGView(svgFilePath:
+//        }
+//    }
+//}
 
 // MARK: SF Symbol
 extension UIImage {
     // 渲染 SF Symbol 图标为 UIImage
+    static func getSFSymbol(symbolName: String, bundleName: String) -> UIImage? {
+        guard let bundlePath = Bundle.main.path(forResource: bundleName, ofType: "bundle") else {
+            return nil
+        }
+//        let bundlePath = Bundle.main.bundlePath
+        
+        let bundle = Bundle(path: bundlePath)
+        let uiimage = UIImage(named: symbolName, in: bundle, compatibleWith: nil)
+    
+        return uiimage
+    }
+    
     static func getSFSymbol(symbolPath: String, size: CGSize) -> UIImage? {
         guard let svgImage = SVGKImage(contentsOfFile: symbolPath) else {
             return nil

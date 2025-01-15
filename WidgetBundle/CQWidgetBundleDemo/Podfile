@@ -55,6 +55,7 @@ def shared_pods
   pod 'CJWidgetKit-Swift',      :path => '../../../UIKit-Image-iOS'
   pod 'SDWebImage',   '~> 5.20.0'
   pod 'SVGKit',       '~> 3.0.0'
+  pod 'SwiftSVG',     '~> 2.3.2'
   pod 'SnapKit'
 end
 
