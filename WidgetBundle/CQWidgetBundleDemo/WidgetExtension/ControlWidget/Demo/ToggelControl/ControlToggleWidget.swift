@@ -57,7 +57,7 @@ struct ControlToggleWidget: ControlWidget {
 //                }
 
             }
-            .tint(themeColor)  // 设定开启状态的图标颜色
+//            .tint(themeColor)  // 设定开启状态的图标颜色
         }.displayName("控制组件2")
             .description("选择自定义组件2")
             .promptsForUserConfiguration()

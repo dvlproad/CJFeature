@@ -12,29 +12,29 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
     //let axes: Axis.Set
     let cellItemSpacing: CGFloat    // item 之间的间隔
     let cellSizeForIndex:  (_ index: Int) -> CGSize
-    let cellViewGetter: (_ dataModel: CJBaseDataModel, _ isSelected: Bool) -> CellView
+    let cellViewGetter: (_ dataModel: CJBaseImageModel, _ isSelected: Bool) -> CellView
     
     var maxCount: Int?
     var headerView: (() -> HeaderView)?  // 头部视图
     var bottomView: (() -> BottomView)?   // 尾部视图
     
-    var dataModels: [CJBaseDataModel]
-    @State var currentDataModel: CJBaseDataModel?
-    var onChangeOfDataModel: ((_ newDataModel: CJBaseDataModel) -> Void)
+    var dataModels: [CJBaseImageModel]
+    @Binding var currentDataModel: CJBaseImageModel?
+    var onChangeOfDataModel: ((_ newDataModel: CJBaseImageModel) -> Void)
     
     @State var selectedIndex: Int?
     
     public init(cellItemSpacing: CGFloat,
                 cellSizeForIndex: @escaping (_ index: Int) -> CGSize,
-                cellViewGetter: @escaping (_ dataModel: CJBaseDataModel, _ isSelected: Bool) -> CellView,
+                cellViewGetter: @escaping (_ dataModel: CJBaseImageModel, _ isSelected: Bool) -> CellView,
                 
                 maxCount: Int? = nil,
                 headerView: (() -> HeaderView)? = nil,
                 bottomView: (() -> BottomView)? = nil,
                 
-                dataModels: [CJBaseDataModel],
-                currentDataModel: CJBaseDataModel?,
-                onChangeOfDataModel: @escaping (_: CJBaseDataModel) -> Void
+                dataModels: [CJBaseImageModel],
+                currentDataModel: Binding<CJBaseImageModel?>,
+                onChangeOfDataModel: @escaping (_: CJBaseImageModel) -> Void
     ) {
         self.cellItemSpacing = cellItemSpacing
         self.cellSizeForIndex = cellSizeForIndex
@@ -45,7 +45,7 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
         self.bottomView = bottomView
         
         self.dataModels = dataModels
-        self.currentDataModel = currentDataModel
+        self._currentDataModel = currentDataModel
         self.onChangeOfDataModel = onChangeOfDataModel
     }
     
@@ -100,7 +100,7 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
     }
     
     // MARK: Event
-    private func tapModel(_ index: Int, model: CJBaseDataModel) {
+    private func tapModel(_ index: Int, model: CJBaseImageModel) {
         currentDataModel = model
         
         selectedIndex = dataModels.firstIndex(where: { $0.id == model.id }) ?? -1
@@ -111,15 +111,27 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
 
 
 // MARK: 组件Data数据类
-public class CJBaseDataModel: NSObject {
-    public var id: String = ""
-    public var name: String = ""
-    public var egImage: String = ""    // 字体的图片示例
+public struct CJBaseDataModel {
+    public var id: String = ""          // 图片id
+    public var name: String = ""        // 图片名称
+    public var egImage: String = ""     // 图片地址
     
     public init(id: String, name: String, egImage: String) {
         self.id = id
         self.name = name
         self.egImage = egImage
+    }
+}
+
+public struct CJBaseImageModel: Codable {
+    public var id: String = ""          // 图片id
+    public var name: String = ""        // 图片名称
+    public var imageName: String = ""     // 图片地址
+    
+    public init(id: String, name: String, imageName: String) {
+        self.id = id
+        self.name = name
+        self.imageName = imageName
     }
 }
 
@@ -147,14 +159,14 @@ public struct CJFontIcon: View {
 }
 
 public struct CJNormalIcon: View {
-    var fontModel: CJBaseDataModel
+    var fontModel: CJBaseImageModel
     var isSelected: Bool
     
     public var body: some View {
         let cornerRadius: CGFloat = 10.0
         GeometryReader { geometry in
             ZStack(alignment: .center){
-               Image(fontModel.egImage)
+               Image(fontModel.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(10)

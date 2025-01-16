@@ -56,7 +56,7 @@ struct BaseControlWidgetAnimationViewInApp: View {
         // =======Success Example:=======
         
         // =======Success:=======
-        let imageView = Image(entity.imageName)
+        let imageView = Image(entity.imageModel.imageName)
         
         if #available(iOS 18.0, *) {
             imageView

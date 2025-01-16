@@ -77,6 +77,27 @@ APP内控制中心组件详情页面：
 ### 快捷启动
 
 * [iOS 之 URL Scheme(含常用指令及如何查找第三方 App 的 URL Scheme)](https://hanleylee.com/articles/url-scheme-of-ios/)
+* [When setting 'static var openAppWhenRun=true', clicking on the control center will keep opening the app. How can I sometimes want to open it and sometimes not.](https://github.com/onmyway133/blog/issues/983)
+
+**整合状态变更的控制中心组件和启动app的控制组件在同一个组件里；**
+
+使用 AppIntent ，设置 static var openAppWhenRun=true 可打开 app，但会导致每次点击控制中心组件都会调到 app 里，导致那些类似只要切换开关状态的也出现此问题。
+
+所以去掉 AppIntent 及 static var openAppWhenRun=true ，改用 
+
+```swift
+func perform() async throws -> some IntentResult & OpensIntent {
+	......
+  // 重要：打开容器App的操作
+  if let appUrl = widgetModel.appModel?.targetUrl {
+      return .result(opensIntent: OpenURLIntent(URL(string: appUrl)!))
+  } else {
+      return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
+  }
+}
+```
+
+
 
 
 

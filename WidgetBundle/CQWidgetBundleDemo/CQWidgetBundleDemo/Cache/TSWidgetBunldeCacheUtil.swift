@@ -24,7 +24,7 @@ extension TSWidgetBundleCacheUtil {
         let decoder = JSONDecoder()
         do {
             let controlWidgetEntity = try decoder.decode(BaseControlWidgetEntity.self, from: jsonData!)
-            debugPrint("解码后的用户:  $user.name),  $user.age)")
+            //debugPrint("解码后的数据:  \(controlWidgetEntity.name),  \(controlWidgetEntity.title)")
             return controlWidgetEntity
         } catch {
             debugPrint("反序列化错误:  \(error)")
@@ -61,7 +61,7 @@ extension TSWidgetBundleCacheUtil {
         let decoder = JSONDecoder()
         do {
             let controlWidgetEntitys = try decoder.decode([BaseControlWidgetEntity].self, from: jsonData!)
-            debugPrint("解码后的用户:  $user.name),  $user.age)")
+            //debugPrint("解码后的数据:  \(controlWidgetEntity.name),  \(controlWidgetEntity.title)")
             return controlWidgetEntitys
         } catch {
             debugPrint("反序列化错误:  \(error)")
@@ -130,7 +130,7 @@ extension TSWidgetBundleCacheUtil {
             TSCacheUtil.set(jsonData, forKey: controlWidgetsKey)
             
             if let jsonString = String(data: jsonData, encoding: .utf8) {
-                debugPrint("保存的信息为:\(jsonString)")  // 输出JSON字符串
+                //debugPrint("保存的信息为:\(jsonString)")  // 输出JSON字符串
             }
             //return true
         } catch {

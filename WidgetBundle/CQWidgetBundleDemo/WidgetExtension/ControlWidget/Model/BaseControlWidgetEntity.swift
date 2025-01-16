@@ -72,10 +72,21 @@ struct WidgetImageScaleModel: AnimationModel, Codable {
 
 
 struct BaseControlWidgetEntity: AppEntity, Codable {
+    /*
+    static func == (lhs: BaseControlWidgetEntity, rhs: BaseControlWidgetEntity) -> Bool {
+        return lhs.id == lhs.id
+        && lhs.title == rhs.title && lhs.subTitle == rhs.subTitle && lhs.imageName == rhs.imageName
+        && lhs.isOn == rhs.isOn
+        && lhs.symbolEffectType == rhs.symbolEffectType
+        && lhs.widgetStyle == rhs.widgetStyle
+        && lhs.bgColorString == rhs.bgColorString
+    }
+    */
+    
     var displayRepresentation: DisplayRepresentation {
         let title = self.title
         let subTitle = self.subTitle
-        let iconName = self.imageName
+        let iconName = self.imageModel.imageName
         return DisplayRepresentation(
             title: "\(title)",
             subtitle: "\(subTitle)",
@@ -91,10 +102,9 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
 
     var id: String
     var saveId: String? // 保存到我的组件时候生成id
-    var uuid: String
     var title: String
     var subTitle: String
-    var imageName: String
+    var imageModel: CJBaseImageModel
     var isOn: Bool
     var clickModel: WidgetClickModel
     var onTintColorString: String?  // 选中时候的颜色
@@ -107,13 +117,15 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     var widgetStyle: ControlWidgetType  // 在app内的形态（控制中心不提供获取）
     var bgColorString: String           // 在app内的背景色（控制中心没有背景色）
     
+    // 执行处理
+    var appModel: QuickStartAppModel?
+    
     static func nilEntity() -> BaseControlWidgetEntity {
         return BaseControlWidgetEntity(
             id: UUID().uuidString,
-            uuid: "11111",
             title: "控制组件",
             subTitle: "我是副标题",
-            imageName: "",
+            imageModel: CJBaseImageModel(id: "", name: "", imageName: ""),
             imageAnimateType: .none,
             name: "",
             widgetStyle: .circle,
@@ -122,20 +134,18 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     }
     
     init(id: String,
-         uuid: String,
          title: String,
          subTitle: String,
-         imageName: String,
+         imageModel: CJBaseImageModel,
          imageAnimateType: AnimationType,
          name: String,
          widgetStyle: ControlWidgetType,
          bgColorString: String
     ) {
         self.id = id
-        self.uuid = uuid
         self.title = title
         self.subTitle = subTitle
-        self.imageName = imageName
+        self.imageModel = imageModel
         self.isOn = false
         self.clickModel = WidgetClickModel()
 //        self.imageAnimateType = imageAnimateType.rawValue
@@ -189,10 +199,9 @@ struct BaseControlWidgetEntityQuery: EntityQuery, EntityStringQuery {
     let dataItems = [Int](1...20).map { idx in
         return BaseControlWidgetEntity(
             id: UUID().uuidString,
-            uuid: "customId_\(idx)",
             title: "样式呀\(idx)",
             subTitle: "xx类型",
-            imageName: "",
+            imageModel: CJBaseImageModel(id: "", name: "", imageName: ""),
             imageAnimateType: .none,
             name: "yyyyy",
             widgetStyle: .circle,

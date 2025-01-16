@@ -82,6 +82,10 @@ struct BaseControlWidgetView: View {
         } else {
             BaseControlWidgetViewInApp(entity: entity)
         }
+        
+        WidgetOverlayButton(forWidgetId: entity.id, pageInfo: CQPageInfo()) {
+//            debugPrint("温馨提示2：您在【\(isInWidget ? "在桌面": "在app里")】点击了《\(entity.title ?? "")》其layoutId=\(entity.layoutId ?? "")")
+        }
     }
 }
 

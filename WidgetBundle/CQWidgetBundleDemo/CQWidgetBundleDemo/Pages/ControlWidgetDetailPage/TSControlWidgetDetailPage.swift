@@ -34,25 +34,28 @@ struct TSControlWidgetDetailPage: View {
         self.entity = entity
     }
     
-    var hasAdd: Bool {
-        var hasAdd: Bool = false
-        if let saveId = entity.saveId, saveId.count > 0 {
-            hasAdd = true
-        }
-        return hasAdd
+    /*
+    @Binding var entity: BaseControlWidgetEntity
+    // 接收值类型并包装成临时的 Binding
+    init(fromPageType: CQPageType, entity: BaseControlWidgetEntity) {
+        self.fromPageType = fromPageType
+        self._entity = .constant(entity)
     }
     
-    var gifImage: some View {
-        CJAnimateImageViewRepresentable(
-            gifName: "Ayaka",
-            contentMode: .scaleAspectFill,
-            isAnimating: .constant(true)
-        )
-        .frame(width: 150, height: 150)
-        .background(.ultraThinMaterial)
-        .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+    // 接收 @State
+    init(fromPageType: CQPageType, stateEntity: State<BaseControlWidgetEntity>) {
+        self.fromPageType = fromPageType
+        self._entity = stateEntity.projectedValue // 使用 projectedValue 获取 Binding
     }
+    
+    // 接收 @Binding
+    init(fromPageType: CQPageType, bindingEntity: Binding<BaseControlWidgetEntity>) {
+        self.fromPageType = fromPageType
+        self._entity = bindingEntity
+    }
+    */
+    
+    
     
     @State var animationType: AnimationType = .none
     @State private var bounce = false   // 是否弹跳
@@ -61,7 +64,8 @@ struct TSControlWidgetDetailPage: View {
     @State private var breathe = false  // 是否呼吸
     @State private var pulse = false    // 是否脉冲
     
-    private var options: [SymbolEffectType] = [
+    @State private var egIconModels: [CJBaseImageModel] = []
+    private var symbolEffectTypeOptions: [SymbolEffectType] = [
         .none,
         .bounceUpByLayer,
         .wiggleForwardByLayer,
@@ -69,6 +73,32 @@ struct TSControlWidgetDetailPage: View {
         .breathePlainByLayer,
         .pulse
     ]
+    private var controlWidgetTypeOptions: [ControlWidgetType] = ControlWidgetType.allCases
+    
+    @State var currentIconModel: CJBaseImageModel?
+    @State var styleSelectedIndex: Int = 0
+    @State var animationSelectedIndex: Int = 0
+    
+    
+    
+    func viewOnAppear() {
+        print("TSControlWidgetDetailPage onAppear")
+        bounce = true
+        swing = true
+        rotate = true
+        breathe = true
+        pulse = true
+        
+        egIconModels = CQControlWidgetExample.iconExamples()
+        currentIconModel = egIconModels.first(where: { $0.id == entity.imageModel.id })
+        
+        styleSelectedIndex = controlWidgetTypeOptions.firstIndex(of: entity.widgetStyle) ?? 0
+        animationSelectedIndex = symbolEffectTypeOptions.firstIndex(of: entity.symbolEffectType) ?? 0
+    }
+    
+    private func updateUI() {
+        animationType = entity.animateModel.type
+    }
     
     
     let horizontalPadding: CGFloat = 20.0
@@ -88,10 +118,10 @@ struct TSControlWidgetDetailPage: View {
         }
         .padding(.horizontal, horizontalPadding)
         .sheet(isPresented: $showAnimationSheet) {
-            AnimationSheet(options: options, selectedIndex: animationSelectedIndex, onChangeOfIndex: { index in
-                entity.symbolEffectType = options[index]
+            AnimationSheet(options: symbolEffectTypeOptions, selectedIndex: animationSelectedIndex, onChangeOfIndex: { index in
+                entity.symbolEffectType = symbolEffectTypeOptions[index]
             }, onCancelBlock: {
-                entity.symbolEffectType = options[animationSelectedIndex]
+                entity.symbolEffectType = symbolEffectTypeOptions[animationSelectedIndex]
                 showAnimationSheet = false
             }, onConfirmBlock: { newSelectedIndex in
                 animationSelectedIndex = newSelectedIndex
@@ -110,25 +140,6 @@ struct TSControlWidgetDetailPage: View {
         }
     }
     let heights = stride(from: 0.1, to: 1.0, by: 0.1).map { PresentationDetent.fraction($0) }
-    @State var styleSelectedIndex: Int = 0
-    @State var animationSelectedIndex: Int = 0
-    private func updateUI() {
-        animationType = entity.animateModel.type
-    }
-    
-    @State var egIconModels: [CJBaseDataModel] = []
-    @State var currentIconModel: CJBaseDataModel?
-    func viewOnAppear() {
-        print("TSControlWidgetDetailPage onAppear")
-        bounce = true
-        swing = true
-        rotate = true
-        breathe = true
-        pulse = true
-        
-        egIconModels = CQControlWidgetExample.iconExamples()
-        currentIconModel = egIconModels[0]
-    }
     
     
     var headerView: some View {
@@ -145,11 +156,11 @@ struct TSControlWidgetDetailPage: View {
             Spacer().frame(height: 20)
             
             StyleSegmentedView(
-                options: ControlWidgetType.allCases,
-                selectedIndex: styleSelectedIndex,
+                options: controlWidgetTypeOptions,
+                selectedIndex: $styleSelectedIndex,
                 onChangeOfIndex: { index in
                     styleSelectedIndex = index
-                    entity.widgetStyle = ControlWidgetType.allCases[index]
+                    entity.widgetStyle = controlWidgetTypeOptions[index]
                 }
             )
             .frame(width: 200)
@@ -201,9 +212,9 @@ struct TSControlWidgetDetailPage: View {
                 showAnimationSheet.toggle()
             })
             
-            IconScrollView(dataModels: egIconModels, currentDataModel: currentIconModel) { newIconModel in
+            IconScrollView(dataModels: egIconModels, currentDataModel: $currentIconModel) { newIconModel in
                 currentIconModel = newIconModel
-                entity.imageName = newIconModel.egImage
+                entity.imageModel = newIconModel
             }
         }
     }
@@ -258,6 +269,13 @@ struct TSControlWidgetDetailPage: View {
         }
     }
     
+    private var hasAdd: Bool {
+        var hasAdd: Bool = false
+        if let saveId = entity.saveId, saveId.count > 0 {
+            hasAdd = true
+        }
+        return hasAdd
+    }
     var addOrUpdateButton: some View {
         Button(hasAdd ? "保存组件" : "添加组件") {
             if let saveId = entity.saveId, saveId.count > 0 {

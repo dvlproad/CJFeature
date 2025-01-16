@@ -9,9 +9,9 @@ import SwiftUI
 
 struct IconScrollView: View {
     var maxCount: Int?
-    var dataModels: [CJBaseDataModel]
-    @State var currentDataModel: CJBaseDataModel?
-    var onChangeOfDataModel: ((_ newDataModel: CJBaseDataModel) -> Void)
+    var dataModels: [CJBaseImageModel]
+    @Binding var currentDataModel: CJBaseImageModel?
+    var onChangeOfDataModel: ((_ newDataModel: CJBaseImageModel) -> Void)
     
     var body: some View {
         
@@ -33,7 +33,7 @@ struct IconScrollView: View {
 
             },
             dataModels: dataModels,
-            currentDataModel: currentDataModel,
+            currentDataModel: $currentDataModel,
             onChangeOfDataModel: onChangeOfDataModel
         )
         //.background(Color.red)

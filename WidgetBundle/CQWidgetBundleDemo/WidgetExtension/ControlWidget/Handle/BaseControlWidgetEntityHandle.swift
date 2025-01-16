@@ -30,9 +30,9 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
                 imageScaeModel.isAnimating = true
                 model.title = "x\(model.clickModel.count)"
                 
-            } else if widgetId == CQControlWidgetIds.diceControlWidgetID {
+            } else if widgetId == CQControlWidgetIds.diceControlWidgetID {  // 骰子🎲
                 model.isOn = true
-                model.imageName = CJTestUtil.generateRandomImageName()
+                model.imageModel.imageName = CJTestUtil.generateRandomImageName()
                 
             } else if widgetId == CQControlWidgetIds.dynamicIconControlWidgetID {
                 model.isOn.toggle()
@@ -47,17 +47,17 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
         }
         
 
-        let appUrl = "calshow://"   // 日历（模拟器就有）
-        //let appUrl = "mobilenotes://"   // 备忘录(真机才有）
-//        let appUrl = "cqWidgetBundleDemo://"
 #if Main_TARGET
-        if let url = URL(string: appUrl) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                print("无法打开【 \(appUrl) 】应用，可能未安装或损坏。请尝试重启设备或重新安装备忘录应用。")
-            }
-        }
+//        if let appModel = model.appModel {
+//            let appUrl = appModel.targetUrl
+//            if let url = URL(string: appUrl) {
+//                if UIApplication.shared.canOpenURL(url) {
+//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                } else {
+//                    print("无法打开【 \(appUrl) 】应用，可能未安装或损坏。请尝试重启设备或重新安装备忘录应用。")
+//                }
+//            }
+//        }
 #endif
         
         // 0.5 秒后发出通知

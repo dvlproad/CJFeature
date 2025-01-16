@@ -27,20 +27,9 @@ extension BaseControlWidget {
         private func item(configuration: BaseControlWidget.BaseControlConfigurationIntent) -> BaseControlWidget.BaseControlWidgetModel {
             .init(
                 entity: configuration.entity
-                    ?? BaseControlWidgetEntity(
-                        id: UUID().uuidString,
-                        uuid: "11111",
-                        title: "控制组件",
-                        subTitle: "我是副标题",
-                        imageName: "",
-                        imageAnimateType: .none,
-                        name: "",
-                        widgetStyle: .circle,
-                        bgColorString: "#ff0000"
-                    )
+                ?? BaseControlWidgetEntity.nilEntity()
             )
         }
-
     }
     
     struct BaseControlWidgetModel {

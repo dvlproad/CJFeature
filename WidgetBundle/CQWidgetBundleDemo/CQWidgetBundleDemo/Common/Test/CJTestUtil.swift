@@ -14,7 +14,8 @@ struct CJTestUtil {
     }
     
     static func imageNames() -> [String] {
-        var imageNames = ["accessibility-human", "activity"]
+        var imageNames: [String] = []
+        //imageNames.append(contentsOf: ["accessibility-human", "activity"])
         for index in 0...6 {
             imageNames.append("icon_control_katong_\(index%7 + 1)")
         }

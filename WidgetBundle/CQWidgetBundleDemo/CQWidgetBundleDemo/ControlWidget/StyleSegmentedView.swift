@@ -92,12 +92,12 @@ public extension View {
 
 public struct StyleSegmentedView: View {
     @State private var options: [ControlWidgetType]
-    @State var selectedIndex: Int = 0           // 不用 bind ，为了选择结束后能恢复原值
+    @Binding var selectedIndex: Int
     var onChangeOfIndex: (Int) -> Void
     
-    public init(options: [ControlWidgetType], selectedIndex: Int, onChangeOfIndex: @escaping (Int) -> Void) {
+    public init(options: [ControlWidgetType], selectedIndex: Binding<Int>, onChangeOfIndex: @escaping (Int) -> Void) {
         self.options = options
-        self.selectedIndex = selectedIndex
+        self._selectedIndex = selectedIndex
         self.onChangeOfIndex = onChangeOfIndex
     }
     
@@ -132,7 +132,7 @@ struct StyleSegmentedView_Previews: PreviewProvider {
     static var previews: some View {
         StyleSegmentedView(
             options: ControlWidgetType.allCases,
-            selectedIndex: 0,
+            selectedIndex: .constant(0),
             onChangeOfIndex: { _ in }
         )
         .padding()
