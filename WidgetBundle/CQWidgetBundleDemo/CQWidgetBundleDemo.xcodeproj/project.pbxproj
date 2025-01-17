@@ -69,6 +69,8 @@
 				ControlWidget/Demo/ButtonControl/ControlButtonWidgetIntent.swift,
 				ControlWidget/Demo/ToggelControl/ControlToggleWidgerValueManage.swift,
 				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
+				ControlWidget/Handle/OpenURLIntentIOS180.swift,
+				ControlWidget/Handle/OpenURLIntentIOS181.swift,
 				ControlWidget/Model/BaseControlWidgetEntity.swift,
 				ControlWidget/View/AudioSystemIntent.swift,
 				ControlWidget/View/BaseControlWidgetAnimationView.swift,

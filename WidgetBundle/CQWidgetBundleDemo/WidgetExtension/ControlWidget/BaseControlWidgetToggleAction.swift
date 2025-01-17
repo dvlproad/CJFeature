@@ -67,44 +67,54 @@ struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent
         }
         */
     }
-
+    
+    /*
+    @MainActor
+    func perform() async throws -> some IntentResult & OpensIntent {
+        let appUrl = "mobilenotes://"
+        if #available(iOS 18.2, *) {
+            return .result(opensIntent: OpenURLIntentIOS182(openUrl: appUrl))
+        } else {
+            return .result(opensIntent: OpenURLIntentIOS180(openUrl: appUrl))
+        }
+    }
+    */
+    
+    
     @MainActor
     func perform() async throws -> some IntentResult & OpensIntent {
         // 此处实际业务处理
         // 开启灵动岛、播放声音、开启振动等
         CJLogUtil.log("您【在桌面】点击了: \(self.widgetId ?? "") \(self.widgetSaveId ?? "")")
-//        return .result()
         
-        //guard let widgetId = self.widgetId else { return .result() }
-        guard let widgetSaveId = self.widgetSaveId else {
-            //return QuickStartAppModel.noOpenAppIntentResult()
-            return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
+        var openUrl: String?
+        //let widgetId = self.widgetId
+        if let widgetSaveId = self.widgetSaveId {
+            var cacheEntitys = TSWidgetBundleCacheUtil.getControlWidgets()
+            if var widgetModel = TSWidgetBundleCacheUtil.findControlWidgetEntity(widgetSaveId, in: cacheEntitys) {
+                // 点击操作
+                let oldWidgetModelOpenState = widgetModel.isOn
+                BaseControlWidgetEntityHandle.handleWidgetModel(&widgetModel, caseType: .bgButtonClick, pageInfo: CQPageInfo(pageType: .inDesktop))
+
+                // 开启灵动岛
+                self.startLiveActivity()
+                
+                // 更新组件
+                TSWidgetBundleCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .dataAndWidgetUI)
+                
+                
+                if oldWidgetModelOpenState {
+                    openUrl = widgetModel.appModel?.targetUrl
+                    
+                }
+            }
         }
         
-        var cacheEntitys = TSWidgetBundleCacheUtil.getControlWidgets()
-        guard var widgetModel = TSWidgetBundleCacheUtil.findControlWidgetEntity(widgetSaveId, in: cacheEntitys) else { //return QuickStartAppModel.noOpenAppIntentResult()
-            return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
-        }
-        
-        // 点击操作
-        let oldWidgetModelOpenState = widgetModel.isOn
-        BaseControlWidgetEntityHandle.handleWidgetModel(&widgetModel, caseType: .bgButtonClick, pageInfo: CQPageInfo(pageType: .inDesktop))
-
-        // 开启灵动岛
-        self.startLiveActivity()
-        
-        // 更新组件
-        TSWidgetBundleCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .dataAndWidgetUI)
-
-//        return .result()
         // 重要：打开容器App的操作
-        if let appUrl = widgetModel.appModel?.targetUrl, oldWidgetModelOpenState {
-            return .result(opensIntent: OpenURLIntent(URL(string: appUrl)!))
+        if #available(iOS 18.1, *) {
+            return .result(opensIntent: OpenURLIntentIOS181(openUrl: openUrl))
         } else {
-            return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
+            return .result(opensIntent: OpenURLIntentIOS180(openUrl: openUrl))
         }
-        //return QuickStartAppModel.tryOpenAppIntentResult(appUrl: widgetModel.appModel?.targetUrl)
     }
-    
-    
 }
