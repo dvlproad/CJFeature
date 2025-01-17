@@ -8,11 +8,18 @@
 import Foundation
 import AppIntents
 
+enum QuickStartType: Codable {
+    case app        // 打开应用
+    case shortcuts  // 打开快捷指令
+    case web        // 打开网页
+}
+
 struct QuickStartAppModel: Codable {
     var appId: Int
     var appName: String
     var appShowName: String
     var appIcon: String
+//    var targetType: QuickStartType
     var targetUrl: String
     
     @available(iOS 18.0, *)
@@ -101,6 +108,19 @@ struct QuickStartAppModel: Codable {
     }
     
     
+}
+
+struct QuickStartShortcutsModel: Codable {
+    var shortcutsName: String
+    var shortcutsText: String?
+    
+    var targetUrl: String
+}
+
+struct QuickStartWebModel: Codable {
+    var name: String
+
+    var targetUrl: String
 }
 
 struct ShortcutsUtil {

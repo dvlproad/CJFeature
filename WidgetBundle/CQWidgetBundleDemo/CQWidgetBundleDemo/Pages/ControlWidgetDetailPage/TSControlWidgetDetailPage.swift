@@ -94,6 +94,9 @@ struct TSControlWidgetDetailPage: View {
         
         styleSelectedIndex = controlWidgetTypeOptions.firstIndex(of: entity.widgetStyle) ?? 0
         animationSelectedIndex = symbolEffectTypeOptions.firstIndex(of: entity.symbolEffectType) ?? 0
+        
+        currentSegmentModel = BaseSegmentModel(segmentId: "1", text: "快捷启动", textFontSize: 13, width: 86)
+        appModel = self.entity.appModel
     }
     
     private func updateUI() {
@@ -171,38 +174,26 @@ struct TSControlWidgetDetailPage: View {
         .background(Color(#colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)))
     }
     
+    @State var appModel: QuickStartAppModel?
+    @State var shortcutsModel: QuickStartShortcutsModel?
+    @State var webModel: QuickStartWebModel?
+    @State var currentSegmentModel: BaseSegmentModel?
     var settingView: some View {
-        VStack {
-            iconChooseView
+        VStack(alignment: .center, spacing: 0) {
+//            iconChooseView
             
-            chooseAnimationButton
-            
+//            chooseAnimationButton
+//            
             titleEditView
-            subTitleEditView
+//            subTitleEditView
             
+            QuickStartInputView(appModel: $appModel, shortcutsModel: $shortcutsModel, webModel: $webModel)
             
-            HStack {
-                Image("icon_control_katong_5")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-                    .rotateAnimation($rotate)
-//                    .onTapGesture {
-//                        rotate.toggle()
-//                    }
-//                gifImage
-//                    .bounceAnimation($bounce)
-                Image("icon_control_katong_6")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-//                        .bounceAnimation($bounce)
-                    .bounceAnimation(.constant(animationType == .bounce))
-                    .rotateAnimation(.constant(animationType == .rotate))
-                    .cjAnimation(type: $animationType)
-            }
-            .background(Color.gray)
-            .clipped()
+//            CustomSegmentView(currentSelectedModel: $currentSegmentModel, height: 32.0)
+            
+//            TitleRowView(title: "选择快捷启动", value: "appName", onTapValue: {
+//                //showAnimationSheet.toggle()
+//            })
         }
     }
     
@@ -226,19 +217,16 @@ struct TSControlWidgetDetailPage: View {
         })
     }
     
-
+    let textFieldHeight = 40.0
     var titleEditView: some View {
         VStack(alignment: .center, spacing: 0) {
             TitleRowView(title: "标题")
             
-            let textFieldWidth = 320.0
-            let textFieldHeight = 40.0
             CJTextSettingRow(
                 title: entity.title,
                 text: Binding(get: { entity.title }, set: { entity.title = $0 }),
                 placeHolder: "请输入内容",
                 lineLimit: 1,
-                textFieldWidth: textFieldWidth,
                 textFieldHeight: textFieldHeight,
                 textDidChange: { value in
                     entity.title = value
@@ -252,14 +240,11 @@ struct TSControlWidgetDetailPage: View {
         VStack(alignment: .center, spacing: 0) {
             TitleRowView(title: "副标题")
             
-            let textFieldWidth = 320.0
-            let textFieldHeight = 40.0
             CJTextSettingRow(
                 title: entity.subTitle,
                 text: Binding(get: { entity.subTitle }, set: { entity.subTitle = $0 }),
                 placeHolder: "请输入内容",
                 lineLimit: 1,
-                textFieldWidth: textFieldWidth,
                 textFieldHeight: textFieldHeight,
                 textDidChange: { value in
                     entity.subTitle = value

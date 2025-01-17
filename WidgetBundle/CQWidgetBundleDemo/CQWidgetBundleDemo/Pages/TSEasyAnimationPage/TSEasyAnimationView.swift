@@ -43,7 +43,8 @@ struct TSEasyAnimationView: View {
             .background(Color.gray)
             
             HStack {
-                Image(systemName: "arrow.2.circlepath")
+//                Image(systemName: "arrow.2.circlepath")
+                Image("icon_control_katong_5")
                     .resizable()
                     .frame(width: 100, height: 100)
                     .background(Color.gray)

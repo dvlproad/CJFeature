@@ -72,7 +72,7 @@ struct BaseControlWidgetToggleAction: SetValueIntent, LiveActivityStartingIntent
     @MainActor
     func perform() async throws -> some IntentResult & OpensIntent {
         let appUrl = "mobilenotes://"
-        if #available(iOS 18.2, *) {
+        if #available(iOS 18.1, *) {
             return .result(opensIntent: OpenURLIntentIOS182(openUrl: appUrl))
         } else {
             return .result(opensIntent: OpenURLIntentIOS180(openUrl: appUrl))
