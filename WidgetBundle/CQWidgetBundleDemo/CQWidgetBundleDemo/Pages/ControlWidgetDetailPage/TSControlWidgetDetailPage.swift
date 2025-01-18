@@ -79,10 +79,7 @@ struct TSControlWidgetDetailPage: View {
     @State var styleSelectedIndex: Int = 0
     @State var animationSelectedIndex: Int = 0
     
-    
-    
-    func viewOnAppear() {
-        print("TSControlWidgetDetailPage onAppear")
+    func viewDidLoad() {
         bounce = true
         swing = true
         rotate = true
@@ -95,8 +92,13 @@ struct TSControlWidgetDetailPage: View {
         styleSelectedIndex = controlWidgetTypeOptions.firstIndex(of: entity.widgetStyle) ?? 0
         animationSelectedIndex = symbolEffectTypeOptions.firstIndex(of: entity.symbolEffectType) ?? 0
         
-        currentSegmentModel = BaseSegmentModel(segmentId: "1", text: "快捷启动", textFontSize: 13, width: 86)
-        appModel = self.entity.appModel
+        getQucikStart() // 获取快捷操作
+    }
+    
+    
+    
+    func viewOnAppear() {
+        print("TSControlWidgetDetailPage onAppear")
     }
     
     private func updateUI() {
@@ -133,11 +135,13 @@ struct TSControlWidgetDetailPage: View {
 //            .presentationDetents([.medium, .large])
 //            .presentationDetents(Set(heights))
             .presentationDetents([.height(400), .height(600)])
-
+            
         }
-        .onAppear() {
+        .cj_onAppear(viewDidLoad: {
+            viewDidLoad()
+        }, viewDidAppear: {
             viewOnAppear()
-        }
+        })
         .task {
             
         }
@@ -177,23 +181,40 @@ struct TSControlWidgetDetailPage: View {
     @State var appModel: QuickStartAppModel?
     @State var shortcutsModel: QuickStartShortcutsModel?
     @State var webModel: QuickStartWebModel?
+    let quickStartSegmentModels = [
+        BaseSegmentModel(segmentId: "0", text: "无操作", textFontSize: 13, width: 66),
+        BaseSegmentModel(segmentId: "1", text: "快捷启动", textFontSize: 13, width: 66),
+        BaseSegmentModel(segmentId: "2", text: "快捷指令", textFontSize: 13, width: 66),
+        BaseSegmentModel(segmentId: "3", text: "自定义", textFontSize: 13, width: 66)
+    ]
+    @State var defaultSegmentModel: BaseSegmentModel?
     @State var currentSegmentModel: BaseSegmentModel?
     var settingView: some View {
         VStack(alignment: .center, spacing: 0) {
-//            iconChooseView
+            //            iconChooseView
             
-//            chooseAnimationButton
-//            
+            //            chooseAnimationButton
+            //
             titleEditView
-//            subTitleEditView
+            //            subTitleEditView
             
-            QuickStartInputView(appModel: $appModel, shortcutsModel: $shortcutsModel, webModel: $webModel)
+            QuickStartInputView(
+                appModel: $appModel,
+                shortcutsModel: $shortcutsModel,
+                webModel: $webModel,
+                options: quickStartSegmentModels,
+                currentSegmentModel: $currentSegmentModel,
+                onChangeOfExecModel: { newSegmentModel, newAppModel, newShortcutsModel, newWebModel in
+                    currentSegmentModel = newSegmentModel
+                    appModel = newAppModel
+                    shortcutsModel = newShortcutsModel
+                    webModel = newWebModel
+                }
+            )
             
-//            CustomSegmentView(currentSelectedModel: $currentSegmentModel, height: 32.0)
-            
-//            TitleRowView(title: "选择快捷启动", value: "appName", onTapValue: {
-//                //showAnimationSheet.toggle()
-//            })
+            //            TitleRowView(title: "选择快捷启动", value: "appName", onTapValue: {
+            //                //showAnimationSheet.toggle()
+            //            })
         }
     }
     
@@ -230,7 +251,7 @@ struct TSControlWidgetDetailPage: View {
                 textFieldHeight: textFieldHeight,
                 textDidChange: { value in
                     entity.title = value
-//                    self.updateUI()
+                    //                    self.updateUI()
                 }
             )
         }
@@ -248,7 +269,7 @@ struct TSControlWidgetDetailPage: View {
                 textFieldHeight: textFieldHeight,
                 textDidChange: { value in
                     entity.subTitle = value
-//                    self.updateUI()
+                    //                    self.updateUI()
                 }
             )
         }
@@ -263,6 +284,8 @@ struct TSControlWidgetDetailPage: View {
     }
     var addOrUpdateButton: some View {
         Button(hasAdd ? "保存组件" : "添加组件") {
+            updateQuickStart() // 更新快捷启动
+            
             if let saveId = entity.saveId, saveId.count > 0 {
                 TSWidgetBundleCacheUtil.updateControlWidgetEntity(entity, shouldRefreshDesktop: true)
                 
@@ -284,10 +307,92 @@ struct TSControlWidgetDetailPage: View {
     }
 }
 
+extension TSControlWidgetDetailPage {
+    private func getQucikStart() {
+        appModel = self.entity.appModel
+        shortcutsModel = self.entity.shortcutsModel
+        webModel = self.entity.webModel
+        if let appModel = appModel {
+            currentSegmentModel = quickStartSegmentModels[1]
+        } else if let shortcutsModel = shortcutsModel {
+            currentSegmentModel = quickStartSegmentModels[2]
+        } else if let webModel = webModel {
+            currentSegmentModel = quickStartSegmentModels[3]
+        } else {
+            currentSegmentModel = quickStartSegmentModels[0]
+        }
+        defaultSegmentModel = currentSegmentModel
+    }
+    
+    private func updateQuickStart() {
+        let defaultSegmentIndex = quickStartSegmentModels.firstIndex(where: {
+            $0.segmentId == defaultSegmentModel?.segmentId
+        }) ?? 0
+        let currentSegmentIndex = quickStartSegmentModels.firstIndex(where: {
+            $0.segmentId == currentSegmentModel?.segmentId
+        }) ?? 0
+        var lastAppModel: QuickStartAppModel?
+        var lastShortcutsModel: QuickStartShortcutsModel?
+        var lastWebModel: QuickStartWebModel?
+        
+        // 判断是否需要变更，如果当前选项下面的值是空的，则使用原值
+        var lastUseSegmentIndex = defaultSegmentIndex
+        if currentSegmentIndex == 1 && appModel != nil {
+            lastUseSegmentIndex = currentSegmentIndex
+        } else if currentSegmentIndex == 2 && shortcutsModel != nil {
+            lastUseSegmentIndex = currentSegmentIndex
+        } else if currentSegmentIndex == 3 && webModel != nil {
+            lastUseSegmentIndex = currentSegmentIndex
+        } else if currentSegmentIndex == 0 {   // 之前是无操作才能当做无操作，否则不需要变更
+            lastUseSegmentIndex = currentSegmentIndex
+        }
+        
+        // 即使最后使用的还是之前的，也得确认之前的选项下的值没被清空，若清空则当做无操作
+        if lastUseSegmentIndex == 1 && appModel != nil {
+            lastAppModel = appModel
+            lastShortcutsModel = nil
+            lastWebModel = nil
+        } else if lastUseSegmentIndex == 2 && shortcutsModel != nil {
+            lastAppModel = nil
+            lastShortcutsModel = shortcutsModel
+            lastWebModel = nil
+        } else if lastUseSegmentIndex == 3 && webModel != nil {
+            lastAppModel = nil
+            lastShortcutsModel = nil
+            lastWebModel = webModel
+        } else if lastUseSegmentIndex == 0 {   // 之前是无操作才能当做无操作，否则不需要变更
+            lastAppModel = nil
+            lastShortcutsModel = nil
+            lastWebModel = nil
+        }
+        self.entity.appModel = lastAppModel
+        self.entity.shortcutsModel = lastShortcutsModel
+        self.entity.webModel = lastWebModel
+    }
+}
+
 struct TitleRowView: View {
     var title: String
-    var value: String?
+    @Binding var value: String?
     var onTapValue: (() -> Void)?
+    
+    init(title: String,
+         value: String?,
+         onTapValue: (() -> Void)? = nil
+    ) {
+        self.title = title
+        self._value = .constant(value)
+        self.onTapValue = onTapValue
+    }
+    
+    init(title: String,
+         bindingValue: Binding<String?> = .constant(nil),
+         onTapValue: (() -> Void)? = nil
+    ) {
+        self.title = title
+        self._value = bindingValue
+        self.onTapValue = onTapValue
+    }
     
     var body: some View {
         HStack(alignment: .center, spacing: 0) {

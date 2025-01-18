@@ -119,6 +119,8 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     
     // 执行处理
     var appModel: QuickStartAppModel?
+    var shortcutsModel: QuickStartShortcutsModel?
+    var webModel: QuickStartWebModel?
     
     static func nilEntity() -> BaseControlWidgetEntity {
         return BaseControlWidgetEntity(

@@ -85,18 +85,20 @@
 		97554E272D2FE8AD004ED8B1 /* Exceptions for "CQWidgetBundleDemo" folder in "WidgetExtensionExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Cache/TSAppCacheUtil.swift,
 				Cache/TSCacheUtil.swift,
 				Cache/TSWidgetBunldeCacheUtil.swift,
 				Cache/TSWidgetEntityManager.swift,
 				Cache/TSWidgetResourceCacheUtil.swift,
 				Common/Log/CJLogUtil.swift,
 				Common/PageInfo/CJPageInfo.swift,
+				Common/PageInfo/OnViewAppear.swift,
 				Common/Test/CJTestUtil.swift,
 				ControlWidget/AnimationSheet.swift,
-				ControlWidget/CustomSegmentView.swift,
 				ControlWidget/StyleSegmentedView.swift,
 				ControlWidget/View/BaseIconsScrollView.swift,
 				ControlWidget/View/IconScrollView.swift,
+				Models/QuickStart/QuickStartAppExample.swift,
 				Models/QuickStart/QuickStartAppModel.swift,
 				Pages/TSCustomSymbolPage/CustomSymbolView.swift,
 				Pages/TSCustomSymbolPage/TSCustomSymbolPage.swift,

@@ -25,6 +25,7 @@ struct TSCacheUtil {
     static func set(_ value: Any?, forKey: String) {
         if let userDefaults = UserDefaults(suiteName: ApplicationGroupName) {
             userDefaults.set(value, forKey: forKey)
+            //userDefaults.synchronize()
         }
     }
 }

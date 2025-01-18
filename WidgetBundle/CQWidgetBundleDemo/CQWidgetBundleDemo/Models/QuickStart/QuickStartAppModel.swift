@@ -14,13 +14,40 @@ enum QuickStartType: Codable {
     case web        // 打开网页
 }
 
-struct QuickStartAppModel: Codable {
+class QuickStartAppModel: Codable {
+    static func == (lhs: QuickStartAppModel, rhs: QuickStartAppModel) -> Bool {
+        return lhs.uuid == rhs.uuid && lhs.saveId == rhs.saveId
+        && lhs.appId == rhs.appId
+        && lhs.appName == rhs.appName && lhs.appShowName == rhs.appShowName && lhs.appIcon == rhs.appIcon && lhs.targetUrl == rhs.targetUrl
+    }
+    
+    var uuid: String = UUID().uuidString
+//    var id = 0
+    var saveId: String?
     var appId: Int
     var appName: String
     var appShowName: String
     var appIcon: String
 //    var targetType: QuickStartType
     var targetUrl: String
+    
+    static func customAppModel(appName: String, appIcon: String = "", targetUrl: String) -> QuickStartAppModel {
+        return QuickStartAppModel(
+            appId: 0,
+            appName: appName,
+            appShowName: appName,
+            appIcon: appIcon,
+            targetUrl: targetUrl
+        )
+    }
+    
+    init(appId: Int, appName: String, appShowName: String, appIcon: String, targetUrl: String) {
+        self.appId = appId
+        self.appName = appName
+        self.appShowName = appShowName
+        self.appIcon = appIcon
+        self.targetUrl = targetUrl
+    }
     
     @available(iOS 18.0, *)
     static func tryOpenAppIntentResult(appUrl: String?) -> some IntentResult & OpensIntent {
@@ -110,11 +137,13 @@ struct QuickStartAppModel: Codable {
     
 }
 
-struct QuickStartShortcutsModel: Codable {
+struct QuickStartShortcutsModel: Codable, Equatable {
     var shortcutsName: String
     var shortcutsText: String?
     
     var targetUrl: String
+    
+    
 }
 
 struct QuickStartWebModel: Codable {
