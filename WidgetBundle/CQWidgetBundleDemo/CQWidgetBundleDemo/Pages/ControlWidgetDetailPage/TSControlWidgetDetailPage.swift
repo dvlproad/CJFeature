@@ -191,12 +191,12 @@ struct TSControlWidgetDetailPage: View {
     @State var currentSegmentModel: BaseSegmentModel?
     var settingView: some View {
         VStack(alignment: .center, spacing: 0) {
-            //            iconChooseView
+            iconChooseView
+
+            chooseAnimationButton
             
-            //            chooseAnimationButton
-            //
             titleEditView
-            //            subTitleEditView
+            subTitleEditView
             
             QuickStartInputView(
                 appModel: $appModel,
@@ -211,10 +211,6 @@ struct TSControlWidgetDetailPage: View {
                     webModel = newWebModel
                 }
             )
-            
-            //            TitleRowView(title: "选择快捷启动", value: "appName", onTapValue: {
-            //                //showAnimationSheet.toggle()
-            //            })
         }
     }
     

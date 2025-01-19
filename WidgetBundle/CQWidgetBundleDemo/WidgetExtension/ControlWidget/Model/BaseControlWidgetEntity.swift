@@ -9,8 +9,13 @@ import AppIntents
 import SwiftUI
 import CJAnimationKit_Swift
 
+protocol ControlWidgetBaseModel: Codable {
+    
+}
+
+
 // 组件的点击信息（功德组件需要使用，必要时候可能重置）
-struct WidgetClickModel: Codable {
+struct WidgetClickModel: ControlWidgetBaseModel {
     var count: Int
     var lastClickDate: Date
     
@@ -20,7 +25,7 @@ struct WidgetClickModel: Codable {
     }
 }
 
-struct WidgetImageScaleModel: AnimationModel, Codable {
+struct WidgetImageScaleModel: AnimationModel, ControlWidgetBaseModel {
     var type: AnimationType
     var isAnimating: Bool
     var animatingScale: CGFloat
@@ -71,11 +76,11 @@ struct WidgetImageScaleModel: AnimationModel, Codable {
 }
 
 
-struct BaseControlWidgetEntity: AppEntity, Codable {
+struct BaseControlWidgetEntity: AppEntity, ControlWidgetBaseModel {
     /*
     static func == (lhs: BaseControlWidgetEntity, rhs: BaseControlWidgetEntity) -> Bool {
-        return lhs.id == lhs.id
-        && lhs.title == rhs.title && lhs.subTitle == rhs.subTitle && lhs.imageName == rhs.imageName
+        return lhs.id == lhs.id && lhs.saveId == rhs.saveId
+        && lhs.title == rhs.title && lhs.subTitle == rhs.subTitle && lhs.imageModel == rhs.imageModel
         && lhs.isOn == rhs.isOn
         && lhs.symbolEffectType == rhs.symbolEffectType
         && lhs.widgetStyle == rhs.widgetStyle
@@ -83,6 +88,7 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
     }
     */
     
+    @available(iOS 16.0, *)
     var displayRepresentation: DisplayRepresentation {
         let title = self.title
         let subTitle = self.subTitle
@@ -94,9 +100,12 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
         )
     }
     
+    @available(iOS 16, *)
     static var typeDisplayRepresentation: TypeDisplayRepresentation = TypeDisplayRepresentation(name: "选择控制组件")
     
+    @available(iOS 16.0, *)
     typealias DefaultQuery = BaseControlWidgetEntityQuery
+    @available(iOS 16.0, *)
     static var defaultQuery: BaseControlWidgetEntityQuery = BaseControlWidgetEntityQuery()
     
 
@@ -172,6 +181,7 @@ struct BaseControlWidgetEntity: AppEntity, Codable {
 
 
 
+@available(iOS 16.0, *)
 struct BaseControlWidgetEntityQuery: EntityQuery, EntityStringQuery {
     func suggestedEntities() async throws -> IntentItemCollection<BaseControlWidgetEntity> {
         //let dataItems = try await getItems()

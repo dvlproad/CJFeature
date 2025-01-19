@@ -1,5 +1,5 @@
 //
-//  QuickStartAppListPage.swift
+//  QuickStartAppListView.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/18.
@@ -132,12 +132,12 @@ struct QuickStartAppListView: View {
                 
                 AddAppView(showAddAppPage: $showAddAppView,
                            editApp: $currentEditApp) { (app, isEdit, isDelete) in
-                    if let app = app {
+                    if var app = app {
                         if isDelete {
                             deleteApp(app)
 //                            SWToast.showText(message: "删除成功")
                         } else {
-                            updateOrAdd(app, isEdit: isEdit)
+                            updateOrAdd(&app, isEdit: isEdit)
 //                            SWToast.showText(message: "保存成功")
                         }
                         
@@ -176,7 +176,7 @@ struct QuickStartAppListView: View {
         
     }
     
-    private func updateOrAdd(_ app: QuickStartAppModel, isEdit: Bool) {
+    private func updateOrAdd(_ app: inout QuickStartAppModel, isEdit: Bool) {
         if isEdit {
             TSQuickStartAppsUtil.replaceQuickStartApp(app, in: &diyApps)
             refreshID = UUID() // 更新标记触发视图重绘
@@ -451,7 +451,7 @@ struct AddAppView: View {
                             
                             let fileName = "\(UUID().uuidString)_Material"
                             
-                            if let app = editApp {
+                            if var app = editApp {
                                 app.appName = name
                                 app.targetUrl = url
 //                                if let image = logo {

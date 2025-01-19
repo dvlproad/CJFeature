@@ -52,15 +52,13 @@ struct QuickStartInputView: View {
                         .padding(.horizontal, 10)
                         
                         // 跳转到新页面
-                        NavigationLink(isActive: $showAppList) {
-                            QuickStartAppListView(
-                                selectedApp: { newAppModel in
-                                    appModel = newAppModel
-                                    onValueChange()
-                                }
-                            )
-                        } label: {
-                        }
+                        QuickStartAppListPage(
+                            isActive: $showAppList,
+                            onChangeOfApp: { newAppModel in
+                                appModel = newAppModel
+                                onValueChange()
+                            }
+                        )
                         
                     } else if currentSegmentIndex == 2 {
                         let bindingValue = Binding(

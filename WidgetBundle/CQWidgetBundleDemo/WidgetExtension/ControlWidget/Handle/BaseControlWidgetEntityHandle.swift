@@ -17,6 +17,7 @@ enum CQUpdateUICauseType {
 /// 在小组件中
 let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
 
+@available(iOS 16.0, *)
 struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
     static func handleWidgetModel(_ model: inout BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
         CJLogUtil.log("温馨提示：您在【\(pageInfo?.pageType.rawValue ?? "")】点击了《\(model.title)》其id=\(model.id)")

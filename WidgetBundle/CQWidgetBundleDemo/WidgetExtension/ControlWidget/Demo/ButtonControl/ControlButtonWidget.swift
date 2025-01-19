@@ -88,18 +88,17 @@ extension ControlButtonWidget{
 
 
 // 自定义启动中心选择列表
+@available(iOS 18.0, *)
 struct ControlWidgetButtonEntity: AppEntity {
     
     static let typeDisplayRepresentation = TypeDisplayRepresentation(name: "选择启动组件")
 
-    @available(iOS 17.6, *)
     static let defaultQuery = ControlWidgetButtonEntityQuery()
 
     var id:String
     var uuid:String
     var title:String?
  
-
     var displayRepresentation: DisplayRepresentation {
         let title =  self.title ?? "启动组件"
         let subTitle = "还未选择启动组件"
@@ -116,7 +115,7 @@ struct ControlWidgetButtonEntity: AppEntity {
 
 }
 
-
+@available(iOS 18.0, *)
 struct ControlWidgetButtonEntityQuery: EntityQuery,EntityStringQuery {
   
     /// 实际测试结果是需要同步实现配置数据的加载，否则选择配置后，数据无法回调到启动组件

@@ -14,7 +14,7 @@ enum QuickStartType: Codable {
     case web        // 打开网页
 }
 
-class QuickStartAppModel: Codable {
+struct QuickStartAppModel: ControlWidgetBaseModel {
     static func == (lhs: QuickStartAppModel, rhs: QuickStartAppModel) -> Bool {
         return lhs.uuid == rhs.uuid && lhs.saveId == rhs.saveId
         && lhs.appId == rhs.appId
@@ -137,7 +137,7 @@ class QuickStartAppModel: Codable {
     
 }
 
-struct QuickStartShortcutsModel: Codable, Equatable {
+struct QuickStartShortcutsModel: ControlWidgetBaseModel, Equatable {
     var shortcutsName: String
     var shortcutsText: String?
     
@@ -146,7 +146,7 @@ struct QuickStartShortcutsModel: Codable, Equatable {
     
 }
 
-struct QuickStartWebModel: Codable {
+struct QuickStartWebModel: ControlWidgetBaseModel {
     var name: String
 
     var targetUrl: String
