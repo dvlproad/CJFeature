@@ -56,6 +56,7 @@ def shared_pods
   pod 'SDWebImage',   '~> 5.20.0'
   pod 'SVGKit',       '~> 3.0.0'
   pod 'SwiftSVG',     '~> 2.3.2'
+  pod 'SwiftDraw',    '~> 0.18.0'
   pod 'SnapKit'
 end
 

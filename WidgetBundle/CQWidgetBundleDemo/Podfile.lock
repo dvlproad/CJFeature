@@ -62,6 +62,7 @@ PODS:
   - SnapKit (5.7.1)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
+  - SwiftDraw (0.18.0)
   - SwiftSVG (2.3.2)
   - SwingAnimation (1.0.0)
 
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.20.0)
   - SnapKit
   - SVGKit (~> 3.0.0)
+  - SwiftDraw (~> 0.18.0)
   - SwiftSVG (~> 2.3.2)
   - SwingAnimation
 
@@ -85,6 +87,7 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - SVGKit
+    - SwiftDraw
     - SwiftSVG
     - SwingAnimation
 
@@ -109,9 +112,10 @@ SPEC CHECKSUMS:
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SwiftDraw: f63484562ddd30d9682b5576acc1d98acc2bec8f
   SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: 34f99ef3a19271a81f191fc28e82dcfa598cbf64
+PODFILE CHECKSUM: bf82ab2b94e13b5bdadedc45c1c36ade14b56e9c
 
 COCOAPODS: 1.16.2

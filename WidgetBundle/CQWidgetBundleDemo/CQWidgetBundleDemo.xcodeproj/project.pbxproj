@@ -102,6 +102,8 @@
 				Models/QuickStart/QuickStartAppModel.swift,
 				Pages/TSCustomSymbolPage/CustomSymbolView.swift,
 				Pages/TSCustomSymbolPage/TSCustomSymbolPage.swift,
+				Pages/TSCustomSymbolPage/TSResourceUtil.swift,
+				Pages/TSCustomSymbolPage/TSThirdSwiftDrawPage.swift,
 				"Pages/TSCustomSymbolPage/UIImage+SVG+PDF.swift",
 				Pages/TSEasyAnimationPage/TSEasyAnimationView.swift,
 				Pages/TSGifPage/TSGifPage.swift,
