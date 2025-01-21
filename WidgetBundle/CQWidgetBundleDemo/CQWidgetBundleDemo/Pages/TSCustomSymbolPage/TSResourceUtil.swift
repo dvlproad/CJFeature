@@ -8,6 +8,9 @@
 import UIKit
 
 public struct TSResourceUtil {
+    static let mainBundlePath = Bundle.main.bundlePath
+    static let path_fromMainBundle = Bundle.main.path(forResource: "icon_control_katong_6_byPath", ofType: "svg") ?? ""
+    
     // 模拟下载的资源包 URL
     public static var downloadedBundleURL: URL {
         // 使用本地或远程文件 URL

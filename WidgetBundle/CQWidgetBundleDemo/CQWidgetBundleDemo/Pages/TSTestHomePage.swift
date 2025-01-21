@@ -20,6 +20,12 @@ struct TSTestHomePage: View {
             NavigationLink(destination: TSCustomSymbolInBundlePage()) {
                 Text("测试自定义Symbol in Bundle")
             }
+            NavigationLink(destination: TSThirdSVGKitPage()) {
+                Text("测试自定义Symbol SVGKit")
+            }
+            NavigationLink(destination: TSThirdSwiftSVGPage()) {
+                Text("测试自定义Symbol SwiftSVG")
+            }
             NavigationLink(destination: TSThirdSwiftDrawPage()) {
                 Text("测试自定义Symbol SwiftDraw")
             }
