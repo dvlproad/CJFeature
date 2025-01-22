@@ -39,15 +39,10 @@ struct TSCustomSymbolPage: View {
                     .background(Color.red)
             }
             
-            thirdSDKSymbolView
-                .frame(width: UIScreen.main.bounds.width, height: 200)
-                .background(Color.red)
-                .clipped()
-            
             // =======Failure Example:=======
             // SVG
             
-            //let uiimage = SVGImageUtil.loadImageSvgName("activity_byPath")      // 不是 SF Symbol，可以加载，但需要的是 SF Symbol
+            //let uiimage = SVGImageUtil.loadImageSvgName("normal_svg_inMainBundle")      // 不是 SF Symbol，可以加载，但需要的是 SF Symbol
             //        let uiimage = UIImage.loadImageSvgName("emoji9_FFA5BE_byPath") // SF Symbol 的 SVG 加载显示和打开看到的一样
             //        let imageView = Image(uiImage: uiimage ?? UIImage())
             
@@ -72,27 +67,25 @@ struct TSCustomSymbolPage: View {
         }
     }
     
-    let mainBundlePath = Bundle.main.bundlePath
-    let path_fromMainBundle = Bundle.main.path(forResource: "icon_control_katong_6_byPath", ofType: "svg") ?? ""
-    
+
     var systemSymbolView1: some View {
         HStack {
             VStack {
-                Text("❌systemName")
+                TSText("❌systemName")
                 Image(systemName: "emoji9_FFA5BE")  // ❌自定义的 Symbol 不能用 systemName:
                     .frame(width: 60, height: 60)
                     .background(Color.randomColor)
             }
             
             VStack {
-                Text("✅ name")
+                TSText("✅ name")
                 Image("emoji9_FFA5BE")
                     .frame(width: 60, height: 60)
                     .background(Color.randomColor)
             }
             
             VStack {
-                Text("❌bundle")
+                TSText("❌bundle")
                 Image("emoji9_FFA5BE_byPath", bundle: nil)
                     .frame(width: 60, height: 60)
                     .background(Color.randomColor)
@@ -105,7 +98,7 @@ struct TSCustomSymbolPage: View {
         if #available(iOS 18.0, *) {
             HStack {
                 VStack {
-                    Text("❌systemName")
+                    TSText("❌systemName")
                     Image(systemName: "icon_control_katong_5")  // ❌自定义的 Symbol 不能用 systemName:
                         .resizable()
                         .applyEffect(.bounceUpByLayer)
@@ -113,7 +106,7 @@ struct TSCustomSymbolPage: View {
                         .background(Color.randomColor)
                 }
                 VStack {
-                    Text("✅ name")
+                    TSText("✅ name")
                     Image("icon_control_katong_5")
                         .resizable()
                         .applyEffect(.bounceUpByLayer)
@@ -122,7 +115,7 @@ struct TSCustomSymbolPage: View {
                 }
                 
                 VStack {
-                    Text("✅ name")
+                    TSText("✅ name")
                     Label {
                         Text("标题")
                         Text("副标题")
@@ -147,41 +140,20 @@ struct TSCustomSymbolPage: View {
         }
     }
     
-    var thirdSDKSymbolView: some View {
-        HStack {
-            VStack {
-                Text("SVGKit")
-                SVGImageView(filePath: path_fromMainBundle)
-                    .frame(width: 160, height: 160)
-                    .background(Color.randomColor)
-                    .clipped()
-            }
-            
-            VStack {
-                Text("SwiftSVG")
-                //            SVGImageView2(svgName: "icon_control_katong_6")
-                SwiftSVGView(svgName: "icon_control_katong_6_byPath")
-                    .frame(width: 160, height: 160)
-                    .background(Color.randomColor)
-                    .clipped()
-            }
-        }
-    }
-    
     var customRenderSymbolView: some View {
         HStack {
             VStack {
-                Text("uiimage_fromPath")
+                TSText("uiimage_fromPath")
                 let size = CGSize(width: 44, height: 44)
-                let uiimage_fromPath = UIImage.getSFSymbol(symbolPath: path_fromMainBundle, size: size)
+                let uiimage_fromPath = UIImage.getSFSymbol(symbolPath: TSResourceUtil.path_fromMainBundle, size: size)
                 Image(uiImage: uiimage_fromPath ?? UIImage())
                     .frame(width: 160, height: 160)
                     .background(Color.randomColor)
             }
             
             VStack {
-                Text("uiimage_fromBundle")
-                let uiimage_fromBundle = UIImage.getSFSymbol(symbolName: "icon_control_katong_6_byBundlePath", bundleName: "ShareBundle")
+                TSText("uiimage_fromBundle")
+                let uiimage_fromBundle = UIImage.getSFSymbol(symbolName: "symbol_svg_inDesignatedBundle", bundleName: "ShareBundle")
                 Image(uiImage: uiimage_fromBundle ?? UIImage())
                     .frame(width: 160, height: 160)
                     .background(Color.randomColor)

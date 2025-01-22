@@ -86,3 +86,101 @@ struct BaseControlWidgetAnimationViewInApp: View {
 //        }
     }
 }
+
+
+// MARK: 预览 BaseControlWidgetAnimationViewInApp
+struct BaseControlWidgetAnimationViewInApp_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(alignment: .center, spacing: 0) {
+            let entity = BaseControlWidgetEntity(
+                id: UUID().uuidString,
+                title: "控制组件",
+                subTitle: "我是副标题",
+                imageModel: CJBaseImageModel(id: "", name: "", imageName: "icon_control_katong_4"),
+                imageAnimateType: .none,
+                name: "",
+                widgetStyle: .circle,
+                bgColorString: "#ff0000"
+            )
+            
+            BaseControlWidgetAnimationViewInApp(
+                entity: .constant(entity)
+            )
+            .tint(Color.red)
+            
+            Button("Click me") {
+                print("Button clicked")
+            }
+            .tint(.red) // 设置按钮的颜色为蓝色
+            
+            Image("field_close_gray")
+                .renderingMode(.template) // 设置为模板模式
+                .foregroundColor(.yellow) // 设置图标的颜色为黄色
+            
+            Image(systemName: "star.fill")
+                .renderingMode(.template) // 设置为模板模式
+                .tint(.red) // 设置图标的颜色为黄色
+            
+            Image(systemName: "star.fill")
+                .foregroundStyle(.yellow)
+            
+            Image(systemName: "star.fill")
+                .foregroundColor(.red) // 设置图标的颜色为黄色
+            
+            diffSymbols_typesView()
+        }
+        
+    }
+    
+    // 不同 symbol 图标的各种不同渲染方法
+    static func diffSymbols_typesView() -> some View {
+        HStack(alignment: .center, spacing: 0) {
+            typesBatteryView(
+                imageName: "battery.100percent.bolt",
+                isSystemName: true
+            )
+            typesBatteryView(
+                imageName: "icon_control_katong_4",
+                isSystemName: false
+            )
+            typesBatteryView(
+                imageName: "02_color_svg",
+                isSystemName: false
+            )
+        }
+    }
+    
+    static func typesBatteryView(imageName: String, isSystemName: Bool = false) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Text("单色模式 Monochrome")
+            baseImageName(imageName, isSystemName)
+                .foregroundStyle(.yellow)
+            
+            Text("分层模式 Hierarchical")
+            baseImageName(imageName, isSystemName)
+                .foregroundStyle(.yellow)
+                .symbolRenderingMode(.hierarchical)
+            
+            Text("调色盘模式 Palette")
+            baseImageName(imageName, isSystemName)
+                .foregroundStyle(.red, .orange, .yellow)
+                .symbolRenderingMode(.palette)
+            
+            Text("多色模式 Muticolor")
+            baseImageName(imageName, isSystemName)
+                .symbolRenderingMode(.multicolor)
+        }
+    }
+    
+    static func baseImageName(_ imageName: String, _ isSystemName: Bool = false) -> some View {
+        if isSystemName {
+            Image(systemName: imageName)
+                .resizable()
+                .frame(width: 100, height: 100)
+        } else {
+            Image(imageName)
+                .resizable()
+                .frame(width: 100, height: 100)
+        }
+    }
+}

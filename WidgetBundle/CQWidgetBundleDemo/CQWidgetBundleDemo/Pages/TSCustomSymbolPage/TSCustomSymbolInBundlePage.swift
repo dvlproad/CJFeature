@@ -30,50 +30,97 @@ struct TSCustomSymbolInBundlePage: View {
     
     var contentView: some View {
         VStack(alignment: .leading, spacing: 10) {
-            systemView1(name: "app_search_icon_byBundlePath.png")
+            mainBundleImage(name: "png_inMainBundle.png")
                 .frame(width: UIScreen.main.bounds.width, height: 120)
                 .background(Color.red)
             
-            systemView1(name: "activity_byBundlePath.svg")
+            mainBundleImage(name: "normal_svg_inMainBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 120)
                 .background(Color.red)
             
-            systemView1(name: "icon_control_katong_6_byBundlePath.svg")
+            mainBundleImage(name: "symbol_svg_inMainBundle.svg")
+                .frame(width: UIScreen.main.bounds.width, height: 120)
+                .background(Color.red)
+            
+            downloadedBundleImage(name: "png_inDesignatedBundle.png")
+                .frame(width: UIScreen.main.bounds.width, height: 120)
+                .background(Color.red)
+            
+            downloadedBundleImage(name: "normal_svg_inDesignatedBundle.svg")
+                .frame(width: UIScreen.main.bounds.width, height: 120)
+                .background(Color.red)
+            
+            downloadedBundleImage(name: "symbol_svg_inDesignatedBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 120)
                 .background(Color.red)
         }
     }
     
-    func systemView1(name: String) -> some View {
-        HStack {
-            VStack {
-                Text("❌bunlde")
-                if let downloadedBundle = TSResourceUtil.downloadedBundle {
-                    Image(name, bundle: downloadedBundle)
-                        .resizable()
-                        .scaledToFit()
+    func mainBundleImage(name: String) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Text("\(name)")
+            HStack {
+                VStack {
+                    TSText("named")
+                    let configuration = UIImage.SymbolConfiguration(pointSize: 24, weight: .medium)
+                    let image = UIImage(named: name, in: nil, variableValue: 0.5, configuration: configuration)
+                    Image(uiImage: image ?? UIImage())
                         .frame(width: 60, height: 60)
                         .background(Color.randomColor)
-                } else {
-                    Text("Failed to load bundle")
+                }
+                
+                VStack {
+                    TSText("imageData")
+                    
+                    let tuple = TSResourceUtil.extractFileNameAndExtension(from: name)
+                    let path_fromMainBundle = Bundle.main.path(forResource: tuple.fileName,
+                                                               ofType: tuple.fileExtension)
+                    if path_fromMainBundle != nil {
+                        let uiimage_fromPath = UIImage.loadImageDataInPath(path_fromMainBundle!)
+                        Image(uiImage: uiimage_fromPath ?? UIImage())
+                            .frame(width: 60, height: 60)
+                            .background(Color.randomColor)
+                    } else {
+                        Text("Failed to load image")
+                    }
                 }
             }
-            
-            
-            VStack {
-                Text("✅ path")
-                let downloadedBundle_UIImage = TSResourceUtil.downloadedBundle_UIImage(name: name)
-                Image(uiImage: downloadedBundle_UIImage ?? UIImage())
-                    .frame(width: 60, height: 60)
-                    .background(Color.randomColor)
-            }
-            
+        }
+    }
+    
+    func downloadedBundleImage(name: String) -> some View {
+        VStack(alignment: .center, spacing: 0) {
+            Text("\(name)")
+            HStack {
+                VStack {
+                    Text("❌bunlde")
+                    if let downloadedBundle = TSResourceUtil.downloadedBundle {
+                        Image(name, bundle: downloadedBundle)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 60, height: 60)
+                            .background(Color.randomColor)
+                    } else {
+                        Text("Failed to load bundle")
+                    }
+                }
+                
+                
+                VStack {
+                    Text("✅ path")
+                    let downloadedBundle_UIImage = TSResourceUtil.downloadedBundle_UIImage(name: name)
+                    Image(uiImage: downloadedBundle_UIImage ?? UIImage())
+                        .frame(width: 60, height: 60)
+                        .background(Color.randomColor)
+                }
+                
 //            VStack {
 //                Text("❌bundle")
 //                Image("emoji9_FFA5BE_byPath", bundle: nil)
 //                    .frame(width: 60, height: 60)
 //                    .background(Color.randomColor)
 //            }
+            }
         }
     }
 }

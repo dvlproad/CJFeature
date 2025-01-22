@@ -29,22 +29,22 @@ struct TSThirdSwiftDrawPage: View {
     
     var contentView: some View {
         VStack(alignment: .leading, spacing: 10) {
-            mainBundleImage_swiftDrawView(name: "activity_byPath.svg")
+            mainBundleImage_swiftDrawView(name: "normal_svg_inMainBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 210)
                 .background(Color.red)
                 .clipped()
             
-            mainBundleImage_swiftDrawView(name: "icon_control_katong_6_byPath.svg")
+            mainBundleImage_swiftDrawView(name: "symbol_svg_inMainBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 210)
                 .background(Color.red)
                 .clipped()
             
-            downloadBundleImage_swiftDrawView(name: "activity_byBundlePath.svg")
+            downloadBundleImage_swiftDrawView(name: "normal_svg_inDesignatedBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 210)
                 .background(Color.red)
                 .clipped()
             
-            downloadBundleImage_swiftDrawView(name: "icon_control_katong_6_byBundlePath.svg")
+            downloadBundleImage_swiftDrawView(name: "symbol_svg_inDesignatedBundle.svg")
                 .frame(width: UIScreen.main.bounds.width, height: 210)
                 .background(Color.red)
                 .clipped()

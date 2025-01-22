@@ -43,12 +43,11 @@ APP内控制中心组件详情页面：
 ### 控制中心图标要求
 
 * [IOS18 ControlWidget icon not show](https://stackoverflow.com/questions/79013808/ios18-controlwidget-icon-not-show)
+* [ControlWidget的图标只支持SF](https://github.com/xiaof631/ControlWidgetDemo/blob/main/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8%E7%9A%84iOS18%20ControlWidget%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8%E7%9A%84iOS18%20ControlWidget%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B.md)
 
 
 
 ### 动画实现
-
-[ControlWidget的图标只支持SF](https://github.com/xiaof631/ControlWidgetDemo/blob/main/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8%E7%9A%84iOS18%20ControlWidget%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/%E5%85%A8%E7%BD%91%E6%9C%80%E5%85%A8%E7%9A%84iOS18%20ControlWidget%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B.md)
 
 核心：[官网下载 SF Symbols 6](https://developer.apple.com/sf-symbols/)
 

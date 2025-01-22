@@ -77,6 +77,19 @@ extension UIImage {
         
         return svgImage?.uiImage
     }
+    
+    static func loadImageDataInPath(_ path: String) -> UIImage? {
+        // 1. 获取图像数据
+        guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
+            print("无法从路径加载数据")
+            return nil
+        }
+
+        // 2. 使用数据创建UIImage
+        let image = UIImage(data: imageData)
+        
+        return image
+    }
 }
 
 // MARK: PDF

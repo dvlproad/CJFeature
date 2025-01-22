@@ -17,6 +17,12 @@ struct TSTestHomePage: View {
             NavigationLink(destination: TSCustomSymbolPage()) {
                 Text("测试自定义Symbol")
             }
+            NavigationLink(destination: TSLoadBundleResourceViewRepresentable()) {
+                Text("测试 LoadBundleResourceView")
+            }
+            NavigationLink(destination: TSSwiftSVGLoadBundleResoureViewRepresentable()) {
+                Text("测试 LoadBundleResource SwiftSVG")
+            }
             NavigationLink(destination: TSCustomSymbolInBundlePage()) {
                 Text("测试自定义Symbol in Bundle")
             }

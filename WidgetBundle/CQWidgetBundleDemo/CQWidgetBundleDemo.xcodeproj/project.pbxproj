@@ -101,9 +101,6 @@
 				Models/QuickStart/QuickStartAppExample.swift,
 				Models/QuickStart/QuickStartAppModel.swift,
 				Pages/TSCustomSymbolPage/CustomSymbolView.swift,
-				Pages/TSCustomSymbolPage/TSCustomSymbolPage.swift,
-				Pages/TSCustomSymbolPage/TSResourceUtil.swift,
-				Pages/TSCustomSymbolPage/TSThirdSwiftDrawPage.swift,
 				"Pages/TSCustomSymbolPage/UIImage+SVG+PDF.swift",
 				Pages/TSEasyAnimationPage/TSEasyAnimationView.swift,
 				Pages/TSGifPage/TSGifPage.swift,
@@ -113,8 +110,9 @@
 				Resources/ShareResources/GIF/transformer.gif,
 				"Resources/ShareResources/PDF/icons8-ninja-turtle_byPath.pdf",
 				Resources/ShareResources/ShareAssets.xcassets,
-				Resources/ShareResources/SVG/activity_byPath.svg,
-				Resources/ShareResources/SVG/icon_control_katong_6_byPath.svg,
+				Resources/ShareResources/SVG/emoji9_FFA5BE_byPath.svg,
+				Resources/ShareResources/SVG/normal_svg_inMainBundle.svg,
+				Resources/ShareResources/SVG/symbol_svg_inMainBundle.svg,
 			);
 			target = 97554DE82D2FD5E8004ED8B1 /* WidgetExtensionExtension */;
 		};
