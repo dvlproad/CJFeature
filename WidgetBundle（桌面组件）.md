@@ -78,6 +78,19 @@ APP内控制中心组件详情页面：
 * [iOS 之 URL Scheme(含常用指令及如何查找第三方 App 的 URL Scheme)](https://hanleylee.com/articles/url-scheme-of-ios/)
 * [When setting 'static var openAppWhenRun=true', clicking on the control center will keep opening the app. How can I sometimes want to open it and sometimes not.](https://github.com/onmyway133/blog/issues/983)
 
+实现方式1：没有开闭状态之分，点击始终执行快捷启动
+
+注意点：
+
+```swift
+// 点击快捷启动让颜色保持不变
+static var openAppWhenRun: Bool = true  // 不设置此行值为true，会导致点击的时候有颜色变化再变回去
+```
+
+
+
+
+
 **整合状态变更的控制中心组件和启动app的控制组件在同一个组件里；**
 
 使用 AppIntent ，设置 static var openAppWhenRun=true 可打开 app，但会导致每次点击控制中心组件都会调到 app 里，导致那些类似只要切换开关状态的也出现此问题。
