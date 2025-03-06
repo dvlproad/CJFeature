@@ -34,10 +34,10 @@ struct CustomSegmentView: View {
         let totalWidth = options.reduce(0) { $0 + $1.width }
 
         HStack{
-            HStack(spacing: 0) {
+            HStack(alignment: .center, spacing: 0) {
                 ForEach(Array(options.enumerated()), id: \.offset) { index, option in
                     let isSelected: Bool = option.segmentId == currentSelectedModel?.segmentId
-                    CustomSegmentButton(option: option, isSelected: isSelected, height: height)
+                    CustomSegmentButton(option: option, isSelected: isSelected, height: height-3)
                         .onTapGesture {
 //                            currentSelectedModel = option
                             onChangeOfModel(option)
@@ -48,7 +48,6 @@ struct CustomSegmentView: View {
             .background(Color(hex: "#F5F5F5"))
             .cornerRadius(height / 2)
         }
-        .padding(.horizontal, 21)
     }
 }
 
@@ -61,7 +60,7 @@ struct CustomSegmentButton: View {
     var body: some View {
         Text(option.text)
             .font(.system(size: option.textFontSize, weight: .medium))
-            .foregroundColor(Color(hex: isSelected ? "#666666" : "#333333"))
+            .foregroundColor(Color(hex: isSelected ? "#333333" : "#999999"))
             .frame(width: option.width, height: height, alignment: .center)
             .background(Color(hex: isSelected ? "#FFFFFF" : "#F5F5F5"))
             .cornerRadius(height / 2)

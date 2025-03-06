@@ -1,0 +1,23 @@
+{
+    "widgetId": "dynamicIcon_supportstick",
+    "name": "动态应援棒",
+    "widgetStyle": "circle",
+    "onModel": {
+        "title": "动态应援棒",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "imageId_supportstick_open",
+            "imageName": "hudie3",
+            "imageColor": "ff9a92"
+        }
+    },
+    "offModel": {
+        "title": "动态应援棒",
+        "subTitle": "关闭",
+        "imageModel": {
+            "id": "imageId_supportstick_close",
+            "imageName": "hudie3"
+        }
+    },
+    "symbolEffectType": "wiggleClockwiseByLayer"
+}

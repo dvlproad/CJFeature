@@ -1,2 +1,16 @@
 Ads/**/Pods/
 **/Pods/
+
+# Pods/
+
+# 忽略 Xcode 用户数据目录
+xcuserdata/
+
+# 如果您在 .gitignore 中添加了 *.xcuserdata/ 后，仍然看到 xcuserdata 目录下的文件修改被 Git 跟踪，可能是因为这些文件已经被添加到 Git 的版本控制中，且在 .gitignore 文件生效之前已被提交。
+# 要解决这个问题，您需要执行以下步骤：
+# 步骤：
+# 从 Git 中移除 xcuserdata 目录的文件：
+# 先删除已经被 Git 跟踪的 xcuserdata 目录下的文件，但不删除文件本身，只是将它们从 Git 的索引中移除。
+# git rm -r --cached **/*.xcworkspace/xcuserdata
+# git rm -rf --cached ./TSDemoDemo.xcworkspace/xcuserdata/
+# git rm -r --cached ./WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo.xcworkspace/xcuserdata

@@ -14,7 +14,7 @@ struct TSHomePage: View {
     @State private var cacheItems: [BaseControlWidgetEntity] = []
     
     @State private var isDetailViewActive = false // 控制跳转的状态
-    @State private var selectedData: BaseControlWidgetEntity = BaseControlWidgetEntity.nilEntity()
+    @State private var selectedData: BaseControlWidgetEntity = BaseControlWidgetEntity.defaultEntityForDesktopType(.toggle)
     
     var body: some View {
         NavigationStack {
@@ -25,7 +25,7 @@ struct TSHomePage: View {
                         self.viewDidLoad()
                     }
                     
-                    cacheItems = TSWidgetBundleCacheUtil.getControlWidgets()
+                    cacheItems = TSWidgetBundleCacheUtil.getControlWidgets(.all)
                 }
         }
         
@@ -50,7 +50,7 @@ struct TSHomePage: View {
 //                .clipped()
             
             TSTestHomePage()
-
+            
             
         }
     }
@@ -60,14 +60,14 @@ struct TSHomePage: View {
     var widgetCollectionView: some View {
         VStack {
             //CQControlWidgetCollectionViewRepresentable {
-            CQControlWidgetCollectionViewRepresentable(
-                dataModels: dataModels,
-                onTapEntity: { entity in
-                    collectionViewRefreshUUID = UUID()
-                    selectedData = entity
-                    isDetailViewActive = true // 设置状态为 true，触发跳转
-                }
-            )
+//            CQControlWidgetCollectionViewRepresentable(
+//                dataModels: dataModels,
+//                onTapEntity: { entity in
+//                    collectionViewRefreshUUID = UUID()
+//                    selectedData = entity
+//                    isDetailViewActive = true // 设置状态为 true，触发跳转
+//                }
+//            )
             // 隐式的 NavigationLink，配合状态控制跳转
             NavigationLink(
                 destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: self.selectedData),
@@ -86,7 +86,7 @@ struct TSHomePage: View {
         List(items.indices, id: \.self) { index in
             let item = items[index]
             NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: item)) {
-                BaseControlWidgetView(entity: item)
+                BaseControlWidgetViewInApp(entity: item, pageInfo: CCPageInfo(pageType: .homePage))
             }
         }
         .navigationTitle("控制中心组件")

@@ -1,0 +1,21 @@
+{
+    "widgetId": "open_app",
+    "name": "日历",
+    "widgetType": "open_app",
+    "widgetStyle": "rectangle",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "日历",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "imageId_open_app",
+            "imageName": "shuibei",
+            "imageColor": "a0c6f6"
+        },
+        "appModel": {
+            "appName": "打开日历",
+            "targetUrl": "calshow://"
+        }
+    },
+    "symbolEffectType": "none"
+}

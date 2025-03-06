@@ -3,7 +3,9 @@ PODS:
     - CJAnimationKit-Swift/Extension (= 0.0.1)
   - CJAnimationKit-Swift/Extension (0.0.1)
   - CJImageKit-Swift (0.0.1):
+    - CJImageKit-Swift/Extension (= 0.0.1)
     - CJImageKit-Swift/Gif (= 0.0.1)
+  - CJImageKit-Swift/Extension (0.0.1)
   - CJImageKit-Swift/Gif (0.0.1)
   - CJViewElement-Swift (0.0.1):
     - CJViewElement-Swift/CommonSettingRow (= 0.0.1)
@@ -24,46 +26,90 @@ PODS:
   - CocoaLumberjack (3.8.5):
     - CocoaLumberjack/Core (= 3.8.5)
   - CocoaLumberjack/Core (3.8.5)
-  - CQDemoKit/BaseUIKit (0.6.9):
+  - CQDemoKit (0.7.7):
+    - CQDemoKit/Auxiliary (= 0.7.7)
+    - CQDemoKit/BaseUIKit (= 0.7.7)
+    - CQDemoKit/BaseUtil (= 0.7.7)
+    - CQDemoKit/BaseVC (= 0.7.7)
+    - CQDemoKit/Demo_DataSourceAndDelegate (= 0.7.7)
+    - CQDemoKit/Demo_Resource (= 0.7.7)
+    - CQDemoKit/Demo_RipeView (= 0.7.7)
+    - CQDemoKit/Helper (= 0.7.7)
+    - CQDemoKit/Monitor (= 0.7.7)
+  - CQDemoKit-Swift (0.0.1):
+    - CQDemoKit
+    - CQDemoKit-Swift/CQDemoKit-OC (= 0.0.1)
+    - CQDemoKit-Swift/SwiftUI (= 0.0.1)
+  - CQDemoKit-Swift/CQDemoKit-OC (0.0.1):
+    - CQDemoKit
+  - CQDemoKit-Swift/SwiftUI (0.0.1):
+    - CQDemoKit
+  - CQDemoKit/Auxiliary (0.7.7):
     - Masonry
-  - CQDemoKit/BaseUtil (0.6.9)
-  - CQDemoKit/BaseVC (0.6.9):
-    - CQDemoKit/BaseVC/Base (= 0.6.9)
-    - CQDemoKit/BaseVC/Collection (= 0.6.9)
-    - CQDemoKit/BaseVC/ScrollView (= 0.6.9)
-    - CQDemoKit/BaseVC/TabBar (= 0.6.9)
-    - CQDemoKit/BaseVC/TableView (= 0.6.9)
-    - CQDemoKit/BaseVC/TextView (= 0.6.9)
-    - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/Base (0.6.9):
+  - CQDemoKit/BaseUIKit (0.7.7):
+    - Masonry
+  - CQDemoKit/BaseUtil (0.7.7)
+  - CQDemoKit/BaseVC (0.7.7):
+    - CQDemoKit/BaseVC/Base (= 0.7.7)
+    - CQDemoKit/BaseVC/Collection (= 0.7.7)
+    - CQDemoKit/BaseVC/ScrollView (= 0.7.7)
+    - CQDemoKit/BaseVC/TabBar (= 0.7.7)
+    - CQDemoKit/BaseVC/TableView (= 0.7.7)
+    - CQDemoKit/BaseVC/TextView (= 0.7.7)
+  - CQDemoKit/BaseVC/Base (0.7.7):
     - CQDemoKit/BaseUIKit
-    - CQDemoKit/Helper
     - Masonry
-  - CQDemoKit/BaseVC/Collection (0.6.9):
+  - CQDemoKit/BaseVC/Collection (0.7.7):
     - CQDemoKit/BaseVC/Base
-    - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/ScrollView (0.6.9):
+  - CQDemoKit/BaseVC/ScrollView (0.7.7):
     - CQDemoKit/BaseVC/Base
+  - CQDemoKit/BaseVC/TabBar (0.7.7):
     - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/TabBar (0.6.9):
-    - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/TableView (0.6.9):
+  - CQDemoKit/BaseVC/TableView (0.7.7):
     - CQDemoKit/BaseVC/Base
-    - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/TextView (0.6.9):
+  - CQDemoKit/BaseVC/TextView (0.7.7):
     - CQDemoKit/BaseUtil
     - CQDemoKit/BaseVC/Base
+  - CQDemoKit/Demo_DataSourceAndDelegate (0.7.7):
+    - CQDemoKit/BaseVC
+    - CQDemoKit/Demo_Resource
+  - CQDemoKit/Demo_Resource (0.7.7):
+    - CQDemoKit/BaseUIKit
     - CQDemoKit/Helper
-  - CQDemoKit/Helper (0.6.9)
+  - CQDemoKit/Demo_RipeView (0.7.7):
+    - CQDemoKit/BaseUIKit
+    - CQDemoKit/BaseUtil
+    - CQDemoKit/Demo_DataSourceAndDelegate
+    - CQDemoKit/Demo_Resource
+  - CQDemoKit/Helper (0.7.7)
+  - CQDemoKit/Monitor (0.7.7)
+  - libwebp (1.5.0):
+    - libwebp/demux (= 1.5.0)
+    - libwebp/mux (= 1.5.0)
+    - libwebp/sharpyuv (= 1.5.0)
+    - libwebp/webp (= 1.5.0)
+  - libwebp/demux (1.5.0):
+    - libwebp/webp
+  - libwebp/mux (1.5.0):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.5.0)
+  - libwebp/webp (1.5.0):
+    - libwebp/sharpyuv
+  - lottie-ios (4.5.1)
   - Masonry (1.1.0)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
   - SDWebImage/Core (5.20.0)
+  - SDWebImageWebPCoder (0.14.6):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.17)
   - SnapKit (5.7.1)
+  - SSZipArchive (2.6.0)
   - SVGKit (3.0.0):
     - CocoaLumberjack (~> 3.0)
   - SwiftDraw (0.18.0)
   - SwiftSVG (2.3.2)
+  - SwiftyJSON (5.0.2)
   - SwingAnimation (1.0.0)
 
 DEPENDENCIES:
@@ -71,24 +117,35 @@ DEPENDENCIES:
   - CJImageKit-Swift (from `../../../UIKit-Image-iOS`)
   - CJViewElement-Swift (from `../../../CJViewCreatorSDK`)
   - CJWidgetKit-Swift (from `../../../UIKit-Image-iOS`)
-  - CQDemoKit/BaseVC (~> 0.6.9)
+  - CQDemoKit-Swift
+  - CQDemoKit/BaseVC (~> 0.7.7)
+  - lottie-ios
   - SDWebImage (~> 5.20.0)
+  - SDWebImageWebPCoder
   - SnapKit
+  - SSZipArchive
   - SVGKit (~> 3.0.0)
   - SwiftDraw (~> 0.18.0)
   - SwiftSVG (~> 2.3.2)
+  - SwiftyJSON
   - SwingAnimation
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - CocoaLumberjack
     - CQDemoKit
+    - CQDemoKit-Swift
+    - libwebp
+    - lottie-ios
     - Masonry
     - SDWebImage
+    - SDWebImageWebPCoder
     - SnapKit
+    - SSZipArchive
     - SVGKit
     - SwiftDraw
     - SwiftSVG
+    - SwiftyJSON
     - SwingAnimation
 
 EXTERNAL SOURCES:
@@ -103,19 +160,25 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CJAnimationKit-Swift: 79907e80c44f7b44b05fd0f573a2b2d96a989ed7
-  CJImageKit-Swift: dc29934f6c0827ed7ec19494a2f59d6aeabedaea
+  CJImageKit-Swift: 39602fb16a4a627ccf170a96207f8c5d864d7662
   CJViewElement-Swift: c8ff58ffe0946ddeb1ce7f3df5991c5bb6fd5d34
   CJWidgetKit-Swift: 52f16d430e3e42b1cebcb5f8a88ea8a4e1910e0a
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
-  CQDemoKit: f7a6a6f2a7e3eea2a4a0684c654bfcf0360e6dca
+  CQDemoKit: 6d8cda4fd4dd4d798a6507a656141278f6b22d30
+  CQDemoKit-Swift: 28d06bf24cbcc84c9651e0ffe607bffdd57863b6
+  libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
+  lottie-ios: 248b380fa1b97d18e792c37d90da7ab2aa0d6562
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
+  SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SSZipArchive: 8a6ee5677c8e304bebc109e39cf0da91ccef22ea
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   SwiftDraw: f63484562ddd30d9682b5576acc1d98acc2bec8f
   SwiftSVG: ca7f64e403b8ea7ea8eba8c823b83ba4a059834c
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: bf82ab2b94e13b5bdadedc45c1c36ade14b56e9c
+PODFILE CHECKSUM: 994e299533b187e656a80234f86f08863129f8a5
 
 COCOAPODS: 1.16.2

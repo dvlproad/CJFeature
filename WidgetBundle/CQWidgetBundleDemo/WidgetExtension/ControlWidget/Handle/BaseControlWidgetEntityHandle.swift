@@ -14,37 +14,42 @@ enum CQUpdateUICauseType {
     case bgButtonClick  // 背景按钮的点击
 }
 
-/// 在小组件中
-let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
-
 @available(iOS 16.0, *)
 struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
-    static func handleWidgetModel(_ model: inout BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
-        CJLogUtil.log("温馨提示：您在【\(pageInfo?.pageType.rawValue ?? "")】点击了《\(model.title)》其id=\(model.id)")
+    static func handleWidgetModel(_ model: inout BaseControlWidgetEntity, caseType: CQUpdateUICauseType, pageInfo: CCPageInfo?) {
+        CCLogUtil.log("温馨提示：您在【\(pageInfo?.pageType.rawValue ?? "")】点击了《\(model.name)》其id=\(model.id)")
+        
+//        CCControlWidgetEventUtil.clickWidgetId(model.widgetId)
+        
         if caseType == .bgButtonClick {
-            model.clickModel.count += 1  // 点击次数
+            let oldWidgetModelOpenState = model.isOn
+            
+            model.clickModel?.count += 1  // 点击次数
             
             // 如果有使用到开启LiveActivity 这个数据管理类的数据需要做持久化处理，否则value会一直变化,出现不可预知的异常
-            let widgetId = model.id
-            if widgetId == CQControlWidgetIds.meritsWoodenFishControlWidgetID {
-                var imageScaeModel = model.animateModel
-                imageScaeModel.isAnimating = true
-                model.title = "x\(model.clickModel.count)"
-                
-            } else if widgetId == CQControlWidgetIds.diceControlWidgetID {  // 骰子🎲
-                model.isOn = true
-                model.imageModel.imageName = CJTestUtil.generateRandomImageName()
-                
-            } else if widgetId == CQControlWidgetIds.dynamicIconControlWidgetID {
+            let widgetType = model.widgetType
+            if widgetType == .toggle_icon {
                 model.isOn.toggle()
                 
-//                var imageScaeModel = model.animateModel
-//                imageScaeModel.isAnimating = true
-//                model.animateModel = imageScaeModel
-                
-            } else {
-                model.isOn.toggle()
+            } else if widgetType == .open_app || widgetType == .open_shortcut {
+                // 快捷启动应用
             }
+//            } else if widgetType == .woodenFish {
+//                //var imageScaeModel = model.animateModel
+//                //imageScaeModel.isAnimating = true
+//                model.onModel.title = "x\(model.clickModel?.count)"
+//                
+//            } else if widgetType == .dice {  // 骰子🎲
+//                model.isOn = true
+//                model.onModel.imageModel.imageName = CJTestUtil.generateRandomImageName()
+//            }
+            
+            /*
+            if oldWidgetModelOpenState {
+                let audioName = "鞭炮"
+                SoundPlayer.shared.play(audioName)
+            }
+            */
         }
         
 
@@ -76,16 +81,16 @@ struct BaseControlWidgetEntityHandle {    // MARK: UpdateUI
         }
     }
     
-    fileprivate static func playAudio(_ audioName: String, caseType: CQUpdateUICauseType, pageInfo: CQPageInfo?) {
+    fileprivate static func playAudio(_ audioName: String, caseType: CQUpdateUICauseType, pageInfo: CCPageInfo?) {
         let pageType = getCurrentPageType(pageInfo)
         if  caseType == .bgButtonClick {
-            if pageType == .widgetDetailPage || pageType == .inDesktop {
+            if pageType == .controlWidgetDetailPage || pageType == .inDesktop {
                 //SoundPlayer.shared.play(audioName)
             }
         }
     }
     
-    static func getCurrentPageType(_ pageInfo: CQPageInfo?) -> CQPageType {
+    static func getCurrentPageType(_ pageInfo: CCPageInfo?) -> CCPageType {
         if let pageInfo = pageInfo {
             return pageInfo.pageType
         }

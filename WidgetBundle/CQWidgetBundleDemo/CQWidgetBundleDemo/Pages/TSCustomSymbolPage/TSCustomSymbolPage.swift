@@ -101,16 +101,16 @@ struct TSCustomSymbolPage: View {
                     TSText("❌systemName")
                     Image(systemName: "icon_control_katong_5")  // ❌自定义的 Symbol 不能用 systemName:
                         .resizable()
-                        .applyEffect(.bounceUpByLayer)
-                        .imageFrame(.rectangle)
+                        .applyEffect(.bounceUp)
+//                        .imageFrame(.rectangle)
                         .background(Color.randomColor)
                 }
                 VStack {
                     TSText("✅ name")
                     Image("icon_control_katong_5")
                         .resizable()
-                        .applyEffect(.bounceUpByLayer)
-                        .imageFrame(.rectangle)
+                        .applyEffect(.bounceUp)
+//                        .imageFrame(.rectangle)
                         .background(Color.randomColor)
                 }
                 
@@ -127,8 +127,8 @@ struct TSCustomSymbolPage: View {
                         
                         Image("icon_control_katong_5")
                             .resizable()
-                            .applyEffect(.bounceUpByLayer)
-                            .imageFrame(.rectangle)
+                            .applyEffect(.bounceUp)
+//                            .imageFrame(.rectangle)
                             .background(Color.randomColor)
                         
                     }

@@ -1,5 +1,5 @@
 //
-//  CQControlWidgetCollectionViewCell.swift
+//  CQControlWidgetEntityCollectionViewCell.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/14.
@@ -8,8 +8,7 @@
 import UIKit
 import SnapKit
 
-// 使用基类为 SwiftUI View 创建 Cell
-class CQControlWidgetCollectionViewCell: UICollectionViewCell {
+class CQControlWidgetEntityCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel!
     var widgetView: CJHostingView<BaseControlWidgetViewInApp>!
     
@@ -32,7 +31,7 @@ class CQControlWidgetCollectionViewCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.height.equalTo(20)
+            make.height.equalTo(12)
         }
         self.titleLabel = titleLabel
         
@@ -41,13 +40,22 @@ class CQControlWidgetCollectionViewCell: UICollectionViewCell {
         widgetView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalToSuperview()
-            make.bottom.equalTo(titleLabel.snp.top).offset(-8)
+            make.bottom.equalTo(titleLabel.snp.top).offset(-10)
         }
         self.widgetView = widgetView
     }
     
     func setEntity(_ entity: BaseControlWidgetEntity) {
         self.titleLabel.text = entity.name
-        self.widgetView.configure(with: BaseControlWidgetViewInApp(entity: entity))
+        /*
+        self.widgetView.layer.borderWidth = 0.5
+        self.widgetView.layer.borderColor = UIColor(hex: "#F0F0F0").cgColor
+        if entity.widgetStyle == .circle {
+            self.widgetView.layer.cornerRadius = CGRectGetWidth(self.frame)/2.0
+        } else {
+            self.widgetView.layer.cornerRadius = 22.5
+        }
+        */
+        self.widgetView.configure(with: BaseControlWidgetViewInApp(entity: entity, pageInfo: CCPageInfo(pageType: .homePage)))
     }
 }

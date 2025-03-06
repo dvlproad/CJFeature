@@ -29,7 +29,7 @@ struct CQWidgetBundleDemoApp: App {
                    
                    let url = URL(string: urlStr){
                     //appJump(url: url)
-//                        CJLogUtil.log("想要跳转到\(urlStr)")
+//                        CCLogUtil.log("想要跳转到\(urlStr)")
                     print("跳转成功\(notify)")
                 }else{
                     print("跳转失败\(notify)")

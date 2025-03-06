@@ -1,0 +1,21 @@
+{
+    "widgetId": "open_web",
+    "name": "稀土掘金",
+    "widgetStyle": "rectangle",
+    "bgColorString": "#B131A3FF",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "稀土掘金",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "imageId_open_web",
+            "imageName": "dongwu1",
+            "imageColor": "ff9a92"
+        },
+        "webModel": {
+            "name": "打开稀土掘金",
+            "targetUrl": "https://juejin.cn/"
+        }
+    },
+    "symbolEffectType": "none"
+}

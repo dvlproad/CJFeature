@@ -22,12 +22,14 @@ struct ControlButtonWidget: ControlWidget {
                 } icon: {
                     ///  此处图标使用实际业务对应的SF图标
                     // 系统SF图标
-//                    Image(systemName: "figure.walk")
+                    Image(systemName: "figure.walk")
+                        .foregroundStyle(.yellow)
                     // 自定义SF图标
-                    Image("icon_control_katong_7")
+//                    Image("icon_control_katong_7")
                 }
+                .tint(Color.red)  // 设定开启状态的图标颜色
             }
-        }.displayName("启动组件")
+        }.displayName("启动组件d")
             .description("选择自定义组件")
             .promptsForUserConfiguration()
     }

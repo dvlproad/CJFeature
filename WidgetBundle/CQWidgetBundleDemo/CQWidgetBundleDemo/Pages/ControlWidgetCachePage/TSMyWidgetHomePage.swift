@@ -16,13 +16,13 @@ struct TSMyWidgetHomePage: View {
             List(items.indices, id: \.self) { index in
                 let item = items[index]
                 NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .myWidgetPage, entity: item)) {
-                    BaseControlWidgetView(entity: item)
+                    BaseControlWidgetViewInApp(entity: item, pageInfo: CCPageInfo(pageType: .myWidgetPage))
                 }
             }
             .navigationTitle("我的组件")
         }
         .onAppear() {
-            items = TSWidgetBundleCacheUtil.getControlWidgets()
+            items = TSWidgetBundleCacheUtil.getControlWidgets(.all)
         }
     }
 }

@@ -13,6 +13,15 @@ struct TSTestHomePage: View {
         
         
         VStack(alignment: .leading, spacing: 10) {
+            NavigationLink(destination: CQControlWidgetHomeViewWrapper()
+            ) {
+                Text("测试 WidgetHomeView")
+            }
+            
+            NavigationLink(destination: CQControlWidgetHomePreviewViewWrapper()) {
+                Text("测试 WidgetHomePreviewView")
+                
+            }
             //*/
             NavigationLink(destination: TSCustomSymbolPage()) {
                 Text("测试自定义Symbol")
@@ -52,9 +61,9 @@ struct TSTestHomePage: View {
                     imageExtension: "svg"
                 ) {
                     CJTestUtil.sfsymbolPath_inShareDir = savePath
-                    CJLogUtil.log("文件保存到的路径是:\(savePath)")
+                    CCLogUtil.log("文件保存到的路径是:\(savePath)")
                 } else {
-                    CJLogUtil.log("文件保存失败")
+                    CCLogUtil.log("文件保存失败")
                 }
                 
             }) {

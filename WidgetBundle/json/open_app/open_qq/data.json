@@ -1,0 +1,20 @@
+{
+    "widgetId": "open_qq",
+    "name": "QQ",
+    "widgetType": "open_app",
+    "widgetStyle": "circle",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "QQ",
+        "subTitle": "",
+        "imageModel": {
+            "imageName": "qq",
+            "imageColor": "ffa7c1"
+        },
+        "appModel": {
+            "appName": "QQ",
+            "targetUrl": "mqq://"
+        }
+    },
+    "symbolEffectType": "none"
+}

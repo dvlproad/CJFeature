@@ -11,15 +11,27 @@ import CJAnimationKit_Swift
 import SVGKit
 import UIKit
 
+/// 在小组件中
+let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
+
 struct BaseControlWidgetAnimationView: View {
-    @Binding var entity: BaseControlWidgetEntity
+//    @Binding var entity: BaseControlWidgetEntity
+//    @Binding var isOn: Bool
+    @Binding var onoffModel: CJControlWidgetOnOffModel
+    @Binding var symbolEffectType: SymbolEffectType
+    @Binding var widgetStyle: ControlWidgetStyle  // 在app内的形态（控制中心不提供获取）
     
     var body: some View {
         if isInWidget {
 //            CJWidgetGifImageView(gifName: "transformer", defaultImage: "")
 //                .frame(width: 40, height: 40)
         }
-        BaseControlWidgetAnimationViewInApp(entity: $entity)
+//        BaseControlWidgetAnimationViewInApp(entity: $entity, isOn: $isOn)
+        BaseControlWidgetAnimationViewInApp(
+            onoffModel: $onoffModel,
+            symbolEffectType: $symbolEffectType,
+            widgetStyle: $widgetStyle
+        )
         
 //        let imageView = Image(entity.imageName)
 //        var imageScaleModel = entity.animateModel
@@ -40,8 +52,12 @@ struct BaseControlWidgetAnimationView: View {
 }
 
 struct BaseControlWidgetAnimationViewInApp: View {
-    @Binding var entity: BaseControlWidgetEntity
-    //@Binding var widgetStyle: ControlWidgetType
+    @Binding var onoffModel: CJControlWidgetOnOffModel
+    @Binding var symbolEffectType: SymbolEffectType
+    @Binding var widgetStyle: ControlWidgetStyle  // 在app内的形态（控制中心不提供获取）
+    
+//    @Binding var entity: BaseControlWidgetEntity
+//    @Binding var isOn: Bool
     
     var body: some View {
         // 系统SF图标
@@ -56,131 +72,22 @@ struct BaseControlWidgetAnimationViewInApp: View {
         // =======Success Example:=======
         
         // =======Success:=======
-        let imageView = Image(entity.imageModel.imageName)
+        let imageView = onoffModel.imageModel.createImageView()
         
         if #available(iOS 18.0, *) {
-            imageView
-                .resizable()
-//                .symbolEffect(.bounce.up.byLayer, options: .repeat(.continuous))
-//                .symbolEffect(.breathe.pulse.byLayer, options: .repeat(.continuous))
-                .applyEffect(entity.symbolEffectType)
-                .imageFrame(entity.widgetStyle)
-                .aspectRatio(contentMode: .fit)
-                .scaledToFit()
+            GeometryReader { geometry in
+//                let size = widgetStyle.imageSizeInApp
+                let size = geometry.size
+                imageView
+                    .resizable()
+//                    .symbolEffect(.bounce.up.byLayer, options: .repeat(.continuous))
+//                    .symbolEffect(.breathe.pulse.byLayer, options: .repeat(.continuous))
+                    .applyEffect(symbolEffectType)
+                    .aspectRatio(contentMode: .fit) // kn: aspectRatio 要在 frame设置前，否则会导致变形(如详情的顶部headerView或者预览页面)
+                    .imageFrame(size)
+            }
         } else {
             // Fallback on earlier versions
-        }
-        
-        
-//        var imageScaleModel = entity.animateModel
-//        let type = imageScaleModel.type
-//        if type == .woodenFish {
-//            imageView
-//                .woodenFishAnimation(Binding(get: { imageScaleModel }, set: { imageScaleModel = $0 as! WidgetImageScaleModel }))
-////                    .scaleEffect(imageScaleModel.isScaledDown ? 0.8 : 1.0, anchor: .center)  // 设置缩放比例
-////                    .animation(.easeInOut(duration: imageScaleModel.duration), value: imageScaleModel.isScaledDown)  // 动画时长
-//        } else {
-//            let bindingValue = Binding(get: { imageScaleModel.isAnimating }, set: { imageScaleModel.isAnimating = $0 })
-////            imageView.cjAnimation(type: type, isAnimating: imageScaleModel.isAnimating)
-//            imageView.cjAnimation(type: $entity.animateModel.type)
-//        }
-    }
-}
-
-
-// MARK: 预览 BaseControlWidgetAnimationViewInApp
-struct BaseControlWidgetAnimationViewInApp_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack(alignment: .center, spacing: 0) {
-            let entity = BaseControlWidgetEntity(
-                id: UUID().uuidString,
-                title: "控制组件",
-                subTitle: "我是副标题",
-                imageModel: CJBaseImageModel(id: "", name: "", imageName: "icon_control_katong_4"),
-                imageAnimateType: .none,
-                name: "",
-                widgetStyle: .circle,
-                bgColorString: "#ff0000"
-            )
-            
-            BaseControlWidgetAnimationViewInApp(
-                entity: .constant(entity)
-            )
-            .tint(Color.red)
-            
-            Button("Click me") {
-                print("Button clicked")
-            }
-            .tint(.red) // 设置按钮的颜色为蓝色
-            
-            Image("field_close_gray")
-                .renderingMode(.template) // 设置为模板模式
-                .foregroundColor(.yellow) // 设置图标的颜色为黄色
-            
-            Image(systemName: "star.fill")
-                .renderingMode(.template) // 设置为模板模式
-                .tint(.red) // 设置图标的颜色为黄色
-            
-            Image(systemName: "star.fill")
-                .foregroundStyle(.yellow)
-            
-            Image(systemName: "star.fill")
-                .foregroundColor(.red) // 设置图标的颜色为黄色
-            
-            diffSymbols_typesView()
-        }
-        
-    }
-    
-    // 不同 symbol 图标的各种不同渲染方法
-    static func diffSymbols_typesView() -> some View {
-        HStack(alignment: .center, spacing: 0) {
-            typesBatteryView(
-                imageName: "battery.100percent.bolt",
-                isSystemName: true
-            )
-            typesBatteryView(
-                imageName: "icon_control_katong_4",
-                isSystemName: false
-            )
-            typesBatteryView(
-                imageName: "02_color_svg",
-                isSystemName: false
-            )
-        }
-    }
-    
-    static func typesBatteryView(imageName: String, isSystemName: Bool = false) -> some View {
-        VStack(alignment: .center, spacing: 0) {
-            Text("单色模式 Monochrome")
-            baseImageName(imageName, isSystemName)
-                .foregroundStyle(.yellow)
-            
-            Text("分层模式 Hierarchical")
-            baseImageName(imageName, isSystemName)
-                .foregroundStyle(.yellow)
-                .symbolRenderingMode(.hierarchical)
-            
-            Text("调色盘模式 Palette")
-            baseImageName(imageName, isSystemName)
-                .foregroundStyle(.red, .orange, .yellow)
-                .symbolRenderingMode(.palette)
-            
-            Text("多色模式 Muticolor")
-            baseImageName(imageName, isSystemName)
-                .symbolRenderingMode(.multicolor)
-        }
-    }
-    
-    static func baseImageName(_ imageName: String, _ isSystemName: Bool = false) -> some View {
-        if isSystemName {
-            Image(systemName: imageName)
-                .resizable()
-                .frame(width: 100, height: 100)
-        } else {
-            Image(imageName)
-                .resizable()
-                .frame(width: 100, height: 100)
         }
     }
 }

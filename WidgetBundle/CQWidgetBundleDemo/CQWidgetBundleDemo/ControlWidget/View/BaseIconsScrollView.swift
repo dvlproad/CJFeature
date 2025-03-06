@@ -7,35 +7,104 @@
 
 
 import SwiftUI
+import AppIntents
 
-public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: View>: View {
+public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: View, TModel: Identifiable>: View {
     //let axes: Axis.Set
+    var direction: Axis.Set // 用来设置滚动方向，支持水平和竖直
     let cellItemSpacing: CGFloat    // item 之间的间隔
-    let cellSizeForIndex:  (_ index: Int) -> CGSize
-    let cellViewGetter: (_ dataModel: CJBaseImageModel, _ isSelected: Bool) -> CellView
+    let cellSizeForIndex:  (_ index: Int) -> (width: CGFloat?, height: CGFloat?)
+    let cellViewGetter: (_ dataModel: TModel, _ isSelected: Bool, _ tapModelHandler: @escaping () -> Void) -> CellView
     
     var maxCount: Int?
     var headerView: (() -> HeaderView)?  // 头部视图
     var bottomView: (() -> BottomView)?   // 尾部视图
     
-    var dataModels: [CJBaseImageModel]
-    @Binding var currentDataModel: CJBaseImageModel?
-    var onChangeOfDataModel: ((_ newDataModel: CJBaseImageModel) -> Void)
+    var dataModels: [TModel]
+    @Binding var selectedIds: [TModel.ID]
+    var tapCountSupportMultiple: Bool // 是否支持多选(如果是单选，则添加前需要先清空选中的数组)
+    var tapAgainShouldCancle: Bool  // 重复是否应该取消之前选中
+    var allowTapSelf: Bool
+    var onTapDataModelComplete: ((_ lastTapDataModel: TModel, _ newSelectedIds: [TModel.ID]) -> Void)?
     
-    @State var selectedIndex: Int?
+    @State private var selectedIndex: Int?  // 最后一次点击的位置（如果是多选也只会记录最后一次）
     
-    public init(cellItemSpacing: CGFloat,
-                cellSizeForIndex: @escaping (_ index: Int) -> CGSize,
-                cellViewGetter: @escaping (_ dataModel: CJBaseImageModel, _ isSelected: Bool) -> CellView,
+    /// 单选视图
+    public init(direction: Axis.Set,
+                cellItemSpacing: CGFloat,
+                // cell 的 width / height 返回nil，则会自适应父视图大小
+                cellSizeForIndex: @escaping (_ index: Int) -> (width: CGFloat?, height: CGFloat?),
+                cellViewGetter: @escaping (_ dataModel: TModel, _ isSelected: Bool, _ tapModelHandler: @escaping () -> Void) -> CellView, // 让外部(如cell内的checkBox)也可以触发 tapModel
                 
                 maxCount: Int? = nil,
-                headerView: (() -> HeaderView)? = nil,
-                bottomView: (() -> BottomView)? = nil,
+                headerView: (() -> HeaderView)? = { EmptyView() }, // 不设置时，设为 EmptyView ，以让程序可推断出 HeaderView
+                bottomView: (() -> BottomView)? = { EmptyView() },
                 
-                dataModels: [CJBaseImageModel],
-                currentDataModel: Binding<CJBaseImageModel?>,
-                onChangeOfDataModel: @escaping (_: CJBaseImageModel) -> Void
+                dataModels: [TModel],
+                
+                selectedDataModel: Binding<TModel?> = .constant(nil),
+                tapAgainShouldCancle: Bool,
+                allowTapSelf: Bool = true, // 默认true,允许点击自身。一些当只有点击cell上的某些按钮才能触发点击事件的，应该将此值设为false
+                onTapDataModelComplete: ((_ lastTapDataModel: TModel) -> Void)? = nil
     ) {
+        let bindingValue = Binding<[TModel.ID]>(
+            get: {
+                if let selectedId = selectedDataModel.wrappedValue?.id {
+                    return [selectedId]
+                }
+                return []
+            },
+            set: { newIds in
+//                去掉 set 的执行内容，避免在详情页中切换控制项的时候得到的 oldEditIndex 是新的
+//                if let firstId = newIds.first {
+//                    if let model = dataModels.first(where: { $0.id == firstId }) {
+//                        selectedDataModel.wrappedValue = model
+//                    }
+//                } else {
+//                    selectedDataModel.wrappedValue = nil
+//                }
+            }
+        )
+        
+        self.init(direction: direction,
+                  cellItemSpacing: cellItemSpacing,
+                  cellSizeForIndex: cellSizeForIndex,
+                  cellViewGetter: cellViewGetter,
+                  maxCount: maxCount,
+                  headerView: headerView,
+                  bottomView: bottomView,
+                  dataModels: dataModels,
+                  selectedIds: bindingValue,
+                  tapCountSupportMultiple: false,
+                  tapAgainShouldCancle: tapAgainShouldCancle,
+                  allowTapSelf: allowTapSelf,
+                  onTapDataModelComplete: { lastTapDataModel, newSelectedIds in
+                    onTapDataModelComplete?(lastTapDataModel)
+                  }
+        )
+    }
+    
+    /// 多选视图
+    public init(direction: Axis.Set,
+                cellItemSpacing: CGFloat,
+                // cell 的 width / height 返回nil，则会自适应父视图大小
+                cellSizeForIndex: @escaping (_ index: Int) -> (width: CGFloat?, height: CGFloat?),
+                cellViewGetter: @escaping (_ dataModel: TModel, _ isSelected: Bool, _ tapModelHandler: @escaping () -> Void) -> CellView,
+                
+                maxCount: Int? = nil,
+                headerView: (() -> HeaderView)? = { EmptyView() }, // 不设置时，设为 EmptyView ，以让程序可推断出 HeaderView
+                bottomView: (() -> BottomView)? = { EmptyView() },
+                
+                dataModels: [TModel],
+                
+                selectedIds: Binding<[TModel.ID]> = .constant([]),
+                tapCountSupportMultiple: Bool,
+                tapAgainShouldCancle: Bool,
+                allowTapSelf: Bool = true, // 默认true,允许点击自身。一些当只有点击cell上的某些按钮才能触发点击事件的，应该将此值设为false
+                onTapDataModelComplete: ((_ lastTapDataModel: TModel, _ newSelectedIds: [TModel.ID]) -> Void)? = nil
+    ) {
+        self.direction = direction
+        
         self.cellItemSpacing = cellItemSpacing
         self.cellSizeForIndex = cellSizeForIndex
         self.cellViewGetter = cellViewGetter
@@ -45,43 +114,29 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
         self.bottomView = bottomView
         
         self.dataModels = dataModels
-        self._currentDataModel = currentDataModel
-        self.onChangeOfDataModel = onChangeOfDataModel
+        
+        self._selectedIds = selectedIds
+        self.tapCountSupportMultiple = tapCountSupportMultiple
+        self.tapAgainShouldCancle = tapAgainShouldCancle
+        self.allowTapSelf = allowTapSelf
+        self.onTapDataModelComplete = onTapDataModelComplete
     }
     
     // MARK: View
     public var body: some View {
         ScrollViewReader { scrollView in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: cellItemSpacing) {
-                    if headerView != nil {
-                        headerView!()
+            ScrollView(direction, showsIndicators: false) {
+                if direction == .vertical {
+                    LazyVStack(spacing: cellItemSpacing) {
+                        buildItems()
                     }
-                    
-                    let itemCount = dataModels.count
-                    let showCount = maxCount != nil ? min(maxCount!, itemCount) : itemCount
-                    ForEach(0..<showCount, id:\.self) { index in
-                        let model = dataModels[index]
-//                    let showItems = dataModels.prefix(showCount) // 截取最多 showCount 个元素
-//                    ForEach(Array(showItems.enumerated()), id: \.offset) { index, model in
-                        let cellSize = cellSizeForIndex(index)
-                        cellViewGetter(model, model.id == currentDataModel?.id)
-                            .frame(width: cellSize.width, height: cellSize.height)
-                            //.background(Color.randomColor)
-                            .onTapGesture {
-                                tapModel(index, model: model)
-                            }
-                            .id(index)
-                    }
-                    
-                    if bottomView != nil {
-                        if let maxCount = maxCount, itemCount > maxCount {
-                            bottomView!()
-                        }
+                } else {
+                    LazyHStack(spacing: cellItemSpacing) {
+                        buildItems()
                     }
                 }
             }
-            .onChange(of: selectedIndex) { oldValue, newValue in
+            .onChange(of: selectedIndex) { newValue in
                 withAnimation {
                     if let index = newValue {
                         scrollView.scrollTo(index, anchor: .center)
@@ -89,7 +144,9 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
                 }
             }
             .onAppear() {
-                selectedIndex = dataModels.firstIndex(where: { $0.id == currentDataModel?.id }) ?? -1
+                selectedIndex = dataModels.firstIndex(where: {
+                    self.selectedIds.contains($0.id)
+                }) ?? -1
                 withAnimation {
                     if let index = selectedIndex {
                         scrollView.scrollTo(index, anchor: .center)
@@ -99,13 +156,89 @@ public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: 
         }
     }
     
+    // 处理视图项目的生成
+    // 用 Group 来包裹不同的视图元素。这样可以根据滚动方向（direction）动态选择合适的布局容器（LazyVStack 或 LazyHStack）。
+    private func buildItems() -> some View {
+        Group {
+            if let headerView: HeaderView = headerView?() {
+                headerView
+            }
+            
+            let itemCount = dataModels.count
+            let showCount = maxCount != nil ? min(maxCount!, itemCount) : itemCount
+            ForEach(0..<showCount, id:\.self) { index in
+                let model = dataModels[index]
+//                let showItems = dataModels.prefix(showCount) // 截取最多 showCount 个元素
+//                ForEach(Array(showItems.enumerated()), id: \.offset) { index, model in
+                let cellSize = cellSizeForIndex(index)
+                let cellView: CellView = cellViewGetter(model, selectedIds.contains(model.id), {
+                    tapModel(index, model: model)  // 让外部(如cell内的checkBox)也可以触发 tapModel
+                })
+                cellView
+                    .frame(width: cellSize.width, height: cellSize.height)
+                    //.background(Color.randomColor)
+                    .contentShape(Rectangle()) // 确保整个区域响应手势，修复点击cell上无内容的部分会无法触发 onTapGesture
+                    .onTapGesture {
+                        if allowTapSelf {
+                            tapModel(index, model: model)
+                        }
+                    }
+                    .id(index)
+            }
+            
+            if let bottomView: BottomView = bottomView?() {
+                if let maxCount = maxCount, itemCount > maxCount {
+                    bottomView
+                }
+            }
+        }
+    }
+    
     // MARK: Event
-    private func tapModel(_ index: Int, model: CJBaseImageModel) {
-        currentDataModel = model
+    private func tapModel(_ index: Int, model: TModel) {
+        selectedIds = SelectUtil.updateSelectedIds(
+            selectedIds,
+            currentTapId: model.id,
+            tapAgainShouldCancle: tapAgainShouldCancle,
+            tapCountSupportMultiple: tapCountSupportMultiple
+        )
         
         selectedIndex = dataModels.firstIndex(where: { $0.id == model.id }) ?? -1
         
-        onChangeOfDataModel(model)
+        onTapDataModelComplete?(model, selectedIds)
+    }
+}
+
+public struct SelectUtil {
+    // 静态方法，用于更新选中的 ID 数组
+    static func updateSelectedIds<ID: Equatable>(
+        _ selectedIds: [ID],               // 当前选中的 ID 数组
+        currentTapId: ID,                // 当前点击的模型 ID
+        tapAgainShouldCancle: Bool,      // 点击后是否取消选中
+        tapCountSupportMultiple: Bool   // 是否支持多选
+    ) -> [ID] {
+        var updatedSelectedIds = selectedIds
+
+        if tapAgainShouldCancle {
+            if updatedSelectedIds.contains(currentTapId) {
+                updatedSelectedIds.removeAll(where: { $0 == currentTapId })
+            } else {
+                if !tapCountSupportMultiple {
+                    updatedSelectedIds.removeAll()
+                }
+                updatedSelectedIds.append(currentTapId)
+            }
+        } else {
+            if !updatedSelectedIds.contains(currentTapId) {
+                if !tapCountSupportMultiple {
+                    updatedSelectedIds.removeAll()
+                }
+                updatedSelectedIds.append(currentTapId)
+            }
+        }
+
+        debugPrint("当前选中的ids为:\(updatedSelectedIds)")
+        return updatedSelectedIds
     }
 }
 
@@ -123,19 +256,98 @@ public struct CJBaseDataModel {
     }
 }
 
-public struct CJBaseImageModel: Codable {
-    public var id: String = ""          // 图片id
-    public var name: String = ""        // 图片名称
-    public var imageName: String = ""     // 图片地址
-    
-    public init(id: String, name: String, imageName: String) {
-        self.id = id
-        self.name = name
-        self.imageName = imageName
+public extension CJBaseImageModel {
+    func copyWithColorString(_ colorString: String?) -> CJBaseImageModel {
+        var newImageModel = self
+        newImageModel.imageColorString = colorString
+        return newImageModel
     }
 }
 
-
+public struct CJBaseImageModel: Codable, Hashable, Sendable, Identifiable {
+    public var id: String               // 图片id
+    public var name: String?            // 图片描述名
+    public var imageName: String        // 图片地址
+    public var imageColorString: String?    // 图标颜色（symbol图标经常使用）
+    public var bundleRelativePath: String?  // 图片所在bundle的沙盒相对路径,为nil时候为 Bundle.main
+    
+    public init(id: String,
+                name: String?,
+                imageName: String,
+                imageColorString: String? = nil,
+                bundleRelativePath: String? = "DownloadBundle.bundle"
+    ) {
+        self.id = id
+        self.name = name
+        self.imageName = imageName
+        self.imageColorString = imageColorString
+        self.bundleRelativePath = bundleRelativePath
+    }
+    
+    public var downloadBundle: Bundle? {
+        return TSDownloadBundleUtil.getSymbolBundle()
+    }
+    
+    public func createUIImage() -> UIImage? {
+        let image = UIImage(named: imageName, in: downloadBundle, compatibleWith: nil)
+        return image
+    }
+    
+    public func createImageView() -> Image {
+        Image(imageName, bundle: downloadBundle)
+    }
+    
+    /// 桌面控制中心选择时候显示
+    public func crateDisplayUIImage() -> UIImage? {
+        let imageUrl = downloadBundle?.url(forResource: imageName, withExtension: nil)
+//        if imageUrl == nil {
+//            return nil
+//        }
+//        let imageData2 = try? Data(contentsOf: imageUrl!)
+        
+        guard let uiimage = UIImage(named: imageName, in: downloadBundle, with: nil) else {
+            return nil
+        }
+        
+        return uiimage
+    }
+    
+    //MARK: Codable
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case imageName
+        case imageColorString = "imageColor"
+        case bundleRelativePath
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let imageName = try container.decode(String.self, forKey: .imageName)
+        do {
+            if let idStringValue = try? container.decode(String.self, forKey: .id) {
+                id = idStringValue
+            } else {
+                if let idIntValue = try container.decodeIfPresent(Int.self, forKey: .id) {
+                    id = String(idIntValue)
+                } else {
+                    id = imageName
+                }
+            }
+        } catch {
+            //debugPrint("Failed to decode id: \(error)")
+            id = imageName
+        }
+        
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)
+        
+        self.imageName = imageName
+        
+        self.imageColorString = try container.decodeIfPresent(String.self, forKey: .imageColorString)
+        self.bundleRelativePath = try container.decodeIfPresent(String.self, forKey: .bundleRelativePath)
+    }
+}
 
 
 public struct CJFontIcon: View {
@@ -161,27 +373,29 @@ public struct CJFontIcon: View {
 public struct CJNormalIcon: View {
     var fontModel: CJBaseImageModel
     var isSelected: Bool
+    @Binding var showTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
     
     public var body: some View {
         let cornerRadius: CGFloat = 10.0
         GeometryReader { geometry in
             ZStack(alignment: .center){
-               Image(fontModel.imageName)
+               fontModel.createImageView()
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(10)
+                    .padding(geometry.size.width * 0.2) // 外部占据 0.1=(1-0.8)/2.0
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(Color(hex: "#F5F5F5 "))
+            .background(Color(hex: "#F8F8F8"))
 //            .border(Color.pink, width: isSelected ? 1 : 0)
 //            .cornerRadius(10)
             .overlay(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(Color.pink, lineWidth: isSelected ? 1 : 0)
+                        .stroke(Color(hex: "#333333"), lineWidth: isSelected ? 1 : 0)
                 )
             // ZStack 的 background 和 border 不会被自动裁剪。这可能导致背景颜色（background) 和边框（border) 显示在圆角之外。
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius)) // 裁剪整个区域
         }
+        .controlWidget_tintColor((showTintColor && fontModel.imageColorString != nil) ? Color(hex: fontModel.imageColorString!) : nil, isInWidget: false)
     }
 }
 

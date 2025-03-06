@@ -1,0 +1,134 @@
+[
+    {
+        "categoryInfo": {
+            "id": 1,
+            "name": "可爱"
+        },
+        "list": [
+            {
+                "id": "imageId_heart_01_open",
+                "data": "square.and.arrow.up"
+            },
+            {
+                "id": "imageId_test_02_open",
+                "data": "02"
+            },
+            {
+                "id": "imageId_staticIcon_01_open",
+                "data": "icon_control_katong_1"
+            },
+            {
+                "id": "imageId_staticIcon_02_open",
+                "data": "icon_control_katong_2"
+            },
+            {
+                "id": "imageId_staticIcon_03_open",
+                "data": "icon_control_katong_3"
+            },
+            {
+                "id": "imageId_staticIcon_04_open",
+                "data": "icon_control_katong_4"
+            },
+            {
+                "id": "imageId_staticIcon_05_open",
+                "data": "icon_control_katong_5"
+            },
+            {
+                "id": "imageId_staticIcon_06_open",
+                "data": "icon_control_katong_6"
+            },
+            {
+                "id": "imageId_staticIcon_07_open",
+                "data": "icon_control_katong_7"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 2,
+            "name": "新年"
+        },
+        "list": [
+            {
+                "id": "imageId_heart_01_open",
+                "data": "square.and.arrow.up"
+            },
+            {
+                "id": "imageId_test_02_open",
+                "data": "02"
+            },
+            {
+                "id": "imageId_staticIcon_01_open",
+                "data": "icon_control_katong_1"
+            },
+            {
+                "id": "imageId_staticIcon_02_open",
+                "data": "icon_control_katong_2"
+            },
+            {
+                "id": "imageId_staticIcon_03_open",
+                "data": "icon_control_katong_3"
+            },
+            {
+                "id": "imageId_staticIcon_04_open",
+                "data": "icon_control_katong_4"
+            },
+            {
+                "id": "imageId_staticIcon_05_open",
+                "data": "icon_control_katong_5"
+            },
+            {
+                "id": "imageId_staticIcon_06_open",
+                "data": "icon_control_katong_6"
+            },
+            {
+                "id": "imageId_staticIcon_07_open",
+                "data": "icon_control_katong_7"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 3,
+            "name": "元气满满"
+        },
+        "list": [
+            {
+                "id": "imageId_heart_01_open",
+                "data": "square.and.arrow.up"
+            },
+            {
+                "id": "imageId_test_02_open",
+                "data": "02"
+            },
+            {
+                "id": "imageId_staticIcon_01_open",
+                "data": "icon_control_katong_1"
+            },
+            {
+                "id": "imageId_staticIcon_02_open",
+                "data": "icon_control_katong_2"
+            },
+            {
+                "id": "imageId_staticIcon_03_open",
+                "data": "icon_control_katong_3"
+            },
+            {
+                "id": "imageId_staticIcon_04_open",
+                "data": "icon_control_katong_4"
+            },
+            {
+                "id": "imageId_staticIcon_05_open",
+                "data": "icon_control_katong_5"
+            },
+            {
+                "id": "imageId_staticIcon_06_open",
+                "data": "icon_control_katong_6"
+            },
+            {
+                "id": "imageId_staticIcon_07_open",
+                "data": "icon_control_katong_7"
+            }
+        ]
+    }
+]

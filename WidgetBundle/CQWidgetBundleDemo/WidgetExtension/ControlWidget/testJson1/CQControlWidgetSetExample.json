@@ -1,0 +1,854 @@
+[
+    {
+        "id": "staticIcon_01",
+        "name": "图标1",
+        "entitys": [
+            {
+                "widgetId": "staticIcon_01",
+                "name": "图标1",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#B1E1234F",
+                "onModel": {
+                    "title": "图标1",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_01_open",
+                        "imageName": "icon_control_katong_1",
+                        "imageColor": "#B131A3FF"
+                    }
+                },
+                "offModel": {
+                    "title": "图标1",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_01_close",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "staticIcon_02",
+        "name": "图标2",
+        "entitys": [
+            {
+                "widgetId": "staticIcon_02",
+                "name": "图标2",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#B1E1234F",
+                "onModel": {
+                    "title": "图标2",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_02_open",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "offModel": {
+                    "title": "图标2",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_02_close",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "staticIcon_03",
+        "name": "图标3",
+        "entitys": [
+            {
+                "widgetId": "staticIcon_03",
+                "name": "图标3",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "图标3",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_03_close",
+                        "imageName": "icon_control_katong_3",
+                        "imageColor": "#EFF1334F"
+                    }
+                },
+                "offModel": {
+                    "title": "图标3",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_03_close",
+                        "imageName": "icon_control_katong_3"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "staticIcon_04",
+        "name": "图标4",
+        "entitys": [
+            {
+                "widgetId": "staticIcon_04",
+                "name": "图标4",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "图标4",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_04_open",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "offModel": {
+                    "title": "图标4",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_staticIcon_04_close",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "dynamicIcon_01",
+        "name": "动态图标1",
+        "entitys": [
+            {
+                "widgetId": "dynamicIcon_01",
+                "name": "动态图标1",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "风扇",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "dynamicIcon_01_open",
+                        "imageName": "icon_control_katong_5",
+                        "imageColor": "#EFF1334F"
+                    }
+                },
+                "offModel": {
+                    "title": "动态图标1",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "dynamicIcon_01_close",
+                        "imageName": "icon_control_katong_5"
+                    }
+                },
+                "symbolEffectType": "bounceUp"
+            }
+        ]
+    },
+    {
+        "id": "dynamicIcon_fan",
+        "name": "风扇",
+        "entitys": [
+            {
+                "widgetId": "dynamicIcon_fan",
+                "name": "风扇",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "风扇",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_fan",
+                        "imageName": "icon_control_katong_6",
+                        "imageColor": "#EFFF334F"
+                    }
+                },
+                "offModel": {
+                    "title": "风扇",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_fan",
+                        "imageName": "icon_control_katong_6"
+                    }
+                },
+                "symbolEffectType": "rotateClockwise"
+            }
+        ]
+    },
+    {
+        "id": "dynamicIcon_supportstick",
+        "name": "动态应援棒",
+        "entitys": [
+            {
+                "widgetId": "dynamicIcon_supportstick",
+                "name": "动态应援棒",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "动态应援棒",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_supportstick_open",
+                        "imageName": "icon_control_katong_7",
+                        "imageColor": "#EFFF330F"
+                    }
+                },
+                "offModel": {
+                    "title": "动态应援棒",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_supportstick_close",
+                        "imageName": "icon_control_katong_7"
+                    }
+                },
+                "symbolEffectType": "wiggleClockwise"
+            }
+        ]
+    },
+    {
+        "id": "dynamicIcon_cat",
+        "name": "动态小猫",
+        "entitys": [
+            {
+                "widgetId": "dynamicIcon_cat",
+                "name": "动态小猫",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "onModel": {
+                    "title": "动态小猫",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_cat_open",
+                        "imageName": "icon_control_katong_1",
+                        "imageColor": "#EFFA53EF"
+                    }
+                },
+                "offModel": {
+                    "title": "动态小猫",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_cat_close",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "symbolEffectType": "pulse"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_1021",
+        "name": "日历",
+        "entitys": [
+            {
+                "widgetId": "open_app",
+                "name": "日历",
+                "widgetType": "open_app",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "日历",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_app",
+                        "imageName": "icon_control_katong_4",
+                        "imageColor": "#EF03A343"
+                    },
+                    "appModel": {
+                        "appName": "打开日历",
+                        "targetUrl": "calshow://"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_1022",
+        "name": "蓝牙",
+        "entitys": [
+            {
+                "widgetId": "open_bluetooth",
+                "name": "蓝牙",
+                "widgetType": "open_shortcut",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "蓝牙",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_bluetooth",
+                        "imageName": "icon_control_katong_5",
+                        "imageColor": "#EF03A343"
+                    },
+                    "shortcutsModel": {
+                        "shortcutsName": "打开蓝牙",
+                        "targetUrl": "shortcuts://run-shortcut?name=%E6%89%93%E5%BC%80%E8%93%9D%E7%89%99"
+                    },
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_1023",
+        "name": "稀土掘金",
+        "entitys":
+        [
+            {
+                "widgetId": "open_web",
+                "name": "稀土掘金",
+                "widgetType": "open_web",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "稀土掘金",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_web",
+                        "imageName": "icon_control_katong_6",
+                        "imageColor": "#EF03A343"
+                    },
+                    "webModel": {
+                        "name": "打开稀土掘金",
+                        "targetUrl": "https://juejin.cn/"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_state_1021",
+        "name": "日历(有状态)",
+        "entitys": [
+            {
+                "widgetId": "state_open_app",
+                "name": "日历(有状态)",
+                "widgetType": "open_app",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "日历",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_app",
+                        "imageName": "icon_control_katong_4",
+                        "imageColor": "#EF03A343"
+                    },
+                    "appModel": {
+                        "appName": "打开日历",
+                        "targetUrl": "calshow://"
+                    }
+                },
+                "offModel": {
+                    "title": "日历",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_open_app",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_state_1022",
+        "name": "蓝牙(有状态)",
+        "entitys": [
+            {
+                "widgetId": "state_open_bluetooth",
+                "name": "蓝牙(有状态)",
+                "widgetType": "open_shortcut",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "蓝牙",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_bluetooth",
+                        "imageName": "icon_control_katong_5",
+                        "imageColor": "#EF03A343"
+                    },
+                    "shortcutsModel": {
+                        "shortcutsName": "打开蓝牙",
+                        "targetUrl": "shortcuts://run-shortcut?name=%E6%89%93%E5%BC%80%E8%93%9D%E7%89%99"
+                    }
+                },
+                "offModel": {
+                    "title": "蓝牙",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_open_bluetooth",
+                        "imageName": "icon_control_katong_5"
+                    },
+                    "shortcutsModel": {
+                        "shortcutsName": "关闭蓝牙",
+                        "targetUrl": "shortcuts://run-shortcut?name=%E5%85%B3%E9%97%AD%E8%93%9D%E7%89%99"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "quickstart_state_1023",
+        "name": "稀土掘金(有状态)",
+        "entitys":
+        [
+            {
+                "widgetId": "state_open_web",
+                "name": "稀土掘金(有状态)",
+                "widgetType": "open_web",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#B131A3FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "稀土掘金",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "imageId_open_web",
+                        "imageName": "icon_control_katong_6",
+                        "imageColor": "#EF03A343"
+                    },
+                    "webModel": {
+                        "name": "打开稀土掘金",
+                        "targetUrl": "https://juejin.cn/"
+                    }
+                },
+                "offModel": {
+                    "title": "稀土掘金",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "imageId_open_web",
+                        "imageName": "icon_control_katong_6"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "click_1031",
+        "name": "骰子",
+        "entitys": [
+            {
+                "widgetId": "dice",
+                "name": "骰子",
+                "widgetType": "dice",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#3DD837FF",
+                "onModel": {
+                    "title": "骰子title",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "imageId_dice",
+                        "imageName": "icon_control_katong_2",
+                        "imageColor": "#EF4837FF"
+                    }
+                },
+                "offModel": {
+                    "title": "骰子title",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "imageId_dice",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "click_1032",
+        "name": "木鱼",
+        "entitys": [
+            {
+                "widgetId": "meritsWoodenFish",
+                "name": "木鱼",
+                "widgetType": "dice",
+                "widgetStyle": "woodenfish",
+                "bgColorString": "#3DD837FF",
+                "onModel": {
+                    "title": "x0",
+                    "subTitle": "功德+1",
+                    "imageModel": {
+                        "id": "imageId_meritsWoodenFish",
+                        "imageName": "icon_control_katong_7",
+                        "imageColor": "#EF4837FF"
+                    }
+                },
+                "offModel": {
+                    "title": "x0",
+                    "subTitle": "功德+1",
+                    "imageModel": {
+                        "id": "imageId_meritsWoodenFish",
+                        "imageName": "icon_control_katong_7"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "voice_1041",
+        "name": "语音",
+        "entitys": [
+            {
+                "widgetId": "id_7",
+                "name": "语音",
+                "widgetType": "audio",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#3DD837FF",
+                "onModel": {
+                    "title": "语音",
+                    "subTitle": "打开",
+                    "imageModel": {
+                        "id": "id_7",
+                        "imageName": "icon_control_katong_7",
+                        "imageColor": "#EF4837FF"
+                    }
+                },
+                "offModel": {
+                    "title": "语音",
+                    "subTitle": "关闭",
+                    "imageModel": {
+                        "id": "id_7",
+                        "imageName": "icon_control_katong_7"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "group_4_01",
+        "name": "普通套图1",
+        "entitys": [
+            {
+                "widgetId": "id_8",
+                "name": "名称8",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#48CD6EFF",
+                "onModel": {
+                    "title": "样式8",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_8",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "offModel": {
+                    "title": "样式8",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_8",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_9",
+                "name": "名称9",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#B131A3FF",
+                "onModel": {
+                    "title": "样式9",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_9",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "offModel": {
+                    "title": "样式9",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_9",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_10",
+                "name": "名称10",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#7D0534FF",
+                "onModel": {
+                    "title": "样式10",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_10",
+                        "imageName": "icon_control_katong_3"
+                    }
+                },
+                "offModel": {
+                    "title": "样式10",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_10",
+                        "imageName": "icon_control_katong_3"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_11",
+                "name": "名称11",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#2060C1FF",
+                "onModel": {
+                    "title": "样式11",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_11",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "offModel": {
+                    "title": "样式11",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_11",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "group_4_02",
+        "name": "快捷套图2",
+        "entitys": [
+            {
+                "widgetId": "id_12",
+                "name": "名称12",
+                "widgetType": "open_app",
+                "widgetStyle": "circle",
+                "bgColorString": "#EED448FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "样式12",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_12",
+                        "imageName": "icon_control_katong_5"
+                    },
+                    "appModel": {
+                        "appName": "打开日历",
+                        "targetUrl": "calshow://"
+                    }
+                },
+                "offModel": {
+                    "title": "样式12",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_12",
+                        "imageName": "icon_control_katong_5"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_13",
+                "name": "名称13",
+                "widgetType": "open_shortcut",
+                "widgetStyle": "circle",
+                "bgColorString": "#F4841BFF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "样式13",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_13",
+                        "imageName": "icon_control_katong_6"
+                    },
+                    "shortcutsModel": {
+                        "shortcutsName": "打开蓝牙",
+                        "targetUrl": "shortcuts://run-shortcut?name=%E6%89%93%E5%BC%80%E8%93%9D%E7%89%99"
+                    }
+                },
+                "offModel": {
+                    "title": "样式13",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_13",
+                        "imageName": "icon_control_katong_6"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_14",
+                "name": "名称14",
+                "widgetType": "open_web",
+                "widgetStyle": "circle",
+                "bgColorString": "#48CA21FF",
+                "quickStartEnable": true,
+                "onModel": {
+                    "title": "样式14",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_14",
+                        "imageName": "icon_control_katong_7"
+                    },
+                    "webModel": {
+                        "name": "打开稀土掘金",
+                        "targetUrl": "https://juejin.cn/"
+                    }
+                },
+                "offModel": {
+                    "title": "样式14",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_14",
+                        "imageName": "icon_control_katong_7"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_15",
+                "name": "名称15",
+                "widgetType": "toggle_icon",
+                "widgetStyle": "circle",
+                "bgColorString": "#505980FF",
+                "onModel": {
+                    "title": "样式15",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_15",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "offModel": {
+                    "title": "样式15",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_15",
+                        "imageName": "icon_control_katong_1"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    },
+    {
+        "id": "group_4_03",
+        "name": "音频套图3",
+        "entitys": [
+            {
+                "widgetId": "id_16",
+                "name": "名称16",
+                "widgetType": "audio",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#F877F9FF",
+                "onModel": {
+                    "title": "样式16",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_16",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "offModel": {
+                    "title": "样式16",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_16",
+                        "imageName": "icon_control_katong_2"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_17",
+                "name": "名称17",
+                "widgetType": "audio",
+                "widgetStyle": "circle",
+                "bgColorString": "#6CA311FF",
+                "onModel": {
+                    "title": "样式17",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_17",
+                        "imageName": "icon_control_katong_3"
+                    }
+                },
+                "offModel": {
+                    "title": "样式17",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_17",
+                        "imageName": "icon_control_katong_3"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_18",
+                "name": "名称18",
+                "widgetType": "audio",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#F39CBCFF",
+                "onModel": {
+                    "title": "样式18",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_18",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "offModel": {
+                    "title": "样式18",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_18",
+                        "imageName": "icon_control_katong_4"
+                    }
+                },
+                "symbolEffectType": "none"
+            },
+            {
+                "widgetId": "id_19",
+                "name": "名称19",
+                "widgetType": "audio",
+                "widgetStyle": "rectangle",
+                "bgColorString": "#A48A29FF",
+                "onModel": {
+                    "title": "样式19",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_19",
+                        "imageName": "icon_control_katong_5"
+                    }
+                },
+                "offModel": {
+                    "title": "样式19",
+                    "subTitle": "组件类型",
+                    "imageModel": {
+                        "id": "id_19",
+                        "imageName": "icon_control_katong_5"
+                    }
+                },
+                "symbolEffectType": "none"
+            }
+        ]
+    }
+]

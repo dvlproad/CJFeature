@@ -1,0 +1,21 @@
+{
+    "widgetId": "open_bluetooth",
+    "name": "蓝牙",
+    "widgetStyle": "rectangle",
+    "bgColorString": "#B131A3FF",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "蓝牙",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "imageId_open_bluetooth",
+            "imageName": "xiongzhang",
+            "imageColor": "d0b3eb"
+        },
+        "shortcutsModel": {
+            "shortcutsName": "打开蓝牙",
+            "targetUrl": "shortcuts://run-shortcut?name=%E6%89%93%E5%BC%80%E8%93%9D%E7%89%99"
+        }
+    },
+    "symbolEffectType": "none"
+}

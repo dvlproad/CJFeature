@@ -1,0 +1,22 @@
+{
+    "widgetId": "staticIcon_01",
+    "name": "图标1",
+    "widgetType": "toggle_icon",
+    "widgetStyle": "circle",
+    "onModel": {
+        "title": "图标1",
+        "subTitle": "打开",
+        "imageModel": {
+            "imageName": "aixin1",
+            "imageColor": "d0b3eb"
+        }
+    },
+    "offModel": {
+        "title": "图标1",
+        "subTitle": "关闭",
+        "imageModel": {
+            "imageName": "aixin1"
+        }
+    },
+    "symbolEffectType": "none"
+}

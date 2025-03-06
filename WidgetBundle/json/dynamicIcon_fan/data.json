@@ -1,0 +1,23 @@
+{
+    "widgetId": "dynamicIcon_fan",
+    "name": "风扇",
+    "widgetStyle": "circle",
+    "onModel": {
+        "title": "风扇",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "imageId_fan",
+            "imageName": "hudie2",
+            "imageColor": "fbd398"
+        }
+    },
+    "offModel": {
+        "title": "风扇",
+        "subTitle": "关闭",
+        "imageModel": {
+            "id": "imageId_fan",
+            "imageName": "hudie2"
+        }
+    },
+    "symbolEffectType": "rotateClockwiseByLayer"
+}

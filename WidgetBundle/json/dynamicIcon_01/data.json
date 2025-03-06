@@ -1,0 +1,23 @@
+{
+    "widgetId": "dynamicIcon_01",
+    "name": "动态图标1",
+    "widgetStyle": "circle",
+    "onModel": {
+        "title": "风扇",
+        "subTitle": "打开",
+        "imageModel": {
+            "id": "dynamicIcon_01_open",
+            "imageName": "hudie1",
+            "imageColor": "a0c6f6"
+        }
+    },
+    "offModel": {
+        "title": "动态图标1",
+        "subTitle": "关闭",
+        "imageModel": {
+            "id": "dynamicIcon_01_close",
+            "imageName": "hudie1"
+        }
+    },
+    "symbolEffectType": "bounceUpByLayer"
+}

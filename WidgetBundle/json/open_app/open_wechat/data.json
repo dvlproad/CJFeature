@@ -1,0 +1,20 @@
+{
+    "widgetId": "open_wechat",
+    "name": "微信",
+    "widgetType": "open_app",
+    "widgetStyle": "circle",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "微信",
+        "subTitle": "",
+        "imageModel": {
+            "imageName": "weixin",
+            "imageColor": "ffa7c1"
+        },
+        "appModel": {
+            "appName": "QQ",
+            "targetUrl": "weixin://"
+        }
+    },
+    "symbolEffectType": "none"
+}

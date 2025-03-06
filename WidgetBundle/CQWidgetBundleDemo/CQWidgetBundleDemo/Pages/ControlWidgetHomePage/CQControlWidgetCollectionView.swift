@@ -8,16 +8,17 @@
 import UIKit
 
 class CQControlWidgetCollectionView: UICollectionView {
-    var dataModels: [BaseControlWidgetEntity] = []
+    var dataModels: [BaseControlWidgetSetModel] = []
 //    var onTapIndexPath: ((IndexPath) -> Void)
-    var onTapEntity: ((BaseControlWidgetEntity) -> Void)
+    var onTapEntity: ((BaseControlWidgetSetModel) -> Void)
     
     // 初始化方法
     init(frame: CGRect,
-         onTapEntity: @escaping (BaseControlWidgetEntity) -> Void)
+         onTapEntity: @escaping (BaseControlWidgetSetModel) -> Void)
     {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 20
+        let layout = CJLeftAlignedFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 18, left: 15, bottom: 22, right: 15)
+        layout.minimumInteritemSpacing = 22.0
         layout.minimumLineSpacing = 20
         
         self.onTapEntity = onTapEntity
@@ -33,14 +34,15 @@ class CQControlWidgetCollectionView: UICollectionView {
     
     private func commonInit() {
         // 注册 Cell 类型
-        register(CQControlWidgetCollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(CQControlWidgetCollectionViewCell.self))
+        register(CQControlWidgetEntityCollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(CQControlWidgetEntityCollectionViewCell.self))
+        register(CQControlWidgetGroupCollectionViewCell.self, forCellWithReuseIdentifier: NSStringFromClass(CQControlWidgetGroupCollectionViewCell.self))
         
         // 设置数据源和代理
         dataSource = self
         delegate = self
     }
     
-    public func setDataModels(_ dataModels: [BaseControlWidgetEntity]) {
+    public func setDataModels(_ dataModels: [BaseControlWidgetSetModel]) {
         self.dataModels = dataModels
         reloadData()
     }
@@ -62,10 +64,23 @@ extension CQControlWidgetCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let dataModel = dataModels[indexPath.row]
+        if dataModel.entitys.count == 1 {
+            let cell = dequeueReusableCell(withReuseIdentifier: NSStringFromClass(CQControlWidgetEntityCollectionViewCell.self), for: indexPath) as! CQControlWidgetEntityCollectionViewCell
+//            cell.backgroundColor = .red
+            cell.setEntity(dataModel.entitys[0])
+            return cell
+        }
         
-        let cell = dequeueReusableCell(withReuseIdentifier: NSStringFromClass(CQControlWidgetCollectionViewCell.self), for: indexPath) as! CQControlWidgetCollectionViewCell
-        //cell.backgroundColor = .red
-        cell.setEntity(dataModel)
+        let cell = dequeueReusableCell(withReuseIdentifier: NSStringFromClass(CQControlWidgetGroupCollectionViewCell.self), for: indexPath) as! CQControlWidgetGroupCollectionViewCell
+//        cell.backgroundColor = .red
+        cell.configure(
+            tapSelfHandler: { [weak self] in
+                self?.onTapEntity(dataModel)
+            }, tapGroupItemHandler: { [weak self] groupItemModel in
+                self?.onTapEntity(dataModel)
+            }
+        )
+        cell.setModel(dataModel)
         
         return cell
     }
@@ -74,29 +89,42 @@ extension CQControlWidgetCollectionView: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CQControlWidgetCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let dataModel = dataModels[indexPath.row]
+        let setModel = dataModels[indexPath.row]
+        let setEntitys = setModel.entitys
         
-        let widgetStyle = dataModel.widgetStyle
+        
         var columnCount: Int
-        var widthHeightRatio: CGFloat
-        let uiitemHeight = 95.0
-        switch widgetStyle {
-        case .circle:
-            columnCount = 4
-            widthHeightRatio = 73/uiitemHeight
-        case .rectangle:
-            columnCount = 2
-            widthHeightRatio = 165/uiitemHeight
-        case .square:
+        var topWidthHeightRatio: CGFloat // 除文字和间距外的顶部视图的宽高比
+        var imageDistanceAndImageHeight: CGFloat
+        if setEntitys.count > 1 {
             columnCount = 1
-            widthHeightRatio = 351/uiitemHeight
+            topWidthHeightRatio = 351/95.0
+            imageDistanceAndImageHeight = 7.5+12
+        } else { //if setEntitys.count == 1
+            let widgetStyle = setEntitys[0].widgetStyle
+            switch widgetStyle {
+            case .circle:
+                columnCount = 4
+                topWidthHeightRatio = 72.5/72.5
+                imageDistanceAndImageHeight = 10+12
+            case .rectangle:
+                columnCount = 2
+                topWidthHeightRatio = 165/75.0
+                imageDistanceAndImageHeight = 8+12
+            case .square:
+                columnCount = 1
+                topWidthHeightRatio = 351/95.0
+                imageDistanceAndImageHeight = 7.5+12
+            }
         }
+        
         let flowLayout: UICollectionViewFlowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let collectionWidth = collectionView.frame.size.width //UIScreen.main.bounds.width
         let itemsWithSpacingWidth = collectionWidth - flowLayout.sectionInset.left - flowLayout.sectionInset.right
         let itemsWidth = itemsWithSpacingWidth - flowLayout.minimumInteritemSpacing * CGFloat(columnCount - 1)
         let itemWidth = floor(itemsWidth / CGFloat(columnCount))
-        let itemHeight = floor(itemWidth / widthHeightRatio)
+        let itemTopHeight = floor(itemWidth / topWidthHeightRatio)
+        let itemHeight = itemTopHeight + imageDistanceAndImageHeight
         return CGSize(width: itemWidth, height: itemHeight)
     }
 }

@@ -1,0 +1,94 @@
+{
+    "id": "group_4_01",
+    "name": "套图1",
+    "entitys": [
+        {
+            "widgetId": "id_8",
+            "name": "名称8",
+            "widgetType": "toggle_icon",
+            "widgetStyle": "circle",
+            "onModel": {
+                "title": "样式8",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "dongwu5",
+                    "imageColor": "ffa5be"
+                }
+            },
+            "offModel": {
+                "title": "样式8",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "dongwu5"
+                }
+            },
+            "symbolEffectType": "none"
+        },
+        {
+            "widgetId": "id_9",
+            "name": "名称9",
+            "widgetType": "toggle_icon",
+            "widgetStyle": "circle",
+            "onModel": {
+                "title": "样式9",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "cangshu",
+                    "imageColor": "d0b3eb"
+                }
+            },
+            "offModel": {
+                "title": "样式9",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "cangshu"
+                }
+            },
+            "symbolEffectType": "none"
+        },
+        {
+            "widgetId": "id_10",
+            "name": "名称10",
+            "widgetType": "toggle_icon",
+            "widgetStyle": "circle",
+            "onModel": {
+                "title": "样式10",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "xiaogou",
+                    "imageColor": "fbd398"
+                }
+            },
+            "offModel": {
+                "title": "样式10",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "xiaogou"
+                }
+            },
+            "symbolEffectType": "none"
+        },
+        {
+            "widgetId": "id_11",
+            "name": "名称11",
+            "widgetType": "toggle_icon",
+            "widgetStyle": "circle",
+            "onModel": {
+                "title": "样式11",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "xiaomao",
+                    "imageColor": "ffa5be"
+                }
+            },
+            "offModel": {
+                "title": "样式11",
+                "subTitle": "组件类型",
+                "imageModel": {
+                    "imageName": "xiaomao"
+                }
+            },
+            "symbolEffectType": "none"
+        }
+    ]
+}

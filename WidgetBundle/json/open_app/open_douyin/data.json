@@ -1,0 +1,20 @@
+{
+    "widgetId": "open_douyin",
+    "name": "抖音",
+    "widgetType": "open_app",
+    "widgetStyle": "circle",
+    "quickStartEnable": true,
+    "onModel": {
+        "title": "抖音",
+        "subTitle": "",
+        "imageModel": {
+            "imageName": "douyin",
+            "imageColor": "ffa7c1"
+        },
+        "appModel": {
+            "appName": "抖音",
+            "targetUrl": "snssdk1128://"
+        }
+    },
+    "symbolEffectType": "none"
+}

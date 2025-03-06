@@ -8,13 +8,30 @@
 import Foundation
 import AppIntents
 
-enum QuickStartType: Codable {
+public enum QuickStartType: String, Codable, CaseIterable, Sendable {
+    case none       // 无操作
     case app        // 打开应用
     case shortcuts  // 打开快捷指令
     case web        // 打开网页
+    
+    //MARK: Codable
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        
+        // 获取字符串值
+        let rawValue = try container.decode(String.self)
+        
+        // 如果枚举值存在，则正常初始化
+        if let validValue = QuickStartType(rawValue: rawValue) {
+            self = validValue
+        } else {
+            // 如果是无效的值（例如 "normal"），则默认使用 .toogle
+            self = .none
+        }
+    }
 }
 
-struct QuickStartAppModel: ControlWidgetBaseModel {
+struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
     static func == (lhs: QuickStartAppModel, rhs: QuickStartAppModel) -> Bool {
         return lhs.uuid == rhs.uuid && lhs.saveId == rhs.saveId
         && lhs.appId == rhs.appId
@@ -49,29 +66,56 @@ struct QuickStartAppModel: ControlWidgetBaseModel {
         self.targetUrl = targetUrl
     }
     
+    //MARK: Codable
+    enum CodingKeys: String, CodingKey {
+        case uuid
+        case saveId
+        case appId
+        case appName
+        case appShowName
+        case appIcon
+        case targetUrl
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.uuid = try container.decodeIfPresent(String.self, forKey: .uuid) ?? UUID().uuidString
+        self.saveId = try container.decodeIfPresent(String.self, forKey: .saveId)
+        self.appId = try container.decodeIfPresent(Int.self, forKey: .appId) ?? 0
+        self.appName = try container.decodeIfPresent(String.self, forKey: .appName) ?? "app原名"
+        self.appShowName = try container.decodeIfPresent(String.self, forKey: .appShowName) ?? "app展示名"
+        self.appIcon = try container.decodeIfPresent(String.self, forKey: .appIcon) ?? ""
+        self.targetUrl = try container.decodeIfPresent(String.self, forKey: .targetUrl) ?? ""
+    }
+    
     @available(iOS 18.0, *)
     static func tryOpenAppIntentResult(appUrl: String?) -> some IntentResult & OpensIntent {
-        if let appUrl = appUrl, let appURL = URL(string: appUrl)  {
-            return .result(opensIntent: OpenURLIntent(appURL))
-        }
+        let appUrl: String = appUrl ?? "noexsitApp://"
         
+        let appURL: URL? = URL(string: appUrl)
+        return .result(opensIntent: appURL != nil ? OpenURLIntent(appURL!) : OpenURLIntent())
+ 
 //        return noOpenAppIntentResult()
-        return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
     }
     
     @available(iOS 18.0, *)
     static func noOpenAppIntentResult() -> some IntentResult & OpensIntent {
         //return .result()
-        return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
+        
+        let appUrl: String = "noexsitApp://"
+        
+        let appURL: URL? = URL(string: appUrl)
+        return .result(opensIntent: appURL != nil ? OpenURLIntent(appURL!) : OpenURLIntent())
     }
-//    
-//    
+//
+//
 //    @available(iOS 18.0, *)
 //    static func tryOpenURLIntent(appUrl: String?) -> OpensIntent {
 //        if let appUrl = appUrl, let appURL = URL(string: appUrl) {
 //            return OpenURLIntent(appURL)
 //        }
-//        
+//
 //        return noOpenURLIntent()
 //    }
 //
@@ -137,16 +181,31 @@ struct QuickStartAppModel: ControlWidgetBaseModel {
     
 }
 
-struct QuickStartShortcutsModel: ControlWidgetBaseModel, Equatable {
+struct QuickStartShortcutsModel: ControlWidgetBaseModel, Hashable, Equatable {
     var shortcutsName: String
     var shortcutsText: String?
     
     var targetUrl: String
     
+    /*
+    //MARK: Codable
+    enum CodingKeys: String, CodingKey {
+        case shortcutsName
+        case shortcutsText
+        case targetUrl
+    }
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.shortcutsName = try container.decode(String.self, forKey: .shortcutsName)
+        self.shortcutsText = try container.decodeIfPresent(String.self, forKey: .shortcutsText)
+        self.targetUrl = try container.decode(String.self, forKey: .targetUrl)
+    }
+    */
 }
 
-struct QuickStartWebModel: ControlWidgetBaseModel {
+struct QuickStartWebModel: ControlWidgetBaseModel, Hashable {
     var name: String
 
     var targetUrl: String

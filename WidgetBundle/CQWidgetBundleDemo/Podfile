@@ -62,7 +62,13 @@ end
 
 target 'CQWidgetBundleDemo' do
   shared_pods
-  pod 'CQDemoKit',            '~> 0.6.9',          :subspecs => ['BaseVC']
+  pod 'CQDemoKit',            '~> 0.7.7',          :subspecs => ['BaseVC']
+  pod 'CQDemoKit-Swift'
+  
+  pod 'lottie-ios'
+  pod 'SDWebImageWebPCoder'
+  pod 'SSZipArchive'
+  pod 'SwiftyJSON'
 end
 
 

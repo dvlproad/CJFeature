@@ -1,0 +1,92 @@
+[
+    {
+        "id": "imageId_heart_01_open",
+        "imageName": "square.and.arrow.up",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_test_02_open",
+        "imageName": "02",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_staticIcon_01_open",
+        "imageName": "icon_control_katong_1",
+        "imageColor": "#EFF1334F"
+    },
+    {
+        "id": "imageId_staticIcon_02_open",
+        "imageName": "icon_control_katong_2",
+        "imageColor": "#EFFA53EF"
+    },
+    {
+        "id": "imageId_staticIcon_03_open",
+        "imageName": "icon_control_katong_3",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_staticIcon_04_open",
+        "imageName": "icon_control_katong_4",
+        "imageColor": "#EF03A343"
+    },
+    {
+        "id": "imageId_staticIcon_05_open",
+        "imageName": "icon_control_katong_5",
+        "imageColor": "#3DD837FF"
+    },
+    {
+        "id": "imageId_staticIcon_06_open",
+        "imageName": "icon_control_katong_6",
+        "imageColor": "#EF4837FF"
+    },
+    {
+        "id": "imageId_staticIcon_07_open",
+        "imageName": "icon_control_katong_7",
+        "imageColor": "#EFF1334F"
+    },
+    {
+        "id": "imageId_heart_11_open",
+        "imageName": "square.and.arrow.up",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_test_12_open",
+        "imageName": "02",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_staticIcon_11_open",
+        "imageName": "icon_control_katong_1",
+        "imageColor": "#EFF1334F"
+    },
+    {
+        "id": "imageId_staticIcon_12_open",
+        "imageName": "icon_control_katong_2",
+        "imageColor": "#EFFA53EF"
+    },
+    {
+        "id": "imageId_staticIcon_13_open",
+        "imageName": "icon_control_katong_3",
+        "imageColor": "#B131A3FF"
+    },
+    {
+        "id": "imageId_staticIcon_14_open",
+        "imageName": "icon_control_katong_4",
+        "imageColor": "#EF03A343"
+    },
+    {
+        "id": "imageId_staticIcon_15_open",
+        "imageName": "icon_control_katong_5",
+        "imageColor": "#3DD837FF"
+    },
+    {
+        "id": "imageId_staticIcon_16_open",
+        "imageName": "icon_control_katong_6",
+        "imageColor": "#EF4837FF"
+    },
+    {
+        "id": "imageId_staticIcon_17_open",
+        "imageName": "icon_control_katong_7",
+        "imageColor": "#EFF1334F"
+    }
+]

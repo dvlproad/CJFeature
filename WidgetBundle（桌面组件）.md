@@ -38,6 +38,22 @@ APP内控制中心组件详情页面：
 
 
 
+### 组件首页
+
+- [x] 单组件
+- [ ] 支持组件套
+- [ ] 接入下载
+
+
+
+我的组件
+
+
+
+控制中心详情页
+
+
+
 
 
 ### 控制中心图标要求
@@ -73,6 +89,44 @@ APP内控制中心组件详情页面：
 
 
 
+## 控制中心点击颜色
+
+//桌面的 tint 必须在 ControlWidgetToggle 的 label 下设置，不能放在label这个自定义的view内
+
+1、点击的时候不显示任何颜色
+
+方法：使用ControlWidgetButton，如果使用ControlWidgetToggle则点击的时候即使不设置tint值，也会有系统默认的蓝色会有一瞬间的显示
+
+2、点击时候显示瞬间的tintColor，后面恢复的效果
+
+方法：使用 ControlWidgetToggle 并设置isOn为false, 以及打开时候的tint，使得点击的时候可显示瞬间的颜色tintColor。
+
+```swift
+	ControlWidgetToggle( isOn: false,	// ✅
+	// ControlWidgetButton(						// ❌
+      action: QuickStartControlWidgetToggleAction(
+          widgetId: widgetInfo.widgetId,
+          widgetSaveId: widgetInfo.saveId ?? "unknow_saveId",
+          desktopWidgetControlTypeString: DesktopWidgetControlType.quickStart.rawValue
+      ),
+      label: {
+          // 实际是一个Lable 可自适应实际小、中、大三种尺寸
+          BaseControlWidgetViewInDesktop(entity: widgetInfo, pageInfo: CCPageInfo(pageType: .inDesktop))
+      }
+  )
+  .tint(widgetInfo.tintColor) // 桌面的tint必须在此设置
+```
+
+
+
+
+
+**不能直接在 `perform()` 中用代码唤醒应用**，因为 `openAppWhenRun` 是静态的，且系统负责决定是否将应用唤醒。
+
+
+
+
+
 ### 快捷启动
 
 * [iOS 之 URL Scheme(含常用指令及如何查找第三方 App 的 URL Scheme)](https://hanleylee.com/articles/url-scheme-of-ios/)
@@ -84,35 +138,33 @@ APP内控制中心组件详情页面：
 
 ```swift
 // 点击快捷启动让颜色保持不变
+// 查看 action 中的 openAppWhenRun 设置情况
 static var openAppWhenRun: Bool = true  // 不设置此行值为true，会导致点击的时候有颜色变化再变回去
+
+
 ```
-
-
-
-
-
-**整合状态变更的控制中心组件和启动app的控制组件在同一个组件里；**
-
-使用 AppIntent ，设置 static var openAppWhenRun=true 可打开 app，但会导致每次点击控制中心组件都会调到 app 里，导致那些类似只要切换开关状态的也出现此问题。
-
-所以去掉 AppIntent 及 static var openAppWhenRun=true ，改用 
-
-```swift
-func perform() async throws -> some IntentResult & OpensIntent {
-	......
-  // 重要：打开容器App的操作
-  if let appUrl = widgetModel.appModel?.targetUrl {
-      return .result(opensIntent: OpenURLIntent(URL(string: appUrl)!))
-  } else {
-      return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
-  }
-}
-```
-
-
 
 
 
 ### 快捷指令
 
 * [Apple 官方文档：在 iPhone 或 iPad 上使用 URL 方案运行快捷指令](https://support.apple.com/zh-cn/guide/shortcuts/apd624386f42/ios)
+
+
+
+
+
+app外桌面组件列表增加序号、根据名称搜索
+
+首页接口联调（资源数据；列表数据；不支持的组件弹窗升级）
+
+图标库弹出界面及接口对接
+
+文案库弹出页面及接口对接
+
+搜索结果页面增加控制中心及接口联调
+
+
+
+
+

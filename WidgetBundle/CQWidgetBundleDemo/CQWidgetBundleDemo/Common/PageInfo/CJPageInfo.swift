@@ -7,10 +7,13 @@
 
 import Foundation
 
-enum CQPageType: String {
+enum CCPageType: String {
     case unknown            // 未知页面
     case homePage           // 在首页
     case widgetDetailPage   // 在组件详情页面
+    case controlWidgetGroupPage     // 在多控制项列表页面
+    case controlWidgetDetailPage   // 在控制组件详情页面
+    case controlWidgetPerviewPage   // 在控制组件预览页面
     case widgetEditPge      // 在组件编辑页面
     case myWidgetPage       // 在我的组件页面
     case searchResultPage   // 在组件搜索页面
@@ -24,9 +27,9 @@ enum CQPageAppearType: String {
     case reAppear = "reAppear"          // 此页面再次显示
 }
 
-struct CQPageInfo {
-    var pageType: CQPageType = .unknown // 是否是在详情页面中，目前仅锁屏中的签名在使用
+struct CCPageInfo {
+    var pageType: CCPageType = .unknown // 是否是在详情页面中，目前仅锁屏中的签名在使用
     var appearType: CQPageAppearType = .unknown
-    var fromPageType: CQPageType = .unknown
+    var fromPageType: CCPageType = .unknown
 }
 

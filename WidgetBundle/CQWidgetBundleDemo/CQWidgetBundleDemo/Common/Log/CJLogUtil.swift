@@ -1,5 +1,5 @@
 //
-//  CJLogUtil.swift
+//  CCLogUtil.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2024/1/10.
@@ -8,7 +8,7 @@
 import Foundation
 
 
-class CJLogUtil {
+class CCLogUtil {
     static var lastLogDate: Date? = nil
     
     static func log(_ message: String = "") {
