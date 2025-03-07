@@ -442,7 +442,7 @@ struct BaseControlWidget: ControlWidget {
 
 
 
-#### 在 perform
+### 3、在 perform
 
 
 
@@ -462,6 +462,34 @@ func perform() async throws -> some IntentResult & OpensIntent {
       return .result(opensIntent: OpenURLIntent(URL(string: "noexsitApp://")!))
   }
 }
+```
+
+
+
+```swift
+		@MainActor
+    func perform() async throws -> some IntentResult & OpensIntent {
+        CCLogUtil.log("您【在桌面】点击了: \(self.widgetId ?? "") \(self.widgetSaveId ?? "")")
+        
+        var openUrl: String?
+        //let widgetId = self.widgetId
+        if let widgetSaveId = self.widgetSaveId {
+            var cacheEntitys = ControlWidgetDataCacheUtil.getCacheControlWidgets(.all)
+            if var widgetModel = ControlWidgetDataCacheUtil.findControlWidgetEntity(widgetSaveId, in: cacheEntitys) {
+                widgetModel.isOn.toggle()
+                
+                // 更新组件（app外调用自身已自己更新，.onlyData 足够，不用重复刷新，不更新数据的话点击后又会变回原样）
+                ControlWidgetDataCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .onlyData)
+            }
+        }
+        
+        if let openUrl = openUrl, openUrl.count > 0 {
+            return .result(opensIntent: OpenURLIntentIOS180(openUrl: openUrl))
+            
+        } else {
+            throw NSError(domain: "WidgetErrorDomain", code: 404, userInfo: [NSLocalizedDescriptionKey: "Widget not found"])
+        }
+    }
 ```
 
 

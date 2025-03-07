@@ -1184,7 +1184,7 @@ struct TSControlWidgetDetailPage: View {
                 self.presentationMode.wrappedValue.dismiss()
             },
             label: {
-                Text(isEditing ? "保存控制项" : (hasAdd ? "保存控制项" : "添加控制项"))
+                Text(isEditing ? "保存编辑" : (hasAdd ? "保存控制项" : "添加控制项"))
                     .font(.system(size: 15.5, weight: .medium))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, maxHeight: .infinity) // 确保label填充整个按钮区域，避免点击区域只有文字部分

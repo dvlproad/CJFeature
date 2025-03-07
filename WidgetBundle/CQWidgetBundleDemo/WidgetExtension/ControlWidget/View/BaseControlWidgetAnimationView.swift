@@ -15,43 +15,6 @@ import UIKit
 let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
 
 struct BaseControlWidgetAnimationView: View {
-//    @Binding var entity: BaseControlWidgetEntity
-//    @Binding var isOn: Bool
-    @Binding var onoffModel: CJControlWidgetOnOffModel
-    @Binding var symbolEffectType: SymbolEffectType
-    @Binding var widgetStyle: ControlWidgetStyle  // 在app内的形态（控制中心不提供获取）
-    
-    var body: some View {
-        if isInWidget {
-//            CJWidgetGifImageView(gifName: "transformer", defaultImage: "")
-//                .frame(width: 40, height: 40)
-        }
-//        BaseControlWidgetAnimationViewInApp(entity: $entity, isOn: $isOn)
-        BaseControlWidgetAnimationViewInApp(
-            onoffModel: $onoffModel,
-            symbolEffectType: $symbolEffectType,
-            widgetStyle: $widgetStyle
-        )
-        
-//        let imageView = Image(entity.imageName)
-//        var imageScaleModel = entity.animateModel
-//        imageView
-//            .scaleEffect(imageScaleModel.isAnimating ? 0.2 : 1.0, anchor: .center)  // 设置缩放比例
-//            .animation(
-//                .easeInOut(duration: 3)
-//                .repeatForever(autoreverses: true),
-//                value: imageScaleModel.isAnimating
-//            )
-        
-//            imageView
-//                .rotateAnimation(.constant(true))
-                
-//                .rotationEffect(Angle.degrees(360))
-//                .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false), value: true)
-    }
-}
-
-struct BaseControlWidgetAnimationViewInApp: View {
     @Binding var onoffModel: CJControlWidgetOnOffModel
     @Binding var symbolEffectType: SymbolEffectType
     @Binding var widgetStyle: ControlWidgetStyle  // 在app内的形态（控制中心不提供获取）

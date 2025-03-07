@@ -51,13 +51,8 @@ struct BaseControlWidgetViewInDesktop: View {
                             }
                         }
                     ),
-//                    symbolEffectType: Binding<SymbolEffectType>(
-//                        get: { entity.symbolEffectType }, set: { entity.symbolEffectType = $0 }
-//                    ),
-                    symbolEffectType: (entity.isOn) ? $entity.symbolEffectType : .constant(.none),
-                    widgetStyle: Binding<ControlWidgetStyle>(
-                        get: { entity.widgetStyle }, set: { entity.widgetStyle = $0 }
-                    )
+                    symbolEffectType: $entity.symbolEffectType,     // 控制中心不需要自己根据状态切换动画，app内要自己切换
+                    widgetStyle: $entity.widgetStyle
                 )
             }
             // 桌面的 tint 必须在 ControlWidgetToggle 的 label 下设置，不能放在在此

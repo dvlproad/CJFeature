@@ -294,16 +294,21 @@ public struct BaseControlWidgetEntity: ControlWidgetBaseModel, Hashable, Identif
         }
         
         
-        var tintColor: UIColor?
+        var tintUIColor: UIColor?
         var bgColor: UIColor
         if self.quickStartEnable == true {
-            tintColor = UIColor.white.withAlphaComponent(0.8)
+            tintUIColor = UIColor.white.withAlphaComponent(0.8)
             bgColor = UIColor(hex: "#4C000000", alpha: 1.0)
         } else {
-            tintColor = onoffModel.imageModel.imageColorString != nil ? UIColor(hex: onoffModel.imageModel.imageColorString!) : nil
+            if let imageColorModel = onoffModel.imageColorModel {
+                tintUIColor = UIColor(hex: imageColorModel.colorString)
+            } else if let imageColorString = onoffModel.imageModel.imageColorString {
+                tintUIColor = UIColor(hex: imageColorString)
+            }
+            //tintUIColor = tintColor != nil ? UIColor(tintColor!) : nil
             bgColor = UIColor.white
         }
-        let lastuiimage: UIImage = UIImage.getControlWidgetUIImageFrom(uiimage, tintColor: tintColor, bgColor: bgColor)
+        let lastuiimage: UIImage = UIImage.getControlWidgetUIImageFrom(uiimage, tintColor: tintUIColor, bgColor: bgColor)
         guard let imageData = lastuiimage.pngData() else {
             return nil
         }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ControlWidgetPreviewGroupCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel!
@@ -189,7 +190,7 @@ extension ControlWidgetPreviewGroupCollectionView: UICollectionViewDelegateFlowL
 
 /// Group 中 item 的 cell
 class ControlWidgetPreviewGroupItemCollectionViewCell: UICollectionViewCell {
-    var preImageView: UIImageView! // 预览图（整个结构使用预览图展示）
+    var preImageView: SDAnimatedImageView! // 预览图（整个结构使用预览图展示）
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -201,7 +202,7 @@ class ControlWidgetPreviewGroupItemCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        let preImageView = UIImageView()
+        let preImageView = SDAnimatedImageView()
         //preImageView.backgroundColor = .blue
         preImageView.contentMode = .scaleAspectFill
         preImageView.layer.masksToBounds = true

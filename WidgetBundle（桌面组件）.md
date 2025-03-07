@@ -119,6 +119,73 @@ APP内控制中心组件详情页面：
 
 
 
+## 控制中心动画
+
+
+
+```swift
+@available(iOS 18.0, *)
+struct BaseControlWidget: ControlWidget {
+    static let kind = "com.widgetBundleDemo.toggle"
+    var body: some ControlWidgetConfiguration {
+        AppIntentControlConfiguration(
+            kind: BaseControlWidget.kind,
+            provider: BaseToggleControlValueProvider()
+        ) { item in
+            let widgetInfo: BaseControlWidgetEntity = item.entity.widgetInfo
+            ControlWidgetToggle(
+                isOn: widgetInfo.quickStartEnable == true ? false : widgetInfo.isOn, // 快捷启动使用funWidget效果只亮一瞬
+                action: BaseControlWidgetToggleAction(
+                    widgetId: widgetInfo.widgetId,
+                    widgetSaveId: widgetInfo.saveId ?? "unknow_saveId",
+                    desktopWidgetControlTypeString: DesktopWidgetControlType.toggle.rawValue
+                ),
+                label: {
+//                    let widgetInfo = item.entity.widgetInfo
+//                    let onoffModel = widgetInfo.getStateModel()
+//                    Label {
+//                        Text("Running")
+//                        Text("(onoffModel.subTitle)")
+//                    } icon: {
+//                        // 系统SF图标
+//                        onoffModel.imageModel.createImageView()
+////                        Image(systemName: "figure.walk")
+//                            .resizable()
+////                            .symbolEffect(.bounce.up.byLayer, options: .repeat(.continuous))
+//                            .applyEffect(widgetInfo.symbolEffectType)
+//                            .aspectRatio(contentMode: .fit) // kn: aspectRatio 要在 frame设置前，否则会导致变形(如详情的顶部headerView或者预览页面)
+////                            .imageFrame(size)
+//                        // 自定义SF图标
+//                        // Image(entity.imageName)
+//                    }
+                }
+            )
+            .tint(widgetInfo.tintColor) // 桌面的tint必须在此设置
+        }.displayName("控制组件")
+            .description("自定义你的控制组件")
+            .promptsForUserConfiguration()
+    }
+}
+```
+
+
+
+
+
+```swift
+// app 外
+symbolEffectType: $entity.symbolEffectType,     // 控制中心不需要自己根据状态切换动画，app内要自己切换(如果自己做切换会导致在有动画的时候闪两次)
+
+// app 内
+symbolEffectType: isOff ? .constant(.none) : $entity.symbolEffectType,
+```
+
+
+
+
+
+
+
 
 
 **不能直接在 `perform()` 中用代码唤醒应用**，因为 `openAppWhenRun` 是静态的，且系统负责决定是否将应用唤醒。

@@ -100,8 +100,8 @@ struct BaseControlWidgetToggleAction: SetValueIntent, AudioPlaybackIntent, LiveA
                 // 开启灵动岛
                 self.startLiveActivity()
                 
-                // 更新组件
-                TSWidgetBundleCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .dataAndReloadControls)
+                // 更新组件（app外调用自身已自己更新，.onlyData 足够，不用重复刷新）
+                TSWidgetBundleCacheUtil.replaceEntity(widgetModel, in: &cacheEntitys, influenceScope: .onlyData)
                 
                 
                 if oldWidgetModelOpenState {

@@ -11,7 +11,7 @@ import SDWebImage
 
 class ControlWidgetEntityPreviewCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel!
-    var preImageView: UIImageView! // 预览图（整个结构使用预览图展示）
+    var preImageView: SDAnimatedImageView! // 预览图（整个结构使用预览图展示）
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +36,7 @@ class ControlWidgetEntityPreviewCollectionViewCell: UICollectionViewCell {
         }
         self.titleLabel = titleLabel
         
-        let preImageView = UIImageView()
+        let preImageView = SDAnimatedImageView()
         preImageView.layer.masksToBounds = true
         //preImageView.backgroundColor = .blue
         preImageView.contentMode = .scaleAspectFill

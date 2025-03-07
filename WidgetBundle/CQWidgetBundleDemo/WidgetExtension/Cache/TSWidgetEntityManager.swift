@@ -11,4 +11,7 @@ class TSWidgetEntityManager {
     static let shared = TSWidgetEntityManager()
     
     var controlWidgetEntitys: [BaseControlWidgetEntity] = []
+    init() {
+        controlWidgetEntitys = TSWidgetBundleCacheUtil.getCacheControlWidgets(.all)
+    }
 }

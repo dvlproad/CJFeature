@@ -201,7 +201,7 @@ extension TSWidgetBundleCacheUtil {
         entitys = entitys.filter { $0.saveId != targetSaveId }
         TSWidgetEntityManager.shared.controlWidgetEntitys = entitys
         
-        self.updateControlWidgetEntitys(entitys, influenceScope: .onlyData)
+        self.updateControlWidgetEntitys(entitys, influenceScope: .dataAndReloadControls)
     }
     
     
