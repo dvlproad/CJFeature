@@ -15,18 +15,21 @@ import SnapKit
     public var isForCloseState: Bool
     public var selectedText: String
     private var onTapRightIndexPath: ((IndexPath, _ newImageModel: TextLinkMenuDataModel) -> Void)
+    private var requestDataHandler: ((@escaping ([TextLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)?
     @objc public init(
         rightColumnCount: Int,
         layoutModel: CJLinkedMenuLayoutModel,
         isForCloseState: Bool,
         selectedText: String,
-        onTapRightIndexPath: @escaping (IndexPath, _ newImageModel: TextLinkMenuDataModel) -> Void
+        onTapRightIndexPath: @escaping (IndexPath, _ newImageModel: TextLinkMenuDataModel) -> Void,
+        requestDataHandler: ((@escaping ([TextLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)? = nil
     ) {
         self.rightColumnCount = rightColumnCount
         self.layoutModel = layoutModel
         self.isForCloseState = isForCloseState
         self.selectedText = selectedText
         self.onTapRightIndexPath = onTapRightIndexPath
+        self.requestDataHandler = requestDataHandler
         super.init(frame: .zero)
         setupViews()
     }
@@ -63,29 +66,15 @@ import SnapKit
         }
         
         // 请求数据
-        let selectedIndexPaths = [IndexPath(item: 10, section: 2)]
-        self.requestData(selectedIndexPaths: selectedIndexPaths)
+        self.requestData()
     }
     
-    private func requestData(selectedIndexPaths: [IndexPath]?) {
-        /*
-        // 1秒后执行 //TODO: qian
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let sectionDataModels: [TextLinkMenuSectionModel] = TextLinkMenuSectionModel.textSectionExamples()
-            self.setupDataSource(sectionDataModels: sectionDataModels)
-        }
-        */
-        
-        CCRequestUtil.cacheRequestControlWidgetDatas(
-            API.textAssetAll,
-            successCallback: { [weak self] (sectionDataModels: [TextLinkMenuSectionModel], responseModel) in
-                self?.setupDataSource(sectionDataModels: sectionDataModels)
-            }, failureCallback: { (responseModel) in
-                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
-            }
-        )
-        
-        
+    public func requestData() {
+        requestDataHandler?({ [weak self] sectionDataModels in
+            self?.setupDataSource(sectionDataModels: sectionDataModels)
+        }, { error in
+            print("文本菜单数据请求失败: \(error.localizedDescription)")
+        })
     }
     
     private func setupDataSource(sectionDataModels: [TextLinkMenuSectionModel]) {

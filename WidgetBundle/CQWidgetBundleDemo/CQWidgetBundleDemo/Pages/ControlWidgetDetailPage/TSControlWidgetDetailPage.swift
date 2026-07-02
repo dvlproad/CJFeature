@@ -500,6 +500,25 @@ struct TSControlWidgetDetailPage: View {
                             onTapRightIndexPath: { _, newImageModel in
 //                                showIconSheet = false
                                 self.updateNewIconModel(newImageModel, for: self.isMoreForCloseState, needReport: true)
+                            },
+                            requestDataHandler: { success, failure in
+                                //*
+                                // 1秒后执行 //TODO: qian
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    let sectionDataModels: [IconLinkMenuSectionModel] = IconLinkMenuSectionModel.iconSectionExamples()
+                                    success(sectionDataModels)
+                                }
+                                //*/
+                                /*
+                                CCRequestUtil.cacheRequestControlWidgetDatas(
+                                    API.ctrIconAll,
+                                    successCallback: { [weak self] (sectionDataModels: [IconLinkMenuSectionModel], responseModel) in
+                                        success(sectionDataModels)
+                                    }, failureCallback: { (responseModel) in
+                                        print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
+                                    }
+                                )
+                                */
                             }
                         )
 //                        IconSheetView(
@@ -550,6 +569,26 @@ struct TSControlWidgetDetailPage: View {
                                         self.entity.onModel.title = newTextModel.text
                                     }
                                 }
+                            },
+                            requestDataHandler: { success, failure in
+                                //*
+                                // 1秒后执行 //TODO: qian
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    let sectionDataModels: [TextLinkMenuSectionModel] = TextLinkMenuSectionModel.textSectionExamples()
+                                    success(sectionDataModels)
+                                }
+                                //*/
+                                /*
+                                CCRequestUtil.cacheRequestControlWidgetDatas(
+                                    API.textAssetAll,
+                                    successCallback: { [weak self] (sectionDataModels: [TextLinkMenuSectionModel], responseModel) in
+                                        success(sectionDataModels)
+                                    }, failureCallback: { (responseModel) in
+                                        print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
+                                    }
+                                )
+                                */
+
                             }
                         )
 //                        TextSheetView(options: symbolEffectTypeOptions, selectedIndex: animationSelectedIndex, onChangeOfIndex: { index in

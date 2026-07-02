@@ -14,6 +14,7 @@ public struct IconLinkedMenuViewRepresentable: UIViewRepresentable {
     var alwaysDisableTintColor: Bool
     var selectedImageName: String
     var onTapRightIndexPath: ((IndexPath, _ newImageModel: CJBaseImageModel) -> Void)
+    var requestDataHandler: ((@escaping ([IconLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)?
     
     public func makeUIView(context: Context) -> IconLinkedMenuView {
         // Initialize the custom view and return it
@@ -23,7 +24,8 @@ public struct IconLinkedMenuViewRepresentable: UIViewRepresentable {
             isForCloseState: isForCloseState,
             alwaysDisableTintColor: alwaysDisableTintColor,
             selectedImageName: selectedImageName,
-            onTapRightIndexPath: onTapRightIndexPath
+            onTapRightIndexPath: onTapRightIndexPath,
+            requestDataHandler: requestDataHandler
         )
     }
     

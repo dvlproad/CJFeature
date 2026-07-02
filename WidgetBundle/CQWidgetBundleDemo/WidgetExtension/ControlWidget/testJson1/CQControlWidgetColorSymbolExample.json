@@ -5,11 +5,6 @@
         "imageColor": "#B131A3FF"
     },
     {
-        "id": "imageId_test_02_open",
-        "imageName": "02",
-        "imageColor": "#B131A3FF"
-    },
-    {
         "id": "imageId_staticIcon_01_open",
         "imageName": "icon_control_katong_1",
         "imageColor": "#EFF1334F"

@@ -8,11 +8,7 @@
             {
                 "id": "imageId_heart_01_open",
                 "data": "square.and.arrow.up"
-            },
-            {
-                "id": "imageId_test_02_open",
-                "data": "02"
-            },
+            }
             {
                 "id": "imageId_staticIcon_01_open",
                 "data": "icon_control_katong_1"
@@ -54,10 +50,6 @@
                 "data": "square.and.arrow.up"
             },
             {
-                "id": "imageId_test_02_open",
-                "data": "02"
-            },
-            {
                 "id": "imageId_staticIcon_01_open",
                 "data": "icon_control_katong_1"
             },
@@ -96,10 +88,6 @@
             {
                 "id": "imageId_heart_01_open",
                 "data": "square.and.arrow.up"
-            },
-            {
-                "id": "imageId_test_02_open",
-                "data": "02"
             },
             {
                 "id": "imageId_staticIcon_01_open",

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class IconLinkMenuSectionModel: NSObject, Codable {
+public class IconLinkMenuSectionModel: NSObject, Codable {
     var categoryModel: GuideMenuDataModel
     var values: [CJBaseImageModel] = [] // Assuming the array should be of a specific type, e.g., CJBaseImageModel
     
@@ -28,13 +28,13 @@ class IconLinkMenuSectionModel: NSObject, Codable {
         case values = "list"
     }
     
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         categoryModel = try container.decodeIfPresent(GuideMenuDataModel.self, forKey: .categoryModel) ?? GuideMenuDataModel(id: "", text: "")
         values = try container.decode([CJBaseImageModel].self, forKey: .values)  // Ensure CJBaseImageModel conforms to Codable
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(categoryModel, forKey: .categoryModel)
         try container.encode(values, forKey: .values)

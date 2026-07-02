@@ -16,13 +16,15 @@ public class IconLinkedMenuView: UIView {
     public var alwaysDisableTintColor: Bool // 有时候即使是开启状态的图标，如快捷启动应用的开启状态图标，也会有可能强制要求不显示tintColor
     private var selectedImageName: String
     private var onTapRightIndexPath: ((IndexPath, _ newImageModel: CJBaseImageModel) -> Void)
+    private var requestDataHandler: ((@escaping ([IconLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)?
     public init(
         rightColumnCount: Int,
         layoutModel: CJLinkedMenuLayoutModel,
         isForCloseState: Bool,
         alwaysDisableTintColor: Bool,
         selectedImageName: String,
-        onTapRightIndexPath: @escaping (IndexPath, _ newImageModel: CJBaseImageModel) -> Void
+        onTapRightIndexPath: @escaping (IndexPath, _ newImageModel: CJBaseImageModel) -> Void,
+        requestDataHandler: ((@escaping ([IconLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)? = nil
     ) {
         self.rightColumnCount = rightColumnCount
         self.layoutModel = layoutModel
@@ -30,6 +32,7 @@ public class IconLinkedMenuView: UIView {
         self.alwaysDisableTintColor = alwaysDisableTintColor
         self.selectedImageName = selectedImageName
         self.onTapRightIndexPath = onTapRightIndexPath
+        self.requestDataHandler = requestDataHandler
         super.init(frame: .zero)
         setupViews()
     }
@@ -69,23 +72,12 @@ public class IconLinkedMenuView: UIView {
         self.requestData()
     }
     
-    private func requestData() {
-        /*
-        // 1秒后执行 //TODO: qian
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let sectionDataModels: [IconLinkMenuSectionModel] = IconLinkMenuSectionModel.iconSectionExamples()
-            self.setupDataSource(sectionDataModels: sectionDataModels)
-        }
-        */
-        
-        CCRequestUtil.cacheRequestControlWidgetDatas(
-            API.ctrIconAll,
-            successCallback: { [weak self] (sectionDataModels: [IconLinkMenuSectionModel], responseModel) in
-                self?.setupDataSource(sectionDataModels: sectionDataModels)
-            }, failureCallback: { (responseModel) in
-                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
-            }
-        )
+    public func requestData() {
+        requestDataHandler?({ [weak self] sectionDataModels in
+            self?.setupDataSource(sectionDataModels: sectionDataModels)
+        }, { error in
+            print("图标菜单数据请求失败: \(error.localizedDescription)")
+        })
     }
     
     private func setupDataSource(sectionDataModels: [IconLinkMenuSectionModel]) {

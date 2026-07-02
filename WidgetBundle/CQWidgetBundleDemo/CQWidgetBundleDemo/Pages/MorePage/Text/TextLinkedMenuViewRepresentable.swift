@@ -13,6 +13,7 @@ public struct TextLinkedMenuViewRepresentable: UIViewRepresentable {
     @Binding var isForCloseState: Bool
     var selectedText: String
     var onTapRightIndexPath: ((IndexPath, _ newTextModel: TextLinkMenuDataModel) -> Void)
+    var requestDataHandler: ((@escaping ([TextLinkMenuSectionModel]) -> Void, @escaping (Error) -> Void) -> Void)?
     
     public func makeUIView(context: Context) -> TextLinkedMenuView {
         // Initialize the custom view and return it
@@ -21,7 +22,8 @@ public struct TextLinkedMenuViewRepresentable: UIViewRepresentable {
             layoutModel: layoutModel,
             isForCloseState: isForCloseState,
             selectedText: selectedText,
-            onTapRightIndexPath: onTapRightIndexPath
+            onTapRightIndexPath: onTapRightIndexPath,
+            requestDataHandler: requestDataHandler
         )
     }
     

@@ -3,4 +3,354 @@
    uuid = "6803595B-4BFE-484B-B81A-522B8CA7D4EF"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B33E98D3-2E05-4FEE-BDDD-E46AA1D90D0F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "downloadZip(_:completeBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A58B6A87-9B03-442E-A9BC-AEB789964737"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "downloadZip(_:completeBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49525284-A8FE-44E1-982D-13E9CA7D94EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C540BC4-D983-43DB-8D3A-8D21D4DB07BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
+            landmarkName = "headerView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A25CDB5-5D80-46DD-8ED8-F6C28A8998A6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81E6284D-6527-48FB-B92C-F90CF2AAF0EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetCachePage/TSMyWidgetHomePage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "81E6284D-6527-48FB-B92C-F90CF2AAF0EE - a0b3e69eb7d3b87f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; SwiftUI.NavigationLink&lt;CQWidgetBundleDemo.BaseControlWidgetViewInApp, CQWidgetBundleDemo.TSControlWidgetDetailPage&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in CQWidgetBundleDemo.TSMyWidgetHomePage.body.getter : some"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/ControlWidgetCachePage/TSMyWidgetHomePage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18">
+               </Location>
+               <Location
+                  uuid = "81E6284D-6527-48FB-B92C-F90CF2AAF0EE - db908b003683f5e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; CQWidgetBundleDemo.BaseControlWidgetViewInApp in closure #1 (Swift.Int) -&gt; SwiftUI.NavigationLink&lt;CQWidgetBundleDemo.BaseControlWidgetViewInApp, CQWidgetBundleDemo.TSControlWidgetDetailPage&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in CQWidgetBundleDemo.TSMyWidgetHomePage.body.getter : some"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/ControlWidgetCachePage/TSMyWidgetHomePage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B20D33E2-D40E-4E89-9893-E1AEC285B487"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "init(fromPageType:setModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "85E6F8DA-4C66-4B72-8969-68823E9F4142"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "init(fromPageType:previewModel:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91FE2969-942A-4B47-9054-9A167D93E19B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "init(fromPageType:previewModels:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57AB3084-25CC-44DB-8E06-5DC0FC091AFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "928"
+            endingLineNumber = "928"
+            landmarkName = "iconChooseView(forCloseState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A52511A8-562F-46B9-8099-90B4FB8CFFB2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/ControlWidget/View/IconScrollView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "984A271C-616E-43FA-B9D7-331D929FA4B7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
+            landmarkName = "bodyContent"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F2F8EA3-F14A-414C-883F-E4546112D8E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26B95407-7A47-4C4D-9B1B-23C5D4061C22"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26B95407-7A47-4C4D-9B1B-23C5D4061C22 - 27e24820e76b36cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static CQWidgetBundleDemo.CCRequestUtil.cacheRequestControlWidgetDatas&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(_: CQWidgetBundleDemo.TargetType, needShowFailAlert: Swift.Bool, successCallback: (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; (), failureCallback: (CQWidgetBundleDemo.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+               <Location
+                  uuid = "26B95407-7A47-4C4D-9B1B-23C5D4061C22 - ad10fc95d9a10a68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; () in static CQWidgetBundleDemo.CCRequestUtil.cacheRequestControlWidgetDatas&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(_: CQWidgetBundleDemo.TargetType, needShowFailAlert: Swift.Bool, successCallback: (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; (), failureCallback: (CQWidgetBundleDemo.ResponseModel) -&gt; ()) -&gt; ()"
+                  moduleName = "CQWidgetBundleDemo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4C85568-FCD3-4272-80F1-43FA6401CAAC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5F4F105-15AE-4182-AC4B-DE71CE9F9E47"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "requestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42AB7751-2C38-4BAD-81DC-166F0E8FF300"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "requestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DFA7FB8-1D6A-46EA-A859-81BD13BA2F2A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
