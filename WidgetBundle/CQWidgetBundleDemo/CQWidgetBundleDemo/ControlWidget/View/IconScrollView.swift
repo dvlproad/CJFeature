@@ -14,6 +14,7 @@ struct IconScrollView: View {
     @Binding var enableTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
     var onChangeOfDataModel: ((_ newDataModel: CJBaseImageModel) -> Void)
     var onTapMore: (() -> Void)
+    var requestDataHandler: ((@escaping ([CJBaseImageModel]) -> Void, @escaping (Error) -> Void) -> Void)?
     
     var body: some View {
         
@@ -48,23 +49,12 @@ struct IconScrollView: View {
         }
     }
     
-//    @State private var egIconModels: [CJBaseImageModel] = []    // 开启和关闭使用同一份图标库（区别是关闭时候，从图标库中选择图标要去掉颜色）
-//    egIconModels = CQControlWidgetExample.iconExamples()
     private func requestData() {
-        // 1秒后执行 //TODO: qian
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
-            let recommendIconModels: [CJBaseImageModel] = CQControlWidgetExample.iconExamples()
-            dataModels = recommendIconModels
-        }
-        
-//        CCRequestUtil.requestControlWidgetDatas(
-//            API.ctrIconAll,
-//            successCallback: { (recommendIconModels: [CJBaseImageModel], responseModel) in
-//                dataModels = recommendIconModels
-//            }, failureCallback: { (responseModel) in
-//                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
-//            }
-//        )
+        requestDataHandler?({ dataModels in
+            self.dataModels = dataModels
+        }, { error in
+            print("图标滚动视图数据请求失败: \(error.localizedDescription)")
+        })
     }
 }
 

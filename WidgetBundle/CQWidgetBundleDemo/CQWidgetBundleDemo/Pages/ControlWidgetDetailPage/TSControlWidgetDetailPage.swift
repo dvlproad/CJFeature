@@ -501,25 +501,7 @@ struct TSControlWidgetDetailPage: View {
 //                                showIconSheet = false
                                 self.updateNewIconModel(newImageModel, for: self.isMoreForCloseState, needReport: true)
                             },
-                            requestDataHandler: { success, failure in
-                                //*
-                                // 1秒后执行 //TODO: qian
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    let sectionDataModels: [IconLinkMenuSectionModel] = IconLinkMenuSectionModel.iconSectionExamples()
-                                    success(sectionDataModels)
-                                }
-                                //*/
-                                /*
-                                CCRequestUtil.cacheRequestControlWidgetDatas(
-                                    API.ctrIconAll,
-                                    successCallback: { [weak self] (sectionDataModels: [IconLinkMenuSectionModel], responseModel) in
-                                        success(sectionDataModels)
-                                    }, failureCallback: { (responseModel) in
-                                        print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
-                                    }
-                                )
-                                */
-                            }
+                            requestDataHandler: self.requestIconData
                         )
 //                        IconSheetView(
 //                            options: [IconModuleModel(name: "可爱", options: egIconModels)],
@@ -570,26 +552,7 @@ struct TSControlWidgetDetailPage: View {
                                     }
                                 }
                             },
-                            requestDataHandler: { success, failure in
-                                //*
-                                // 1秒后执行 //TODO: qian
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    let sectionDataModels: [TextLinkMenuSectionModel] = TextLinkMenuSectionModel.textSectionExamples()
-                                    success(sectionDataModels)
-                                }
-                                //*/
-                                /*
-                                CCRequestUtil.cacheRequestControlWidgetDatas(
-                                    API.textAssetAll,
-                                    successCallback: { [weak self] (sectionDataModels: [TextLinkMenuSectionModel], responseModel) in
-                                        success(sectionDataModels)
-                                    }, failureCallback: { (responseModel) in
-                                        print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
-                                    }
-                                )
-                                */
-
-                            }
+                            requestDataHandler: self.requestTextData
                         )
 //                        TextSheetView(options: symbolEffectTypeOptions, selectedIndex: animationSelectedIndex, onChangeOfIndex: { index in
 //                            //entity.symbolEffectType = symbolEffectTypeOptions[index]
@@ -975,7 +938,8 @@ struct TSControlWidgetDetailPage: View {
                     self.dismissKeyboard()
                     self.showIconSheet.toggle()
                     self.isMoreForCloseState = forCloseState
-                }
+                },
+                requestDataHandler: self.requestScrollIconData
             )
             .padding(.top, contentToTitleDistance)
         }
@@ -1371,5 +1335,68 @@ extension TSControlWidgetDetailPage {
         tEntity.onModel.appModel = lastAppModel
         tEntity.onModel.shortcutsModel = lastShortcutsModel
         tEntity.onModel.webModel = lastWebModel
+    }
+}
+
+extension TSControlWidgetDetailPage {
+    func requestScrollIconData(success: @escaping ([CJBaseImageModel]) -> Void, failure: @escaping (Error) -> Void) {
+        
+        // 1秒后执行 //TODO: qian
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let sectionDataModels: [IconLinkMenuSectionModel] = IconLinkMenuSectionModel.iconSectionExamples()
+            let recommendIconModels: [CJBaseImageModel] = sectionDataModels.first?.values ?? []
+            success(recommendIconModels)
+
+        }
+        
+//        CCRequestUtil.requestControlWidgetDatas(
+//            API.ctrIconAll,
+//            successCallback: { (recommendIconModels: [CJBaseImageModel], responseModel) in
+//                success(recommendIconModels)
+//            }, failureCallback: { (responseModel) in
+//                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
+//            }
+//        )
+
+    }
+    
+    func requestIconData(success: @escaping ([IconLinkMenuSectionModel]) -> Void, failure: @escaping (Error) -> Void) {
+        //*
+        // 1秒后执行 //TODO: qian
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let sectionDataModels: [IconLinkMenuSectionModel] = IconLinkMenuSectionModel.iconSectionExamples()
+            success(sectionDataModels)
+        }
+        //*/
+        /*
+        CCRequestUtil.cacheRequestControlWidgetDatas(
+            API.ctrIconAll,
+            successCallback: { [weak self] (sectionDataModels: [IconLinkMenuSectionModel], responseModel) in
+                success(sectionDataModels)
+            }, failureCallback: { (responseModel) in
+                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
+            }
+        )
+        */
+    }
+    
+    func requestTextData(success: @escaping ([TextLinkMenuSectionModel]) -> Void, failure: @escaping (Error) -> Void) {
+        //*
+        // 1秒后执行 //TODO: qian
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let sectionDataModels: [TextLinkMenuSectionModel] = TextLinkMenuSectionModel.textSectionExamples()
+            success(sectionDataModels)
+        }
+        //*/
+        /*
+        CCRequestUtil.cacheRequestControlWidgetDatas(
+            API.textAssetAll,
+            successCallback: { [weak self] (sectionDataModels: [TextLinkMenuSectionModel], responseModel) in
+                success(sectionDataModels)
+            }, failureCallback: { (responseModel) in
+                print("网络请求失败 包括服务器错误和网络异常\(responseModel.code)__\(responseModel.message)")
+            }
+        )
+        */
     }
 }

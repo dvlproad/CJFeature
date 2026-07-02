@@ -2,14 +2,9 @@
     {
         "categoryInfo": {
             "id": 1,
-            "name": "可爱"
+            "name": "示例"
         },
         "list": [
-            {
-                "id": "imageId_heart_01_open",
-                "imageName": "square.and.arrow.up",
-                "imageColor": "#B131A3FF"
-            },
             {
                 "id": "imageId_staticIcon_01_open",
                 "imageName": "icon_control_katong_1",
@@ -50,96 +45,70 @@
     {
         "categoryInfo": {
             "id": 2,
-            "name": "新年"
+            "name": "动物"
         },
         "list": [
             {
-                "id": "imageId_heart_01_open",
-                "imageName": "square.and.arrow.up",
-                "imageColor": "#B131A3FF"
+              "id" : "imageId_aixin4",
+              "imageName" : "aixin4",
+              "imageColor" : "d0b3eb"
             },
             {
-                "id": "imageId_staticIcon_01_open",
-                "imageName": "icon_control_katong_1",
-                "imageColor": "#EFF1334F"
-            },
-            {
-                "id": "imageId_staticIcon_02_open",
-                "imageName": "icon_control_katong_2",
-                "imageColor": "#EFFA53EF"
-            },
-            {
-                "id": "imageId_staticIcon_03_open",
-                "imageName": "icon_control_katong_3",
-                "imageColor": "#B131A3FF"
-            },
-            {
-                "id": "imageId_staticIcon_04_open",
-                "imageName": "icon_control_katong_4",
-                "imageColor": "#EF03A343"
-            },
-            {
-                "id": "imageId_staticIcon_05_open",
-                "imageName": "icon_control_katong_5",
-                "imageColor": "#3DD837FF"
-            },
-            {
-                "id": "imageId_staticIcon_06_open",
-                "imageName": "icon_control_katong_6",
-                "imageColor": "#EF4837FF"
-            },
-            {
-                "id": "imageId_staticIcon_07_open",
-                "imageName": "icon_control_katong_7",
-                "imageColor": "#EFF1334F"
+              "id" : "imageId_dongwu4",
+              "imageName" : "dongwu4",
+              "imageColor" : "89d9d5"
             }
         ]
     },
     {
         "categoryInfo": {
             "id": 3,
-            "name": "元气满满"
+            "name": "静物"
         },
         "list": [
             {
-                "id": "imageId_heart_01_open",
-                "imageName": "square.and.arrow.up",
-                "imageColor": "#B131A3FF"
+              "id" : "imageId_hudiejie4",
+              "imageName" : "hudiejie4",
+              "imageColor" : "ffc8a1"
             },
             {
-                "id": "imageId_staticIcon_01_open",
-                "imageName": "icon_control_katong_1",
-                "imageColor": "#EFF1334F"
+              "id" : "imageId_shuibei_keai",
+              "imageName" : "shuibei_keai",
+              "imageColor" : "ff9a92"
             },
             {
-                "id": "imageId_staticIcon_02_open",
-                "imageName": "icon_control_katong_2",
-                "imageColor": "#EFFA53EF"
+              "id" : "imageId_yanhua",
+              "imageName" : "yanhua",
+              "imageColor" : "ff9a92"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 4,
+            "name": "文字"
+        },
+        "list": [
+            
+            {
+              "id" : "imageId_Gidle",
+              "imageName" : "wenzi1_sui",
+              "imageColor" : "ffc8a1"
             },
             {
-                "id": "imageId_staticIcon_03_open",
-                "imageName": "icon_control_katong_3",
-                "imageColor": "#B131A3FF"
+              "id" : "imageId_blackpink",
+              "imageName" : "wenzi1_sui2",
+              "imageColor" : "d0b3eb"
             },
             {
-                "id": "imageId_staticIcon_04_open",
-                "imageName": "icon_control_katong_4",
-                "imageColor": "#EF03A343"
+              "id" : "imageId_asepa_logo",
+              "imageName" : "wenzi1_zhao",
+              "imageColor" : "1e1e1e"
             },
             {
-                "id": "imageId_staticIcon_05_open",
-                "imageName": "icon_control_katong_5",
-                "imageColor": "#3DD837FF"
-            },
-            {
-                "id": "imageId_staticIcon_06_open",
-                "imageName": "icon_control_katong_6",
-                "imageColor": "#EF4837FF"
-            },
-            {
-                "id": "imageId_staticIcon_07_open",
-                "imageName": "icon_control_katong_7",
-                "imageColor": "#EFF1334F"
+              "id" : "imageId_SEVENTEEN",
+              "imageName" : "wenzi1_zhao2",
+              "imageColor" : "EFFA53EF"
             }
         ]
     }

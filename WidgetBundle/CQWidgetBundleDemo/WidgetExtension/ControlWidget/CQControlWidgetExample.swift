@@ -75,32 +75,3 @@ struct CQControlWidgetIds {
         }
     }
 }
-
-struct CQControlWidgetExample {
-    static func iconExamples() -> [CJBaseImageModel] {
-        let items = loadIconFromJSONFile(fileName: "CQControlWidgetColorSymbolService")
-        return items ?? []
-    }
-    
-    static func loadIconFromJSONFile(fileName: String) -> [CJBaseImageModel]? {
-        // 获取文件路径
-        guard let filePath = Bundle.main.path(forResource: fileName, ofType: "json") else {
-            print("File not found: \(fileName).json")
-            return nil
-        }
-        
-        do {
-            // 读取文件内容
-            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-            
-            // 使用 JSONDecoder 序列化数据
-            let decoder = JSONDecoder()
-            let items = try decoder.decode([CJBaseImageModel].self, from: data)
-            
-            return items
-        } catch {
-            print("❌Error loading or decoding JSON: \(error)")
-            return nil
-        }
-    }
-}

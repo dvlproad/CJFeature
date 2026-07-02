@@ -1,10 +1,5 @@
 [
     {
-        "id": "imageId_heart_01_open",
-        "imageName": "square.and.arrow.up",
-        "imageColor": "#B131A3FF"
-    },
-    {
         "id": "imageId_staticIcon_01_open",
         "imageName": "icon_control_katong_1",
         "imageColor": "#EFF1334F"
@@ -38,11 +33,6 @@
         "id": "imageId_staticIcon_07_open",
         "imageName": "icon_control_katong_7",
         "imageColor": "#EFF1334F"
-    },
-    {
-        "id": "imageId_heart_11_open",
-        "imageName": "square.and.arrow.up",
-        "imageColor": "#B131A3FF"
     },
     {
         "id": "imageId_test_12_open",

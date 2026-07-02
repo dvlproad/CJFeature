@@ -6,10 +6,6 @@
         },
         "list": [
             {
-                "id": "imageId_heart_01_open",
-                "data": "square.and.arrow.up"
-            }
-            {
                 "id": "imageId_staticIcon_01_open",
                 "data": "icon_control_katong_1"
             },
@@ -46,10 +42,6 @@
         },
         "list": [
             {
-                "id": "imageId_heart_01_open",
-                "data": "square.and.arrow.up"
-            },
-            {
                 "id": "imageId_staticIcon_01_open",
                 "data": "icon_control_katong_1"
             },
@@ -85,10 +77,6 @@
             "name": "元气满满"
         },
         "list": [
-            {
-                "id": "imageId_heart_01_open",
-                "data": "square.and.arrow.up"
-            },
             {
                 "id": "imageId_staticIcon_01_open",
                 "data": "icon_control_katong_1"
