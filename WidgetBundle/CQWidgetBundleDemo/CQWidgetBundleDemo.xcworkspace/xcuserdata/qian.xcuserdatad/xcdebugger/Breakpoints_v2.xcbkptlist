@@ -55,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C540BC4-D983-43DB-8D3A-8D21D4DB07BA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
-            landmarkName = "headerView"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2A25CDB5-5D80-46DD-8ED8-F6C28A8998A6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -188,9 +172,9 @@
             filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "928"
-            endingLineNumber = "928"
-            landmarkName = "iconChooseView(forCloseState:)"
+            startingLineNumber = "959"
+            endingLineNumber = "959"
+            landmarkName = "updateNewIconModel(_:for:needReport:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -220,8 +204,8 @@
             filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
+            startingLineNumber = "539"
+            endingLineNumber = "539"
             landmarkName = "bodyContent"
             landmarkType = "24">
          </BreakpointContent>
