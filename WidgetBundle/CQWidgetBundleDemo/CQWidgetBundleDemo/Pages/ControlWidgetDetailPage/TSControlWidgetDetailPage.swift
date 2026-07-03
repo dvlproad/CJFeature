@@ -986,21 +986,23 @@ struct TSControlWidgetDetailPage: View {
     
     
     var iconColorChooseView: some View {
-        Text("图标颜色")
+//        Text("图标颜色")
+        
         /*
-        let bindingValue = Binding<ColorModel>(
+        let bindingValue = Binding<CJTextColorDataModel>(
             get: {
                 if let imageColorModel = self.entity.onModel.imageColorModel {
-                    return ColorModel(
-                        index: imageColorModel.index,
-                        color: ChangeColorModel(solidColor: imageColorModel.colorString, index: imageColorModel.index)
+                    return CJTextColorDataModel(
+//                        id: String(from: imageColorModel.index),
+                        solidColorString: imageColorModel.colorString
                     )
                 } else {
-                    return ColorModel()
+                    return CJTextColorDataModel()
                 }
             },
             set: { newColorModel in
-                if let colorIndex = newColorModel.index, let colorString = newColorModel.color?.solidColor {
+                let colorIndex = newColorModel.index
+                if let colorString = newColorModel.colorStrings.first {
                     self.entity.onModel.imageColorModel = IconColorModel(index: colorIndex, colorString: colorString)
                 } else {
                     self.entity.onModel.imageColorModel = nil
@@ -1024,7 +1026,8 @@ struct TSControlWidgetDetailPage: View {
             colorModel: bindingValue,
             onChangeOfColorModel: { newColorModel in
                 self.dismissKeyboard()
-                if let colorIndex = newColorModel.index, let colorString = newColorModel.color?.solidColor {
+                let colorIndex = newColorModel.index
+                if let colorString = newColorModel.colorStrings.first {
                     self.entity.onModel.imageColorModel = IconColorModel(index: colorIndex, colorString: colorString)
                 } else {
                     self.entity.onModel.imageColorModel = nil
@@ -1039,6 +1042,52 @@ struct TSControlWidgetDetailPage: View {
             }
         )
         */
+        
+        ///*
+        let bindingValueNew = Binding<CJBoxDecorationModel>(
+            get: {
+                var colorModel: CJTextColorDataModel
+                if let imageColorModel = self.entity.onModel.imageColorModel {
+                    colorModel = CJTextColorDataModel(solidColorString: imageColorModel.colorString)
+                } else {
+                    colorModel = CJTextColorDataModel(solidColorString: "#F8AC9F")
+                }
+                return CJBoxDecorationModel(colorModel: colorModel)
+            },
+            set: { newColorModel_bg in
+                let newColorModel = newColorModel_bg.colorModel
+                if let colorString = newColorModel?.colorStrings.first {
+                    self.entity.onModel.imageColorModel = IconColorModel(colorString: colorString)
+                } else {
+                    self.entity.onModel.imageColorModel = nil
+                }
+            }
+        )
+        return CJBackgroundSettingRow(
+            models: TSRowDataUtil.backgroundColorData(),
+//            currentBackgroundModel: Binding(
+//                get: { model.anyComponentModel.backgroundModel },
+//                set: { newBackgroundModel in
+//                    model.anyComponentModel.backgroundModel = newBackgroundModel
+//                }
+//            ),
+            currentBackgroundModel: bindingValueNew,
+            onChangeOfBackgroundModel: { newBackgroundModel in
+//                model.anyComponentModel.backgroundModel = newBackgroundModel
+//                onChangeOfElementModel(model)
+                self.dismissKeyboard()
+                
+                let newColorModel = newBackgroundModel.colorModel
+                if let colorString = newColorModel?.colorStrings.first {
+                    self.entity.onModel.imageColorModel = IconColorModel(colorString: colorString)
+                } else {
+                    self.entity.onModel.imageColorModel = nil
+                }
+                self.entity.isOffInDetailPage = false
+            }
+        )
+        //.background(Color.orange.opacity(0.3))
+        //*/
     }
     
     @State var symbolEffectTypeBeforeChoose: SymbolEffectType = .none   // 记录进行动画选择前的选中动画类型（用于点击取消的时候恢复）

@@ -82,36 +82,6 @@
             endingLineNumber = "18"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "81E6284D-6527-48FB-B92C-F90CF2AAF0EE - a0b3e69eb7d3b87f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int) -&gt; SwiftUI.NavigationLink&lt;CQWidgetBundleDemo.BaseControlWidgetViewInApp, CQWidgetBundleDemo.TSControlWidgetDetailPage&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in CQWidgetBundleDemo.TSMyWidgetHomePage.body.getter : some"
-                  moduleName = "CQWidgetBundleDemo.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/ControlWidgetCachePage/TSMyWidgetHomePage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18">
-               </Location>
-               <Location
-                  uuid = "81E6284D-6527-48FB-B92C-F90CF2AAF0EE - db908b003683f5e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; CQWidgetBundleDemo.BaseControlWidgetViewInApp in closure #1 (Swift.Int) -&gt; SwiftUI.NavigationLink&lt;CQWidgetBundleDemo.BaseControlWidgetViewInApp, CQWidgetBundleDemo.TSControlWidgetDetailPage&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationTitle(SwiftUI.LocalizedStringKey) -&gt; some&gt;&gt;.0 in CQWidgetBundleDemo.TSMyWidgetHomePage.body.getter : some"
-                  moduleName = "CQWidgetBundleDemo.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/ControlWidgetCachePage/TSMyWidgetHomePage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,36 +210,6 @@
             endingLineNumber = "83"
             landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "26B95407-7A47-4C4D-9B1B-23C5D4061C22 - 27e24820e76b36cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static CQWidgetBundleDemo.CCRequestUtil.cacheRequestControlWidgetDatas&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(_: CQWidgetBundleDemo.TargetType, needShowFailAlert: Swift.Bool, successCallback: (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; (), failureCallback: (CQWidgetBundleDemo.ResponseModel) -&gt; ()) -&gt; ()"
-                  moduleName = "CQWidgetBundleDemo.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83">
-               </Location>
-               <Location
-                  uuid = "26B95407-7A47-4C4D-9B1B-23C5D4061C22 - ad10fc95d9a10a68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; () in static CQWidgetBundleDemo.CCRequestUtil.cacheRequestControlWidgetDatas&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable&gt;(_: CQWidgetBundleDemo.TargetType, needShowFailAlert: Swift.Bool, successCallback: (Swift.Array&lt;&#x3c4;_0_0&gt;, CQWidgetBundleDemo.ResponseModel) -&gt; (), failureCallback: (CQWidgetBundleDemo.ResponseModel) -&gt; ()) -&gt; ()"
-                  moduleName = "CQWidgetBundleDemo.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/qian/Project/Github/CJFeature/WidgetBundle/CQWidgetBundleDemo/CQWidgetBundleDemo/Pages/Util/CCRequestUtil.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -333,6 +273,54 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "cacheRequestControlWidgetDatas(_:needShowFailAlert:successCallback:failureCallback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F47FF4E0-F77E-473E-814D-8D54F99D4E2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1080"
+            endingLineNumber = "1080"
+            landmarkName = "iconColorChooseView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8E5E845-B8E7-4D48-851B-DA8E4A7AFA92"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1050"
+            endingLineNumber = "1050"
+            landmarkName = "iconColorChooseView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E922DDD-2F9E-4827-B7F4-7C0CAE1CEF07"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CQWidgetBundleDemo/Pages/ControlWidgetDetailPage/TSControlWidgetDetailPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "975"
+            endingLineNumber = "975"
+            landmarkName = "recoverIconModel(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

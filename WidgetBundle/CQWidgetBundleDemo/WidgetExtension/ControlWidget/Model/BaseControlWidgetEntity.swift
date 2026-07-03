@@ -32,7 +32,7 @@ public struct IconColorModel: ControlWidgetBaseModel, Hashable, Sendable {
     var index: Int          // 颜色下标
     var colorString: String
 
-    init(index: Int, colorString: String) {
+    init(index: Int = -1, colorString: String) {
         self.index = index
         self.colorString = colorString
     }

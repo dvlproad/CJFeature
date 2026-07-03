@@ -121,6 +121,7 @@ DEPENDENCIES:
   - CJAnimationKit-Swift
   - CJImageKit-Swift
   - CJViewElement-Swift
+  - CJViewElement-Swift/CommonSettingRow
   - CJWidgetKit-Swift
   - CQDemoKit-Swift
   - CQDemoKit/BaseVC (~> 0.8.0)
@@ -179,6 +180,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: 6c5f3c554804c8fb3dba959edaacbc86ec46f311
+PODFILE CHECKSUM: 8062ec75d118cf2aa7d92c5d2234a7d2b5ffd7c3
 
 COCOAPODS: 1.16.2

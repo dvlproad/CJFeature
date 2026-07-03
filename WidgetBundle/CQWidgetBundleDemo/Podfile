@@ -65,6 +65,7 @@ target 'CQWidgetBundleDemo' do
   shared_pods
   pod 'CQDemoKit',            '~> 0.8.0',          :subspecs => ['BaseVC']
   pod 'CQDemoKit-Swift'
+  pod 'CJViewElement-Swift/CommonSettingRow'
   
   pod 'lottie-ios'
   pod 'SDWebImageWebPCoder'
