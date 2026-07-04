@@ -2,72 +2,84 @@
     {
         "categoryInfo": {
             "id": 1,
-            "name": "可爱"
+            "name": "可爱风格"
         },
         "list": [
             {
-                "id": "imageId_staticIcon_01_open",
-                "data": "icon_control_katong_1"
+                "id": "icon_cute_01",
+                "data": "可爱小猫"
             },
             {
-                "id": "imageId_staticIcon_02_open",
-                "data": "icon_control_katong_2"
+                "id": "icon_cute_02",
+                "data": "可爱小狗"
             },
             {
-                "id": "imageId_staticIcon_03_open",
-                "data": "icon_control_katong_3"
+                "id": "icon_cute_03",
+                "data": "可爱兔子"
             },
             {
-                "id": "imageId_staticIcon_04_open",
-                "data": "icon_control_katong_4"
+                "id": "icon_cute_04",
+                "data": "可爱熊猫"
             },
             {
-                "id": "imageId_staticIcon_05_open",
-                "data": "icon_control_katong_5"
+                "id": "icon_cute_05",
+                "data": "可爱小熊"
             },
             {
-                "id": "imageId_staticIcon_06_open",
-                "data": "icon_control_katong_6"
+                "id": "icon_cute_06",
+                "data": "可爱企鹅"
             },
             {
-                "id": "imageId_staticIcon_07_open",
-                "data": "icon_control_katong_7"
+                "id": "icon_cute_07",
+                "data": "可爱海豚"
+            },
+            {
+                "id": "icon_cute_08",
+                "data": "可爱小鹿"
+            },
+            {
+                "id": "icon_cute_09",
+                "data": "可爱松鼠"
             }
         ]
     },
     {
         "categoryInfo": {
             "id": 2,
-            "name": "新年"
+            "name": "新年主题"
         },
         "list": [
             {
-                "id": "imageId_staticIcon_01_open",
-                "data": "icon_control_katong_1"
+                "id": "icon_newyear_01",
+                "data": "鞭炮齐鸣"
             },
             {
-                "id": "imageId_staticIcon_02_open",
-                "data": "icon_control_katong_2"
+                "id": "icon_newyear_02",
+                "data": "灯笼高挂"
             },
             {
-                "id": "imageId_staticIcon_03_open",
-                "data": "icon_control_katong_3"
+                "id": "icon_newyear_03",
+                "data": "福字倒贴"
             },
             {
-                "id": "imageId_staticIcon_04_open",
-                "data": "icon_control_katong_4"
+                "id": "icon_newyear_04",
+                "data": "舞龙舞狮"
             },
             {
-                "id": "imageId_staticIcon_05_open",
-                "data": "icon_control_katong_5"
+                "id": "icon_newyear_05",
+                "data": "红包拿来"
             },
             {
-                "id": "imageId_staticIcon_06_open",
-                "data": "icon_control_katong_6"
+                "id": "icon_newyear_06",
+                "data": "年夜饭香"
             },
             {
-                "id": "imageId_staticIcon_07_open",
-                "data": "icon_control_katong_7"
+                "id": "icon_newyear_07",
+                "data": "烟花璀璨"
+            },
+            {
+                "id": "icon_newyear_08",
+                "data": "对联迎新"
             }
         ]
     },
@@ -78,32 +90,264 @@
         },
         "list": [
             {
-                "id": "imageId_staticIcon_01_open",
-                "data": "icon_control_katong_1"
+                "id": "icon_energy_01",
+                "data": "阳光晨跑"
             },
             {
-                "id": "imageId_staticIcon_02_open",
-                "data": "icon_control_katong_2"
+                "id": "icon_energy_02",
+                "data": "活力早餐"
             },
             {
-                "id": "imageId_staticIcon_03_open",
-                "data": "icon_control_katong_3"
+                "id": "icon_energy_03",
+                "data": "运动健身"
             },
             {
-                "id": "imageId_staticIcon_04_open",
-                "data": "icon_control_katong_4"
+                "id": "icon_energy_04",
+                "data": "瑜伽冥想"
             },
             {
-                "id": "imageId_staticIcon_05_open",
-                "data": "icon_control_katong_5"
+                "id": "icon_energy_05",
+                "data": "阅读时光"
             },
             {
-                "id": "imageId_staticIcon_06_open",
-                "data": "icon_control_katong_6"
+                "id": "icon_energy_06",
+                "data": "音乐律动"
             },
             {
-                "id": "imageId_staticIcon_07_open",
-                "data": "icon_control_katong_7"
+                "id": "icon_energy_07",
+                "data": "朋友聚会"
+            },
+            {
+                "id": "icon_energy_08",
+                "data": "旅行探险"
+            },
+            {
+                "id": "icon_energy_09",
+                "data": "摄影记录"
+            },
+            {
+                "id": "icon_energy_10",
+                "data": "艺术创作"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 4,
+            "name": "自然风光"
+        },
+        "list": [
+            {
+                "id": "icon_nature_01",
+                "data": "青山绿水"
+            },
+            {
+                "id": "icon_nature_02",
+                "data": "日出东方"
+            },
+            {
+                "id": "icon_nature_03",
+                "data": "晚霞满天"
+            },
+            {
+                "id": "icon_nature_04",
+                "data": "星空璀璨"
+            },
+            {
+                "id": "icon_nature_05",
+                "data": "海浪滔滔"
+            },
+            {
+                "id": "icon_nature_06",
+                "data": "森林秘境"
+            },
+            {
+                "id": "icon_nature_07",
+                "data": "瀑布飞流"
+            },
+            {
+                "id": "icon_nature_08",
+                "data": "花海漫步"
+            },
+            {
+                "id": "icon_nature_09",
+                "data": "雪山之巅"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 5,
+            "name": "科技未来"
+        },
+        "list": [
+            {
+                "id": "icon_tech_01",
+                "data": "人工智能"
+            },
+            {
+                "id": "icon_tech_02",
+                "data": "虚拟现实"
+            },
+            {
+                "id": "icon_tech_03",
+                "data": "机器人"
+            },
+            {
+                "id": "icon_tech_04",
+                "data": "太空探索"
+            },
+            {
+                "id": "icon_tech_05",
+                "data": "量子计算"
+            },
+            {
+                "id": "icon_tech_06",
+                "data": "生物科技"
+            },
+            {
+                "id": "icon_tech_07",
+                "data": "无人驾驶"
+            },
+            {
+                "id": "icon_tech_08",
+                "data": "智能家居"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 6,
+            "name": "美食天地"
+        },
+        "list": [
+            {
+                "id": "icon_food_01",
+                "data": "火锅盛宴"
+            },
+            {
+                "id": "icon_food_02",
+                "data": "寿司拼盘"
+            },
+            {
+                "id": "icon_food_03",
+                "data": "蛋糕甜点"
+            },
+            {
+                "id": "icon_food_04",
+                "data": "咖啡时光"
+            },
+            {
+                "id": "icon_food_05",
+                "data": "烧烤派对"
+            },
+            {
+                "id": "icon_food_06",
+                "data": "水果拼盘"
+            },
+            {
+                "id": "icon_food_07",
+                "data": "冰淇淋"
+            },
+            {
+                "id": "icon_food_08",
+                "data": "奶茶饮品"
+            },
+            {
+                "id": "icon_food_09",
+                "data": "日料刺身"
+            },
+            {
+                "id": "icon_food_10",
+                "data": "西餐牛排"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 7,
+            "name": "运动健康"
+        },
+        "list": [
+            {
+                "id": "icon_sport_01",
+                "data": "篮球"
+            },
+            {
+                "id": "icon_sport_02",
+                "data": "足球"
+            },
+            {
+                "id": "icon_sport_03",
+                "data": "网球"
+            },
+            {
+                "id": "icon_sport_04",
+                "data": "游泳"
+            },
+            {
+                "id": "icon_sport_05",
+                "data": "跑步"
+            },
+            {
+                "id": "icon_sport_06",
+                "data": "瑜伽"
+            },
+            {
+                "id": "icon_sport_07",
+                "data": "骑行"
+            },
+            {
+                "id": "icon_sport_08",
+                "data": "滑雪"
+            },
+            {
+                "id": "icon_sport_09",
+                "data": "攀岩"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 8,
+            "name": "旅行文化"
+        },
+        "list": [
+            {
+                "id": "icon_travel_01",
+                "data": "长城"
+            },
+            {
+                "id": "icon_travel_02",
+                "data": "故宫"
+            },
+            {
+                "id": "icon_travel_03",
+                "data": "金字塔"
+            },
+            {
+                "id": "icon_travel_04",
+                "data": "泰姬陵"
+            },
+            {
+                "id": "icon_travel_05",
+                "data": "埃菲尔铁塔"
+            },
+            {
+                "id": "icon_travel_06",
+                "data": "比萨斜塔"
+            },
+            {
+                "id": "icon_travel_07",
+                "data": "自由女神像"
+            },
+            {
+                "id": "icon_travel_08",
+                "data": "悉尼歌剧院"
+            },
+            {
+                "id": "icon_travel_09",
+                "data": "富士山"
             }
         ]
     }

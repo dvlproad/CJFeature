@@ -223,7 +223,7 @@ public struct BaseControlWidgetEntity: ControlWidgetBaseModel, Hashable, Identif
             symbolEffectType: .none,
             name: "",
             widgetStyle: .circle,
-            bgColorString: "#B1E1234F"
+            bgColorString: "#93b3a3"
         )
         widgetInfoModel.id = widgetInfoModel.widgetId
         

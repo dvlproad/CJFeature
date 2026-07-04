@@ -26,19 +26,19 @@
                 "imageColor": "#EF03A343"
             },
             {
-                "id": "imageId_staticIcon_05_open",
+                "id": "dynamicIcon_01_open",
                 "imageName": "icon_control_katong_5",
-                "imageColor": "#3DD837FF"
+                "imageColor": "#5DD837FF"
             },
             {
-                "id": "imageId_staticIcon_06_open",
+                "id": "imageId_fan",
                 "imageName": "icon_control_katong_6",
                 "imageColor": "#EF4837FF"
             },
             {
-                "id": "imageId_staticIcon_07_open",
+                "id": "imageId_supportstick_open",
                 "imageName": "icon_control_katong_7",
-                "imageColor": "#EFF1334F"
+                "imageColor": "#935E4D"
             }
         ]
     },
@@ -49,14 +49,14 @@
         },
         "list": [
             {
-              "id" : "imageId_aixin4",
-              "imageName" : "aixin4",
-              "imageColor" : "d0b3eb"
+              "id": "imageId_cat_open",
+              "imageName": "aixin4",
+              "imageColor": "B193f3"
             },
             {
-              "id" : "imageId_dongwu4",
-              "imageName" : "dongwu4",
-              "imageColor" : "89d9d5"
+              "id": "imageId_dongwu4",
+              "imageName": "dongwu4",
+              "imageColor": "89d9d5"
             }
         ]
     },
@@ -67,19 +67,19 @@
         },
         "list": [
             {
-              "id" : "imageId_hudiejie4",
-              "imageName" : "hudiejie4",
-              "imageColor" : "ffc8a1"
+              "id": "imageId_open_app",
+              "imageName": "hudiejie4",
+              "imageColor": "ffc8a1"
             },
             {
-              "id" : "imageId_shuibei_keai",
-              "imageName" : "shuibei_keai",
-              "imageColor" : "ff9a92"
+              "id": "imageId_open_bluetooth",
+              "imageName": "shuibei_keai",
+              "imageColor": "ff9a92"
             },
             {
-              "id" : "imageId_yanhua",
-              "imageName" : "yanhua",
-              "imageColor" : "ff9a92"
+              "id": "imageId_open_web",
+              "imageName": "yanhua",
+              "imageColor": "ff9a92"
             }
         ]
     },
@@ -89,26 +89,103 @@
             "name": "文字"
         },
         "list": [
-            
             {
-              "id" : "imageId_Gidle",
-              "imageName" : "wenzi1_sui",
-              "imageColor" : "ffc8a1"
+              "id": "imageId_dice",
+              "imageName": "wenzi1_sui",
+              "imageColor": "ffc8a1"
             },
             {
-              "id" : "imageId_blackpink",
-              "imageName" : "wenzi1_sui2",
-              "imageColor" : "d0b3eb"
+              "id": "imageId_blackpink",
+              "imageName": "wenzi1_sui2",
+              "imageColor": "d0b3eb"
             },
             {
-              "id" : "imageId_asepa_logo",
-              "imageName" : "wenzi1_zhao",
-              "imageColor" : "1e1e1e"
+              "id": "imageId_meritsWoodenFish",
+              "imageName": "wenzi1_zhao",
+              "imageColor": "1e1e1e"
             },
             {
-              "id" : "imageId_SEVENTEEN",
-              "imageName" : "wenzi1_zhao2",
-              "imageColor" : "EFFA53EF"
+              "id": "imageId_SEVENTEEN",
+              "imageName": "wenzi1_zhao2",
+              "imageColor": "EFAA43BF"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 5,
+            "name": "其他1"
+        },
+        "list": [
+            {
+              "id": "imageId_voice",
+              "imageName": "jisuanqi",
+              "imageColor": "39df38"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 6,
+            "name": "其他2"
+        },
+        "list": [
+            {
+              "id": "imageId_other2_1",
+              "imageName": "jisuanqi",
+              "imageColor": "b483c3"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 7,
+            "name": "其他3"
+        },
+        "list": [
+            {
+              "id": "imageId_other3_1",
+              "imageName": "jisuanqi",
+              "imageColor": "832c3b"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 8,
+            "name": "其他4"
+        },
+        "list": [
+            {
+              "id": "imageId_other4_1",
+              "imageName": "jisuanqi",
+              "imageColor": "b57a42"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 9,
+            "name": "其他5"
+        },
+        "list": [
+            {
+              "id": "imageId_other5_1",
+              "imageName": "jisuanqi",
+              "imageColor": "327b12"
+            }
+        ]
+    },
+    {
+        "categoryInfo": {
+            "id": 10,
+            "name": "其他6"
+        },
+        "list": [
+            {
+              "id": "imageId_other6_1",
+              "imageName": "jisuanqi",
+              "imageColor": "98baf2"
             }
         ]
     }

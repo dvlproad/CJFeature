@@ -58,7 +58,6 @@
 			membershipExceptions = (
 				ControlWidget/BaseControlWidgetViewInApp.swift,
 				ControlWidget/Model/ControlWidgetPreviewModel.swift,
-				ControlWidget/testJson1/CQControlWidgetColorSymbolExample.json,
 				ControlWidget/testJson1/CQControlWidgetColorSymbolSectionExample.json,
 				ControlWidget/testJson1/CQControlWidgetSetExample.json,
 				ControlWidget/testJson1/CQControlWidgetTextSectionExample.json,
@@ -87,7 +86,6 @@
 				ControlWidget/Model/BaseControlWidgetEntity.swift,
 				ControlWidget/Model/ControlWidgetPreviewModel.swift,
 				ControlWidget/Model/NormalControlWidgetAppEntity.swift,
-				ControlWidget/testJson1/CQControlWidgetColorSymbolExample.json,
 				ControlWidget/testJson1/CQControlWidgetColorSymbolSectionExample.json,
 				ControlWidget/testJson1/CQControlWidgetSetExample.json,
 				ControlWidget/testJson1/CQControlWidgetTextSectionExample.json,
@@ -335,9 +333,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CQWidgetBundleDemo/Pods-CQWidgetBundleDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CQWidgetBundleDemo/Pods-CQWidgetBundleDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

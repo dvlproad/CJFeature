@@ -56,12 +56,11 @@ struct TSHomePage: View {
     }
     
     @State var collectionViewRefreshUUID: UUID = UUID()
-    var dataModels: [BaseControlWidgetEntity] = CQControlWidgetIds.examples()
     var widgetCollectionView: some View {
         VStack {
             //CQControlWidgetCollectionViewRepresentable {
 //            CQControlWidgetCollectionViewRepresentable(
-//                dataModels: dataModels,
+//                dataModels: items,
 //                onTapEntity: { entity in
 //                    collectionViewRefreshUUID = UUID()
 //                    selectedData = entity
@@ -82,11 +81,26 @@ struct TSHomePage: View {
     }
     
     var widgetTableView: some View {
-        // 使用数组的索引来作为List的标识符
-        List(items.indices, id: \.self) { index in
-            let item = items[index]
-            NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: item)) {
-                BaseControlWidgetViewInApp(entity: item, pageInfo: CCPageInfo(pageType: .homePage))
+        let columns = [
+            GridItem(.flexible()),  // 自适应宽度
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
+        return ScrollView {
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(items.indices, id: \.self) { index in
+                    let item = items[index]
+                    NavigationLink(
+                        destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: item),
+                        label:{
+                            BaseControlWidgetViewInApp(
+                                entity: item,
+                                pageInfo: CCPageInfo(pageType: .homePage)
+                            )
+                            .frame(height: 60) // 设置固定高度
+                        }
+                    )
+                }
             }
         }
         .navigationTitle("控制中心组件")

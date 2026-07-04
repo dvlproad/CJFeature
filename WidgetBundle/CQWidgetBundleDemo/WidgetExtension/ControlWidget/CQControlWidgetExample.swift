@@ -12,7 +12,23 @@ struct CQControlWidgetIds {
     
     static func examples() -> [BaseControlWidgetEntity] {
         let sets: [BaseControlWidgetSetModel] = exampleSetsFromJson()
-        return sets.first!.entitys
+
+        let targetWidgetIds: Set<String> = [
+            "staticIcon_01",
+            "dynamicIcon_supportstick",
+            "dynamicIcon_cat",
+            "open_app",
+            "open_bluetooth",
+            "open_web",
+            "state_open_app",
+            "state_open_bluetooth",
+            "state_open_web",
+            "dice",
+            "meritsWoodenFish",
+            "voice"
+        ]
+        return sets.flatMap { $0.entitys }
+                   .filter { targetWidgetIds.contains($0.widgetId) }
     }
     /*
     * 点击后实现震动效果

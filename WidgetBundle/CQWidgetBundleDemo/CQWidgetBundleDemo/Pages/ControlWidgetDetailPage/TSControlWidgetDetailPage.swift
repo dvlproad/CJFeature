@@ -988,74 +988,20 @@ struct TSControlWidgetDetailPage: View {
     var iconColorChooseView: some View {
 //        Text("图标颜色")
         
-        /*
-        let bindingValue = Binding<CJTextColorDataModel>(
-            get: {
-                if let imageColorModel = self.entity.onModel.imageColorModel {
-                    return CJTextColorDataModel(
-//                        id: String(from: imageColorModel.index),
-                        solidColorString: imageColorModel.colorString
-                    )
-                } else {
-                    return CJTextColorDataModel()
-                }
-            },
-            set: { newColorModel in
-                let colorIndex = newColorModel.index
-                if let colorString = newColorModel.colorStrings.first {
-                    self.entity.onModel.imageColorModel = IconColorModel(index: colorIndex, colorString: colorString)
-                } else {
-                    self.entity.onModel.imageColorModel = nil
-                }
-            }
-        )
-        let boolBindingValue = Binding<Bool>(
-            get: {
-                self.entity.onModel.imageColorModel?.index != self.originalEntity.onModel.imageColorModel?.index
-            },
-            set: { _ in
-                
-            }
-        )
         let title = exsitCloseState ? "开启图标颜色" : "图标颜色"
         let subTitle = entity.quickStartEnable == true ? "（点击时显示）" : nil
-        return ControlWidgetIconColorRow(
-            title: title,
-            subTitle: subTitle,
-//            iconColorModel: $entity.imageColorModel,
-            colorModel: bindingValue,
-            onChangeOfColorModel: { newColorModel in
-                self.dismissKeyboard()
-                let colorIndex = newColorModel.index
-                if let colorString = newColorModel.colorStrings.first {
-                    self.entity.onModel.imageColorModel = IconColorModel(index: colorIndex, colorString: colorString)
-                } else {
-                    self.entity.onModel.imageColorModel = nil
-                }
-                self.entity.isOffInDetailPage = false
-            },
-            showRecover: boolBindingValue,
-            onTapRecover: {
-                self.dismissKeyboard()
-                self.entity.onModel.imageColorModel = self.originalEntity.onModel.imageColorModel
-                self.entity.isOffInDetailPage = false
-            }
-        )
-        */
-        
-        ///*
-        let bindingValueNew = Binding<CJBoxDecorationModel>(
+        let bindingValue = Binding<CJBoxDecorationModel>(
             get: {
                 var colorModel: CJTextColorDataModel
                 if let imageColorModel = self.entity.onModel.imageColorModel {
                     colorModel = CJTextColorDataModel(solidColorString: imageColorModel.colorString)
                 } else {
-                    colorModel = CJTextColorDataModel(solidColorString: "#F8AC9F")
+                    colorModel = CJTextColorDataModel()
                 }
                 return CJBoxDecorationModel(colorModel: colorModel)
             },
-            set: { newColorModel_bg in
-                let newColorModel = newColorModel_bg.colorModel
+            set: { newBackgroundModel in
+                let newColorModel = newBackgroundModel.colorModel
                 if let colorString = newColorModel?.colorStrings.first {
                     self.entity.onModel.imageColorModel = IconColorModel(colorString: colorString)
                 } else {
@@ -1063,18 +1009,13 @@ struct TSControlWidgetDetailPage: View {
                 }
             }
         )
+        
         return CJBackgroundSettingRow(
+            title: title,
+            subTitle: subTitle,
             models: TSRowDataUtil.backgroundColorData(),
-//            currentBackgroundModel: Binding(
-//                get: { model.anyComponentModel.backgroundModel },
-//                set: { newBackgroundModel in
-//                    model.anyComponentModel.backgroundModel = newBackgroundModel
-//                }
-//            ),
-            currentBackgroundModel: bindingValueNew,
+            currentBackgroundModel: bindingValue,
             onChangeOfBackgroundModel: { newBackgroundModel in
-//                model.anyComponentModel.backgroundModel = newBackgroundModel
-//                onChangeOfElementModel(model)
                 self.dismissKeyboard()
                 
                 let newColorModel = newBackgroundModel.colorModel
