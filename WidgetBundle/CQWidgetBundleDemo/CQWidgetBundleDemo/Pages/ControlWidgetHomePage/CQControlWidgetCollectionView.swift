@@ -1,11 +1,25 @@
 //
-//  ControlWidgetCollectionView.swift
+//  CQControlWidgetCollectionView.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/14.
 //
 
 import UIKit
+
+import SwiftUI
+struct CQControlWidgetCollectionViewRepresentable: UIViewRepresentable {
+    let dataModels: [BaseControlWidgetSetModel]
+    let onTapEntity: (BaseControlWidgetSetModel) -> Void
+    
+    func makeUIView(context: Context) -> CQControlWidgetCollectionView {
+        CQControlWidgetCollectionView(frame: .zero, onTapEntity: onTapEntity)
+    }
+    
+    func updateUIView(_ uiView: CQControlWidgetCollectionView, context: Context) {
+        uiView.setDataModels(dataModels)
+    }
+}
 
 class CQControlWidgetCollectionView: UICollectionView {
     var dataModels: [BaseControlWidgetSetModel] = []

@@ -16,6 +16,20 @@ struct MyWidgetVC: View {
     }
 }
 
+
+struct CQControlWidgetMyViewRepresentable: UIViewRepresentable {
+    let onTapEntity: (BaseControlWidgetEntity) -> Void
+    
+    func makeUIView(context: Context) -> CQControlWidgetMyView {
+        let view = CQControlWidgetMyView(onTapEntity: onTapEntity)
+        return view
+    }
+    
+    func updateUIView(_ uiView: CQControlWidgetMyView, context: Context) {
+        
+    }
+}
+
 class CQControlWidgetMyView: UIView {
     var collectionView: CQControlWidgetMyCollectionView!
     
@@ -60,7 +74,7 @@ class CQControlWidgetMyView: UIView {
         self.backgroundColor = UIColor(hex: "#F5F5F5")
 
         self.setupCollectionView()
-        self.collectionView.setIsDeleteState(MyWidgetVC.isDeleteState)  //修复视图未创建时候就切为删除按钮
+        // updateUIView 会在视图创建后立即调用，自动设置 isDeleteState
         
         dataModels = TSWidgetBundleCacheUtil.getControlWidgetsForMyWidgets()
         self.collectionView.updateDataModels(self.dataModels)

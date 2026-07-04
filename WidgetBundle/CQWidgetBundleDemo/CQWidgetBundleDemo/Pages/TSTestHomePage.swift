@@ -13,11 +13,6 @@ struct TSTestHomePage: View {
         
         
         VStack(alignment: .leading, spacing: 10) {
-            NavigationLink(destination: CQControlWidgetHomeViewWrapper()
-            ) {
-                Text("测试 WidgetHomeView")
-            }
-            
             NavigationLink(destination: CQControlWidgetHomePreviewViewWrapper()) {
                 Text("测试 WidgetHomePreviewView")
                 

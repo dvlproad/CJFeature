@@ -12,17 +12,41 @@ struct TSMyWidgetHomePage: View {
     
     var body: some View {
         VStack {
-            // 使用数组的索引来作为List的标识符
-            List(items.indices, id: \.self) { index in
-                let item = items[index]
-                NavigationLink(destination: TSControlWidgetDetailPage(fromPageType: .myWidgetPage, entity: item)) {
-                    BaseControlWidgetViewInApp(entity: item, pageInfo: CCPageInfo(pageType: .myWidgetPage))
-                }
-            }
-            .navigationTitle("我的组件")
+            TSControlWidgetGridView(items: items, pageType: .myWidgetPage)
+                .navigationTitle("我的组件Demo")
         }
         .onAppear() {
             items = TSWidgetBundleCacheUtil.getControlWidgets(.all)
+        }
+    }
+}
+
+struct TSControlWidgetGridView: View {
+    let items: [BaseControlWidgetEntity]
+    let pageType: CCPageType
+    
+    var body: some View {
+        let columns = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
+        return ScrollView {
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(items.indices, id: \.self) { index in
+                    let item = items[index]
+                    NavigationLink(
+                        destination: TSControlWidgetDetailPage(fromPageType: pageType, entity: item),
+                        label: {
+                            BaseControlWidgetViewInApp(
+                                entity: item,
+                                pageInfo: CCPageInfo(pageType: pageType)
+                            )
+                            .frame(height: 60)
+                        }
+                    )
+                }
+            }
         }
     }
 }

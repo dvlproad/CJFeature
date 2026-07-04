@@ -1,5 +1,5 @@
 //
-//  ControlWidgetCollectionView.swift
+//  CQControlWidgetMyCollectionView.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/14.
