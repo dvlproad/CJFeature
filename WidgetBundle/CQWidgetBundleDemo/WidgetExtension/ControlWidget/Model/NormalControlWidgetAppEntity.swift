@@ -13,7 +13,7 @@ struct BaseControlWidgetAppEntity: AppEntity, ControlWidgetBaseModel, Hashable {
     static var defaultQuery: BaseControlWidgetEntityQuery = BaseControlWidgetEntityQuery()
     
     static func == (lhs: BaseControlWidgetAppEntity, rhs: BaseControlWidgetAppEntity) -> Bool {
-        return lhs.id == lhs.id
+        return lhs.id == rhs.id
         && lhs.widgetInfo == rhs.widgetInfo
     }
     
@@ -64,9 +64,10 @@ struct BaseControlWidgetEntityQuery: EntityQuery, EntityStringQuery {
     
     func entities(for identifiers: [String]) async throws -> [BaseControlWidgetAppEntity] {
         let dataItems = getItems()
-        return dataItems.filter({ entity in
+        let matched = dataItems.filter({ entity in
             return identifiers.contains(entity.widgetInfo.id)
         })
+        return matched
     }
 
     func entities(matching string: String) async throws -> IntentItemCollection<BaseControlWidgetAppEntity> {

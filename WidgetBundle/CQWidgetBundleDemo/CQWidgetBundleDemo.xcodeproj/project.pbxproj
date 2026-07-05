@@ -123,6 +123,7 @@
 				Resources/ShareResources/SVG/emoji9_FFA5BE_byPath.svg,
 				Resources/ShareResources/SVG/normal_svg_inMainBundle.svg,
 				Resources/ShareResources/SVG/symbol_svg_inMainBundle.svg,
+				Symbol.xcassets,
 			);
 			target = 97554DE82D2FD5E8004ED8B1 /* WidgetExtensionExtension */;
 		};

@@ -122,7 +122,11 @@ struct ControlWidgetButtonEntityQuery: EntityQuery,EntityStringQuery {
   
     /// 实际测试结果是需要同步实现配置数据的加载，否则选择配置后，数据无法回调到启动组件
     let dataItems = [Int](1...20).map { idx in
-        return ControlWidgetButtonEntity(id: UUID().uuidString, uuid: "customId_\(idx)",title: "样式\(idx)")
+        return ControlWidgetButtonEntity(
+            id: UUID().uuidString,
+            uuid: "customId_button_\(idx)",
+            title: "启动组\(idx)"
+        )
     }
     
     func entities(for identifiers: [String]) async throws -> [ControlWidgetButtonEntity] {

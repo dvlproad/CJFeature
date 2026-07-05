@@ -165,7 +165,7 @@ struct BaseControlWidgetSetModel: ControlWidgetBaseModel, Hashable {
 
 public struct BaseControlWidgetEntity: ControlWidgetBaseModel, Hashable, Identifiable, Sendable {
     public static func == (lhs: BaseControlWidgetEntity, rhs: BaseControlWidgetEntity) -> Bool {
-        return lhs.widgetId == lhs.widgetId
+        return lhs.widgetId == rhs.widgetId
         && lhs.saveId == rhs.saveId && lhs.id == rhs.id
         && lhs.onModel == rhs.onModel && lhs.offModel == rhs.offModel && lhs.isOn == rhs.isOn
         && lhs.isOffInDetailPage == rhs.isOffInDetailPage

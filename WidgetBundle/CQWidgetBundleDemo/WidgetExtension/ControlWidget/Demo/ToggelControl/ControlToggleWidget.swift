@@ -162,7 +162,10 @@ struct ControlWidgetToggleEntityQuery: EntityQuery, EntityStringQuery {
     /// 实际测试结果是需要同步实现配置数据的加载，否则选择配置后，数据无法回调到控制组件
     let dataItems = [Int](1...20).map { idx in
         return ControlWidgetToggleEntity(
-            id: UUID().uuidString, uuid: "customId_\(idx)", title: "样式\(idx)")
+            id: UUID().uuidString,
+            uuid: "customId_toggle_\(idx)",
+            title: "控制组\(idx)"
+        )
     }
 
     func entities(for identifiers: [String]) async throws
