@@ -1,6 +1,6 @@
 //
 //  WidgetDataManager.swift
-//  WidgetIsland
+//  CQWidgetBundleDemo
 //
 //  Created by admin on 2024/7/12.
 //

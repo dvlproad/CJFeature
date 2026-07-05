@@ -1,6 +1,6 @@
 //
 //  UIDevice+XPAddition.swift
-//  WidgetIsland
+//  CQWidgetBundleDemo
 //
 //  Created by admin on 2024/1/8.
 //

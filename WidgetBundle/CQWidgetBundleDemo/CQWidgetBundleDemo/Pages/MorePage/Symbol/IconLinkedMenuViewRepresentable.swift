@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  WidgetIsland
+//  IconLinkedMenuViewRepresentable.swift
+//  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/2/11.
 //

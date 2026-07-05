@@ -1,6 +1,6 @@
 //
 //  TSDownloadUtil.swift
-//  WidgetIsland
+//  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/2/5.
 //

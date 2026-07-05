@@ -13,9 +13,6 @@ struct TSHomePage: View {
     @State private var items: [BaseControlWidgetEntity] = []
     @State private var cacheItems: [BaseControlWidgetEntity] = []
     
-    @State private var isDetailViewActive = false // 控制跳转的状态
-    @State private var selectedData: BaseControlWidgetEntity = BaseControlWidgetEntity.defaultEntityForDesktopType(.toggle)
-    
     var body: some View {
         NavigationStack {
             bodyContent
@@ -28,9 +25,11 @@ struct TSHomePage: View {
                     cacheItems = TSWidgetBundleCacheUtil.getControlWidgets(.all)
                 }
         }
-        
     }
     
+    func viewDidLoad() {
+        items = CQControlWidgetIds.examples()
+    }
     
     
     var bodyContent: some View {
@@ -69,45 +68,7 @@ struct TSHomePage: View {
             }
             TSControlWidgetGridView(items: items, pageType: .homePage)
             
-//            Text("以下是 CQControlWidgetCollectionViewRepresentable")
-//                .frame(height: 40)
-//                .background(.red)
-//            widgetCollectionView
-//                .frame(height: UIScreen.main.bounds.height-400)
-//                .clipped()
-            
             TSTestHomePage()
         }
-    }
-    
-    @State var collectionViewRefreshUUID: UUID = UUID()
-    var widgetCollectionView: some View {
-        VStack {
-            CQControlWidgetCollectionViewRepresentable(
-                dataModels: CQControlWidgetIds.exampleSetsFromJson(),
-                onTapEntity: { entity in
-                    collectionViewRefreshUUID = UUID()
-                    selectedData = entity.entitys.first!
-                    isDetailViewActive = true // 设置状态为 true，触发跳转
-                }
-            )
-            /*
-            // 隐式的 NavigationLink，配合状态控制跳转
-            NavigationLink(
-                destination: TSControlWidgetDetailPage(fromPageType: .homePage, entity: self.selectedData),
-                isActive: $isDetailViewActive, // 绑定状态
-                label: { EmptyView() } // 空视图，不显示 NavigationLink 的样式
-            )
-            //.id(collectionViewRefreshUUID)
-            */
-        }
-//        .navigationDestination(for: BaseControlWidgetEntity.self) { selectedData in
-//            TSControlWidgetDetailPage(fromPageType: .homePage, entity: self.selectedData)
-//        }
-    }
-    
-    
-    func viewDidLoad() {
-        items = CQControlWidgetIds.examples()
     }
 }

@@ -1,6 +1,6 @@
 //
 //  ControlWidgetAudioRow.swift
-//  WidgetIsland
+//  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/20.
 //
