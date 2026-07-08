@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 struct IconScrollView: View {
     var maxCount: Int?

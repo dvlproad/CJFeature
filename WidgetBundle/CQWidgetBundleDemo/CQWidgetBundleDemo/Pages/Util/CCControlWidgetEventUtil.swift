@@ -5,6 +5,8 @@
 //  Created by qian on 2025/2/25.
 //
 
+import CQWidgetBundleCommon
+
 class CCControlWidgetEventUtil {
     // 控制中心对应组件浏览:单个
     static func browse(outId: String? = nil) {

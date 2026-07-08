@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 struct BaseControlWidgetViewInDesktop: View {
     @Binding var entity: BaseControlWidgetEntity

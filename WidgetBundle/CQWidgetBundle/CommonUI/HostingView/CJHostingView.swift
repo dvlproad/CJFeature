@@ -8,10 +8,10 @@
 import UIKit
 import SwiftUI
 
-class CJHostingView<Content: View>: UIView {
+public class CJHostingView<Content: View>: UIView {
     private var hostingController: UIHostingController<Content>?
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
 
@@ -20,7 +20,7 @@ class CJHostingView<Content: View>: UIView {
     }
 
     /// 配置 SwiftUI View 并添加到 Cell 中
-    func configure(with content: Content) {
+    public func configure(with content: Content) {
         // 移除之前的 HostingController
         hostingController?.view.removeFromSuperview()
 

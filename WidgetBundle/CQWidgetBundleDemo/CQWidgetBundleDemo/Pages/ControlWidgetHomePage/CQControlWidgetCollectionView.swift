@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CJCollectionViewLayout_Swift
 
 import SwiftUI
 struct CQControlWidgetCollectionViewRepresentable: UIViewRepresentable {

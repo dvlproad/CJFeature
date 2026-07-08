@@ -7,6 +7,7 @@
 
 import Foundation
 import WidgetKit
+import CQWidgetBundleCommon
 
 struct TSWidgetBundleCacheUtil {
     
@@ -49,12 +50,6 @@ extension TSWidgetBundleCacheUtil {
     }
 }
 
-// 桌面组件类型
-enum DesktopWidgetControlType: String {
-    case all            // 所有的
-    case toggle         // 控制组件
-    case quickStart     // 快捷启动
-}
 
 // 控制中心组件数组
 extension TSWidgetBundleCacheUtil {

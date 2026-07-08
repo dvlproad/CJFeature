@@ -9,6 +9,9 @@ import SwiftUI
 import CJViewElement_Swift
 import CJAnimationKit_Swift
 import WidgetKit
+import CJListKit_Swift
+import CQWidgetBundle   // 需要使用 ControlWidgetCenterHelpPage
+import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 
 public class SWToast: NSObject {
     
@@ -354,9 +357,8 @@ struct TSControlWidgetDetailPage: View {
     let horizontalPadding: CGFloat = 20.0
     
     var body: some View {
-        NavigationView { // 解决部分item进入会多出一个返回按钮
-            bodyContent
-        }
+        bodyContent
+            .navigationBarBackButtonHidden(true)
         .onChange(of: entity) { _ in
             updateEntitys()
         }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CJListKit_Swift
+import CQWidgetBundleCommon
 
 public struct IconLinkedMenuViewRepresentable: UIViewRepresentable {
     var rightColumnCount: Int

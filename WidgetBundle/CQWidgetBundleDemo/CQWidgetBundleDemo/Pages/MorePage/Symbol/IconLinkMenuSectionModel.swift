@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CQWidgetBundleCommon
 
 public class IconLinkMenuSectionModel: NSObject, Codable {
     var categoryModel: GuideMenuDataModel

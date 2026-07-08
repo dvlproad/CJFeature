@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CQWidgetBundle   // 需要使用 CustomButton
 
 struct ControlWidgetAudioRow: View {
     @Binding var haveAudio:Bool
@@ -13,7 +14,7 @@ struct ControlWidgetAudioRow: View {
         HStack(spacing: 0){
             Text("桌面音频")
                 .font(.system(size: 15.5,weight: .medium))
-                .foregroundColor(title1Color)
+                .foregroundColor(Color(hex: "#333333"))
             CustomButton(tapComplete: {
 //                let alert = SWAlertController(title: "桌面音频",
 //                                              message: "打开桌面音频，在桌面点击小组件会播放音频",
@@ -37,7 +38,7 @@ struct ControlWidgetAudioRow: View {
             Toggle(isOn: $haveAudio) {
                 
             }
-            .toggleStyle(SwitchToggleStyle(tint: btnBgColor))
+            .toggleStyle(SwitchToggleStyle(tint: Color(hex: "#2E2E2E")))
         }.frame(height: 45)
             .padding(.horizontal,21)
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 public struct IconSheetView: View {
     @State private var options: [IconModuleModel]
@@ -101,7 +102,7 @@ struct ControlWidgetIconGridCell: View {
             ZStack(alignment: .center) {
                 // 背景色和圆角
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(btnBgColor)
+                    .fill(Color(hex: "#2E2E2E"))
                 
                 let imageView = imageModel.createImageView()
                 //let imageView = Image("quickStart_default_1")
@@ -114,7 +115,7 @@ struct ControlWidgetIconGridCell: View {
                 // 动态边框
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(
-                        btnBgColor,
+                        Color(hex: "#2E2E2E"),
                         lineWidth: isSelected ? 1.5 : 0
                     )
             )

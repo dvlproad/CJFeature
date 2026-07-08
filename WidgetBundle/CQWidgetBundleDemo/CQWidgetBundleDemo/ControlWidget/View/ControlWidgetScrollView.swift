@@ -7,6 +7,7 @@
 //  详情页中的包含控制项
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 struct ControlWidgetScrollView: View {
     var maxCount: Int?

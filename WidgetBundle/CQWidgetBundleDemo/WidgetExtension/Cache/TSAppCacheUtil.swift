@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import CQWidgetBundleCommon
 
 struct TSQuickStartAppsUtil {
     static let quickStartAppsKey = "kQuickStartApps"

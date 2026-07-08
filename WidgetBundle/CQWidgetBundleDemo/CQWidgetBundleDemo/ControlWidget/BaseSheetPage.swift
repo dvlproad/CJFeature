@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//import CJBaseUIKit
+import CJBaseUIKit_Swift
 
 struct BaseSheetPage<Content>: View where Content: View {
     @Binding var isShowing:Bool
@@ -52,6 +54,7 @@ struct BaseSheetPage<Content>: View where Content: View {
          contentHeight: CGFloat,
          @ViewBuilder content: () -> Content
     ) {
+//        UIColor.cjColor(hexStringColor: <#T##String#>, alpha: <#T##CGFloat#>)
         self._isShowing = isShowing
         self.hideTopLine = hideTopLine
         self.hideToolbar = true

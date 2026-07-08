@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CQWidgetBundleCommon
 
 class IconRightMenuDataSource: NSObject, UICollectionViewDataSource {
     

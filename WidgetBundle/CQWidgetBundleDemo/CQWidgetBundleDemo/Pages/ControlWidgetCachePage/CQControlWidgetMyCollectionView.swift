@@ -7,6 +7,8 @@
 
 import UIKit
 import SwiftUI
+import CQWidgetBundle   // 需要使用 CustomButton
+import CQWidgetBundleCommon
 
 class CQControlWidgetMyCollectionView: UICollectionView {
     private var dataModels: [BaseControlWidgetEntity] = []
@@ -185,7 +187,7 @@ struct MyWidgetCellNoDataView:View {
                 .frame(height: 27)
             Text("还没有添加组件，赶紧去添加吧~")
                 .font(.system(size: 12))
-                .foregroundColor(title3Color)
+                .foregroundColor(Color(hex: "#999999"))
             Spacer()
                 .frame(height: 41)
             CustomButton(tapComplete: {
@@ -193,7 +195,7 @@ struct MyWidgetCellNoDataView:View {
                 dismiss()
             }, labelView: {
                 Text("添加小组件")
-                    .foregroundColor(title3Color)
+                    .foregroundColor(Color(hex: "#999999"))
                     .font(.system(size: 15))
                     .overlay(
                         RoundedRectangle(cornerRadius: 19, style: .continuous)

@@ -8,6 +8,7 @@
 import AppIntents
 import SwiftUI
 import WidgetKit
+import CQWidgetBundleCommon
 
 @available(iOS 18.0, *)
 struct BaseQuickStartControlWidget: ControlWidget {

@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import CQWidgetBundle
+import CQWidgetBundleCommon
 
 // 使用基类为 SwiftUI View 创建 Cell
 class CQControlWidgetMyCollectionViewCell: UICollectionViewCell {
@@ -200,7 +202,6 @@ class AlertUtil {
 }
 
 import UIKit
-
 extension UIView {
     /// 获取当前视图所在的视图控制器
     var viewController: UIViewController? {
@@ -243,7 +244,7 @@ extension UIView {
 //                    Image("photoSelect_delete")
 //                        .resizable()
 //                        .frame(width: 20,height: 20)
-//                        .background(btnBgColor)
+//                        .background(Color(hex: "#2E2E2E"))
 //                        .cornerRadius(10)
 //                }else{
 //                    HStack {
@@ -266,7 +267,7 @@ extension UIView {
 //                    }
 //                }
 //            }
-//        }, bgColor: btnBgColor, radius: 14)
+//        }, bgColor: Color(hex: "#2E2E2E"), radius: 14)
 //        .frame(width: 57,height: 28)
 //        
 //        .alert(isPresented: $isAlertPresented) {

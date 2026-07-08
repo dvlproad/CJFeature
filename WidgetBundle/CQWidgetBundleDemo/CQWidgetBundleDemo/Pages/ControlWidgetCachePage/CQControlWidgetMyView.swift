@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import CQWidgetBundleCommon
 
 struct MyWidgetVC: View {
     static var isDeleteState = false

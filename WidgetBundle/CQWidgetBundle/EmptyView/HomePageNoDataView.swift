@@ -8,12 +8,23 @@
 import SwiftUI
 import Lottie
 
-struct HomePageNoDataView:View {
+public struct HomePageNoDataView:View {
     @Binding  var noDataType: Int //0 无数据 1 无网络 2 加载中
     var tip: String = ""
     var retryComplete:()->Void = {}
     
-    var body: some View {
+    // MARK: - Init
+    public init(
+        noDataType: Binding<Int>,
+        tip: String = "",
+        retryComplete: @escaping () -> Void = {}
+    ) {
+        self._noDataType = noDataType
+        self.tip = tip
+        self.retryComplete = retryComplete
+    }
+    
+    public var body: some View {
         var content: String {
             guard tip.count == 0 else {
                 return tip
@@ -32,7 +43,7 @@ struct HomePageNoDataView:View {
         VStack(spacing: 0){
             if(noDataType == 2){
                 LottiePlayView(filename: "loading")
-                    .frame(width: adaptedSizeWidth(30), height: adaptedSizeWidth(30))
+                    .frame(width: 30.cj_width, height: 30.cj_width)
             }else{
                 Image(noDataType == 0 ?"myWidget_noData":"noNet")
                     .resizable()
@@ -42,7 +53,7 @@ struct HomePageNoDataView:View {
                 .frame(height: 27)
             Text(content)
                 .font(.system(size: 12))
-                .foregroundColor(title3Color)
+                .foregroundColor(Color(hex: "#999999"))
             if(noDataType == 1 || noDataType == 0){
                 CustomButton(tapComplete: {
 //                    adConfigApi()
@@ -51,7 +62,7 @@ struct HomePageNoDataView:View {
                     Text("重试")
                         .font(.system(size: 14,weight: .medium))
                         .foregroundColor(.white)
-                }, bgColor:btnBgColor , radius: 38 / 2)
+                }, bgColor:Color(hex: "#2E2E2E") , radius: 38 / 2)
                 .frame(width: 157,height: 38)
                 .padding(.top,27)
             }

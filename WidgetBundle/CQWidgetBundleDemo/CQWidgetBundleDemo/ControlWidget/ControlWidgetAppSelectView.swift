@@ -45,7 +45,7 @@ import SwiftUI
 //            HStack(spacing: 0){
 //                Text("当前APP")
 //                    .font(.system(size: 15.5,weight: .medium))
-//                    .foregroundColor(title1Color)
+//                    .foregroundColor(Color(hex: "#333333"))
 //                HStack(spacing: 4){
 //                    Spacer()
 //                    AnyView(getLoadImage(imageStr: appModel?.icon ?? "", imageSize: CGSize(width: 20, height: 20), contentMode: .fill))
@@ -53,11 +53,11 @@ import SwiftUI
 //                    
 //                    Text(appModel?.appName ?? "")
 //                        .font(.system(size: 14,weight: .regular))
-//                        .foregroundColor(title3Color)
+//                        .foregroundColor(Color(hex: "#999999"))
 //                    Image("arrow_right")
 //                        .resizable()
 //                        .frame(width: 6.5,height: 11)
-//                        .foregroundColor(title3Color)
+//                        .foregroundColor(Color(hex: "#999999"))
 //                        .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
 //                }
 //            }

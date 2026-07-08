@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CJViewElement_Swift
+import CQWidgetBundleCommon
 
 struct QuickStartInputView: View {
     let geoWidth: CGFloat
@@ -100,7 +101,7 @@ struct QuickStartInputView: View {
 //                        )
                         
                     } else if quickStartType == .shortcuts {
-                        let bindingValue = Binding(
+                        let bindingValue = Binding<String>(
                             get: { shortcutsModel?.shortcutsName ?? "" },
                             set: { newValue in
                                 let encodeShortcutsName = newValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -257,7 +258,7 @@ struct QuickStartInputView: View {
                                     Spacer()
                                     Text("反馈")
                                         .font(.system(size: 14.5))
-                                        .foregroundColor(title1Color)
+                                        .foregroundColor(Color(hex: "#333333"))
                                     Spacer().frame(width: 19)
                                 }
                             }
@@ -267,7 +268,7 @@ struct QuickStartInputView: View {
                             HStack(){
                                 Text("查看图文教程>>")
                                     .font(.system(size: 13.5))
-                                    .foregroundColor(title3Color)
+                                    .foregroundColor(Color(hex: "#999999"))
                             }
                         }
                     }

@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import CJViewElement_Swift  // 需要 CJColorExtension.swift
 
-struct ControlWidgetBottomHelpPage: View {
+public struct ControlWidgetBottomHelpPage: View {
     @Binding var isShowing: Bool
     @State var tutorialCurrentPage: Int = 0
     var isMuted: Bool = false
@@ -18,7 +19,7 @@ struct ControlWidgetBottomHelpPage: View {
         TutorialsItem(title: "桌面组件安装教程", subTitle: "", fileName: "tutorials"),
     ]
     
-    var body: some View {
+    public var body: some View {
         if(isShowing) {
             ZStack(alignment: .bottom) {
                 Color(hex: "#000000").opacity(isShowing ? 0.2 :0).edgesIgnoringSafeArea(.all)
@@ -36,7 +37,7 @@ struct ControlWidgetBottomHelpPage: View {
                             )
                         }
                     }
-                    .frame(width: screenWidth)
+                    .frame(width: UIScreen.main.bounds.width)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                     .onChange(of: tutorialCurrentPage) { newValue in
                         tutorialCurrentPage = newValue
@@ -52,7 +53,7 @@ struct ControlWidgetBottomHelpPage: View {
                             .frame(width: 270, height: 50)
                     }
                     .frame(width: 270, height: 50)
-                    .background(btnBgColor)
+                    .background(Color(hex: "#2E2E2E"))
                     .foregroundColor(.white)
                     .font(.system(size: 16))
                     .cornerRadius(25.0)
@@ -60,7 +61,7 @@ struct ControlWidgetBottomHelpPage: View {
                     
                     Spacer().frame(height: 34)
                 }
-                .frame(width: screenWidth, height: 429)
+                .frame(width: UIScreen.main.bounds.width, height: 429)
                 .background(Color.white)
                 .clipShape(RoundedCorners(tl: 14, tr: 14, bl: 0, br: 0))
                 .clipped()
@@ -88,7 +89,7 @@ struct ControlWidgetBottomTutorialView: View {
                     
                     Text(itemModel.title)
                         .font(.system(size: 16.5,weight: .medium))
-                        .foregroundColor(title1Color)
+                        .foregroundColor(Color(hex: "#333333"))
                     
                     Spacer()
                     

@@ -7,6 +7,7 @@
 //  控制中心套图列表页
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 //  控制中心套图列表页：下部分竖直滚动的视图
 struct ControlWidgetVerticalScrollView: View {

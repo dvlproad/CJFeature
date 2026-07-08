@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CQWidgetBundleCommon
 
 /// 更新UI的起因
 enum CQUpdateUICauseType {

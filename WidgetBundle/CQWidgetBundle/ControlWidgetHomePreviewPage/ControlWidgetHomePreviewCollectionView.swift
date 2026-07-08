@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import CJCollectionViewLayout_Swift
 
 @objc public class ControlWidgetHomePreviewCollectionView: UICollectionView {
-    var dataModels: [ControlWidgetPreviewModel] = []
+    public var dataModels: [ControlWidgetPreviewModel] = []
 //    var onTapIndexPath: ((IndexPath) -> Void)
     var onTapEntity: ((ControlWidgetPreviewModel) -> Void)
     

@@ -7,6 +7,7 @@
 //  预览页
 
 import SwiftUI
+import CQWidgetBundleCommon
 
 struct ControlWidgetPreviewPage: View {
     @Binding var entity: BaseControlWidgetEntity

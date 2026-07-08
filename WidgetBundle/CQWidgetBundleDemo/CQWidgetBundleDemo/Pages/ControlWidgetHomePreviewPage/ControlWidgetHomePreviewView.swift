@@ -9,9 +9,11 @@ import UIKit
 import SDWebImageWebPCoder
 
 import SwiftUI
+import CQWidgetBundleCommon // 需要使用 ControlWidgetType
+import CQWidgetBundle   // 需要使用 HomePageNoDataView
 
-struct CQControlWidgetHomePreviewViewWrapper: UIViewRepresentable {
-    func makeUIView(context: Context) -> CQControlWidgetHomePreviewView {
+public struct CQControlWidgetHomePreviewViewWrapper: UIViewRepresentable {
+    public func makeUIView(context: Context) -> CQControlWidgetHomePreviewView {
         return CQControlWidgetHomePreviewView { [self] previewModel in
             CCLogUtil.log("在首页点击了组件，正准备跳转：layoutId = \(previewModel.id)")
             //CCControlWidgetEventUtil.clickWidgetId(previewModel.id)
@@ -46,7 +48,7 @@ struct CQControlWidgetHomePreviewViewWrapper: UIViewRepresentable {
         }
     }
     
-    func updateUIView(_ uiView: CQControlWidgetHomePreviewView, context: Context) {
+    public func updateUIView(_ uiView: CQControlWidgetHomePreviewView, context: Context) {
         // 可选：在 SwiftUI 变化时更新 UIKit 视图
     }
 }
@@ -67,7 +69,7 @@ class MenuModel: NSObject {
 
 
 
-class CQControlWidgetHomePreviewView: UIView {
+public class CQControlWidgetHomePreviewView: UIView {
     /*
     /// 是否是 iOS18控制中心 菜单页签
     static func isIOS18ControlWidgetMenu(_ menuModel: MenuModel?) -> Bool {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 
 struct BaseControlWidgetViewInApp: View {
     @Binding var entity: BaseControlWidgetEntity

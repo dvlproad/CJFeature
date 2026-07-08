@@ -6,13 +6,10 @@
 //
 
 import SwiftUI
-
-
-let title1Color = Color(hex: "#333333")
+import CQWidgetBundle   // 需要使用 CustomButton
 
 let title2Color = Color(hex: "#666666")
 
-let title3Color = Color(hex: "#999999")
 
 let title4Color = Color(hex: "#CACACA")
 
@@ -23,8 +20,6 @@ let backColor = Color(hex: "#F5F5F5")
 let themColor = Color(hex: "#FFE352")
 
 let EmphasizeWordColor = Color(hex: "#FE4E38")
-
-let btnBgColor = Color(hex: "#2E2E2E")
 
 let cornerSmallleRate = 0.12
 
@@ -100,52 +95,8 @@ func feedAdSize(horizontalPadding: CGFloat = 0) -> CGSize {
 
 let screenHeight = UIScreen.main.bounds.height
 
-func fontAdapt(_ zitidaxiao: CGFloat) -> CGFloat {
-    return (zitidaxiao / 834.0) * UIScreen.main.bounds.height
-}
-func adaptedSizeWidth(_ size: CGFloat) -> CGFloat {
-    return UIScreen.main.bounds.width / 375 * size
-}
 
 
-struct RoundedCorners: Shape {
-    var tl: CGFloat = 0.0
-    var tr: CGFloat = 0.0
-    var bl: CGFloat = 0.0
-    var br: CGFloat = 0.0
-
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-
-        let w = rect.size.width
-        let h = rect.size.height
-
-        // Top left corner
-        path.move(to: CGPoint(x: 0, y: tl))
-        path.addArc(center: CGPoint(x: tl, y: tl), radius: tl,
-                    startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
-
-        // Top right corner
-        path.addLine(to: CGPoint(x: w - tr, y: 0))
-        path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr,
-                    startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 0), clockwise: false)
-
-        // Bottom right corner
-        path.addLine(to: CGPoint(x: w, y: h - br))
-        path.addArc(center: CGPoint(x: w - br, y: h - br), radius: br,
-                    startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: false)
-
-        // Bottom left corner
-        path.addLine(to: CGPoint(x: bl, y: h))
-        path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl,
-                    startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
-
-        // Close the path
-        path.closeSubpath()
-
-        return path
-    }
-}
 
 
 
@@ -237,7 +188,7 @@ struct NavigationBarView<RightButtonContent: View>: View {
                 
                 Text(title)
                     .font(.system(size: 17, weight: .bold))
-                    .foregroundColor(title1Color)
+                    .foregroundColor(Color(hex: "#333333"))
                 #if DEBUG
                     .onTapGesture(count: 3) {
                         isShowTouch.toggle()
@@ -258,47 +209,4 @@ struct NavigationBarView<RightButtonContent: View>: View {
 }
 
 
-struct CustomButton<LabelView:View>: View {
-    let labelView: LabelView
-    var tapComplete: () -> Void = { }
-    let bgColor:Color
-    let radius:CGFloat
-    // 使用 @ViewBuilder 来允许传入自定义的视图
-    init(tapComplete:@escaping () -> Void = { },
-         @ViewBuilder labelView: () -> LabelView,
-         bgColor:Color,
-         radius:CGFloat
-    ) {
-        self.tapComplete = tapComplete
-        self.labelView = labelView()
-        self.bgColor = bgColor
-        self.radius = radius
-    }
-    
-    var body: some View {
-        GeometryReader(content: { geometry in
-            Button(action: {
-                tapComplete()
-            }, label: {
-                ZStack {
-                    Rectangle() // 可以是透明的，用于确保点击事件被捕捉
-                        .foregroundColor(.clear)
-                        .contentShape(Rectangle()) // 确保整个区域都是可点击的
-                    labelView
-                        .frame(maxWidth: .infinity, maxHeight: .infinity) // 使用最大尺寸填充按钮
-                }
-            })
-            .frame(width: geometry.size.width,height: geometry.size.height)
-            .background(bgColor)
-            .cornerRadius(radius)
-            .buttonStyle(StaticButtonStyle())
-        })
-    }
-}
-
-struct StaticButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-    }
-}
 

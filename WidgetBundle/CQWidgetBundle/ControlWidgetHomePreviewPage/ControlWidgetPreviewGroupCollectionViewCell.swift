@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import CJCollectionViewLayout_Swift
 
 class ControlWidgetPreviewGroupCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel!

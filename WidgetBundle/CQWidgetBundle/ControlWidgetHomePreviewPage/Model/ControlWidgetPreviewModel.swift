@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 /*
  {
        "componentCategory": null,
@@ -22,15 +23,15 @@ import Foundation
      },
  */
 
-enum ControlWidgetPreviewType: Int, Codable {
+public enum ControlWidgetPreviewType: Int, Codable {
     case component = 0  // 0组件
     case set = 1        // 1套图
 }
 
 public class ControlWidgetPreviewModels: NSObject, Codable {
-    var models: [ControlWidgetPreviewModel]
+    public var models: [ControlWidgetPreviewModel]
     
-    init(models: [ControlWidgetPreviewModel]) {
+    public init(models: [ControlWidgetPreviewModel]) {
         self.models = models
     }
 }
@@ -59,14 +60,14 @@ public class ControlWidgetPreviewItemModel: NSObject, Codable {
 }
 
 public class ControlWidgetPreviewModel: NSObject, Codable {
-    var componentCategory: ControlWidgetType
-    var id: String
+    public var componentCategory: ControlWidgetType
+    public var id: String
     public var name: String
-    var configFile: String?
-    var type: ControlWidgetPreviewType   //数据分类 0组件; 1套图
-    var style: ControlWidgetStyle   // 类型
-    var entitys: [ControlWidgetPreviewItemModel]    // 组件的数据
-    var groupModels: [ControlWidgetPreviewModel]    // 套图的数据
+    public var configFile: String?
+    public var type: ControlWidgetPreviewType   //数据分类 0组件; 1套图
+    public var style: ControlWidgetStyle   // 类型
+    public var entitys: [ControlWidgetPreviewItemModel]    // 组件的数据
+    public var groupModels: [ControlWidgetPreviewModel]    // 套图的数据
     
     // MARK: Codable
     enum CodingKeys: String, CodingKey {

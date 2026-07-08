@@ -2,37 +2,14 @@
 //  QuickStartAppModel.swift
 //  CQWidgetBundleDemo
 //
-//  Created by qian on 2025/1/15.
+//  Created by qian on 2025/1/13.
 //
 
 import Foundation
 import AppIntents
 
-public enum QuickStartType: String, Codable, CaseIterable, Sendable {
-    case none       // 无操作
-    case app        // 打开应用
-    case shortcuts  // 打开快捷指令
-    case web        // 打开网页
-    
-    //MARK: Codable
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        
-        // 获取字符串值
-        let rawValue = try container.decode(String.self)
-        
-        // 如果枚举值存在，则正常初始化
-        if let validValue = QuickStartType(rawValue: rawValue) {
-            self = validValue
-        } else {
-            // 如果是无效的值（例如 "normal"），则默认使用 .toogle
-            self = .none
-        }
-    }
-}
-
-struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
-    static func == (lhs: QuickStartAppModel, rhs: QuickStartAppModel) -> Bool {
+public struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
+    public static func == (lhs: QuickStartAppModel, rhs: QuickStartAppModel) -> Bool {
         return lhs.uuid == rhs.uuid && lhs.saveId == rhs.saveId
         && lhs.appId == rhs.appId
         && lhs.appName == rhs.appName && lhs.appShowName == rhs.appShowName && lhs.appIcon == rhs.appIcon && lhs.targetUrl == rhs.targetUrl
@@ -40,9 +17,9 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
     
     var uuid: String = UUID().uuidString
 //    var id = 0
-    var saveId: String?
+    public var saveId: String?
     var appId: Int
-    var appName: String
+    public var appName: String
     var appShowName: String
     var appIcon: String
 //    var targetType: QuickStartType
@@ -77,7 +54,7 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
         case targetUrl
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.uuid = try container.decodeIfPresent(String.self, forKey: .uuid) ?? UUID().uuidString
@@ -125,7 +102,7 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
 //    }
     
     // 日历App（模拟器就有）
-    static func calshowAppModel() -> QuickStartAppModel {
+    static public func calshowAppModel() -> QuickStartAppModel {
         return QuickStartAppModel(
             appId: 0,
             appName: "日历",
@@ -136,7 +113,7 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
     }
     
     // 快捷指令App（模拟器就有）
-    static func shortcutsAppModel() -> QuickStartAppModel {
+    static public func shortcutsAppModel() -> QuickStartAppModel {
         return QuickStartAppModel(
             appId: 0,
             appName: "快捷指令",
@@ -147,7 +124,7 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
     }
     
     // 备忘录(真机才有）
-    static func mobilenotesAppModel() -> QuickStartAppModel {
+    static public func mobilenotesAppModel() -> QuickStartAppModel {
         return QuickStartAppModel(
             appId: 0,
             appName: "备忘录",
@@ -179,43 +156,4 @@ struct QuickStartAppModel: ControlWidgetBaseModel, Hashable {
     }
     
     
-}
-
-struct QuickStartShortcutsModel: ControlWidgetBaseModel, Hashable, Equatable {
-    var shortcutsName: String
-    var shortcutsText: String?
-    
-    var targetUrl: String
-    
-    /*
-    //MARK: Codable
-    enum CodingKeys: String, CodingKey {
-        case shortcutsName
-        case shortcutsText
-        case targetUrl
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.shortcutsName = try container.decode(String.self, forKey: .shortcutsName)
-        self.shortcutsText = try container.decodeIfPresent(String.self, forKey: .shortcutsText)
-        self.targetUrl = try container.decode(String.self, forKey: .targetUrl)
-    }
-    */
-}
-
-struct QuickStartWebModel: ControlWidgetBaseModel, Hashable {
-    var name: String
-
-    var targetUrl: String
-}
-
-struct ShortcutsUtil {
-    static func shortcutsUrl(shortcutsName: String) -> String {
-//        let shortcutsName = "添加新提醒事项"
-//        let shortcutsText = "Open List"
-        let appUrl = "shortcuts://run-shortcut?name=\(shortcutsName)&input=text&text=\(shortcutsName)"
-        return appUrl
-    }
 }

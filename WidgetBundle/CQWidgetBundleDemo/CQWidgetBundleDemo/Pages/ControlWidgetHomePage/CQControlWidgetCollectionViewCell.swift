@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import CQWidgetBundle // 需要使用 CJHostingView
+import CQWidgetBundleCommon
 
 class CQControlWidgetEntityCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel!

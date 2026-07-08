@@ -7,6 +7,8 @@
 
 import SwiftUI
 import WidgetKit
+import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
+import CQWidgetBundle
 
 struct DownloadZipModel: Identifiable {
     var id: String  // 组件显示的id(同一个组件显示在不同地方会是不同id)

@@ -8,6 +8,7 @@
 import SwiftUI
 import CJWidgetKit_Swift
 import CJAnimationKit_Swift
+import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 import SVGKit
 import UIKit
 

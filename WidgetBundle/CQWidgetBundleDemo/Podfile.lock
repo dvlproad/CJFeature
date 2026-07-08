@@ -2,9 +2,15 @@ PODS:
   - CJAnimationKit-Swift (0.0.1):
     - CJAnimationKit-Swift/Extension (= 0.0.1)
   - CJAnimationKit-Swift/Extension (0.0.1)
+  - CJBaseUIKit-Swift/Color (0.0.1):
+    - CJBaseUIKit-Swift/String
+  - CJBaseUIKit-Swift/String (0.0.1)
+  - CJCollectionViewLayout-Swift/FlowLayout (0.1.0)
   - CJImageKit-Swift (0.0.1):
     - CJImageKit-Swift/Gif (= 0.0.1)
   - CJImageKit-Swift/Gif (0.0.1)
+  - CJListKit-Swift/CollectionView_SwiftUI (0.0.1)
+  - CJListKit-Swift/LinkedMenu (0.0.1)
   - CJViewElement-Swift (0.0.2):
     - CJViewElement-Swift/CommonSettingRow (= 0.0.2)
     - CJViewElement-Swift/ComponentConfigModel (= 0.0.2)
@@ -31,16 +37,16 @@ PODS:
   - CocoaLumberjack (3.8.5):
     - CocoaLumberjack/Core (= 3.8.5)
   - CocoaLumberjack/Core (3.8.5)
-  - CQDemoKit (0.8.0):
-    - CQDemoKit/Auxiliary (= 0.8.0)
-    - CQDemoKit/BaseUIKit (= 0.8.0)
-    - CQDemoKit/BaseUtil (= 0.8.0)
-    - CQDemoKit/BaseVC (= 0.8.0)
-    - CQDemoKit/Demo_DataSourceAndDelegate (= 0.8.0)
-    - CQDemoKit/Demo_Resource (= 0.8.0)
-    - CQDemoKit/Demo_RipeView (= 0.8.0)
-    - CQDemoKit/Helper (= 0.8.0)
-    - CQDemoKit/Monitor (= 0.8.0)
+  - CQDemoKit (0.9.2):
+    - CQDemoKit/Auxiliary (= 0.9.2)
+    - CQDemoKit/BaseUIKit (= 0.9.2)
+    - CQDemoKit/BaseUtil (= 0.9.2)
+    - CQDemoKit/BaseVC (= 0.9.2)
+    - CQDemoKit/Demo_DataSourceAndDelegate (= 0.9.2)
+    - CQDemoKit/Demo_Resource (= 0.9.2)
+    - CQDemoKit/Demo_RipeView (= 0.9.2)
+    - CQDemoKit/Helper (= 0.9.2)
+    - CQDemoKit/Monitor (= 0.9.2)
   - CQDemoKit-Swift (0.0.1):
     - CQDemoKit
     - CQDemoKit-Swift/CQDemoKit-OC (= 0.0.1)
@@ -49,45 +55,72 @@ PODS:
     - CQDemoKit
   - CQDemoKit-Swift/SwiftUI (0.0.1):
     - CQDemoKit
-  - CQDemoKit/Auxiliary (0.8.0):
+  - CQDemoKit/Auxiliary (0.9.2):
     - Masonry
-  - CQDemoKit/BaseUIKit (0.8.0):
+  - CQDemoKit/BaseUIKit (0.9.2):
     - Masonry
-  - CQDemoKit/BaseUtil (0.8.0)
-  - CQDemoKit/BaseVC (0.8.0):
-    - CQDemoKit/BaseVC/Base (= 0.8.0)
-    - CQDemoKit/BaseVC/Collection (= 0.8.0)
-    - CQDemoKit/BaseVC/ScrollView (= 0.8.0)
-    - CQDemoKit/BaseVC/TabBar (= 0.8.0)
-    - CQDemoKit/BaseVC/TableView (= 0.8.0)
-    - CQDemoKit/BaseVC/TextView (= 0.8.0)
-  - CQDemoKit/BaseVC/Base (0.8.0):
+  - CQDemoKit/BaseUtil (0.9.2)
+  - CQDemoKit/BaseVC (0.9.2):
+    - CQDemoKit/BaseVC/Base (= 0.9.2)
+    - CQDemoKit/BaseVC/Collection (= 0.9.2)
+    - CQDemoKit/BaseVC/ScrollView (= 0.9.2)
+    - CQDemoKit/BaseVC/TabBar (= 0.9.2)
+    - CQDemoKit/BaseVC/TableView (= 0.9.2)
+    - CQDemoKit/BaseVC/TextView (= 0.9.2)
+  - CQDemoKit/BaseVC/Base (0.9.2):
     - CQDemoKit/BaseUIKit
     - Masonry
-  - CQDemoKit/BaseVC/Collection (0.8.0):
+  - CQDemoKit/BaseVC/Collection (0.9.2):
     - CQDemoKit/BaseVC/Base
-  - CQDemoKit/BaseVC/ScrollView (0.8.0):
+  - CQDemoKit/BaseVC/ScrollView (0.9.2):
     - CQDemoKit/BaseVC/Base
-  - CQDemoKit/BaseVC/TabBar (0.8.0):
+  - CQDemoKit/BaseVC/TabBar (0.9.2):
     - CQDemoKit/Helper
-  - CQDemoKit/BaseVC/TableView (0.8.0):
+  - CQDemoKit/BaseVC/TableView (0.9.2):
     - CQDemoKit/BaseVC/Base
-  - CQDemoKit/BaseVC/TextView (0.8.0):
+  - CQDemoKit/BaseVC/TextView (0.9.2):
     - CQDemoKit/BaseUtil
     - CQDemoKit/BaseVC/Base
-  - CQDemoKit/Demo_DataSourceAndDelegate (0.8.0):
+  - CQDemoKit/Demo_DataSourceAndDelegate (0.9.2):
     - CQDemoKit/BaseVC
-    - CQDemoKit/Demo_Resource
-  - CQDemoKit/Demo_Resource (0.8.0):
+  - CQDemoKit/Demo_Resource (0.9.2):
     - CQDemoKit/BaseUIKit
     - CQDemoKit/Helper
-  - CQDemoKit/Demo_RipeView (0.8.0):
+  - CQDemoKit/Demo_RipeView (0.9.2):
     - CQDemoKit/BaseUIKit
     - CQDemoKit/BaseUtil
     - CQDemoKit/Demo_DataSourceAndDelegate
     - CQDemoKit/Demo_Resource
-  - CQDemoKit/Helper (0.8.0)
-  - CQDemoKit/Monitor (0.8.0)
+  - CQDemoKit/Helper (0.9.2)
+  - CQDemoKit/Monitor (0.9.2)
+  - CQWidgetBundle (0.1.0):
+    - CQWidgetBundle/Common (= 0.1.0)
+    - CQWidgetBundle/CommonUI (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetHelpPage (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetHomePreviewPage (= 0.1.0)
+    - CQWidgetBundle/EmptyView (= 0.1.0)
+  - CQWidgetBundle/Common (0.1.0)
+  - CQWidgetBundle/CommonUI (0.1.0)
+  - CQWidgetBundle/ControlWidgetHelpPage (0.1.0):
+    - CJBaseUIKit-Swift/Color
+    - CQWidgetBundle/EmptyView
+  - CQWidgetBundle/ControlWidgetHomePreviewPage (0.1.0):
+    - CJCollectionViewLayout-Swift/FlowLayout
+    - CJViewElement-Swift/Extension
+    - CQWidgetBundleCommon/ControlWidgetStyle
+    - SDWebImageWebPCoder
+    - SnapKit
+  - CQWidgetBundle/EmptyView (0.1.0):
+    - CQWidgetBundle/Common
+    - CQWidgetBundle/CommonUI
+    - lottie-ios
+  - CQWidgetBundleCommon (0.1.0):
+    - CQWidgetBundleCommon/BaseControlWidgetEntity (= 0.1.0)
+    - CQWidgetBundleCommon/ControlWidgetStyle (= 0.1.0)
+  - CQWidgetBundleCommon/BaseControlWidgetEntity (0.1.0):
+    - CJAnimationKit-Swift/Extension
+    - CJBaseUIKit-Swift/Color
+  - CQWidgetBundleCommon/ControlWidgetStyle (0.1.0)
   - libwebp (1.5.0):
     - libwebp/demux (= 1.5.0)
     - libwebp/mux (= 1.5.0)
@@ -119,11 +152,17 @@ PODS:
 
 DEPENDENCIES:
   - CJAnimationKit-Swift
+  - CJBaseUIKit-Swift/Color (from `../../../../Github/CJUIKit`)
+  - CJCollectionViewLayout-Swift/FlowLayout (from `../../../../Github/005-UIKit-List-iOS`)
   - CJImageKit-Swift
+  - CJListKit-Swift/CollectionView_SwiftUI (from `../../../../Github/005-UIKit-List-iOS`)
+  - CJListKit-Swift/LinkedMenu (from `../../../../Github/005-UIKit-List-iOS`)
   - CJViewElement-Swift
   - CJWidgetKit-Swift
   - CQDemoKit-Swift
-  - CQDemoKit/BaseVC (~> 0.8.0)
+  - CQDemoKit/BaseVC (~> 0.9.2)
+  - CQWidgetBundle (from `../`)
+  - CQWidgetBundleCommon (from `../`)
   - lottie-ios
   - SDWebImage (~> 5.20.0)
   - SDWebImageWebPCoder
@@ -158,14 +197,31 @@ SPEC REPOS:
     - SwiftyJSON
     - SwingAnimation
 
+EXTERNAL SOURCES:
+  CJBaseUIKit-Swift:
+    :path: "../../../../Github/CJUIKit"
+  CJCollectionViewLayout-Swift:
+    :path: "../../../../Github/005-UIKit-List-iOS"
+  CJListKit-Swift:
+    :path: "../../../../Github/005-UIKit-List-iOS"
+  CQWidgetBundle:
+    :path: "../"
+  CQWidgetBundleCommon:
+    :path: "../"
+
 SPEC CHECKSUMS:
   CJAnimationKit-Swift: 1df31e99f8d8561b49eb60b5fa400edda24f40d8
+  CJBaseUIKit-Swift: b8d684b36911a5d2b92f005d0311129b9d38d260
+  CJCollectionViewLayout-Swift: e61fdfe3298ca18792a384bea30f155b8593d6e2
   CJImageKit-Swift: cddebbdb6905a1f92bb032a57030f24662c0b0bd
+  CJListKit-Swift: d09df0319231fd9652aff493a9ec8fb44500e8d3
   CJViewElement-Swift: 97b64fa5e62e91c6fb1a0947a7a7ad9840f9aa57
   CJWidgetKit-Swift: 7a82b890ac27cc528b1c077c49669a659e1cd8ab
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
-  CQDemoKit: 1fea1039a960befe72d4452ff17827e2828b9501
+  CQDemoKit: 2484181eaa06340effb39073d00ed42794679422
   CQDemoKit-Swift: 28d06bf24cbcc84c9651e0ffe607bffdd57863b6
+  CQWidgetBundle: 4863274e62e6fb1bbff9131d18a33352e53e1a38
+  CQWidgetBundleCommon: cdb1d74fe3f08473b31846af32b49ddc6ab31c42
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -179,6 +235,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: 6c5f3c554804c8fb3dba959edaacbc86ec46f311
+PODFILE CHECKSUM: 66842eca820d011e6a1d48178ce4730240dd6b6b
 
 COCOAPODS: 1.16.2

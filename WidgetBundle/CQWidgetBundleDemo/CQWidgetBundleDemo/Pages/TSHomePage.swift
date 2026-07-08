@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CJViewElement_Swift
+import CQWidgetBundleCommon
 
 struct TSHomePage: View {
     @State var isReAppear: Bool = false

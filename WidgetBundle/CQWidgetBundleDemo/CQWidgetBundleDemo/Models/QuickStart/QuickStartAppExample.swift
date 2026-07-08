@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CQWidgetBundleCommon
 
 struct QuickStartAppExample {
     static let hotApps: [QuickStartAppModel] = [

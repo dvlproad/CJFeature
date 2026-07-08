@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CJListKit_Swift
 
 public struct TextLinkedMenuViewRepresentable: UIViewRepresentable {
     var rightColumnCount: Int

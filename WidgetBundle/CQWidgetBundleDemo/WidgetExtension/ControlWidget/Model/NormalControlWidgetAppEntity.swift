@@ -6,6 +6,7 @@
 //
 
 import AppIntents
+import CQWidgetBundleCommon
 
 @available(iOS 16, *)
 struct BaseControlWidgetAppEntity: AppEntity, ControlWidgetBaseModel, Hashable {

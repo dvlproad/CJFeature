@@ -8,14 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TutorialsItem {
-    var title: String
-    var subTitle: String
-    var fileName: String
-}
-
-
-struct ControlWidgetCenterHelpPage: View {
+public struct ControlWidgetCenterHelpPage: View {
     var viewWidth: CGFloat = 300
     var contentHeight: CGFloat // 不包含底部 我知道了 按钮之外的其他视图的高度
     
@@ -26,7 +19,20 @@ struct ControlWidgetCenterHelpPage: View {
     
     @State var dataArray: [TutorialsItem]
     
-    var body: some View {
+    // 自定义 public init
+    public init(
+        contentHeight: CGFloat,
+        isShowing: Binding<Bool>,
+        doneTitle: String,
+        dataArray: [TutorialsItem]
+    ) {
+        self.contentHeight = contentHeight
+        self._isShowing = isShowing
+        self.doneTitle = doneTitle
+        self.dataArray = dataArray
+    }
+    
+    public var body: some View {
         if(isShowing) {
             ZStack(alignment: .center) {
                 Color(hex: "#000000").opacity(isShowing ? 0.2 :0).edgesIgnoringSafeArea(.all)
@@ -59,7 +65,7 @@ struct ControlWidgetCenterHelpPage: View {
                             .frame(width: 250)
                     }
                     .frame(height: 40)
-                    .background(btnBgColor)
+                    .background(Color(hex: "#2E2E2E"))
                     .foregroundColor(.white)
                     .font(.system(size: 15))
                     .cornerRadius(20.0)
@@ -92,7 +98,7 @@ struct ControlWidgetCenterTutorialView: View {
                     
                     Text(itemModel.title)
                         .font(.system(size: 16.5, weight: .medium))
-                        .foregroundColor(title1Color)
+                        .foregroundColor(Color(hex: "#333333"))
                     
                     Spacer()
                     
