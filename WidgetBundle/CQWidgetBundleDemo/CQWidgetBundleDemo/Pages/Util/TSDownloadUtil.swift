@@ -5,6 +5,7 @@
 //  Created by qian on 2025/2/5.
 //
 import SSZipArchive
+import CQWidgetBundleCommon
 
 struct TSDownloadUtil {
     //下载素材

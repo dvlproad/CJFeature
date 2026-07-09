@@ -52,7 +52,9 @@ inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引�
 def shared_pods
   pod 'CQWidgetBundleCommon',   :path => '../'
   
-  pod 'CJBaseUIKit-Swift',      :subspecs => ['UIView/adapt', 'UIView/as', 'Color']#,      :path => '../../../../Github/CJUIKit'
+  pod 'CJBaseUIKit-Swift',
+      :subspecs => ['UIView/adapt', 'UIView/as', 'UIView/appear', 'Color'],
+      :path => '../../../../Github/CJUIKit'
   pod 'CJViewElement-Swift'#,    :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
   pod 'CJAnimationKit-Swift'#,   path: '../../../CJAnimationKit'
   pod 'CJImageKit-Swift'#,       :path => '../../../UIKit-Image-iOS'

@@ -8,6 +8,7 @@
 import ActivityKit
 import AppIntents
 import SwiftUI
+import CQWidgetBundleCommon // 需要 PageInfo
 
 @available(iOS 18.0, *)
 struct QuickStartControlWidgetToggleAction: SetValueIntent, AudioPlaybackIntent, LiveActivityStartingIntent {

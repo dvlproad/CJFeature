@@ -5,10 +5,7 @@
 //  Created by qian on 2025/1/14.
 //
 
-
 import SwiftUI
-import AppIntents
-import CQWidgetBundleCommon
 
 public struct BaseIconsScrollView<CellView: View, HeaderView: View, BottomView: View, TModel: Identifiable>: View {
     //let axes: Axis.Set
@@ -243,77 +240,3 @@ public struct SelectUtil {
     }
 }
 
-
-// MARK: 组件Data数据类
-public struct CJBaseDataModel {
-    public var id: String = ""          // 图片id
-    public var name: String = ""        // 图片名称
-    public var egImage: String = ""     // 图片地址
-    
-    public init(id: String, name: String, egImage: String) {
-        self.id = id
-        self.name = name
-        self.egImage = egImage
-    }
-}
-
-public extension CJBaseImageModel {
-    func copyWithColorString(_ colorString: String?) -> CJBaseImageModel {
-        var newImageModel = self
-        newImageModel.imageColorString = colorString
-        return newImageModel
-    }
-}
-
-public struct CJFontIcon: View {
-    var fontModel: CJBaseDataModel
-    var isSelected: Bool
-    
-    public var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .center){
-               Image(fontModel.egImage)
-                    .resizable()
-                    .renderingMode(isSelected ? .template : nil) // 将图片设置为模板模式
-                    .foregroundColor(isSelected ? Color.white : nil)
-                    .aspectRatio(contentMode: .fit)
-            }
-            .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(isSelected ? nil : Color(hex: "#2E2E2E"))
-            .cornerRadius(15)
-        }
-    }
-}
-
-public struct CJNormalIcon: View {
-    var fontModel: CJBaseImageModel
-    var isSelected: Bool
-    @Binding var showTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
-    
-    public var body: some View {
-        let cornerRadius: CGFloat = 10.0
-        GeometryReader { geometry in
-            ZStack(alignment: .center){
-               fontModel.createImageView()
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(geometry.size.width * 0.2) // 外部占据 0.1=(1-0.8)/2.0
-            }
-            .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(Color(hex: "#F8F8F8"))
-//            .border(Color.pink, width: isSelected ? 1 : 0)
-//            .cornerRadius(10)
-            .overlay(
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(Color(hex: "#333333"), lineWidth: isSelected ? 1 : 0)
-                )
-            // ZStack 的 background 和 border 不会被自动裁剪。这可能导致背景颜色（background) 和边框（border) 显示在圆角之外。
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius)) // 裁剪整个区域
-        }
-        .controlWidget_tintColor((showTintColor && fontModel.imageColorString != nil) ? Color(hex: fontModel.imageColorString!) : nil, isInWidget: false)
-    }
-}
-
-//#Preview {
-//    CJFontIcon(fontModel: CJBaseDataModel(name: "fontImage_6", egImage: "fontImage_6"), isSelected: false)
-//}

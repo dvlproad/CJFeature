@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CQWidgetBundleCommon
+import CQWidgetBundle       // 需要 BaseControlWidgetSetModel
 
 struct CQControlWidgetIds {
     

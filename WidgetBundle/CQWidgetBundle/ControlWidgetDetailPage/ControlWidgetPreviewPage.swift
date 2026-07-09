@@ -9,10 +9,16 @@
 import SwiftUI
 import CQWidgetBundleCommon
 
-struct ControlWidgetPreviewPage: View {
+public struct ControlWidgetPreviewPage: View {
     @Binding var entity: BaseControlWidgetEntity
     
-    var body: some View {
+    public init(
+        entity: Binding<BaseControlWidgetEntity>
+    ) {
+        self._entity = entity
+    }
+    
+    public var body: some View {
         ZStack(alignment: .top) {
             Image("previewBG_controlWidget")
                 .resizable()

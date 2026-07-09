@@ -1,5 +1,5 @@
 //
-//  ControlWidgetScrollView.swift
+//  ControlWidgetView.swift
 //  CQWidgetBundleDemo
 //
 //  Created by qian on 2025/1/14.
@@ -8,45 +8,7 @@
 
 import SwiftUI
 import CQWidgetBundleCommon
-
-struct ControlWidgetScrollView: View {
-    var maxCount: Int?
-    var dataModels: [BaseControlWidgetEntity]
-    @Binding var currentDataModel: BaseControlWidgetEntity?
-    @Binding var enableTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
-    var onChangeOfDataModel: ((_ newDataModel: BaseControlWidgetEntity) -> Void)
-    
-    var body: some View {
-        BaseIconsScrollView(
-            direction: .horizontal,
-            cellItemSpacing: 12,
-            cellSizeForIndex: { index in
-                return (width: 44, height: 44)
-            },
-            cellViewGetter: { dataModel, isSelected, _ in
-                // 内部会根据 entity.isOffInDetailPage 来判断显示
-                ControlWidgetView(
-                    subScale: 0.9,
-                    cornerRadius: 9.0,
-                    borderColor: Color(hex: "#2E2E2E"),
-                    borderWidth: isSelected ? 1 : 0,
-                    dataModel: dataModel,
-                    pageInfo: CCPageInfo(pageType: .controlWidgetDetailPage),
-                    enableTintColorIfExsit: $enableTintColor
-                )
-                
-            },
-            maxCount: 10,
-            dataModels: dataModels,
-            selectedDataModel: $currentDataModel,
-            tapAgainShouldCancle: false,
-            onTapDataModelComplete: { newDataModel in
-                onChangeOfDataModel(newDataModel)
-            }
-        )
-        //.background(Color.red)
-    }
-}
+import CQWidgetBundle
 
 /// 含选中边框的 ControlWidget 的视图
 /// 目前使用到的地方有：
@@ -62,6 +24,24 @@ public struct ControlWidgetView: View {
     var dataModel: BaseControlWidgetEntity
     var pageInfo: CCPageInfo
     @Binding var enableTintColorIfExsit: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
+    
+    public init(
+        subScale: CGFloat,
+        cornerRadius: CGFloat? = nil,
+        borderColor: Color,
+        borderWidth: CGFloat,
+        dataModel: BaseControlWidgetEntity,
+        pageInfo: CCPageInfo,
+        enableTintColorIfExsit: Binding<Bool>
+    ) {
+        self.subScale = subScale
+        self.cornerRadius = cornerRadius
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.dataModel = dataModel
+        self.pageInfo = pageInfo
+        self._enableTintColorIfExsit = enableTintColorIfExsit
+    }
     
     public var body: some View {
         GeometryReader { geometry in

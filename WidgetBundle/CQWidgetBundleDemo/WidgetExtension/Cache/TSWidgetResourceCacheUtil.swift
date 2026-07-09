@@ -7,6 +7,7 @@
 // 控制中心组件中的资源文件的缓存（图标等）
 
 import UIKit
+import CQWidgetBundleCommon
 
 struct TSWidgetResourceCacheUtil {
     // 获取 App Group 共享目录路径

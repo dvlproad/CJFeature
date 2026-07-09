@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
                  桌面小组件(Widget)中App内和桌面都需要使用到的部分，可按需独立引入：
                  • CQWidgetBundleCommon/ControlWidgetStyle - ControlWidgetStyle
                  • CQWidgetBundleCommon/BaseControlWidgetEntity - BaseControlWidgetEntity
+                 • CQWidgetBundleCommon/BaseControlWidgetAnimationView - BaseControlWidgetAnimationView
+                 • CQWidgetBundleCommon/PageInfo - PageInfo
 
                  每个子库可独立引入，详见各子库描述。
                  DESC
@@ -52,5 +54,22 @@ Pod::Spec.new do |s|
     ss.dependency 'CJAnimationKit-Swift/Extension'  # 需要 SymbolEffectType
     ss.dependency 'CJBaseUIKit-Swift/Color'
   end
+
+  # PageInfo
+  s.subspec 'PageInfo' do |ss|
+    ss.source_files = "CQWidgetBundleCommon/PageInfo/**/*.{swift}"
+  end
+
+  # BaseControlWidgetAnimationView
+  s.subspec 'BaseControlWidgetAnimationView' do |ss|
+    ss.source_files = "CQWidgetBundleCommon/BaseControlWidgetAnimationView/**/*.{swift}"
+  end
+
+  # SaveUtil  # 因为无法处理好标记的 TSWidgetBundleCacheUtil 的解耦易错点 ，所以不添加为子库
+  # s.subspec 'SaveUtil' do |ss|
+  #   ss.source_files = "CQWidgetBundleCommon/SaveUtil/**/*.{swift}"
+  # end
+
+
 
 end

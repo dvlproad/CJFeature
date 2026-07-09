@@ -11,12 +11,22 @@ import CJListKit_Swift
 import CQWidgetBundleCommon
 
 //  控制中心套图列表页：顶部的集合视图
-struct ControlWidgetGridView: View {
+public struct ControlWidgetGridView: View {
     var maxCount: Int?
     var dataModels: [BaseControlWidgetEntity]
     @Binding var enableTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
     
-    var body: some View {
+    public init(
+        maxCount: Int? = nil,
+        dataModels: [BaseControlWidgetEntity],
+        enableTintColor: Binding<Bool>
+    ) {
+        self.maxCount = maxCount
+        self.dataModels = dataModels
+        self._enableTintColor = enableTintColor
+    }
+
+    public var body: some View {
         CJEdgeInsetGridView(
             backgroundView: {
                 Color(hex: "#F5F5F5")

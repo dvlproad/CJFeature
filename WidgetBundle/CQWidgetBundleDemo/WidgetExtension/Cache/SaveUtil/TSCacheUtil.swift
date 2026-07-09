@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TSCacheUtil {
+public struct TSCacheUtil {
     // 确保需要的那些 Target 都添加了 App Group
-    static let ApplicationGroupName = "group.cn.widgetisland.theme"
+    static public let ApplicationGroupName = "group.cn.widgetisland.theme"
     
-    static func valueForKey(_ key: String) -> Data? {
+    static public func valueForKey(_ key: String) -> Data? {
         if let userDefaults = UserDefaults(suiteName: ApplicationGroupName) {
             if let jsonData = userDefaults.value(forKey: key) {
                 return jsonData as? Data
@@ -22,7 +22,7 @@ struct TSCacheUtil {
         return nil
     }
     
-    static func stringForKey(_ key: String) -> String? {
+    static public func stringForKey(_ key: String) -> String? {
         if let userDefaults = UserDefaults(suiteName: ApplicationGroupName) {
             if let jsonData = userDefaults.value(forKey: key) {
                 return jsonData as? String
@@ -33,7 +33,7 @@ struct TSCacheUtil {
         return nil
     }
     
-    static func set(_ value: Any?, forKey: String) {
+    static public func set(_ value: Any?, forKey: String) {
         if let userDefaults = UserDefaults(suiteName: ApplicationGroupName) {
             userDefaults.set(value, forKey: forKey)
             userDefaults.synchronize()

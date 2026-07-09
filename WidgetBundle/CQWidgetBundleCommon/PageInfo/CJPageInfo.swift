@@ -1,0 +1,45 @@
+//
+//  CJPageInfo.swift
+//  CQWidgetBundleDemo
+//
+//  Created by qian on 2024/12/23.
+//
+
+import Foundation
+ 
+public enum CCPageType: String {
+    case unknown            // 未知页面
+    case homePage           // 在首页
+    case widgetDetailPage   // 在组件详情页面
+    case controlWidgetGroupPage     // 在多控制项列表页面
+    case controlWidgetDetailPage   // 在控制组件详情页面
+    case controlWidgetPerviewPage   // 在控制组件预览页面
+    case widgetEditPge      // 在组件编辑页面
+    case myWidgetPage       // 在我的组件页面
+    case searchResultPage   // 在组件搜索页面
+    case imageEditPage      // 图片编辑页面
+    case inDesktop          // 在桌面
+}
+
+public enum CQPageAppearType: String {
+    case unknown = "unknown"
+    case firstAppear = "firstAppear"    // 此页面第一次显示，相当于 viewDidload
+    case reAppear = "reAppear"          // 此页面再次显示
+}
+
+public struct CCPageInfo {
+    public var pageType: CCPageType = .unknown // 是否是在详情页面中，目前仅锁屏中的签名在使用
+    public var appearType: CQPageAppearType = .unknown
+    public var fromPageType: CCPageType = .unknown
+    
+    public init(
+        pageType: CCPageType,
+        appearType: CQPageAppearType = .unknown,
+        fromPageType: CCPageType = .unknown
+    ) {
+        self.pageType = pageType
+        self.appearType = appearType
+        self.fromPageType = fromPageType
+    }
+}
+

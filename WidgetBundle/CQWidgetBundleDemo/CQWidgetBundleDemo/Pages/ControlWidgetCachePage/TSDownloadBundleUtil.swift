@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CQWidgetBundleCommon
 
 struct TSDownloadBundleUtil {
     // 图标资源相对路径

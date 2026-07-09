@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-class BaseSegmentModel: NSObject {
-    var segmentId: String
+public class BaseSegmentModel: NSObject {
+    public var segmentId: String
     
-    var text: String
-    var textFontSize: CGFloat
+    public var text: String
+    public var textFontSize: CGFloat
     
-    var width: CGFloat
+    public var width: CGFloat
     
-    init(segmentId: String, text: String, textFontSize: CGFloat, width: CGFloat) {
+    public init(segmentId: String, text: String, textFontSize: CGFloat, width: CGFloat) {
         self.segmentId = segmentId
         self.text = text
         self.textFontSize = textFontSize

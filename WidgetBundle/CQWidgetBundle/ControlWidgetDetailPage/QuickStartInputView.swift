@@ -9,7 +9,7 @@ import SwiftUI
 import CJViewElement_Swift
 import CQWidgetBundleCommon
 
-struct QuickStartInputView: View {
+public struct QuickStartInputView: View {
     let geoWidth: CGFloat
     
 //    @Binding var currentSegmentIndex: Int
@@ -20,6 +20,24 @@ struct QuickStartInputView: View {
     let options: [BaseSegmentModel]
     @Binding var currentSegmentModel: BaseSegmentModel?
     var onChangeOfExecModel: ((_ newSegmentModel: BaseSegmentModel?, _ newAppModel: QuickStartAppModel?, _ newShortcutsModel: QuickStartShortcutsModel?, _ newWebModel: QuickStartWebModel?) -> Void)
+    
+    public init(
+        geoWidth: CGFloat,
+        appModel: Binding<QuickStartAppModel?>,
+        shortcutsModel: Binding<QuickStartShortcutsModel?>,
+        webModel: Binding<QuickStartWebModel?>,
+        options: [BaseSegmentModel],
+        currentSegmentModel: Binding<BaseSegmentModel?>,
+        onChangeOfExecModel: @escaping (_ newSegmentModel: BaseSegmentModel?, _ newAppModel: QuickStartAppModel?, _ newShortcutsModel: QuickStartShortcutsModel?, _ newWebModel: QuickStartWebModel?) -> Void
+        ) {
+            self.geoWidth = geoWidth
+            self._appModel = appModel
+            self._shortcutsModel = shortcutsModel
+            self._webModel = webModel
+            self.options = options
+            self._currentSegmentModel = currentSegmentModel
+            self.onChangeOfExecModel = onChangeOfExecModel
+        }
     
     private func onValueChange() {
 //        let currentSegmentIndex = options.firstIndex(where: { $0.segmentId == currentSegmentModel?.segmentId }) ?? 0
@@ -35,11 +53,13 @@ struct QuickStartInputView: View {
     }
     
     @State private var showAppList: Bool = false
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .center, spacing: 0) {
             VStack(alignment: .center, spacing: 0) {
                 HStack(alignment: .center, spacing: 0) {
-                    ControlWidgetTitleRowView(title: "快捷方式")
+                    CJSettingTitleRow(title: "快捷方式")
+                        .withTailingValue(nil)
+
                     Spacer()
                     
                     CustomSegmentView(

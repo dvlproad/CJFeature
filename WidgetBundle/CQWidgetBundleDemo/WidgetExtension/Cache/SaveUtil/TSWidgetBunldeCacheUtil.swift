@@ -4,13 +4,20 @@
 //
 //  Created by qian on 2025/1/9.
 //
+// ============================================================
+// 📢本类解耦易错点：
+// 本类中的 updateControlWidgetEntitys 方法会调用到 ControlCenter.shared.reloadControls，继而导致依赖到了外部 BaseControlWidget.kind
+// 而 BaseControlWidget 是可以只用于 App Extension 的，没必要添加到主Target中，所以如果希望本类是可以允许同时使用于 主Target 和 App Extension 的话，那就应该解耦本类中的 BaseControlWidget.kind ，且必须要求解耦后的 handler 的定义必须在 App Extension 上，否则该 handler 会是nil。因为【主 App 和 Extension 是两个独立的进程，内存不共享】。
+// 即 TSWidgetBundleCacheUtil.reloadControlsHandler 在 哪个 Target 上赋值，哪个 Target上才有值，不能妄想在 主APP 上赋值的，却想在 Extension 上进行调用。
+// ============================================================
 
 import Foundation
 import WidgetKit
 import CQWidgetBundleCommon
 
-struct TSWidgetBundleCacheUtil {
-    
+public struct TSWidgetBundleCacheUtil {
+    // 详见上文 📢本类解耦易错点：
+    public static var reloadControlsHandler: (() -> Void)?  // 用来解耦 ControlCenter.shared.reloadControls  依赖到了外部 BaseControlWidget.kind
 }
 
 // 控制中心单个组件
@@ -56,7 +63,7 @@ extension TSWidgetBundleCacheUtil {
     static let controlWidgetsKey = "kControlWidgets"
     
     /// 我的组件页面的控制组件数据（有可能需要归类排序）
-    static func getControlWidgetsForMyWidgets() -> [BaseControlWidgetEntity] {
+    static public func getControlWidgetsForMyWidgets() -> [BaseControlWidgetEntity] {
         var entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
         if entitys.count == 0 {
             entitys = getCacheControlWidgets(.all)
@@ -81,7 +88,7 @@ extension TSWidgetBundleCacheUtil {
         return sortedEntities
     }
     
-    static func getControlWidgets(_ desktopWidgetControlType: DesktopWidgetControlType) -> [BaseControlWidgetEntity] {
+    static public func getControlWidgets(_ desktopWidgetControlType: DesktopWidgetControlType) -> [BaseControlWidgetEntity] {
         var entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
         if entitys.count == 0 {
             entitys = getCacheControlWidgets(desktopWidgetControlType)
@@ -91,7 +98,7 @@ extension TSWidgetBundleCacheUtil {
         return entitys
     }
     
-    static func getCacheControlWidgets(_ desktopWidgetControlType: DesktopWidgetControlType) -> [BaseControlWidgetEntity] {
+    static public func getCacheControlWidgets(_ desktopWidgetControlType: DesktopWidgetControlType) -> [BaseControlWidgetEntity] {
         let jsonData = TSCacheUtil.valueForKey(controlWidgetsKey)
         if jsonData == nil {
             return []
@@ -118,7 +125,7 @@ extension TSWidgetBundleCacheUtil {
     
     
     // 在桌面根据保存的id获取组件
-    static func findControlWidgetEntity(_ saveId: String, in entitys: [BaseControlWidgetEntity]) -> BaseControlWidgetEntity? {
+    static public func findControlWidgetEntity(_ saveId: String, in entitys: [BaseControlWidgetEntity]) -> BaseControlWidgetEntity? {
         // let entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
         // let entitys = TSWidgetBundleCacheUtil.getControlWidgets()
         for (index, item) in entitys.enumerated() {
@@ -148,12 +155,12 @@ extension TSWidgetBundleCacheUtil {
         self.updateControlWidgetEntitys(entitys, influenceScope: shouldRefreshDesktop ? .dataAndReloadControls : .onlyData)
     }
     
-    static func updateControlWidgetEntity(_ entity: BaseControlWidgetEntity, shouldRefreshDesktop: Bool) {
+    static public func updateControlWidgetEntity(_ entity: BaseControlWidgetEntity, shouldRefreshDesktop: Bool) {
         updateControlWidgetEntitys([entity], shouldRefreshDesktop: shouldRefreshDesktop)
     }
     
     // 在 App 内添加组件
-    static func addControlWidgetEntitys(_ originalAddEntitys: [BaseControlWidgetEntity]) {
+    static public func addControlWidgetEntitys(_ originalAddEntitys: [BaseControlWidgetEntity]) {
         var entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
         
         for originalAddEntity in originalAddEntitys {
@@ -186,12 +193,12 @@ extension TSWidgetBundleCacheUtil {
     }
     
     
-    static func addControlWidgetEntity(_ entity: BaseControlWidgetEntity) {
+    static public func addControlWidgetEntity(_ entity: BaseControlWidgetEntity) {
         addControlWidgetEntitys([entity])
     }
     
     // 在 App 内删除组件
-    static func deleteControlWidgetEntityWithSaveId(_ targetSaveId: String) {
+    static public func deleteControlWidgetEntityWithSaveId(_ targetSaveId: String) {
         var entitys = TSWidgetEntityManager.shared.controlWidgetEntitys
         entitys = entitys.filter { $0.saveId != targetSaveId }
         TSWidgetEntityManager.shared.controlWidgetEntitys = entitys
@@ -205,7 +212,7 @@ extension TSWidgetBundleCacheUtil {
     ///   - newWidgetModel: 新的组件模型
     ///   - entitys: 所有的组件（不是分类组件）
     ///   - influenceScope: 更新的影响范围
-    static func replaceEntity(_ newWidgetModel: BaseControlWidgetEntity, in entitys: inout [BaseControlWidgetEntity], influenceScope: WidgetDataInfluenceScope) {
+    static public func replaceEntity(_ newWidgetModel: BaseControlWidgetEntity, in entitys: inout [BaseControlWidgetEntity], influenceScope: WidgetDataInfluenceScope) {
         guard let saveId = newWidgetModel.saveId else { return }   // 如果有保存id，才去更新
         /*
         for (index, item) in entitys.enumerated() {
@@ -254,7 +261,7 @@ extension TSWidgetBundleCacheUtil {
 }
 
 // 组件数据的更新影响范围
-enum WidgetDataInfluenceScope {
+public enum WidgetDataInfluenceScope {
     case onlyData               // 只更新数据
     case dataAndReloadControls  // 更新数据并且刷新桌面组件
 }

@@ -11,6 +11,12 @@ Pod::Spec.new do |s|
                  • CQWidgetBundle/CommonUI - 公用基础UI(Button等)
                  • CQWidgetBundle/EmptyView - 无数据时候的空视图
                  • CQWidgetBundle/ControlWidgetHelpPage - ControlWidget 的帮助页面
+                 • CQWidgetBundle/ControlWidgetHomePreviewPage - ControlWidget 的首页预览页面
+                 • CQWidgetBundle/BaseControlWidgetViewInApp - BaseControlWidgetViewInApp
+                 • CQWidgetBundle/ControlWidgetHomePage - ControlWidget 的首页页面
+                 • CQWidgetBundle/ControlWidgetSavePage - ControlWidget 我保存的组件页面
+                 • CQWidgetBundle/ControlWidgetDetailPage - ControlWidget 组件的详情页
+                 • CQWidgetBundle/ControlWidgetGroupPage - ControlWidget 组件套的列表页
 
                  每个子库可独立引入，详见各子库描述。
                  DESC
@@ -43,7 +49,7 @@ Pod::Spec.new do |s|
   # s.dependency 'Masonry'
 
 
-  # 公用基础UI(Button等)
+  # 公用基础UI(Button、UIDevice等)
   s.subspec 'CommonUI' do |ss|
     ss.source_files = "CQWidgetBundle/CommonUI/**/*.{swift}"
   end
@@ -71,6 +77,41 @@ Pod::Spec.new do |s|
     ss.dependency 'SDWebImageWebPCoder'
     ss.dependency 'SnapKit'
     ss.dependency 'CQWidgetBundleCommon/ControlWidgetStyle'
+  end
+
+
+
+  # BaseControlWidgetViewInApp
+  s.subspec 'BaseControlWidgetViewInApp' do |ss|
+    ss.source_files = "CQWidgetBundle/BaseControlWidgetViewInApp/**/*.{swift}"
+    ss.dependency 'CQWidgetBundleCommon/BaseControlWidgetEntity'
+    ss.dependency 'CQWidgetBundleCommon/PageInfo'
+  end
+
+  # ControlWidget 的首页页面
+  s.subspec 'ControlWidgetHomePage' do |ss|
+    ss.source_files = "CQWidgetBundle/ControlWidgetHomePage/**/*.{swift}"
+    ss.dependency 'CQWidgetBundle/BaseControlWidgetViewInApp'
+  end
+
+  # ControlWidget 我保存的组件页面
+  s.subspec 'ControlWidgetSavePage' do |ss|
+    ss.source_files = "CQWidgetBundle/ControlWidgetSavePage/**/*.{swift}"
+    # ss.dependency 'CQWidgetBundle/BaseControlWidgetViewInApp'
+  end
+
+  # ControlWidget 组件的详情页
+  s.subspec 'ControlWidgetDetailPage' do |ss|
+    ss.source_files = "CQWidgetBundle/ControlWidgetDetailPage/**/*.{swift}"
+    ss.dependency 'CJViewElement-Swift'
+    # ss.dependency 'CQWidgetBundle/BaseControlWidgetViewInApp'
+  end
+
+  # ControlWidget 组件套的列表页
+  s.subspec 'ControlWidgetGroupPage' do |ss|
+    ss.source_files = "CQWidgetBundle/ControlWidgetGroupPage/**/*.{swift}"
+    ss.dependency 'CJListKit-Swift/CollectionView_SwiftUI'
+    # ss.dependency 'CQWidgetBundle/BaseControlWidgetViewInApp'
   end
 
 end

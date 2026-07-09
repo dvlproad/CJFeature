@@ -7,6 +7,7 @@
 
 import Foundation
 import SSZipArchive
+import CQWidgetBundle   // 需要使用 SWToast
 
 struct DownloadResourceUtil {
     // widgetLayoutFileResource

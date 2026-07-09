@@ -6,6 +6,7 @@ PODS:
     - CJBaseUIKit-Swift/String
   - CJBaseUIKit-Swift/String (0.0.1)
   - CJBaseUIKit-Swift/UIView/adapt (0.0.1)
+  - CJBaseUIKit-Swift/UIView/appear (0.0.1)
   - CJBaseUIKit-Swift/UIView/as (0.0.1)
   - CJCollectionViewLayout-Swift/FlowLayout (0.1.0)
   - CJImageKit-Swift (0.0.1):
@@ -96,31 +97,50 @@ PODS:
   - CQDemoKit/Helper (0.9.2)
   - CQDemoKit/Monitor (0.9.2)
   - CQWidgetBundle (0.1.0):
+    - CQWidgetBundle/BaseControlWidgetViewInApp (= 0.1.0)
     - CQWidgetBundle/CommonUI (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetDetailPage (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetGroupPage (= 0.1.0)
     - CQWidgetBundle/ControlWidgetHelpPage (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetHomePage (= 0.1.0)
     - CQWidgetBundle/ControlWidgetHomePreviewPage (= 0.1.0)
+    - CQWidgetBundle/ControlWidgetSavePage (= 0.1.0)
     - CQWidgetBundle/EmptyView (= 0.1.0)
+  - CQWidgetBundle/BaseControlWidgetViewInApp (0.1.0):
+    - CQWidgetBundleCommon/BaseControlWidgetEntity
+    - CQWidgetBundleCommon/PageInfo
   - CQWidgetBundle/CommonUI (0.1.0)
+  - CQWidgetBundle/ControlWidgetDetailPage (0.1.0):
+    - CJViewElement-Swift
+  - CQWidgetBundle/ControlWidgetGroupPage (0.1.0):
+    - CJListKit-Swift/CollectionView_SwiftUI
   - CQWidgetBundle/ControlWidgetHelpPage (0.1.0):
     - CJBaseUIKit-Swift/Color
     - CQWidgetBundle/EmptyView
+  - CQWidgetBundle/ControlWidgetHomePage (0.1.0):
+    - CQWidgetBundle/BaseControlWidgetViewInApp
   - CQWidgetBundle/ControlWidgetHomePreviewPage (0.1.0):
     - CJBaseUIKit-Swift/Color
     - CJCollectionViewLayout-Swift/FlowLayout
     - CQWidgetBundleCommon/ControlWidgetStyle
     - SDWebImageWebPCoder
     - SnapKit
+  - CQWidgetBundle/ControlWidgetSavePage (0.1.0)
   - CQWidgetBundle/EmptyView (0.1.0):
     - CJBaseUIKit-Swift/UIView/adapt
     - CQWidgetBundle/CommonUI
     - lottie-ios
   - CQWidgetBundleCommon (0.1.0):
+    - CQWidgetBundleCommon/BaseControlWidgetAnimationView (= 0.1.0)
     - CQWidgetBundleCommon/BaseControlWidgetEntity (= 0.1.0)
     - CQWidgetBundleCommon/ControlWidgetStyle (= 0.1.0)
+    - CQWidgetBundleCommon/PageInfo (= 0.1.0)
+  - CQWidgetBundleCommon/BaseControlWidgetAnimationView (0.1.0)
   - CQWidgetBundleCommon/BaseControlWidgetEntity (0.1.0):
     - CJAnimationKit-Swift/Extension
     - CJBaseUIKit-Swift/Color
   - CQWidgetBundleCommon/ControlWidgetStyle (0.1.0)
+  - CQWidgetBundleCommon/PageInfo (0.1.0)
   - libwebp (1.5.0):
     - libwebp/demux (= 1.5.0)
     - libwebp/mux (= 1.5.0)
@@ -152,9 +172,10 @@ PODS:
 
 DEPENDENCIES:
   - CJAnimationKit-Swift
-  - CJBaseUIKit-Swift/Color
-  - CJBaseUIKit-Swift/UIView/adapt
-  - CJBaseUIKit-Swift/UIView/as
+  - CJBaseUIKit-Swift/Color (from `../../../../Github/CJUIKit`)
+  - CJBaseUIKit-Swift/UIView/adapt (from `../../../../Github/CJUIKit`)
+  - CJBaseUIKit-Swift/UIView/appear (from `../../../../Github/CJUIKit`)
+  - CJBaseUIKit-Swift/UIView/as (from `../../../../Github/CJUIKit`)
   - CJCollectionViewLayout-Swift/FlowLayout (from `../../../../Github/005-UIKit-List-iOS`)
   - CJImageKit-Swift
   - CJListKit-Swift/CollectionView_SwiftUI (from `../../../../Github/005-UIKit-List-iOS`)
@@ -182,7 +203,6 @@ SPEC REPOS:
     - CJWidgetKit-Swift
   https://github.com/CocoaPods/Specs.git:
     - CJAnimationKit-Swift
-    - CJBaseUIKit-Swift
     - CJViewElement-Swift
     - CocoaLumberjack
     - CQDemoKit
@@ -201,6 +221,8 @@ SPEC REPOS:
     - SwingAnimation
 
 EXTERNAL SOURCES:
+  CJBaseUIKit-Swift:
+    :path: "../../../../Github/CJUIKit"
   CJCollectionViewLayout-Swift:
     :path: "../../../../Github/005-UIKit-List-iOS"
   CJListKit-Swift:
@@ -212,7 +234,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CJAnimationKit-Swift: 1df31e99f8d8561b49eb60b5fa400edda24f40d8
-  CJBaseUIKit-Swift: 4ed63b7e498305fed97a276f9bda28e7b1f9a74c
+  CJBaseUIKit-Swift: 44735d3a64d0a0fb9d407d6f43d2dd4e66e275e8
   CJCollectionViewLayout-Swift: e61fdfe3298ca18792a384bea30f155b8593d6e2
   CJImageKit-Swift: cddebbdb6905a1f92bb032a57030f24662c0b0bd
   CJListKit-Swift: d09df0319231fd9652aff493a9ec8fb44500e8d3
@@ -221,8 +243,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CQDemoKit: 2484181eaa06340effb39073d00ed42794679422
   CQDemoKit-Swift: 28d06bf24cbcc84c9651e0ffe607bffdd57863b6
-  CQWidgetBundle: a344da4a66069ef40dbf9f196d71d274065e8766
-  CQWidgetBundleCommon: cdb1d74fe3f08473b31846af32b49ddc6ab31c42
+  CQWidgetBundle: 88d373fc968ae707c43e81347b1d187569c292c5
+  CQWidgetBundleCommon: 60218138b0d2763aeecb0ef5b7dba8788f2bdb85
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -236,6 +258,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: f78e60a73d51cf87deefa415673fca92bf202eba
+PODFILE CHECKSUM: 13c4c43673250c66942926be924d3b6496ad3b03
 
 COCOAPODS: 1.16.2

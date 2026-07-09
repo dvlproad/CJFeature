@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import CQWidgetBundle
 
 struct CQControlWidgetHomeViewWrapper: UIViewRepresentable {
     func makeUIView(context: Context) -> CQControlWidgetHomeView {
@@ -35,6 +36,14 @@ struct CQControlWidgetHomeViewWrapper: UIViewRepresentable {
 //                            navigator.push(NavScreen.controlWidgetDetailBySet(entitySet))
 //                        }
             }
+            /*
+            // 跳转的处理：2. 触发跳转
+            NotificationCenter.default.post(
+                name: .controlWidgetGroupListBySet,
+                object: nil,
+                userInfo: ["entitySet": entitySet]
+            )
+            */
         }
     }
     

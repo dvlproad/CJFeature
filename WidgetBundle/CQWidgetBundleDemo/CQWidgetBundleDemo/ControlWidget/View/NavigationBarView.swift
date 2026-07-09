@@ -39,25 +39,6 @@ let widgetPreviewBottom: CGFloat = 30.0
 
 let widgetDetailPadding: CGFloat = 21
 
-import Combine
-class KeyboardObserver: ObservableObject {
-    @Published var keyboardHeight: CGFloat = 0
-    private var cancellables = Set<AnyCancellable>()
-    
-    init() {
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
-            .compactMap { $0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect }
-            .map { $0.height }
-            .assign(to: \.keyboardHeight, on: self)
-            .store(in: &cancellables)
-        
-        NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
-            .map { _ in CGFloat(0) }
-            .assign(to: \.keyboardHeight, on: self)
-            .store(in: &cancellables)
-    }
-}
-
 class EditStatusModel: ObservableObject {
     /// 是否已编辑
     var isEdited: Bool = false
@@ -125,25 +106,6 @@ struct RoundedCorner: Shape {
 }
 
 
-extension View {
-  func onFirstAppear(perform action: (() -> Void)? = nil) -> some View {
-    modifier(OnFirstAppear(action: action))
-  }
-}
-private struct OnFirstAppear: ViewModifier {
-    let action: (() -> Void)?
-    
-    @State private var hasAppeared = false
-    
-    func body(content: Content) -> some View {
-        content.onAppear {
-            if !hasAppeared {
-                hasAppeared = true
-                action?()
-            }
-        }
-    }
-}
 
 struct NavigationBarView<RightButtonContent: View>: View {
     #if DEBUG

@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
-import CJWidgetKit_Swift
+//import CJWidgetKit_Swift
 import CJAnimationKit_Swift
 import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
-import SVGKit
+//import SVGKit
 import UIKit
 
-/// 在小组件中
-let isInWidget = Bundle.main.bundlePath.hasSuffix(".appex")
-
-struct BaseControlWidgetAnimationView: View {
+public struct BaseControlWidgetAnimationView: View {
     @Binding var onoffModel: CJControlWidgetOnOffModel
     @Binding var symbolEffectType: SymbolEffectType
     @Binding var widgetStyle: ControlWidgetStyle  // 在app内的形态（控制中心不提供获取）
@@ -23,7 +20,20 @@ struct BaseControlWidgetAnimationView: View {
 //    @Binding var entity: BaseControlWidgetEntity
 //    @Binding var isOn: Bool
     
-    var body: some View {
+    public init(
+        onoffModel: Binding<CJControlWidgetOnOffModel>,
+        symbolEffectType: Binding<SymbolEffectType>,
+        widgetStyle: Binding<ControlWidgetStyle>
+    ) {
+        self._onoffModel = onoffModel
+        self._symbolEffectType = symbolEffectType
+        self._widgetStyle = widgetStyle
+        
+        // 其他初始化逻辑
+        // 例如：设置默认值、打印日志等
+    }
+    
+    public var body: some View {
         // 系统SF图标
         // Image(systemName: "figure.walk")
         // 自定义SF图标

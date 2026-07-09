@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CQWidgetBundleCommon
+import CQWidgetBundle
 
 struct TSMyWidgetHomePage: View {
     @State private var items: [BaseControlWidgetEntity] = []

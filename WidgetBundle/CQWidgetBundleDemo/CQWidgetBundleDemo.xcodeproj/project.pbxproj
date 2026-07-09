@@ -56,7 +56,7 @@
 		97554DFF2D2FD5EA004ED8B1 /* Exceptions for "WidgetExtension" folder in "WidgetExtensionExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ControlWidget/BaseControlWidgetViewInApp.swift,
+				ControlWidget/CQControlWidgetExample.swift,
 				ControlWidget/testJson1/CQControlWidgetColorSymbolSectionExample.json,
 				ControlWidget/testJson1/CQControlWidgetSetExample.json,
 				ControlWidget/testJson1/CQControlWidgetTextSectionExample.json,
@@ -67,14 +67,13 @@
 		97554E232D2FE791004ED8B1 /* Exceptions for "WidgetExtension" folder in "CQWidgetBundleDemo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Cache/SaveUtil/TSCacheUtil.swift,
+				Cache/SaveUtil/TSWidgetBunldeCacheUtil.swift,
+				Cache/SaveUtil/TSWidgetEntityManager.swift,
 				Cache/TSAppCacheUtil.swift,
-				Cache/TSCacheUtil.swift,
-				Cache/TSWidgetBunldeCacheUtil.swift,
-				Cache/TSWidgetEntityManager.swift,
 				Cache/TSWidgetResourceCacheUtil.swift,
 				ControlWidget/BaseControlWidget.swift,
 				ControlWidget/BaseControlWidgetToggleAction.swift,
-				ControlWidget/BaseControlWidgetViewInApp.swift,
 				ControlWidget/BaseControlWidgetViewInDesktop.swift,
 				ControlWidget/CQControlWidgetExample.swift,
 				ControlWidget/Demo/ButtonControl/ControlButtonWidgetIntent.swift,
@@ -82,13 +81,10 @@
 				ControlWidget/Handle/BaseControlWidgetEntityHandle.swift,
 				ControlWidget/Handle/OpenURLIntentIOS180.swift,
 				ControlWidget/Handle/OpenURLIntentIOS181.swift,
-				ControlWidget/Model/BaseControlWidgetEntity.swift,
 				ControlWidget/Model/NormalControlWidgetAppEntity.swift,
 				ControlWidget/testJson1/CQControlWidgetColorSymbolSectionExample.json,
 				ControlWidget/testJson1/CQControlWidgetSetExample.json,
 				ControlWidget/testJson1/CQControlWidgetTextSectionExample.json,
-				ControlWidget/View/BaseControlWidgetAnimationView.swift,
-				"ControlWidget/View/View+ControlWidget.swift",
 				Widget/RotateAnimateViewAndIntent1.swift,
 				Widget/RotateAnimateViewAndIntent2.swift,
 				Widget/RotateAnimateViewAndIntent3.swift,
@@ -100,11 +96,9 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Common/Log/CJLogUtil.swift,
-				Common/PageInfo/CJPageInfo.swift,
 				Common/PageInfo/OnViewAppear.swift,
 				Common/Test/CJTestUtil.swift,
-				ControlWidget/StyleSegmentedView.swift,
-				ControlWidget/View/BaseIconsScrollView.swift,
+				ControlWidget/View/BaseModel.swift,
 				Models/QuickStart/QuickStartAppExample.swift,
 				Pages/ControlWidgetCachePage/TSDownloadBundleUtil.swift,
 				Pages/TSCustomSymbolPage/CustomSymbolView.swift,

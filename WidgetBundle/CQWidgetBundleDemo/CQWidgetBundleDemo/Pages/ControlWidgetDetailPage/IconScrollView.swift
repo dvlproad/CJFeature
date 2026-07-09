@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CQWidgetBundleCommon
+import CQWidgetBundle
 
 struct IconScrollView: View {
     var maxCount: Int?
@@ -59,6 +60,37 @@ struct IconScrollView: View {
     }
 }
 
+
+public struct CJNormalIcon: View {
+    var fontModel: CJBaseImageModel
+    var isSelected: Bool
+    @Binding var showTintColor: Bool // 是否显示tintColor，控制中心图标关闭状态时候不显示
+    
+    public var body: some View {
+        let cornerRadius: CGFloat = 10.0
+        GeometryReader { geometry in
+            ZStack(alignment: .center){
+               fontModel.createImageView()
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(geometry.size.width * 0.2) // 外部占据 0.1=(1-0.8)/2.0
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .background(Color(hex: "#F8F8F8"))
+//            .border(Color.pink, width: isSelected ? 1 : 0)
+//            .cornerRadius(10)
+            .overlay(
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(Color(hex: "#333333"), lineWidth: isSelected ? 1 : 0)
+                )
+            // ZStack 的 background 和 border 不会被自动裁剪。这可能导致背景颜色（background) 和边框（border) 显示在圆角之外。
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius)) // 裁剪整个区域
+        }
+        .controlWidget_tintColor((showTintColor && fontModel.imageColorString != nil) ? Color(hex: fontModel.imageColorString!) : nil, isInWidget: false)
+    }
+}
+
+
 struct IconMoreButton: View {
     var onTapMore: (() -> Void)
     
@@ -75,3 +107,8 @@ struct IconMoreButton: View {
         .cornerRadius(10)
     }
 }
+
+
+//#Preview {
+//    CJFontIcon(fontModel: CJBaseDataModel(name: "fontImage_6", egImage: "fontImage_6"), isSelected: false)
+//}

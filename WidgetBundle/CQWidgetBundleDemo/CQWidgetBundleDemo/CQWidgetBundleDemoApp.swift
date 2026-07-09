@@ -6,10 +6,33 @@
 //
 
 import SwiftUI
+import CQWidgetBundle
 
+// 使用 EnvironmentObject（全局导航）
+// 1. 定义导航管理器
+class NavigationManager: ObservableObject {
+    @Published var navigateToDetail = false
+    @Published var selectedLayoutId = ""
+    
+    func navigateToDetail(with id: String) {
+        selectedLayoutId = id
+        navigateToDetail = true
+    }
+}
 
 @main
 struct CQWidgetBundleDemoApp: App {
+    @StateObject private var navManager = NavigationManager()
+    
+    // 最先执行：init()
+    init() {
+        print("App 初始化")
+        // 在这里做早期配置
+        CQControlWidgetMyCollectionViewCell.deleteControlWidgetEntityWithSaveId = { saveId in
+            TSWidgetBundleCacheUtil.deleteControlWidgetEntityWithSaveId(saveId)
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
 //            ContentView()

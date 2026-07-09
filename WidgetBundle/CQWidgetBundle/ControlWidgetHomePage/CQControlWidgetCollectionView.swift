@@ -22,15 +22,16 @@ struct CQControlWidgetCollectionViewRepresentable: UIViewRepresentable {
     }
 }
 
-class CQControlWidgetCollectionView: UICollectionView {
-    var dataModels: [BaseControlWidgetSetModel] = []
+public class CQControlWidgetCollectionView: UICollectionView {
+    public var dataModels: [BaseControlWidgetSetModel] = []
 //    var onTapIndexPath: ((IndexPath) -> Void)
     var onTapEntity: ((BaseControlWidgetSetModel) -> Void)
     
     // 初始化方法
-    init(frame: CGRect,
-         onTapEntity: @escaping (BaseControlWidgetSetModel) -> Void)
-    {
+    public init(
+        frame: CGRect,
+        onTapEntity: @escaping (BaseControlWidgetSetModel) -> Void
+    ) {
         let layout = CJLeftAlignedFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 18, left: 15, bottom: 22, right: 15)
         layout.minimumInteritemSpacing = 22.0
@@ -65,7 +66,7 @@ class CQControlWidgetCollectionView: UICollectionView {
 
 // MARK: - UICollectionViewDelegate
 extension CQControlWidgetCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dataModel = dataModels[indexPath.row]
         onTapEntity(dataModel)
     }
@@ -73,11 +74,11 @@ extension CQControlWidgetCollectionView: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDataSource
 extension CQControlWidgetCollectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataModels.count // 假设有 20 个数据项
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let dataModel = dataModels[indexPath.row]
         if dataModel.entitys.count == 1 {
             let cell = dequeueReusableCell(withReuseIdentifier: NSStringFromClass(CQControlWidgetEntityCollectionViewCell.self), for: indexPath) as! CQControlWidgetEntityCollectionViewCell
@@ -103,7 +104,7 @@ extension CQControlWidgetCollectionView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CQControlWidgetCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let setModel = dataModels[indexPath.row]
         let setEntitys = setModel.entitys
         

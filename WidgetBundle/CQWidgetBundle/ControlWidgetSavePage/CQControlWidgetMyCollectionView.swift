@@ -7,10 +7,9 @@
 
 import UIKit
 import SwiftUI
-import CQWidgetBundle   // 需要使用 CustomButton
 import CQWidgetBundleCommon
 
-class CQControlWidgetMyCollectionView: UICollectionView {
+public class CQControlWidgetMyCollectionView: UICollectionView {
     private var dataModels: [BaseControlWidgetEntity] = []
 //    var onTapIndexPath: ((IndexPath) -> Void)
     var onTapEntity: ((BaseControlWidgetEntity) -> Void)
@@ -19,7 +18,7 @@ class CQControlWidgetMyCollectionView: UICollectionView {
     var emptyView: UIView
     
     // 初始化方法
-    init(frame: CGRect,
+    public init(frame: CGRect,
          onTapEntity: @escaping (BaseControlWidgetEntity) -> Void,
          deleteCompleteBlock: @escaping (()->Void)
     )
@@ -80,7 +79,7 @@ class CQControlWidgetMyCollectionView: UICollectionView {
 
 // MARK: - UICollectionViewDelegate
 extension CQControlWidgetMyCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dataModel = dataModels[indexPath.row]
         onTapEntity(dataModel)
     }
@@ -88,11 +87,11 @@ extension CQControlWidgetMyCollectionView: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDataSource
 extension CQControlWidgetMyCollectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataModels.count // 假设有 20 个数据项
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let dataModel = dataModels[indexPath.row]
         
         let cell = dequeueReusableCell(withReuseIdentifier: NSStringFromClass(CQControlWidgetMyCollectionViewCell.self), for: indexPath) as! CQControlWidgetMyCollectionViewCell
@@ -109,7 +108,7 @@ extension CQControlWidgetMyCollectionView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CQControlWidgetMyCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let dataModel = dataModels[indexPath.row]
         
         let columnCount = 1
@@ -179,6 +178,13 @@ struct MyWidgetCellNoDataView:View {
     var dismiss: () -> Void
     
     var body: some View {
+        let screenWidth = UIScreen.main.bounds.width
+        let screenHeight = UIScreen.main.bounds.height
+        let navigationFullHeight = UIDevice.cj_navigationFullHeight
+        let tabBarFullHeight = UIDevice.cj_tabBarFullHeight
+        let width = screenWidth - 30
+        let height = screenHeight - navigationFullHeight - tabBarFullHeight - 60
+        
         VStack(spacing: 0){
             Image("myWidget_noData")
                 .resizable()
@@ -205,7 +211,8 @@ struct MyWidgetCellNoDataView:View {
             }, bgColor: .clear, radius: 19)
             .frame(width: 157,height: 38)
             
-        }.frame(width: screenWidth - 30,height: screenHeight - UIDevice.xp_navigationFullHeight() - UIDevice.xp_tabBarFullHeight() - 60)
+        }
+        .frame(width: width, height: height)
         
     }
 }

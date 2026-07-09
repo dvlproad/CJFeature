@@ -4,27 +4,28 @@
 //
 //  Created by qian on 2025/1/9.
 //
+//  在多控制项列表页面
 
 import SwiftUI
 import WidgetKit
 import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 import CQWidgetBundle
 
-struct DownloadZipModel: Identifiable {
-    var id: String  // 组件显示的id(同一个组件显示在不同地方会是不同id)
-    var zipUrl: String
+public struct DownloadZipModel: Identifiable {
+    public var id: String  // 组件显示的id(同一个组件显示在不同地方会是不同id)
+    public var zipUrl: String
 }
 
-struct TSControlWidgetGroupPage: View {
+public struct TSControlWidgetGroupPage: View {
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject private var keyboardObserver = KeyboardObserver()
     
     var fromPageType: CCPageType
-    @State var groupModel: BaseControlWidgetSetModel
+    @State public var groupModel: BaseControlWidgetSetModel
     @State var selectedItemIds: [String]
     
-    init(fromPageType: CCPageType, groupModel: BaseControlWidgetSetModel) {
+    public init(fromPageType: CCPageType, groupModel: BaseControlWidgetSetModel) {
         self.fromPageType = fromPageType
         self.dataState = .successPerfect
         
@@ -36,7 +37,7 @@ struct TSControlWidgetGroupPage: View {
         }
     }
     
-    init(fromPageType: CCPageType, previewModel: ControlWidgetPreviewModel) {
+    public init(fromPageType: CCPageType, previewModel: ControlWidgetPreviewModel) {
         self.fromPageType = fromPageType
         self.dataState = .loading
         
@@ -159,7 +160,7 @@ struct TSControlWidgetGroupPage: View {
     @State var scrollViewProxy: ScrollViewProxy?
     let horizontalPadding: CGFloat = 20.0
     
-    var body: some View {
+    public var body: some View {
         NavigationView { // 解决部分item进入会多出一个返回按钮
             bodyContent
         }
@@ -180,9 +181,9 @@ struct TSControlWidgetGroupPage: View {
             contentView
                 .padding(
                     EdgeInsets(
-                        top: UIDevice.xp_navigationFullHeight(),
+                        top: UIDevice.cj_navigationFullHeight,
                         leading: 0,
-                        bottom: UIDevice.xp_safeDistanceBottom(),
+                        bottom: UIDevice.cj_safeBottom,
                         trailing: 0
                     )
                 )
