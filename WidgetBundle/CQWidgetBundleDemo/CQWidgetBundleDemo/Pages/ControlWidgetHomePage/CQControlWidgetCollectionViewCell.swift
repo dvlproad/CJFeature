@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import CQWidgetBundle // 需要使用 CJHostingView
+import CJBaseUIKit_Swift    // 需要使用 UIView/as
 import CQWidgetBundleCommon
 
 class CQControlWidgetEntityCollectionViewCell: UICollectionViewCell {

@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import SDWebImageWebPCoder
-
 import SwiftUI
+import CJBaseUIKit_Swift    // 需要使用 UIView/as
+
 import CQWidgetBundleCommon // 需要使用 ControlWidgetType
 import CQWidgetBundle   // 需要使用 HomePageNoDataView
+
+import SDWebImageWebPCoder
 
 public struct CQControlWidgetHomePreviewViewWrapper: UIViewRepresentable {
     public func makeUIView(context: Context) -> CQControlWidgetHomePreviewView {

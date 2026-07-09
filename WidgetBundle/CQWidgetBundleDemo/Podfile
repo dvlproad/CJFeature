@@ -52,6 +52,7 @@ inhibit_all_warnings! #inhibit_warnings参数能够有效的抑制CocoaPods引�
 def shared_pods
   pod 'CQWidgetBundleCommon',   :path => '../'
   
+  pod 'CJBaseUIKit-Swift',      :subspecs => ['UIView/adapt', 'UIView/as', 'Color']#,      :path => '../../../../Github/CJUIKit'
   pod 'CJViewElement-Swift'#,    :path => '../../../CJViewCreatorSDK'#, :inhibit_warnings => true
   pod 'CJAnimationKit-Swift'#,   path: '../../../CJAnimationKit'
   pod 'CJImageKit-Swift'#,       :path => '../../../UIKit-Image-iOS'
@@ -69,9 +70,8 @@ target 'CQWidgetBundleDemo' do
   pod 'CQDemoKit-Swift'
   
   pod 'CQWidgetBundle',       :path => '../'
-  pod 'CJCollectionViewLayout-Swift', :path => '../../../../Github/005-UIKit-List-iOS',   :subspecs => ['FlowLayout']
-  pod 'CJListKit-Swift',      :path => '../../../../Github/005-UIKit-List-iOS',   :subspecs => ['LinkedMenu', 'CollectionView_SwiftUI']
-  pod 'CJBaseUIKit-Swift',      :path => '../../../../Github/CJUIKit',   :subspecs => ['Color']
+  pod 'CJCollectionViewLayout-Swift', :subspecs => ['FlowLayout'],    :path => '../../../../Github/005-UIKit-List-iOS'
+  pod 'CJListKit-Swift',  :subspecs => ['LinkedMenu', 'CollectionView_SwiftUI'],  :path => '../../../../Github/005-UIKit-List-iOS'
   
   pod 'lottie-ios'
   pod 'SDWebImageWebPCoder'

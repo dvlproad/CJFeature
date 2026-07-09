@@ -7,7 +7,10 @@
 
 import UIKit
 import SnapKit
+
 import SwiftUI
+import CJBaseUIKit_Swift    // 需要使用 UIView/as
+
 import CQWidgetBundle
 import CQWidgetBundleCommon
 

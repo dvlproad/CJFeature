@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
 
   s.description  = <<-DESC
                  桌面小组件(Widget)，可按需独立引入：
-                 • CQWidgetBundle/Common - Common
                  • CQWidgetBundle/CommonUI - 公用基础UI(Button等)
                  • CQWidgetBundle/EmptyView - 无数据时候的空视图
                  • CQWidgetBundle/ControlWidgetHelpPage - ControlWidget 的帮助页面
@@ -43,12 +42,8 @@ Pod::Spec.new do |s|
   # s.frameworks = "MediaPlayer"
   # s.dependency 'Masonry'
 
-  # Common
-  s.subspec 'Common' do |ss|
-    ss.source_files = "CQWidgetBundle/Common/**/*.{swift}"
-  end
 
-  # 公用基础UI(Button、HostingView等)
+  # 公用基础UI(Button等)
   s.subspec 'CommonUI' do |ss|
     ss.source_files = "CQWidgetBundle/CommonUI/**/*.{swift}"
   end
@@ -56,9 +51,9 @@ Pod::Spec.new do |s|
   # 无数据时候的空视图
   s.subspec 'EmptyView' do |ss|
     ss.source_files = "CQWidgetBundle/EmptyView/**/*.{swift}"
-    ss.dependency 'lottie-ios'
-    ss.dependency 'CQWidgetBundle/Common'   # 需要使用 .cj_width
+    ss.dependency 'CJBaseUIKit-Swift/UIView/adapt'
     ss.dependency 'CQWidgetBundle/CommonUI' # 需要使用 CustomButton
+    ss.dependency 'lottie-ios'
   end
 
   # ControlWidget 的帮助页面
@@ -71,7 +66,7 @@ Pod::Spec.new do |s|
   # ControlWidget 的首页预览页面
   s.subspec 'ControlWidgetHomePreviewPage' do |ss|
     ss.source_files = "CQWidgetBundle/ControlWidgetHomePreviewPage/**/*.{swift}"
-    ss.dependency 'CJViewElement-Swift/Extension' # 需要 CJColorExtension.swift
+    ss.dependency 'CJBaseUIKit-Swift/Color'
     ss.dependency 'CJCollectionViewLayout-Swift/FlowLayout'
     ss.dependency 'SDWebImageWebPCoder'
     ss.dependency 'SnapKit'

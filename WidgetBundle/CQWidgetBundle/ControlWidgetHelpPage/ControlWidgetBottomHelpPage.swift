@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import CJViewElement_Swift  // 需要 CJColorExtension.swift
+import CJBaseUIKit_Swift    // 需要 Color(hex:
 
 public struct ControlWidgetBottomHelpPage: View {
     @Binding var isShowing: Bool
