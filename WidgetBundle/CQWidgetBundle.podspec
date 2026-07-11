@@ -110,7 +110,7 @@ Pod::Spec.new do |s|
   # ControlWidget 组件套的列表页
   s.subspec 'ControlWidgetGroupPage' do |ss|
     ss.source_files = "CQWidgetBundle/ControlWidgetGroupPage/**/*.{swift}"
-    ss.dependency 'CJListKit-Swift/CollectionView_SwiftUI'
+    ss.dependency 'CJFeatureListKit-Swift/CollectionView_SwiftUI'
     # ss.dependency 'CQWidgetBundle/BaseControlWidgetViewInApp'
   end
 

@@ -2,18 +2,18 @@ PODS:
   - CJAnimationKit-Swift (0.0.1):
     - CJAnimationKit-Swift/Extension (= 0.0.1)
   - CJAnimationKit-Swift/Extension (0.0.1)
-  - CJBaseUIKit-Swift/Color (0.0.1):
+  - CJBaseUIKit-Swift/Color (0.0.2):
     - CJBaseUIKit-Swift/String
-  - CJBaseUIKit-Swift/String (0.0.1)
-  - CJBaseUIKit-Swift/UIView/adapt (0.0.1)
-  - CJBaseUIKit-Swift/UIView/appear (0.0.1)
-  - CJBaseUIKit-Swift/UIView/as (0.0.1)
+  - CJBaseUIKit-Swift/String (0.0.2)
+  - CJBaseUIKit-Swift/UIView/adapt (0.0.2)
+  - CJBaseUIKit-Swift/UIView/appear (0.0.2)
+  - CJBaseUIKit-Swift/UIView/as (0.0.2)
   - CJCollectionViewLayout-Swift/FlowLayout (0.1.0)
+  - CJFeatureListKit-Swift/CollectionView_SwiftUI (0.0.1)
+  - CJFeatureListKit-Swift/LinkedMenu (0.0.1)
   - CJImageKit-Swift (0.0.1):
     - CJImageKit-Swift/Gif (= 0.0.1)
   - CJImageKit-Swift/Gif (0.0.1)
-  - CJListKit-Swift/CollectionView_SwiftUI (0.0.1)
-  - CJListKit-Swift/LinkedMenu (0.0.1)
   - CJViewElement-Swift (0.0.2):
     - CJViewElement-Swift/CommonSettingRow (= 0.0.2)
     - CJViewElement-Swift/ComponentConfigModel (= 0.0.2)
@@ -113,7 +113,7 @@ PODS:
   - CQWidgetBundle/ControlWidgetDetailPage (0.1.0):
     - CJViewElement-Swift
   - CQWidgetBundle/ControlWidgetGroupPage (0.1.0):
-    - CJListKit-Swift/CollectionView_SwiftUI
+    - CJFeatureListKit-Swift/CollectionView_SwiftUI
   - CQWidgetBundle/ControlWidgetHelpPage (0.1.0):
     - CJBaseUIKit-Swift/Color
     - CQWidgetBundle/EmptyView
@@ -172,14 +172,14 @@ PODS:
 
 DEPENDENCIES:
   - CJAnimationKit-Swift
-  - CJBaseUIKit-Swift/Color (from `../../../../Github/CJUIKit`)
-  - CJBaseUIKit-Swift/UIView/adapt (from `../../../../Github/CJUIKit`)
-  - CJBaseUIKit-Swift/UIView/appear (from `../../../../Github/CJUIKit`)
-  - CJBaseUIKit-Swift/UIView/as (from `../../../../Github/CJUIKit`)
-  - CJCollectionViewLayout-Swift/FlowLayout (from `../../../../Github/005-UIKit-List-iOS`)
+  - CJBaseUIKit-Swift/Color
+  - CJBaseUIKit-Swift/UIView/adapt
+  - CJBaseUIKit-Swift/UIView/appear
+  - CJBaseUIKit-Swift/UIView/as
+  - CJCollectionViewLayout-Swift/FlowLayout
+  - CJFeatureListKit-Swift/CollectionView_SwiftUI
+  - CJFeatureListKit-Swift/LinkedMenu
   - CJImageKit-Swift
-  - CJListKit-Swift/CollectionView_SwiftUI (from `../../../../Github/005-UIKit-List-iOS`)
-  - CJListKit-Swift/LinkedMenu (from `../../../../Github/005-UIKit-List-iOS`)
   - CJViewElement-Swift
   - CJWidgetKit-Swift
   - CQDemoKit-Swift
@@ -203,6 +203,9 @@ SPEC REPOS:
     - CJWidgetKit-Swift
   https://github.com/CocoaPods/Specs.git:
     - CJAnimationKit-Swift
+    - CJBaseUIKit-Swift
+    - CJCollectionViewLayout-Swift
+    - CJFeatureListKit-Swift
     - CJViewElement-Swift
     - CocoaLumberjack
     - CQDemoKit
@@ -221,12 +224,6 @@ SPEC REPOS:
     - SwingAnimation
 
 EXTERNAL SOURCES:
-  CJBaseUIKit-Swift:
-    :path: "../../../../Github/CJUIKit"
-  CJCollectionViewLayout-Swift:
-    :path: "../../../../Github/005-UIKit-List-iOS"
-  CJListKit-Swift:
-    :path: "../../../../Github/005-UIKit-List-iOS"
   CQWidgetBundle:
     :path: "../"
   CQWidgetBundleCommon:
@@ -234,16 +231,16 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CJAnimationKit-Swift: 1df31e99f8d8561b49eb60b5fa400edda24f40d8
-  CJBaseUIKit-Swift: 44735d3a64d0a0fb9d407d6f43d2dd4e66e275e8
-  CJCollectionViewLayout-Swift: e61fdfe3298ca18792a384bea30f155b8593d6e2
+  CJBaseUIKit-Swift: 432f05b09106994c16a4cf582c6a728c3e59316e
+  CJCollectionViewLayout-Swift: 989f1c02fb0ee52524b53112f2685bbf84099c04
+  CJFeatureListKit-Swift: ad4cece298dcf77aef4c8dc88ffdc6ffaa37f8a8
   CJImageKit-Swift: cddebbdb6905a1f92bb032a57030f24662c0b0bd
-  CJListKit-Swift: d09df0319231fd9652aff493a9ec8fb44500e8d3
   CJViewElement-Swift: 97b64fa5e62e91c6fb1a0947a7a7ad9840f9aa57
   CJWidgetKit-Swift: 7a82b890ac27cc528b1c077c49669a659e1cd8ab
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CQDemoKit: 2484181eaa06340effb39073d00ed42794679422
   CQDemoKit-Swift: 28d06bf24cbcc84c9651e0ffe607bffdd57863b6
-  CQWidgetBundle: 88d373fc968ae707c43e81347b1d187569c292c5
+  CQWidgetBundle: 0196a0e6441307960dcc35ef5b4629fc1e08d593
   CQWidgetBundleCommon: 60218138b0d2763aeecb0ef5b7dba8788f2bdb85
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
   lottie-ios: 6467ca7035120c5b0e0acee58bb679cf15875686
@@ -258,6 +255,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   SwingAnimation: 437612f2dc31dc9493413dd424502ba6e18c8b6d
 
-PODFILE CHECKSUM: 13c4c43673250c66942926be924d3b6496ad3b03
+PODFILE CHECKSUM: 469afacbca4d9bd5cef26951b9066a769f53cc3b
 
 COCOAPODS: 1.16.2

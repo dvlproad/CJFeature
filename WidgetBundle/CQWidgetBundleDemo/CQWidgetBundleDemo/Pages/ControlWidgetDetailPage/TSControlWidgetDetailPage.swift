@@ -9,7 +9,7 @@ import SwiftUI
 import CJViewElement_Swift
 import CJAnimationKit_Swift
 import WidgetKit
-import CJListKit_Swift
+import CJFeatureListKit_Swift
 import CQWidgetBundle   // 需要使用 ControlWidgetCenterHelpPage
 import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
 

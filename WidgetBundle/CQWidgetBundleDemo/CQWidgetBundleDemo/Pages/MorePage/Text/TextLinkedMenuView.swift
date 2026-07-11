@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import CJListKit_Swift
+import CJFeatureListKit_Swift
 
 @objc public class TextLinkedMenuView: UIView {
     // cell 的高度

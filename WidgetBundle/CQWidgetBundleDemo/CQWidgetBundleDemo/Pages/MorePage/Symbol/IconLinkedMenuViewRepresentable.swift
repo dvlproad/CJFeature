@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CJListKit_Swift
+import CJFeatureListKit_Swift
 import CQWidgetBundleCommon
 
 public struct IconLinkedMenuViewRepresentable: UIViewRepresentable {

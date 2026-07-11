@@ -7,7 +7,7 @@
 //  控制中心套图列表页
 
 import SwiftUI
-import CJListKit_Swift
+import CJFeatureListKit_Swift
 import CQWidgetBundleCommon
 
 //  控制中心套图列表页：顶部的集合视图

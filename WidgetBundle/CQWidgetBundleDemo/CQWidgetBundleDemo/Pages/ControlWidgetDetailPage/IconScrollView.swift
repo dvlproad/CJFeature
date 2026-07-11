@@ -46,7 +46,7 @@ struct IconScrollView: View {
             }
         )
         //.background(Color.red)
-        .onFirstAppear() {
+        .cj_onFirstAppear() {
             self.requestData()
         }
     }

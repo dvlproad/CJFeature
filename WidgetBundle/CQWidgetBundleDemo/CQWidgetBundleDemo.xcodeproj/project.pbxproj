@@ -96,7 +96,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Common/Log/CJLogUtil.swift,
-				Common/PageInfo/OnViewAppear.swift,
 				Common/Test/CJTestUtil.swift,
 				ControlWidget/View/BaseModel.swift,
 				Models/QuickStart/QuickStartAppExample.swift,
