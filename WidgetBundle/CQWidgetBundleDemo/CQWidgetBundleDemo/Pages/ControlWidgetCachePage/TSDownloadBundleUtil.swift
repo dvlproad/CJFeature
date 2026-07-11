@@ -27,7 +27,7 @@ struct TSDownloadBundleUtil {
         var downloadBundle: Bundle?
         let mainBundle: Bundle = Bundle.main
         /*
-        if let downloadBundlePath = mainBundle.path(forResource: "WidgetIslandSymbol", ofType: ".bundle") {
+        if let downloadBundlePath = mainBundle.path(forResource: "WidgetSymbol", ofType: ".bundle") {
             downloadBundle = Bundle(path: downloadBundlePath)
         }
         */

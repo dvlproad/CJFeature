@@ -12,12 +12,12 @@ import CQWidgetBundleCommon // 需要引入 ControlWidgetStyle
        "componentCategory": null,
        "componentId": 2,
        "componentName": "2222",
-       "configFile": "https://resource.widgetisland.cn/dev/component/config/2025-02-11/87f73a62-3d10-41c0-beac-f9b07344c09b.zip",
+       "configFile": "https://github.com/dvlproad/001-UIKit-CQDemo-iOS/blob/master/CQDemoResource/Resources/zip/cqts_zip_1.zip?raw=true",
        "imageList": [
-         "https://resource.widgetisland.cn/dev/image/2025-02-11/a40c0957-5b03-4810-8609-ceeca427f5c7.webp",
-         "https://resource.widgetisland.cn/dev/image/2025-02-11/886b1595-99ee-4336-bc52-c529e1eaff52.png",
-         "https://resource.widgetisland.cn/dev/image/2025-02-11/72785103-899f-41ed-8182-c8786bba7d19.png",
-         "https://resource.widgetisland.cn/dev/image/2025-02-11/979ff4fa-2ce5-41ca-8859-e78098e42586.png"
+         "https://raw.githubusercontent.com/dvlproad/001-UIKit-CQDemo-iOS/refs/heads/master/CQDemoResource/Resources/webp/cqts_wp_1.webp",
+         "https://raw.githubusercontent.com/dvlproad/001-UIKit-CQDemo-iOS/refs/heads/master/CQDemoResource/Resources/png/cqts_icon_01.png",
+         "https://raw.githubusercontent.com/dvlproad/001-UIKit-CQDemo-iOS/refs/heads/master/CQDemoResource/Resources/png/cqts_icon_01.png",
+         "https://raw.githubusercontent.com/dvlproad/001-UIKit-CQDemo-iOS/refs/heads/master/CQDemoResource/Resources/png/cqts_icon_01.png"
        ],
        "type": 1
      },

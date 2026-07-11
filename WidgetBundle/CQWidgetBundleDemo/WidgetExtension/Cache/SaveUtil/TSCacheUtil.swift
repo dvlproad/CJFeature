@@ -9,7 +9,7 @@ import Foundation
 
 public struct TSCacheUtil {
     // 确保需要的那些 Target 都添加了 App Group
-    static public let ApplicationGroupName = "group.cn.widgetisland.theme"
+    static public let ApplicationGroupName = "group.com.dvlproad.CQDesktopWidget"
     
     static public func valueForKey(_ key: String) -> Data? {
         if let userDefaults = UserDefaults(suiteName: ApplicationGroupName) {

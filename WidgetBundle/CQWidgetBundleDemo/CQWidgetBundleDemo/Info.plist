@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>cn.widgetisland.theme</string>
+			<string>com.dvlproad.CQDesktopWidget</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>cqWidgetBundleDemo</string>

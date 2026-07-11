@@ -16,9 +16,7 @@ struct TSDownloadUtil {
         success: (() -> Void)?,
         failure: @escaping ((_ errorMessage: String) -> Void)
     ) {
-//        let fileUrl: String = "http://shs4ggs0e.hd-bkt.clouddn.com/symbol/TestDownloadBundle.bundle.zip" //TODO: qian
-//        let fileUrl: String = "https://resource.widgetisland.cn/dev/file/upload/20250219/keai.zip"    // 未加密的普通文件夹
-//        let fileUrl: String = "http://shs4ggs0e.hd-bkt.clouddn.com/symbol/WidgetIslandSymbol.bundle.zip"
+//        let fileUrl: String = "https://github.com/dvlproad/001-UIKit-CQDemo-iOS/blob/master/CQDemoResource/Resources/zip/cqts_zip_1.zip?raw=true"    // 未加密的普通文件夹
         let fileUrl = zipUrl  // 下载解压后的文件在 getSymbolBundle() 中使用
         
         let zipFileName = (fileUrl as NSString).lastPathComponent               // xxx.bundle.zip

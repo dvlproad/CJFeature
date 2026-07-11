@@ -169,7 +169,7 @@ extension API:TargetType {
         return ["Content-Type":"application/json",
 //                "charset":"UTF",
                 "client_version_name":Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "未知版本",
-                "client_package_name":"cn.widgetisland.theme",
+                "client_package_name":"com.dvlproad.CQDesktopWidget",
                 "client_channel_name":"1.0"
         ]
     }
